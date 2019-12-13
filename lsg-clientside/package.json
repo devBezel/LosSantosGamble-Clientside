@@ -1,0 +1,39 @@
+{
+	"name": "altv-typescript-boilerplate",
+	"version": "1.0.0",
+	"description": "altv typescript boilerplate with TypeORM",
+	"main": "index.js",
+	"scripts": {
+		"build": "npm run build:client",
+		"watch:client": "rollup -cw --config rollup.config.ts",
+		"build:client": "rollup -c --config rollup.config.ts"
+	},
+	"author": "KifKick",
+	"license": "UNLICENSED",
+	"dependencies": {
+		"fs-extra": "^7.0.1",
+		"mysql": "^2.16.0",
+		"typeorm-esm": "^0.2.15-dev10",
+		"chalk": "^2.4.2",
+		"reflect-metadata": "^0.1.13"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^5.0.5",
+		"@types/lodash": "^4.14.123",
+		"@types/node": "^11.13.4",
+		"@types/rollup-plugin-json": "^3.0.2",
+		"@types/rollup-plugin-node-builtins": "^2.1.1",
+		"axios": "^0.18.0",
+		"lodash": "^4.17.11",
+		"rollup": "^1.16.6",
+		"rollup-plugin-auto-external": "^2.0.0",
+		"rollup-plugin-json": "^4.0.0",
+		"rollup-plugin-node-builtins": "^2.1.2",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-terser": "^5.1.0",
+		"rollup-plugin-typescript2": "^0.21.2",
+		"tslint": "^5.18.0",
+		"tslint-config-airbnb": "^5.11.1",
+		"typescript": "^3.4.4"
+	}
+}

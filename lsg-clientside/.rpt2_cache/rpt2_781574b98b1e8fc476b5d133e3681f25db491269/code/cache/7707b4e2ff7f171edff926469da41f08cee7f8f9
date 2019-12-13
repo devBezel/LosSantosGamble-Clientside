@@ -1,0 +1,1 @@
+{"code":"import * as alt from 'alt';\r\nexport class Browser {\r\n    static browserSettings(view, focus, mouse, toggleControls) {\r\n        alt.showCursor(mouse);\r\n        if (focus) {\r\n            view.focus();\r\n        }\r\n        alt.toggleGameControls(toggleControls);\r\n    }\r\n}\r\n","references":[]}
