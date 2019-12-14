@@ -29,6 +29,6 @@
 	],
 	"exclude": [
 		"alt",
-		"natives",
+		"natives"
 	]
 }

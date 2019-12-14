@@ -1,5 +1,5 @@
-export interface CharacterDescription {
-    id: number;
-    title: string;
-    content: string;
+export class CharacterDescription {
+    public id: number;
+    public title: string;
+    public content: string;
 }

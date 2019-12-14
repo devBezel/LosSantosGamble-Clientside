@@ -17,6 +17,7 @@ import { CharactersPanelComponent } from './_views/characters-panel/characters-p
 import { CharacterService } from './_services/character.service';
 import { CharacterCardResolver } from './_resolvers/character-card.resolver';
 import { CharacterDescriptionPanelComponent } from './_views/character-description-panel/character-description-panel.component';
+import { CharacterDescriptionResolver } from './_resolvers/character-description.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -50,7 +51,8 @@ export function tokenGetter() {
     AuthService,
     AuthGuard,
     CharacterService,
-    CharacterCardResolver
+    CharacterCardResolver,
+    CharacterDescriptionResolver
   ],
   bootstrap: [AppComponent]
 })

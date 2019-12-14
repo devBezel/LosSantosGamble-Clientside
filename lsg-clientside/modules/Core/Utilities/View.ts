@@ -26,6 +26,7 @@ export class View {
         currentView.isVisible = true;
         currentView.view.focus();
         currentView.view.ready = true;
+        alt.showCursor(true);
 
         natives.displayRadar(false);
 
@@ -45,9 +46,10 @@ export class View {
         currentView.view.off('close', currentView.close);
         currentView.view.url = 'http://localhost:4200/';
         currentView.view.unfocus();
+
         currentView.events = [];
 
-        // alt.showCursor(false);
+        alt.showCursor(false);
         natives.displayRadar(true);
         alt.Player.local.setMeta('viewOpen', false);
         if (currentView.interval !== undefined) {

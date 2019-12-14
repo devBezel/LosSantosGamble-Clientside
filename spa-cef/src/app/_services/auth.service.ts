@@ -30,4 +30,8 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
+  getCharacterId(): number {
+    return Number(localStorage.getItem('characterId'));
+  }
+
 }
