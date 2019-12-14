@@ -13,6 +13,10 @@ import { appRoutes } from './routes';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { FormsModule } from '@angular/forms';
+import { CharactersPanelComponent } from './_views/characters-panel/characters-panel.component';
+import { CharacterService } from './_services/character.service';
+import { CharacterCardResolver } from './_resolvers/character-card.resolver';
+import { CharacterDescriptionPanelComponent } from './_views/character-description-panel/character-description-panel.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -21,7 +25,9 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPanelComponent
+    LoginPanelComponent,
+    CharactersPanelComponent,
+    CharacterDescriptionPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,9 @@ export function tokenGetter() {
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    CharacterService,
+    CharacterCardResolver
   ],
   bootstrap: [AppComponent]
 })

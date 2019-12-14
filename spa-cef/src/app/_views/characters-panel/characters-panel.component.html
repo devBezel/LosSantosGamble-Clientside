@@ -1,0 +1,31 @@
+<mat-card class="container">
+  <mat-card-header>
+    <img mat-card-avatar src="../../../assets/img/clip/clip.gif" />
+    <mat-card-title>Wybierz postać</mat-card-title>
+    <mat-card-subtitle>Aby przejść dalej, wybierz postać która Cię interesuje</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="character-card-content">
+
+    <mat-grid-list cols="2" rowHeight="1:1" class="character-list">
+      <mat-grid-tile *ngFor="let character of characters">
+          <mat-card class="character-card">
+              <mat-card-header>
+                <img mat-card-avatar src="https://eu.ui-avatars.com/api/?name={{ character.name }}+{{ character.surname }}">
+                <mat-card-title>{{ character.name }} {{ character.surname }}</mat-card-title>
+                <mat-card-subtitle>132h</mat-card-subtitle>
+              </mat-card-header>
+        
+              <mat-card-content>
+                <p>Pieniądze: ${{character.money}}</p>
+                <p>Bank: $ {{ character.bank }}</p>
+              </mat-card-content>
+              <mat-card-footer>
+                <button mat-button (click)="selectCharacter(character)">Wybierz</button>
+              </mat-card-footer>
+            </mat-card>
+      </mat-grid-tile>      
+    </mat-grid-list>
+
+  </mat-card-content>
+</mat-card>

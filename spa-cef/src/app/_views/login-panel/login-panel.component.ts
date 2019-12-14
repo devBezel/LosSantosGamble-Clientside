@@ -22,7 +22,7 @@ export class LoginPanelComponent implements OnInit {
     }, error => {
       console.log(error);
     }, () => {
-      this.router.navigate([]);
+      this.router.navigate(['/characters']);
     });
   }
 
