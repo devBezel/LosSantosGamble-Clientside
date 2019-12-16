@@ -19,7 +19,7 @@ import {
   MatSortModule, MatStepperModule,
   MatTableModule,
   MatTabsModule,
-  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule
+  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule
 } from '@angular/material';
 
 @NgModule({
@@ -52,6 +52,7 @@ import {
     MatChipsModule,
     MatGridListModule,
     MatRadioModule,
+    MatSliderModule
   ],
   exports: [
     MatIconModule,
@@ -81,7 +82,8 @@ import {
     MatSidenavModule,
     MatChipsModule,
     MatGridListModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSliderModule
   ],
 })
 export class MaterialModule {

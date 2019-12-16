@@ -13,8 +13,6 @@ export class CharacterService {
 
   baseUrl = environment.baseUrl + 'character';
 
-  options = {
-headers: new HttpHeaders({'Content-Type': 'application/json'}), body: {name: 'ravi', id: 'ravi123'}};
 
   constructor(private http: HttpClient) { }
 

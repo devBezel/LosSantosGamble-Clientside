@@ -1,0 +1,18 @@
+https://wiki.altv.mp/SetPedComponentVariation
+https://wiki.altv.mp/SetPedEyeColor
+https://wiki.altv.mp/SetPedHeadOverlay
+https://wiki.altv.mp/SetPedHeadOverlayColor
+https://wiki.altv.mp/SetPedHeadBlendData
+https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset_ped_head_blend_data-explained/
+https://wiki.altv.mp/SetPedDecoration
+
+
+
+// tatuaże
+
+
+
+
+
+// bronie 
+https://wiki.altv.mp/SetPedCanSwitchWeapon

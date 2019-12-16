@@ -1,0 +1,44 @@
+.body-parts-text h2, p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.body-button {
+    background-color: #424242;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+    margin: 20px;
+    /* margin-top: 150px; */
+}
+.body-button img {
+    width: 45px;
+    height: 45px;
+    margin-left: -8px;
+}
+.body-parts-list {
+    margin-bottom: 30px;
+}
+.container-body-parts {
+    margin-top: 2vh;
+}
+
+.reset-button {
+    margin: 20px;
+    background-color: #424242;
+    width: 275px;
+}
+
+.card-character-settings {
+    margin-top: 100px;
+    margin: 20px;
+    width: 275px;
+}
+
+.card-footer-text {
+    font-size: 10px;
+    padding: 10px;
+}
+
+/* ::ng-deep .mat-accent .mat-slider-track-fill {
+    background-color: green;
+}  */

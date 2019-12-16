@@ -1354,7 +1354,7 @@ declare module "natives" {
 	export function beginTextCommandIsMessageDisplayed(text: string): void;
 	export function endTextCommandIsMessageDisplayed(): boolean;
 	export function beginTextCommandDisplayText(text: string): void;
-	export function endTextCommandDisplayText(x: number, y: number, p2: number): void;
+	export function endTextCommandDisplayText(x: number, y: number, p2?: number): void;
 	export function beginTextCommandGetWidth(text: string): void;
 	export function endTextCommandGetWidth(p0: boolean): number;
 	export function beginTextCommandLineCount(entry: string): void;

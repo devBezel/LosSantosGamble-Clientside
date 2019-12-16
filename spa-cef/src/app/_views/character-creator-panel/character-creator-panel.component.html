@@ -1,0 +1,70 @@
+<mat-card class="card-character-settings">
+  <mat-card-header>
+    <div mat-card-avatar><i class="material-icons">
+        videocam
+        </i></div>
+    <mat-card-title>Ustawienia postaci</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar>
+          <i class="material-icons">
+            3d_rotation
+            </i>
+          </div>
+        <mat-card-subtitle>Rotacja</mat-card-subtitle>
+        <mat-slider color="primary" min="1" max="5" step="0.5" value="1.5"></mat-slider>
+      </mat-card-header>
+      <mat-card-footer>
+          <p class="card-footer-text">Obróć swoją postać gdy nie masz widoku na poszczególną część ciała</p>
+      </mat-card-footer>
+    </mat-card>
+
+    
+  </mat-card-content>
+</mat-card>
+
+<div class="container-body-parts">
+  <div class="body-parts-text">
+    <!-- <h2>Wybierz partię ciała</h2>
+    <p>Po prawej pojawi się okno, w którym będziesz mógł zmieniać poszczególną część ciała</p> -->
+  </div>
+  <mat-list>
+    <mat-list-item class="body-parts-list">
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/dna.svg" /></button>
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/child-head.svg" /></button>
+      <button mat-button class="body-button" (click)="selectBody(1)"><img src="../../../assets/img/body-parts/men-hair.svg" /></button>
+    </mat-list-item> 
+    <mat-list-item class="body-parts-list">
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/beard.svg" /></button>
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/female.svg" /></button>
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/casual-t-shirt-.svg" /></button>
+    </mat-list-item> 
+    <mat-list-item class="body-parts-list">
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/trousers.svg" /></button>
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/black-homburg-hat.svg" /></button>
+      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/glasses-shape.svg" /></button>
+    </mat-list-item>
+
+    <mat-list-item>
+      <button mat-button class="reset-button" (click)="randomClothes()"><i class="material-icons">
+          cached
+          </i> Losowy wygląd</button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button class="reset-button" (click)="clearClothes()"><i class="material-icons">
+          replay
+          </i> Resetuj</button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button class="reset-button"><i class="material-icons">
+          check_circle
+          </i> Gotowe</button>
+    </mat-list-item>
+
+  </mat-list>
+</div>
+
+<app-character-creator-card [body]="selectedBody"></app-character-creator-card>

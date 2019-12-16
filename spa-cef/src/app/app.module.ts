@@ -18,6 +18,14 @@ import { CharacterService } from './_services/character.service';
 import { CharacterCardResolver } from './_resolvers/character-card.resolver';
 import { CharacterDescriptionPanelComponent } from './_views/character-description-panel/character-description-panel.component';
 import { CharacterDescriptionResolver } from './_resolvers/character-description.resolver';
+import { AltvService } from './_services/altv.service';
+import { CharacterCreatorPanelComponent } from './_views/character-creator-panel/character-creator-panel.component';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorCardComponent } from './_views/character-creator-panel/elements/character-creator-card/character-creator-card.component';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorHairComponent } from './_views/character-creator-panel/elements/character-creator-hair/character-creator-hair.component';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorColorPaletteComponent } from './_views/character-creator-panel/elements/character-creator-color-palette/character-creator-color-palette.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -28,7 +36,11 @@ export function tokenGetter() {
     AppComponent,
     LoginPanelComponent,
     CharactersPanelComponent,
-    CharacterDescriptionPanelComponent
+    CharacterDescriptionPanelComponent,
+    CharacterCreatorPanelComponent,
+    CharacterCreatorCardComponent,
+    CharacterCreatorHairComponent,
+    CharacterCreatorColorPaletteComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +64,8 @@ export function tokenGetter() {
     AuthGuard,
     CharacterService,
     CharacterCardResolver,
-    CharacterDescriptionResolver
+    CharacterDescriptionResolver,
+    AltvService
   ],
   bootstrap: [AppComponent]
 })

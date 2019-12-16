@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/_models/character';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-characters-panel',
@@ -11,7 +11,7 @@ export class CharactersPanelComponent implements OnInit {
 
   characters: Character[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -23,6 +23,7 @@ export class CharactersPanelComponent implements OnInit {
     localStorage.setItem('characterId', character.id.toString());
       // @ts-ignore
     alt.emit('cef:character-selected', character);
+    this.router.navigate(['character/creator']);
   }
 
 }

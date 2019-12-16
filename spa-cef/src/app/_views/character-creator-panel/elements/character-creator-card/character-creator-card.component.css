@@ -1,0 +1,7 @@
+.container-body-part-detail {
+    position: absolute;
+    top: 2vh;
+    left: 78%;
+    width: 400px;
+    /* transform: translate(-50%, -50%); */
+}

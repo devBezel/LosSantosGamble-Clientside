@@ -10,7 +10,7 @@
         <mat-card-content>
 
 
-          <mat-card class="character-card-description-list">
+          <mat-card class="character-card-description-list"  style="border: 1px solid grey;">
             <mat-card-header>
               <mat-card-subtitle>Wybierz spośród opcji</mat-card-subtitle>
             </mat-card-header>
@@ -21,7 +21,7 @@
                   <p>{{ description.title }}</p>
                   <hr>
                   <div class="options-buttons">
-                      <button mat-button>Wybierz</button>
+                      <button mat-button (click)="setDescription(description)">Wybierz</button>
                       <button mat-button>Edytuj</button>
                       <button mat-button (click)="deleteDescription(description)">Usuń</button>
                   </div>
@@ -31,7 +31,7 @@
             </mat-card-content>
           </mat-card>
 
-          <mat-card>
+          <mat-card  style="border: 1px solid grey;">
             <mat-card-header>
               <mat-card-subtitle>Wpisując dane w okienka możesz utworzyć nowy opis</mat-card-subtitle>
             </mat-card-header>
@@ -47,7 +47,7 @@
                 </mat-list-item>
                 <mat-list-item role="listitem">
                     <mat-form-field class="descripion-input">
-                        <textarea matInput placeholder="Opis" rows="4" [(ngModel)]="newDescription.content"></textarea>
+                        <textarea matInput placeholder="Opis" rows="4" maxlength="192" [(ngModel)]="newDescription.content"></textarea>
                     </mat-form-field>
                 </mat-list-item>
                 <mat-list-item role="listitem">

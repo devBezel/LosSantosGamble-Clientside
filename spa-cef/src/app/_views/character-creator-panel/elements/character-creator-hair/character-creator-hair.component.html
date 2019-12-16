@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+        <i class="material-icons">
+            face
+        </i>
+    </div>
+    <mat-card-subtitle>Wybór włosów</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="50" step="1" [(ngModel)]="characterHair.hairId"></mat-slider>
+    <button mat-button (click)="check()">Sprawdz</button>
+  </mat-card-content>
+</mat-card>
