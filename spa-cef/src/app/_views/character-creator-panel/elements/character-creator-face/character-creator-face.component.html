@@ -1,0 +1,135 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Ojciec</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.shapeFirstID"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Matka</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.shapeSecondID" ></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        extension
+      </i>
+    </div>
+    <mat-card-subtitle>Materiał genetyczny dziadka</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.shapeThirdID"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        extension
+      </i>
+    </div>
+    <mat-card-subtitle>Materiał genetyczny babci</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.skinFirstID"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        extension
+      </i>
+    </div>
+    <mat-card-subtitle>Materiał genetyczny dalszej rodziny</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.skinSecondID"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        fingerprint
+      </i>
+    </div>
+    <mat-card-subtitle>Własne cechy</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.skinThirdID"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        call_split
+      </i>
+    </div>
+    <mat-card-subtitle>Moc genetyczna rodziców</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="0.1" max="1" step="0.1" [(ngModel)]="characterFace.shapeMix"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        call_split
+      </i>
+    </div>
+    <mat-card-subtitle>Moc genetyczna dziadków</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="0.1" max="1" step="0.1" [(ngModel)]="characterFace.skinMix"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        call_split
+      </i>
+    </div>
+    <mat-card-subtitle>Moc genetyczna dalszej rodziny</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="0.1" max="1" step="0.1" [(ngModel)]="characterFace.thirdMix"></mat-slider>
+  </mat-card-content>
+</mat-card>

@@ -9,7 +9,6 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="50" step="1" [(ngModel)]="characterHair.hairId"></mat-slider>
-    <button mat-button (click)="check()">Sprawdz</button>
+    <mat-slider color="primary" min="1" max="50" step="1" (input)="changeHair($event)"></mat-slider>
   </mat-card-content>
 </mat-card>

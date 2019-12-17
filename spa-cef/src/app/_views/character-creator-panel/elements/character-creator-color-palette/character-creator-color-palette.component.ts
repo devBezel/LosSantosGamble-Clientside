@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ColorPalette } from 'src/app/_models/colorPalette';
 
 @Component({
@@ -7,6 +7,8 @@ import { ColorPalette } from 'src/app/_models/colorPalette';
   styleUrls: ['./character-creator-color-palette.component.css']
 })
 export class CharacterCreatorColorPaletteComponent implements OnInit {
+
+  @Output() selectedColor = new EventEmitter();
 
   constructor() { }
 
@@ -263,6 +265,10 @@ export class CharacterCreatorColorPaletteComponent implements OnInit {
   ];
 
   ngOnInit() {
+  }
+
+  selectColor(colorId: number) {
+    this.selectedColor.emit(colorId);
   }
 
 }

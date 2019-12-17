@@ -16,3 +16,8 @@ https://wiki.altv.mp/SetPedDecoration
 
 // bronie 
 https://wiki.altv.mp/SetPedCanSwitchWeapon
+
+
+-1422.3897705078125
+6756.64306640625
+5.884136199951172

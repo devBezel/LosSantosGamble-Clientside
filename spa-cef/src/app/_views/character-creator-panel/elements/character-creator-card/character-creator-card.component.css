@@ -3,5 +3,21 @@
     top: 2vh;
     left: 78%;
     width: 400px;
+    max-height: 600px;
+    overflow-y: auto;
     /* transform: translate(-50%, -50%); */
 }
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+  }

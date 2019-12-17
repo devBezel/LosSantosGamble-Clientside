@@ -2,6 +2,8 @@ import * as alt from 'alt';
 import * as game from 'natives';
 import { View } from '../../Utilities/View';
 import { Key } from 'client/modules/Constant/Keys/Key';
+import { CharacterHair } from 'client/modules/Models/characterHair';
+import { CharacterFace } from 'client/modules/Models/characterFace';
 
 export default async () => {
     let webView: View;
@@ -31,13 +33,29 @@ export default async () => {
 
     async function randomClothes() {
         const playerId = alt.Player.local.scriptID;
-        alt.log('test');
         game.setPedRandomComponentVariation(playerId, 1);
     }
 
     async function clearClothes() {
-        const playerId = alt.Player.local.scriptID;
-        game.clearAllPedProps(playerId);
+        game.setPedDefaultComponentVariation(alt.Player.local.scriptID);
+    }
+
+    async function changeCharacterRotation(rot: number) {
+        game.setEntityHeading(alt.Player.local.scriptID, rot);
+    }
+
+    async function changeCharacterHair(characterHair: CharacterHair) {
+        updateComponentVariation(2, characterHair.hairId, characterHair.colorId, 0);
+        game.setPedHairColor(alt.Player.local.scriptID, characterHair.colorId, characterHair.colorId);
+        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 1, 1, characterHair.colorId, characterHair.colorId);
+
+    }
+
+    async function changeCharacterFace(characterFace: CharacterFace) {
+        alt.log(characterFace.shapeFirstID, characterFace.shapeSecondID, characterFace.shapeThirdID,
+                characterFace.skinFirstID, characterFace.skinSecondID, characterFace.skinThirdID, characterFace.shapeMix, characterFace.skinMix, characterFace.thirdMix);
+        game.setPedHeadBlendData(alt.Player.local.scriptID, characterFace.shapeFirstID, characterFace.shapeSecondID, characterFace.shapeThirdID,
+                                 characterFace.skinFirstID, characterFace.skinSecondID, characterFace.skinThirdID, characterFace.shapeMix, characterFace.skinMix, characterFace.thirdMix, true);
     }
 
     async function showCreationWindow() {
@@ -51,5 +69,8 @@ export default async () => {
 
         webView.on('cef:characterCreatorRandomClothes', randomClothes);
         webView.on('cef:characterCreatorClearClothes', clearClothes);
+        webView.on('cef:characterCreatorChangeRotation', changeCharacterRotation);
+        webView.on('cef:characterCreatorChangeHair', changeCharacterHair);
+        webView.on('cef:characterCreatorChangeFace', changeCharacterFace);
     }
 };

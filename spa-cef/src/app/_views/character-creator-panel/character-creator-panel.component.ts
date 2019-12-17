@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AltvService } from 'src/app/_services/altv.service';
+import { CharacterService } from 'src/app/_services/character.service';
+import { MatSliderChange } from '@angular/material';
 
 @Component({
   selector: 'app-character-creator-panel',
@@ -25,5 +27,9 @@ export class CharacterCreatorPanelComponent implements OnInit {
 
   selectBody(body: number) {
     this.selectedBody = body;
+  }
+
+  changeRotation(event: MatSliderChange) {
+    this.altvService.emit('cef:characterCreatorChangeRotation', event.value);
   }
 }

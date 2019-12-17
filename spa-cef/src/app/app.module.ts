@@ -26,6 +26,8 @@ import { CharacterCreatorCardComponent } from './_views/character-creator-panel/
 import { CharacterCreatorHairComponent } from './_views/character-creator-panel/elements/character-creator-hair/character-creator-hair.component';
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorColorPaletteComponent } from './_views/character-creator-panel/elements/character-creator-color-palette/character-creator-color-palette.component';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorFaceComponent } from './_views/character-creator-panel/elements/character-creator-face/character-creator-face.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -40,7 +42,8 @@ export function tokenGetter() {
     CharacterCreatorPanelComponent,
     CharacterCreatorCardComponent,
     CharacterCreatorHairComponent,
-    CharacterCreatorColorPaletteComponent
+    CharacterCreatorColorPaletteComponent,
+    CharacterCreatorFaceComponent
   ],
   imports: [
     BrowserModule,

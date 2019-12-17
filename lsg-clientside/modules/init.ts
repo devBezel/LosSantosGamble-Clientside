@@ -9,4 +9,12 @@ export default async () => {
 	 await DescriptionScript();
 	 await ScaleformScript();
 	 await CharacterCreatorScript();
+
+
+	 alt.requestIpl('gr_heist_yacht2');
+	 alt.requestIpl('gr_heist_yacht2_bar');
+	 alt.requestIpl('gr_heist_yacht2_bedrm');
+	 alt.requestIpl('gr_heist_yacht2_bridge');
+	 alt.requestIpl('gr_heist_yacht2_enginrm');
+	 alt.requestIpl('gr_heist_yacht2_lounge');
 };

@@ -15,7 +15,7 @@
             </i>
           </div>
         <mat-card-subtitle>Rotacja</mat-card-subtitle>
-        <mat-slider color="primary" min="1" max="5" step="0.5" value="1.5"></mat-slider>
+        <mat-slider color="primary" min="1" max="360" step="0.5" (input)="changeRotation($event)"></mat-slider>
       </mat-card-header>
       <mat-card-footer>
           <p class="card-footer-text">Obróć swoją postać gdy nie masz widoku na poszczególną część ciała</p>
@@ -33,7 +33,7 @@
   </div>
   <mat-list>
     <mat-list-item class="body-parts-list">
-      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/dna.svg" /></button>
+      <button mat-button class="body-button" (click)="selectBody(0)"><img src="../../../assets/img/body-parts/dna.svg" /></button>
       <button mat-button class="body-button"><img src="../../../assets/img/body-parts/child-head.svg" /></button>
       <button mat-button class="body-button" (click)="selectBody(1)"><img src="../../../assets/img/body-parts/men-hair.svg" /></button>
     </mat-list-item> 
