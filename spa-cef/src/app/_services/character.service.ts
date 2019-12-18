@@ -11,7 +11,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class CharacterService {
 
-  baseUrl = environment.baseUrl + 'character';
+  baseUrl = 'http://localhost:5000/api/' + 'character';
 
 
   constructor(private http: HttpClient) { }

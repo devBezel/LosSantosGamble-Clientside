@@ -7,7 +7,7 @@ import { Player } from '../../Entities/Player';
 
 export default async () => {
     let webView: View;
-    const url = 'http://localhost:4200/character/description';
+    const url = 'http://localhost:4000/character/description';
 
     alt.onServer('description:getCharacterDescription', showDescriptionWindow);
 

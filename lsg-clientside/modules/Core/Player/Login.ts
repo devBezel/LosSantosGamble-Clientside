@@ -4,7 +4,7 @@ import { Character } from 'client/modules/Models/character';
 
 export default async() => {
     let webView: View;
-    const url: string = 'http://localhost:4200/login';
+    const url: string = 'http://localhost:4000/login';
     alt.onServer('other:first-connect', async () => {
         showLoginWindow();
     });

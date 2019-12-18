@@ -41,7 +41,8 @@ export default async () => {
             }
 
             const text = Player.getPlayerDescription(player);
-            if (text === null) {
+
+            if (text === null || text === undefined) {
                 return;
             }
 

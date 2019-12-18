@@ -6,8 +6,11 @@ import { CharacterHair } from 'client/modules/Models/characterHair';
 import { CharacterFace } from 'client/modules/Models/characterFace';
 
 export default async () => {
+    const characterFace: CharacterFace = new CharacterFace();
+
+
     let webView: View;
-    const url = 'http://localhost:4200/character/creator';
+    const url = 'http://localhost:4000/character/creator';
 
 
     alt.on('keyup', (key: any) => {

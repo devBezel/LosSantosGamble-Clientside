@@ -20,9 +20,9 @@ export class CharacterCreatorFaceComponent implements OnInit {
     //   this.altvService.emit('cef:characterCreatorChangeFace', this.characterFace);
     // }, 200);
 
-    setInterval(() => {
-      this.altvService.emit('cef:characterCreatorChangeFace', this.characterFace);
-    }, 200);
+    // setInterval(() => {
+    //   this.altvService.emit('cef:characterCreatorChangeFace', this.characterFace);
+    // }, 200);
 
    }
 

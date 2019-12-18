@@ -44,7 +44,7 @@ export class View {
         });
 
         currentView.view.off('close', currentView.close);
-        currentView.view.url = 'http://localhost:4200/';
+        currentView.view.url = 'http://localhost:4000/';
         currentView.view.unfocus();
 
         currentView.events = [];

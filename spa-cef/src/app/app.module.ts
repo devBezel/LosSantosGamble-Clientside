@@ -29,6 +29,9 @@ import { CharacterCreatorColorPaletteComponent } from './_views/character-creato
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorFaceComponent } from './_views/character-creator-panel/elements/character-creator-face/character-creator-face.component';
 
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorLegsComponent } from './_views/character-creator-panel/elements/character-creator-legs/character-creator-legs.component';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -43,10 +46,11 @@ export function tokenGetter() {
     CharacterCreatorCardComponent,
     CharacterCreatorHairComponent,
     CharacterCreatorColorPaletteComponent,
-    CharacterCreatorFaceComponent
+    CharacterCreatorFaceComponent,
+    CharacterCreatorLegsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
