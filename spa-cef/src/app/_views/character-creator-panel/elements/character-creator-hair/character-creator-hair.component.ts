@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CharacterHair } from 'src/app/_models/characterHair';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MatSliderChange } from '@angular/material';
+import { CharacterLook } from 'src/app/_models/characterLook';
 
 @Component({
   selector: 'app-character-creator-hair',
@@ -9,14 +9,10 @@ import { MatSliderChange } from '@angular/material';
 })
 export class CharacterCreatorHairComponent implements OnInit {
 
-  @Output() selectedHair = new EventEmitter();
+  @Input() characterLook: CharacterLook;
   constructor() { }
 
   ngOnInit() {
-  }
-
-  changeHair(event: MatSliderChange) {
-    this.selectedHair.emit(event.value);
   }
 
 

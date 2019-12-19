@@ -2,12 +2,10 @@ import * as alt from 'alt';
 import * as game from 'natives';
 import { View } from '../../Utilities/View';
 import { Key } from 'client/modules/Constant/Keys/Key';
-import { CharacterHair } from 'client/modules/Models/characterHair';
-import { CharacterFace } from 'client/modules/Models/characterFace';
+import { Player } from '../../Entities/Player';
+import { CharacterLook } from 'client/modules/Models/characterLook';
 
 export default async () => {
-    const characterFace: CharacterFace = new CharacterFace();
-
 
     let webView: View;
     const url = 'http://localhost:4000/character/creator';
@@ -47,19 +45,16 @@ export default async () => {
         game.setEntityHeading(alt.Player.local.scriptID, rot);
     }
 
-    async function changeCharacterHair(characterHair: CharacterHair) {
-        updateComponentVariation(2, characterHair.hairId, characterHair.colorId, 0);
-        game.setPedHairColor(alt.Player.local.scriptID, characterHair.colorId, characterHair.colorId);
-        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 1, 1, characterHair.colorId, characterHair.colorId);
+    async function updateClothes(characterLook: CharacterLook) {
 
+        // DNA
+        game.setPedHeadBlendData(alt.Player.local.scriptID, characterLook.fatherFaceId, characterLook.motherFaceId, 0, characterLook.skinColour, 0, 0, characterLook.shapeMix, 0, 0, true);
+
+        // Hair
+        game.setPedComponentVariation(alt.Player.local.scriptID, 2, characterLook.hairId, 0, 0);
+        game.setPedHairColor(alt.Player.local.scriptID, characterLook.hairColor, characterLook.hairColorTwo);
     }
 
-    async function changeCharacterFace(characterFace: CharacterFace) {
-        alt.log(characterFace.shapeFirstID, characterFace.shapeSecondID, characterFace.shapeThirdID,
-                characterFace.skinFirstID, characterFace.skinSecondID, characterFace.skinThirdID, characterFace.shapeMix, characterFace.skinMix, characterFace.thirdMix);
-        game.setPedHeadBlendData(alt.Player.local.scriptID, characterFace.shapeFirstID, characterFace.shapeSecondID, characterFace.shapeThirdID,
-                                 characterFace.skinFirstID, characterFace.skinSecondID, characterFace.skinThirdID, characterFace.shapeMix, characterFace.skinMix, characterFace.thirdMix, true);
-    }
 
     async function showCreationWindow() {
         if (!webView) {
@@ -73,7 +68,6 @@ export default async () => {
         webView.on('cef:characterCreatorRandomClothes', randomClothes);
         webView.on('cef:characterCreatorClearClothes', clearClothes);
         webView.on('cef:characterCreatorChangeRotation', changeCharacterRotation);
-        webView.on('cef:characterCreatorChangeHair', changeCharacterHair);
-        webView.on('cef:characterCreatorChangeFace', changeCharacterFace);
+        webView.on('cef:characterCreatorUpdateClothes', updateClothes);
     }
 };

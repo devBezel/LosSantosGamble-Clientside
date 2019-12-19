@@ -9,10 +9,25 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.shapeFirstID"></mat-slider>
+    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterLook.fatherFaceId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        extension
+      </i>
+    </div>
+    <mat-card-subtitle>Mieszanie ojca z matką</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" min="0" max="1" step="0.1" [(ngModel)]="characterLook.shapeMix"></mat-slider>
+  </mat-card-content>
+</mat-card>
 
 <mat-card>
   <mat-card-header>
@@ -25,7 +40,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.shapeSecondID" ></mat-slider>
+    <mat-slider color="primary" min="0.1" max="1" step="0.060" [(ngModel)]="characterLook.motherFaceId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -33,33 +48,18 @@
   <mat-card-header>
     <div mat-card-avatar>
       <i class="material-icons">
-        extension
+        color_lens
       </i>
     </div>
-    <mat-card-subtitle>Materiał genetyczny dziadka</mat-card-subtitle>
+    <mat-card-subtitle>Kolor skóry</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.shapeThirdID"></mat-slider>
+    <mat-slider color="primary" min="0" max="45" step="1" [(ngModel)]="characterLook.skinColour"></mat-slider>
   </mat-card-content>
 </mat-card>
 
-<mat-card>
-  <mat-card-header>
-    <div mat-card-avatar>
-      <i class="material-icons">
-        extension
-      </i>
-    </div>
-    <mat-card-subtitle>Materiał genetyczny babci</mat-card-subtitle>
-  </mat-card-header>
-
-  <mat-card-content>
-    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.skinFirstID"></mat-slider>
-  </mat-card-content>
-</mat-card>
-
-<mat-card>
+<!-- <mat-card>
   <mat-card-header>
     <div mat-card-avatar>
       <i class="material-icons">
@@ -70,7 +70,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.skinSecondID"></mat-slider>
+    <mat-slider color="primary" min="1" max="45" step="1" ></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -85,7 +85,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="45" step="1" [(ngModel)]="characterFace.skinThirdID"></mat-slider>
+    <mat-slider color="primary" min="1" max="45" step="1" ></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -100,7 +100,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="0.1" max="1" step="0.1" [(ngModel)]="characterFace.shapeMix"></mat-slider>
+    <mat-slider color="primary" min="0.1" max="1" step="0.1" ></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -115,7 +115,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="0.1" max="1" step="0.1" [(ngModel)]="characterFace.skinMix"></mat-slider>
+    <mat-slider color="primary" min="0.1" max="1" step="0.1" ></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -130,6 +130,6 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="0.1" max="1" step="0.1" [(ngModel)]="characterFace.thirdMix"></mat-slider>
+    <mat-slider color="primary" min="0.1" max="1" step="0.1"></mat-slider>
   </mat-card-content>
-</mat-card>
+</mat-card> -->

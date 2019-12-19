@@ -1,3 +1,40 @@
+<mat-card class="card-control">
+    <mat-card-header>
+      <div mat-card-avatar>
+          <i class="material-icons">
+              mouse
+          </i>
+      </div>
+      <mat-card-title>Sterowanie</mat-card-title>
+      <mat-card-subtitle>Aby poprawnie ubrać swoją postać zapoznaj się z instrukcją sterowania</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+            <mat-slider color="primary" min="1" max="88" step="2"></mat-slider>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <i class="material-icons">keyboard_backspace</i> <p style="margin-left: 10px;">Kliknij w kółko</p>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+          <img src="../../../assets/img/key/keyleft.svg" class="key-img">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <img src="../../../assets/img/key/keyright.svg" class="key-img">
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <p style="color: rgba(255, 255, 255, 0.7);">Po kliknięciu w kółko slidera poruszaj się w lewo lub prawo strzałkami na klawiaturze</p>
+      
+    </mat-card-content>
+  </mat-card>
+
+
 <mat-card class="card-character-settings">
   <mat-card-header>
     <div mat-card-avatar><i class="material-icons">
@@ -65,6 +102,8 @@
     </mat-list-item>
 
   </mat-list>
+
+
 </div>
 
-<app-character-creator-card [body]="selectedBody"></app-character-creator-card>
+<app-character-creator-card [body]="selectedBody" [characterLook]="characterLook"></app-character-creator-card>

@@ -24,6 +24,8 @@ export default async() => {
     }
 
     async function characterDetails(character: Character) {
+        alt.Player.local.setMeta('character:data', character);
+
         webView.close();
         alt.emitServer('login:characterDetail', JSON.stringify(character));
     }

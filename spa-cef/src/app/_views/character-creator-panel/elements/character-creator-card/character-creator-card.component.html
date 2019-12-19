@@ -6,16 +6,16 @@
         <img mat-card-avatar src="../../../assets/img/clip/clip.gif" />
       </mat-card-header>
       <mat-card-content *ngIf="body == 0">
-        <app-character-creator-face></app-character-creator-face>
+        <app-character-creator-face [characterLook]="characterLook"></app-character-creator-face>
       </mat-card-content>
 
       <mat-card-content *ngIf="body == 1">
-        <div class="color-palette">
-            <app-character-creator-color-palette (selectedColor)="selectedColorMode($event)"></app-character-creator-color-palette>
-        </div>     
         <div class="hair-settings">
-          <app-character-creator-hair (selectedHair)="selectedHairMode($event)"></app-character-creator-hair>
-        </div>     
+             <app-character-creator-hair [characterLook]="characterLook"></app-character-creator-hair>
+        </div>   
+        <div class="color-palette">
+            <app-character-creator-color-palette [characterLook]="characterLook"></app-character-creator-color-palette>
+        </div>       
       </mat-card-content>
 
       <mat-card-content *ngIf="body == 3">

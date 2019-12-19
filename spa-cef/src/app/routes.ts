@@ -7,6 +7,7 @@ import { CharacterDescriptionPanelComponent } from './_views/character-descripti
 import { AppComponent } from './app.component';
 import { CharacterDescriptionResolver } from './_resolvers/character-description.resolver';
 import { CharacterCreatorPanelComponent } from './_views/character-creator-panel/character-creator-panel.component';
+import { CharacterLookResolver } from './_resolvers/character-look.resolver';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -18,7 +19,7 @@ export const appRoutes: Routes = [
             { path: 'characters', component: CharactersPanelComponent, resolve: { characters: CharacterCardResolver } },
             { path: 'character/description', component: CharacterDescriptionPanelComponent
                                             , resolve: { descriptions: CharacterDescriptionResolver } },
-            { path: 'character/creator', component: CharacterCreatorPanelComponent }
+            { path: 'character/creator', component: CharacterCreatorPanelComponent, resolve: { characterLook: CharacterLookResolver } }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

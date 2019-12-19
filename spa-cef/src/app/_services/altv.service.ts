@@ -12,4 +12,9 @@ export class AltvService {
     alt.emit(event, object);
   }
 
+  on(event: string, func: any) {
+    // @ts-ignore
+    alt.on(event, func);
+  }
+
 }

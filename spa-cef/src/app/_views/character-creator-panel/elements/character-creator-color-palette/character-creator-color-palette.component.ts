@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ColorPalette } from 'src/app/_models/colorPalette';
+import { CharacterLook } from 'src/app/_models/characterLook';
 
 @Component({
   selector: 'app-character-creator-color-palette',
@@ -8,7 +9,7 @@ import { ColorPalette } from 'src/app/_models/colorPalette';
 })
 export class CharacterCreatorColorPaletteComponent implements OnInit {
 
-  @Output() selectedColor = new EventEmitter();
+  @Input() characterLook: CharacterLook;
 
   constructor() { }
 
@@ -268,7 +269,11 @@ export class CharacterCreatorColorPaletteComponent implements OnInit {
   }
 
   selectColor(colorId: number) {
-    this.selectedColor.emit(colorId);
+    this.characterLook.hairColor = colorId;
+  }
+
+  selectColorTwo(colorId: number) {
+    this.characterLook.hairColorTwo = colorId;
   }
 
 }

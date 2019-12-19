@@ -21,3 +21,8 @@ https://wiki.altv.mp/SetPedCanSwitchWeapon
 -1422.3897705078125
 6756.64306640625
 5.884136199951172
+
+
+// Ustawianie fryzury
+game.setPedComponentVariation(alt.Player.local.scriptID, 2, 3, 4, 0);
+game.setPedHairColor(alt.Player.local.scriptID, 20, 20);

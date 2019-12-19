@@ -31,6 +31,7 @@ import { CharacterCreatorFaceComponent } from './_views/character-creator-panel/
 
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorLegsComponent } from './_views/character-creator-panel/elements/character-creator-legs/character-creator-legs.component';
+import { CharacterLookResolver } from './_resolvers/character-look.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -72,7 +73,8 @@ export function tokenGetter() {
     CharacterService,
     CharacterCardResolver,
     CharacterDescriptionResolver,
-    AltvService
+    AltvService,
+    CharacterLookResolver
   ],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Character } from '../_models/character';
 import { CharacterDescription } from '../_models/characterDescription';
 import { map } from 'rxjs/internal/operators/map';
+import { CharacterLook } from '../_models/characterLook';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class CharacterService {
 
   getAccountCharacters(userId: number): Observable<Character[]> {
     return this.http.get<Character[]>(this.baseUrl + '/list/' + userId);
+  }
+
+  getCharacterLook(userId: number, characterId: number): Observable<CharacterLook> {
+    return this.http.get<CharacterLook>(this.baseUrl + '/look/' + userId + '/' + characterId);
   }
 
   getCharacterDescriptions(userId: number, characterId: number): Observable<CharacterDescription[]> {

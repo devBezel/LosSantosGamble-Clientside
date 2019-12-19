@@ -1,4 +1,5 @@
 import { Vehicle } from './vehicle';
+import { Account } from './account';
 
 export interface Character {
     id: number;
