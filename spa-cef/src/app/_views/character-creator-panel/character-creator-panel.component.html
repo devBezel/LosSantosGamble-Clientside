@@ -80,7 +80,7 @@
       <button mat-button class="body-button"><img src="../../../assets/img/body-parts/casual-t-shirt-.svg" /></button>
     </mat-list-item> 
     <mat-list-item class="body-parts-list">
-      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/trousers.svg" /></button>
+      <button mat-button class="body-button" (click)="selectBody(4)"><img src="../../../assets/img/body-parts/trousers.svg" /></button>
       <button mat-button class="body-button"><img src="../../../assets/img/body-parts/black-homburg-hat.svg" /></button>
       <button mat-button class="body-button"><img src="../../../assets/img/body-parts/glasses-shape.svg" /></button>
     </mat-list-item>
@@ -106,4 +106,4 @@
 
 </div>
 
-<app-character-creator-card [body]="selectedBody" [characterLook]="characterLook"></app-character-creator-card>
+<app-character-creator-card [body]="selectedBody" [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-card>

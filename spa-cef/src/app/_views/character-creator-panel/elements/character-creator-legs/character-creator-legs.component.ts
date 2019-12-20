@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CharacterLook } from 'src/app/_models/characterLook';
+import { AltvService } from 'src/app/_services/altv.service';
 
 @Component({
   selector: 'app-character-creator-legs',
@@ -6,31 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-creator-legs.component.css']
 })
 export class CharacterCreatorLegsComponent implements OnInit {
+  @Input() characterLook: CharacterLook;
+  @Input() variationList?: any[];
 
-  constructor() { }
 
-  startClothes: any[] = [
-    {
-      clotheId: 0,
-      min: 0,
-      max: 15,
-      cost: 10
-    },
-    {
-      clotheId: 1,
-      min: 0,
-      max: 15,
-      cost: 10
-    },
-    {
-      clotheId: 0,
-      min: 0,
-      max: 15,
-      cost: 10
-    },
-  ];
+  constructor(private altvService: AltvService) {
+    altvService.emit('cef:characterCreatorGetComponentsVariation', 4, 126);
+  }
+
 
   ngOnInit() {
   }
+
 
 }

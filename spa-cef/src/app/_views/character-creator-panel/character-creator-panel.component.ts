@@ -15,11 +15,18 @@ export class CharacterCreatorPanelComponent implements OnInit {
 
   selectedBody: number;
   characterLook: CharacterLook;
+  variationList: any[];
 
   constructor(private altvService: AltvService, private route: ActivatedRoute) {
+    // altvService.on('characterCreator:clothesVariation', this.getComponentVariation);
+    this.getComponentVariation();
+
     setInterval(() => {
+      // console.log(`${this.characterLook.legsId}  ${this.characterLook.legsTexture}`);
       altvService.emit('cef:characterCreatorUpdateClothes', this.characterLook);
     }, 200);
+
+
   }
 
   ngOnInit() {
@@ -28,9 +35,13 @@ export class CharacterCreatorPanelComponent implements OnInit {
     });
   }
 
-  getActuallyClothes(character: Character) {
-  }
+  getComponentVariation() {
+    this.altvService.on('characterCreator:clothesVariation', async (listVariation: any[]) => {
+      // console.log(listVariation);
+      this.variationList = listVariation;
 
+    });
+  }
   randomClothes() {
     this.altvService.emit('cef:characterCreatorRandomClothes');
   }

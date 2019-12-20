@@ -53,7 +53,28 @@ export default async () => {
         // Hair
         game.setPedComponentVariation(alt.Player.local.scriptID, 2, characterLook.hairId, 0, 0);
         game.setPedHairColor(alt.Player.local.scriptID, characterLook.hairColor, characterLook.hairColorTwo);
+
+        // Legs
+        game.setPedComponentVariation(alt.Player.local.scriptID, 4, characterLook.legsId, characterLook.legsTexture, 0);
     }
+
+    async function getNumberOfTextureVariation(componentId: number, clothesLength: number) {
+        const map = [];
+
+        for (let i = 0; i < clothesLength; i++) {
+            map.push({ index: i, variation: game.getNumberOfPedTextureVariations(alt.Player.local.scriptID, componentId, i) });
+        }
+
+        webView.emit('characterCreator:clothesVariation', map);
+    }
+
+    // async function getComponentVariations(componentId: number, clothesLength: number) {
+    //     // const clothesVariation = getNumberOfTextureVariation(componentId, clothesLength);
+    //     // alt.log(`ze skryptu ${clothesVariation.index}`);
+    //     getNumberOfTextureVariation(componentId, clothesLength).then((data: any) => {
+    //         webView.emit('characterCreator:clothesVariation', data);
+    //     });
+    // }
 
 
     async function showCreationWindow() {
@@ -69,5 +90,6 @@ export default async () => {
         webView.on('cef:characterCreatorClearClothes', clearClothes);
         webView.on('cef:characterCreatorChangeRotation', changeCharacterRotation);
         webView.on('cef:characterCreatorUpdateClothes', updateClothes);
+        webView.on('cef:characterCreatorGetComponentsVariation', getNumberOfTextureVariation);
     }
 };

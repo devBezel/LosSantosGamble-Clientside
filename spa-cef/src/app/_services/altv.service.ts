@@ -7,14 +7,20 @@ export class AltvService {
 
   constructor() { }
 
-  emit(event: string, object?: any) {
+  emit(event: string, object?: any, args?: any) {
     // @ts-ignore
-    alt.emit(event, object);
+    alt.emit(event, object, args);
   }
 
-  on(event: string, func: any) {
+  public on(name: string, callback: CallableFunction) {
     // @ts-ignore
-    alt.on(event, func);
+    // tslint:disable-next-line:no-string-literal
+    this.isAltDefined() ? window['alt'].on(name, callback) : console.log(`AltV service: OnEvent: ${name} with params ${callback}`);
+  }
+
+  private isAltDefined() {
+    // tslint:disable-next-line:no-string-literal
+    return window['alt'] !== undefined;
   }
 
 }

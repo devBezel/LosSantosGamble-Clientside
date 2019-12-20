@@ -21,5 +21,9 @@
       <mat-card-content *ngIf="body == 3">
 
       </mat-card-content>
+
+      <mat-card-content *ngIf="body == 4">
+        <app-character-creator-legs [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-legs>
+      </mat-card-content>
     </mat-card>
   </div>

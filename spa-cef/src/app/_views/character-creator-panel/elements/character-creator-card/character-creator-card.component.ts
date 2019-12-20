@@ -13,6 +13,7 @@ export class CharacterCreatorCardComponent implements OnInit {
 
   @Input() body: number;
   @Input() characterLook: CharacterLook;
+  @Input() variationList: any[];
 
   selectedColor: number;
 
