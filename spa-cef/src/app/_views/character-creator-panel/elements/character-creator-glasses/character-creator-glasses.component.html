@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        settings_ethernet
+      </i>
+    </div>
+  <mat-card-subtitle>Okulary</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.glassesId" [max]="glassesId" [step]="1" [(ngModel)]="characterLook.glassesId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        remove_red_eye
+      </i>
+    </div>
+  <mat-card-subtitle>Model</mat-card-subtitle>
+  </mat-card-header>
+
+  <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
+  <mat-card-content>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.glassesTexture" [max]="glassesTexture" [(ngModel)]="characterLook.glassesTexture" step="1"></mat-slider>
+  </mat-card-content>
+</mat-card>

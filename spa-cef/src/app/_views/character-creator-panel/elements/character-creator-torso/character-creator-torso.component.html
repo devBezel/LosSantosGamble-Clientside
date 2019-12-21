@@ -1,0 +1,33 @@
+<p>
+  character-creator-torso works!
+</p>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        settings_ethernet
+      </i>
+    </div>
+  <mat-card-subtitle>Torso #1</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.torsoId" [max]="torsoId" [step]="1" [(ngModel)]="characterLook.torsoId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        remove_red_eye
+      </i>
+    </div>
+  <mat-card-subtitle>Torso #2</mat-card-subtitle>
+  </mat-card-header>
+
+  <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
+  <mat-card-content>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.torsoTexture" [max]="torsoTexture" [(ngModel)]="characterLook.torsoTexture" step="1"></mat-slider>
+  </mat-card-content>
+</mat-card>

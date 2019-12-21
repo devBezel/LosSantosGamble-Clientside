@@ -9,6 +9,6 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" min="1" max="74" step="1" [(ngModel)]="characterLook.hairId"></mat-slider>
+    <mat-slider color="primary" [thumbLabel]="characterLook.hairId" min="1" max="74" step="1" [(ngModel)]="characterLook.hairId"></mat-slider>
   </mat-card-content>
 </mat-card>

@@ -19,11 +19,23 @@
       </mat-card-content>
 
       <mat-card-content *ngIf="body == 3">
-
+        <app-character-creator-torso [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-torso>
       </mat-card-content>
 
       <mat-card-content *ngIf="body == 4">
         <app-character-creator-legs [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-legs>
+      </mat-card-content>
+      
+      <mat-card-content *ngIf="body == 8">
+        <app-character-creator-shirt [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-shirt>
+      </mat-card-content>
+
+      <mat-card-content *ngIf="body == 11">
+        <app-character-creator-hat [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-hat>
+      </mat-card-content>
+
+      <mat-card-content *ngIf="body == 12">
+        <app-character-creator-glasses [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-glasses>
       </mat-card-content>
     </mat-card>
   </div>

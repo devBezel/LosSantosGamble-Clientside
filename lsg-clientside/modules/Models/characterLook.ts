@@ -27,7 +27,9 @@ export interface CharacterLook {
     topId: number;
     topTexture: number;
     torsoId: number;
+    torsoTexture: number;
     undershirtId: number;
+    undershirtTexture: number;
     legsId: number;
     legsTexture: number;
     shoesId: number;

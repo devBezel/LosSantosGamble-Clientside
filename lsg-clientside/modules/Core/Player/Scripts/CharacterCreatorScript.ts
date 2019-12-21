@@ -56,13 +56,46 @@ export default async () => {
 
         // Legs
         game.setPedComponentVariation(alt.Player.local.scriptID, 4, characterLook.legsId, characterLook.legsTexture, 0);
+        // Shoes
+        game.setPedComponentVariation(alt.Player.local.scriptID, 6, characterLook.shoesId, characterLook.shoesTexture, 0);
+
+        // Torso
+        game.setPedComponentVariation(alt.Player.local.scriptID, 3, characterLook.torsoId, characterLook.torsoTexture, 0);
+        // Undershirt
+        game.setPedComponentVariation(alt.Player.local.scriptID, 8, characterLook.undershirtId, characterLook.undershirtTexture, 0);
+        // Top
+        game.setPedComponentVariation(alt.Player.local.scriptID, 11, characterLook.topId, characterLook.topTexture, 0);
+
+        // Hat
+        game.setPedPropIndex(alt.Player.local.scriptID, 0, characterLook.hatId, characterLook.hatTexture, false);
+        // Glasses
+        game.setPedPropIndex(alt.Player.local.scriptID, 1, characterLook.glassesId, characterLook.glassesTexture, false);
     }
 
-    async function getNumberOfTextureVariation(componentId: number, clothesLength: number) {
+    async function getNumberOfTextureVariation(componentId: number, componentIdTwo?: number, componentIdThree?: number, isProp: boolean = false) {
         const map = [];
 
-        for (let i = 0; i < clothesLength; i++) {
-            map.push({ index: i, variation: game.getNumberOfPedTextureVariations(alt.Player.local.scriptID, componentId, i) });
+        if (isProp) {
+            for (let i = 0; i < game.getNumberOfPedPropDrawableVariations(alt.Player.local.scriptID, componentId); i++) {
+                map.push({ index: i, variation: game.getNumberOfPedPropTextureVariations(alt.Player.local.scriptID, componentId, i) });
+            }
+            return webView.emit('characterCreator:clothesVariation', map);
+        }
+        alt.log('Wywoluje sie');
+        for (let i = 0; i < game.getNumberOfPedDrawableVariations(alt.Player.local.scriptID, componentId); i++) {
+            map.push({ index: i, variation: game.getNumberOfPedTextureVariations(alt.Player.local.scriptID, componentId, i), component: componentId  });
+        }
+
+        if (componentIdTwo !== undefined || componentIdTwo !== null) {
+            for (let i = 0; i < game.getNumberOfPedDrawableVariations(alt.Player.local.scriptID, componentIdTwo); i++) {
+                map.push({ index: i, variation: game.getNumberOfPedTextureVariations(alt.Player.local.scriptID, componentIdTwo, i), component: componentIdTwo  });
+            }
+        }
+
+        if (componentIdThree !== undefined || componentIdThree !== null) {
+            for (let i = 0; i < game.getNumberOfPedDrawableVariations(alt.Player.local.scriptID, componentIdThree); i++) {
+                map.push({ index: i, variation: game.getNumberOfPedTextureVariations(alt.Player.local.scriptID, componentIdThree, i), component: componentIdThree });
+            }
         }
 
         webView.emit('characterCreator:clothesVariation', map);

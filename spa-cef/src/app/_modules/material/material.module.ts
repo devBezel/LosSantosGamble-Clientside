@@ -19,7 +19,8 @@ import {
   MatSortModule, MatStepperModule,
   MatTableModule,
   MatTabsModule,
-  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule
+  // tslint:disable-next-line:max-line-length
+  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule, MatExpansionModule
 } from '@angular/material';
 
 @NgModule({
@@ -52,7 +53,7 @@ import {
     MatChipsModule,
     MatGridListModule,
     MatRadioModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   exports: [
     MatIconModule,
@@ -83,7 +84,7 @@ import {
     MatChipsModule,
     MatGridListModule,
     MatRadioModule,
-    MatSliderModule
+    MatSliderModule,
   ],
 })
 export class MaterialModule {

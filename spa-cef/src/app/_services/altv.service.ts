@@ -7,9 +7,9 @@ export class AltvService {
 
   constructor() { }
 
-  emit(event: string, object?: any, args?: any) {
+  emit(event: string, object?: any, args?: any, argsTwo?: any, argsThree?: any) {
     // @ts-ignore
-    alt.emit(event, object, args);
+    alt.emit(event, object, args, argsTwo, argsThree);
   }
 
   public on(name: string, callback: CallableFunction) {

@@ -5,11 +5,11 @@
         settings_ethernet
       </i>
     </div>
-  <mat-card-subtitle>Krój spodni</mat-card-subtitle>
+  <mat-card-subtitle>Krój podkoszulka</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.legsId" [max]="legsId" [step]="1" [(ngModel)]="characterLook.legsId"></mat-slider>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.undershirtId" [max]="undershirtId" [step]="1" [(ngModel)]="characterLook.undershirtId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -20,12 +20,12 @@
         remove_red_eye
       </i>
     </div>
-  <mat-card-subtitle>Model spodni</mat-card-subtitle>
+  <mat-card-subtitle>Model podkoszulka</mat-card-subtitle>
   </mat-card-header>
 
   <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.legsTexture" [max]="legsTexture" [(ngModel)]="characterLook.legsTexture" step="1"></mat-slider>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.undershirtTexture" [max]="undershirtTexture" [(ngModel)]="characterLook.undershirtTexture" step="1"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -36,11 +36,11 @@
         settings_ethernet
       </i>
     </div>
-  <mat-card-subtitle>Buty</mat-card-subtitle>
+  <mat-card-subtitle>Krój koszulki</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.shoesId" [max]="shoesId" [step]="1" [(ngModel)]="characterLook.shoesId"></mat-slider>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.topId" [max]="topId" [step]="1" [(ngModel)]="characterLook.topId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -51,12 +51,11 @@
         remove_red_eye
       </i>
     </div>
-  <mat-card-subtitle>Model butów</mat-card-subtitle>
+  <mat-card-subtitle>Model koszulki</mat-card-subtitle>
   </mat-card-header>
 
   <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.shoesTexture" [max]="shoesTexture" [(ngModel)]="characterLook.shoesTexture" step="1"></mat-slider>
+    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.topTexture" [max]="topTexture" [(ngModel)]="characterLook.topTexture" step="1"></mat-slider>
   </mat-card-content>
 </mat-card>
-

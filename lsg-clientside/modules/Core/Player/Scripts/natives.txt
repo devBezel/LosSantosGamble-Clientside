@@ -26,3 +26,30 @@ https://wiki.altv.mp/SetPedCanSwitchWeapon
 // Ustawianie fryzury
 game.setPedComponentVariation(alt.Player.local.scriptID, 2, 3, 4, 0);
 game.setPedHairColor(alt.Player.local.scriptID, 20, 20);
+
+
+// Ustawianie twarzy
+game.setPedFaceFeature(
+    alt.Player.local.scriptID,
+    1,
+    1
+);
+
+
+1 - nos garb
+2 - nos wklęsłość+
+3 - wklęsłość trzonka nosa
+4 - paris platinov kinol
+5 - krzywizna nosa
+6 - wysokość czoła
+7 - długość kości czoła
+8 - kości policzkowe
+10 - wklęsłość kości policzkowych
+11 - widoczność oczu
+12 - chudość ust
+13 - grubość kości obok uszu
+15 - broda
+16 - dlugość brody
+17 - szerokość brody na czubku
+18 - przedziałek na brodzie
+19 - grubość szyi

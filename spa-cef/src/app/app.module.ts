@@ -32,6 +32,16 @@ import { CharacterCreatorFaceComponent } from './_views/character-creator-panel/
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorLegsComponent } from './_views/character-creator-panel/elements/character-creator-legs/character-creator-legs.component';
 import { CharacterLookResolver } from './_resolvers/character-look.resolver';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorTorsoComponent } from './_views/character-creator-panel/elements/character-creator-torso/character-creator-torso.component';
+
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorShirtComponent } from './_views/character-creator-panel/elements/character-creator-shirt/character-creator-shirt.component';
+
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorHatComponent } from './_views/character-creator-panel/elements/character-creator-hat/character-creator-hat.component';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorGlassesComponent } from './_views/character-creator-panel/elements/character-creator-glasses/character-creator-glasses.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -48,7 +58,11 @@ export function tokenGetter() {
     CharacterCreatorHairComponent,
     CharacterCreatorColorPaletteComponent,
     CharacterCreatorFaceComponent,
-    CharacterCreatorLegsComponent
+    CharacterCreatorLegsComponent,
+    CharacterCreatorTorsoComponent,
+    CharacterCreatorShirtComponent,
+    CharacterCreatorHatComponent,
+    CharacterCreatorGlassesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
