@@ -37,5 +37,9 @@
       <mat-card-content *ngIf="body == 12">
         <app-character-creator-glasses [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-glasses>
       </mat-card-content>
+
+      <mat-card-content *ngIf="body == 13">
+        <app-character-creator-face-detail [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-face-detail>
+      </mat-card-content>
     </mat-card>
   </div>

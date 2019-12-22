@@ -8,6 +8,8 @@ import { CharacterLook } from 'client/modules/Models/characterLook';
 export default async () => {
 
     let webView: View;
+    let blockAfkCameraInterval: any;
+
     const url = 'http://localhost:4000/character/creator';
 
 
@@ -15,6 +17,7 @@ export default async () => {
         if (key === Key.INSERT) {
             showCreationWindow();
         } else if (key === Key.ESCAPE) {
+            alt.clearInterval(blockAfkCameraInterval);
             webView.close();
         }
     });
@@ -38,6 +41,9 @@ export default async () => {
     }
 
     async function clearClothes() {
+        for (let i = 0; i < 18; i++) {
+            game.setPedFaceFeature(alt.Player.local.scriptID, i, 0);
+        }
         game.setPedDefaultComponentVariation(alt.Player.local.scriptID);
     }
 
@@ -70,6 +76,28 @@ export default async () => {
         game.setPedPropIndex(alt.Player.local.scriptID, 0, characterLook.hatId, characterLook.hatTexture, false);
         // Glasses
         game.setPedPropIndex(alt.Player.local.scriptID, 1, characterLook.glassesId, characterLook.glassesTexture, false);
+
+
+
+        // Face detail
+        game.setPedFaceFeature(alt.Player.local.scriptID, 0, characterLook.noseWidth);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 1, characterLook.nosePeakHight);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 2, characterLook.nosePeakLenght);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 3, characterLook.noseBoneHigh);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 4, characterLook.nosePeakLowering);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 5, characterLook.noseBoneTwist);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 6, characterLook.eyeBrownHigh);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 7, characterLook.eyeBrownForward);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 8, characterLook.cheeksBoneHigh);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 9, characterLook.cheeksBoneWidth);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 10, characterLook.cheeksWidth);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 11, characterLook.eyesOpenning);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 12, characterLook.lipsThickness);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 13, characterLook.jawBoneBackLenght);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 14, characterLook.chimpBoneLenght);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 15, characterLook.chimpBoneWidth);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 16, characterLook.chimpHole);
+        game.setPedFaceFeature(alt.Player.local.scriptID, 18, characterLook.neckThikness);
     }
 
     async function getNumberOfTextureVariation(componentId: number, componentIdTwo?: number, componentIdThree?: number, isProp: boolean = false) {
@@ -118,6 +146,10 @@ export default async () => {
         if (alt.Player.local.getMeta('viewOpen')) return;
 
         webView.open(url, true);
+
+        blockAfkCameraInterval = alt.setInterval(() => {
+            game.invalidateIdleCam();
+        },                                       10000);
 
         webView.on('cef:characterCreatorRandomClothes', randomClothes);
         webView.on('cef:characterCreatorClearClothes', clearClothes);

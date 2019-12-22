@@ -17,7 +17,7 @@ export class CharacterCreatorPanelComponent implements OnInit {
   characterLook: CharacterLook;
   variationList: any[];
 
-  constructor(private altvService: AltvService, private route: ActivatedRoute) {
+  constructor(private altvService: AltvService, private route: ActivatedRoute, private characterService: CharacterService) {
     // altvService.on('characterCreator:clothesVariation', this.getComponentVariation);
     this.getComponentVariation();
 

@@ -1,3 +1,31 @@
+    noseWidth?: number;
+    nosePeakHight?: number;
+    nosePeakLenght?: number;
+    noseBoneHigh?: number;
+    nosePeakLowering?: number;
+    noseBoneTwist?: number;
+    eyeBrownHigh?: number;
+    eyeBrownForward?: number;
+    cheeksBoneHigh?: number;
+    cheeksBoneWidth?: number;
+    cheeksWidth?: number;
+    eyesOpenning?: number;
+    lipsThickness?: number;
+    jawBoneBackLenght?: number;
+    chimpBoneLowering?: number;
+    chimpBoneLenght?: number;
+    chimpBoneWidth?: number;
+    chimpHole?: number;
+    neckThikness?: number;
+
+
+
+
+
+
+
+
+
 https://wiki.altv.mp/SetPedComponentVariation
 https://wiki.altv.mp/SetPedEyeColor
 https://wiki.altv.mp/SetPedHeadOverlay

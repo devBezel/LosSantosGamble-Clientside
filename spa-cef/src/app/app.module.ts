@@ -42,6 +42,8 @@ import { CharacterCreatorShirtComponent } from './_views/character-creator-panel
 import { CharacterCreatorHatComponent } from './_views/character-creator-panel/elements/character-creator-hat/character-creator-hat.component';
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorGlassesComponent } from './_views/character-creator-panel/elements/character-creator-glasses/character-creator-glasses.component';
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorFaceDetailComponent } from './_views/character-creator-panel/elements/character-creator-face-detail/character-creator-face-detail.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -62,7 +64,8 @@ export function tokenGetter() {
     CharacterCreatorTorsoComponent,
     CharacterCreatorShirtComponent,
     CharacterCreatorHatComponent,
-    CharacterCreatorGlassesComponent
+    CharacterCreatorGlassesComponent,
+    CharacterCreatorFaceDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
