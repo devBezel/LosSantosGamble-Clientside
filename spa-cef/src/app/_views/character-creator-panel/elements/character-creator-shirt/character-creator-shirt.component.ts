@@ -24,7 +24,7 @@ export class CharacterCreatorShirtComponent implements OnInit {
   }
 
   public get undershirtTexture() {
-    return this.variationList.filter(x => x.component === 8)[this.characterLook.undershirtId].variation;
+    return this.variationList.filter(x => x.component === 8)[this.characterLook.undershirtId].variation - 1;
   }
 
   public get topId() {
@@ -32,7 +32,7 @@ export class CharacterCreatorShirtComponent implements OnInit {
   }
 
   public get topTexture() {
-    return this.variationList.filter(x => x.component === 11)[this.characterLook.topId].variation;
+    return this.variationList.filter(x => x.component === 11)[this.characterLook.topId].variation - 1;
   }
 
 }

@@ -24,7 +24,7 @@ export class CharacterCreatorTorsoComponent implements OnInit {
   }
 
   public get torsoTexture() {
-    return this.variationList.filter(x => x.component === 3)[this.characterLook.torsoId].variation;
+    return this.variationList.filter(x => x.component === 3)[this.characterLook.torsoId].variation - 1;
   }
 
 }

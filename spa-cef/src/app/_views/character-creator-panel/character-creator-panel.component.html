@@ -75,7 +75,7 @@
       <button mat-button class="body-button" (click)="selectBody(1)"><img src="../../../assets/img/body-parts/men-hair.svg" /></button>
     </mat-list-item> 
     <mat-list-item class="body-parts-list">
-      <button mat-button class="body-button"><img src="../../../assets/img/body-parts/beard.svg" /></button>
+      <button mat-button class="body-button" (click)="selectBody(9)"><img src="../../../assets/img/body-parts/beard.svg" /></button>
       <button mat-button class="body-button" (click)="selectBody(3)"><img src="../../../assets/img/body-parts/female.svg" /></button>
       <button mat-button class="body-button" (click)="selectBody(8)"><img src="../../../assets/img/body-parts/casual-t-shirt-.svg" /></button>
     </mat-list-item> 
@@ -96,7 +96,7 @@
           </i> Resetuj</button>
     </mat-list-item>
     <mat-list-item>
-      <button mat-button class="reset-button"><i class="material-icons">
+      <button mat-button class="reset-button" (click)="saveCharacterLook()"><i class="material-icons">
           check_circle
           </i> Gotowe</button>
     </mat-list-item>

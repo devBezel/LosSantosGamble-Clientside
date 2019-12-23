@@ -100,7 +100,7 @@
 
   <mat-card-content>
     <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.eyeBrownHigh" [max]="2" [step]="0.1" [(ngModel)]="characterLook.eyeBrownHigh"></mat-slider>
-  </mat-card-content>+
+  </mat-card-content>
 </mat-card>
 
 <mat-card>
@@ -215,7 +215,7 @@
         perm_data_setting
       </i>
     </div>
-  <mat-card-subtitle>Długość kości żuchwy</mat-card-subtitle>
+  <mat-card-subtitle>Szerokość kości szczęki</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -245,7 +245,7 @@
         perm_data_setting
       </i>
     </div>
-  <mat-card-subtitle>Długość kości brody</mat-card-subtitle>
+  <mat-card-subtitle>Długość kości żuchwy</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -260,7 +260,7 @@
         perm_data_setting
       </i>
     </div>
-  <mat-card-subtitle>Grubość szyi</mat-card-subtitle>
+  <mat-card-subtitle>Długość brody</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -275,7 +275,7 @@
         perm_data_setting
       </i>
     </div>
-  <mat-card-subtitle>Grubość szyi #2</mat-card-subtitle>
+  <mat-card-subtitle>Wysokość brody</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -295,5 +295,200 @@
 
   <mat-card-content>
     <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.neckThikness" [max]="2" [step]="0.1" [(ngModel)]="characterLook.neckThikness"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Przestarzałość twarzy</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.ageingId" min="0" max="14" step="1" [(ngModel)]="characterLook.ageingId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Widoczność przestarzałości twarzy</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.ageingOpacity" min="0" max="1" step="0.1" [(ngModel)]="characterLook.ageingOpacity"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Makijaż</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.makeupId" min="0" max="74" step="1" [(ngModel)]="characterLook.makeupId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Kolor makijażu</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.firstMakeupColor" min="0" max="48" step="1" [(ngModel)]="characterLook.firstMakeupColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Drugi kolor makijażu</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.secondMakeupColor" min="0" max="48" step="1" [(ngModel)]="characterLook.secondMakeupColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Widoczność makijazu</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.makeupOpacity" min="0" max="1" step="0.1" [(ngModel)]="characterLook.makeupOpacity"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Rumieńce</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.blushId" min="0" max="6" step="1" [(ngModel)]="characterLook.blushId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Kolor rumieńcy</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.blushColor" min="0" max="48" step="1" [(ngModel)]="characterLook.blushColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Widoczność rumieńcy</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.blushOpacity" min="0" max="1" step="0.1" [(ngModel)]="characterLook.blushOpacity"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Szminka</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.lipstickId" min="0" max="9" step="1" [(ngModel)]="characterLook.lipstickId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Widoczność szminki</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.lipstickOpacity" min="0" max="1" step="0.1" [(ngModel)]="characterLook.lipstickOpacity"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Kolor szminki</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.firstLipstickColor" min="0" max="48" step="1" [(ngModel)]="characterLook.firstLipstickColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Drugi kolor szminki</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.secondLipstickColor" min="0" max="48" step="1" [(ngModel)]="characterLook.secondLipstickColor"></mat-slider>
   </mat-card-content>
 </mat-card>

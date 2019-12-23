@@ -45,6 +45,9 @@ import { CharacterCreatorGlassesComponent } from './_views/character-creator-pan
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorFaceDetailComponent } from './_views/character-creator-panel/elements/character-creator-face-detail/character-creator-face-detail.component';
 
+// tslint:disable-next-line:max-line-length
+import { CharacterCreatorBeardComponent } from './_views/character-creator-panel/elements/character-creator-beard/character-creator-beard.component';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -65,7 +68,8 @@ export function tokenGetter() {
     CharacterCreatorShirtComponent,
     CharacterCreatorHatComponent,
     CharacterCreatorGlassesComponent,
-    CharacterCreatorFaceDetailComponent
+    CharacterCreatorFaceDetailComponent,
+    CharacterCreatorBeardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -24,7 +24,7 @@ export class CharacterCreatorHatComponent implements OnInit {
   }
 
   public get hatTexture() {
-    return this.variationList[this.characterLook.hatId].variation;
+    return this.variationList[this.characterLook.hatId].variation - 1;
   }
 
 }

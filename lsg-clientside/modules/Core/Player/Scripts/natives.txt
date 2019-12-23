@@ -81,3 +81,7 @@ game.setPedFaceFeature(
 17 - szerokość brody na czubku
 18 - przedziałek na brodzie
 19 - grubość szyi
+
+
+// game.setPedEyeColor(alt.Player.local.scriptID, 32); - kolor oczu
+http://www.kronzky.info/fivemwiki/index.php?title=SetPedHeadOverlay

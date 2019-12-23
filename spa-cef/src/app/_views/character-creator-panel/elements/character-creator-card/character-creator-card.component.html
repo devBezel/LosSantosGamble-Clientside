@@ -30,6 +30,10 @@
         <app-character-creator-shirt [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-shirt>
       </mat-card-content>
 
+      <mat-card-content *ngIf="body == 9">
+        <app-character-creator-beard [characterLook]="characterLook" ></app-character-creator-beard>
+      </mat-card-content>
+
       <mat-card-content *ngIf="body == 11">
         <app-character-creator-hat [characterLook]="characterLook" [variationList]="variationList"></app-character-creator-hat>
       </mat-card-content>

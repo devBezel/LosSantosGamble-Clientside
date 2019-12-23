@@ -22,19 +22,6 @@ export default async () => {
         }
     });
 
-    async function updateComponentVariation(id: number, drawable: number, texture: number, isProp: any) {
-        const playerId = alt.Player.local.scriptID;
-        if (isProp) {
-            game.setPedPropIndex(playerId, id, drawable, texture, true);
-
-            if (drawable === -1) {
-                game.clearPedProp(playerId, id);
-            }
-        }
-
-        game.setPedComponentVariation(playerId, id, drawable, texture, 0);
-    }
-
     async function randomClothes() {
         const playerId = alt.Player.local.scriptID;
         game.setPedRandomComponentVariation(playerId, 1);
@@ -98,6 +85,32 @@ export default async () => {
         game.setPedFaceFeature(alt.Player.local.scriptID, 15, characterLook.chimpBoneWidth);
         game.setPedFaceFeature(alt.Player.local.scriptID, 16, characterLook.chimpHole);
         game.setPedFaceFeature(alt.Player.local.scriptID, 18, characterLook.neckThikness);
+
+        // Ears
+        game.setPedEyeColor(alt.Player.local.scriptID, characterLook.earsColor);
+        // Eyebrows
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 2, characterLook.eyebrowsId, characterLook.eyeBrowsOpacity);
+        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 2, 1, characterLook.firstEyebrowsColor, characterLook.secondEyebrowsColor);
+
+        // Blemishes
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 0, characterLook.blemishesId, characterLook.blemishesOpacity);
+        // Ageing
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 3, characterLook.ageingId, characterLook.ageingOpacity);
+        // Makeup
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 4, characterLook.makeupId, characterLook.makeupOpacity);
+        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 4, 2, characterLook.firstMakeupColor, characterLook.secondMakeupColor);
+
+        // blush
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 5, characterLook.blushId, characterLook.blushOpacity);
+        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 5, 1, characterLook.blushColor, characterLook.blushColor);
+
+        // lipstick
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 8, characterLook.lipstickId, characterLook.lipstickOpacity);
+        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 8, 1, characterLook.firstLipstickColor, characterLook.secondLipstickColor);
+
+        // Beard
+        game.setPedHeadOverlay(alt.Player.local.scriptID, 1, characterLook.beardId, characterLook.beardOpacity);
+        game.setPedHeadOverlayColor(alt.Player.local.scriptID, 1, 1, characterLook.beardColor, characterLook.beardColor);
     }
 
     async function getNumberOfTextureVariation(componentId: number, componentIdTwo?: number, componentIdThree?: number, isProp: boolean = false) {

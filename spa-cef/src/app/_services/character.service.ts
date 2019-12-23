@@ -37,4 +37,8 @@ export class CharacterService {
   deleteCharacterDescription(userId: number, description: CharacterDescription) {
     return this.http.delete(this.baseUrl + '/description/delete/' + userId + '/' + description.id);
   }
+
+  saveCharacterLook(userId: number, characterId: number, characterLook: CharacterLook) {
+    return this.http.post(this.baseUrl + '/save/character/' + userId + '/' + characterId, characterLook);
+  }
 }

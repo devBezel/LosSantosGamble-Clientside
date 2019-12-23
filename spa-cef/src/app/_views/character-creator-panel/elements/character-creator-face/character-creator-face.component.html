@@ -59,6 +59,112 @@
   </mat-card-content>
 </mat-card>
 
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        color_lens
+      </i>
+    </div>
+    <mat-card-subtitle>Kolor oczu</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.earsColor" min="0" max="32" step="1" [(ngModel)]="characterLook.earsColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Brwi</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.eyebrowsId" min="0" max="33" step="1" [(ngModel)]="characterLook.eyebrowsId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Widoczność brwi</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.eyeBrowsOpacity" min="0" max="1" step="0.1" [(ngModel)]="characterLook.eyeBrowsOpacity"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Kolor brwi</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.firstEyebrowsColor" min="0" max="48" step="1" [(ngModel)]="characterLook.firstEyebrowsColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Drugi kolor brwi</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.secondEyebrowsColor" min="0" max="48" step="1" [(ngModel)]="characterLook.secondEyebrowsColor"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Skazy twarzy</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.blemishesId" min="0" max="23" step="1" [(ngModel)]="characterLook.blemishesId"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">
+        child_care
+      </i>
+    </div>
+    <mat-card-subtitle>Widoczność skaz</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider color="primary" [thumbLabel]="characterLook.blemishesOpacity" min="0" max="1" step="0.1" [(ngModel)]="characterLook.blemishesOpacity"></mat-slider>
+  </mat-card-content>
+</mat-card>
+
+
 <!-- <mat-card>
   <mat-card-header>
     <div mat-card-avatar>

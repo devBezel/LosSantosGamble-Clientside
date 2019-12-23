@@ -1,11 +1,21 @@
 export interface CharacterLook {
     id: number;
+    characterId?: number;
     fatherFaceId?: number;
     motherFaceId?: number;
     skinColour?: number;
     shapeMix?: number;
-    earsId?: number;
-    earsTexture?: number;
+    earsColor?: number;
+    blemishesId?: number;
+    blemishesOpacity?: number;
+    ageingId?: number;
+    ageingOpacity: number;
+    blushId: number;
+    blushOpacity: number;
+    blushColor: number;
+    beardId: number;
+    beardOpacity: number;
+    beardColor: number;
 
     noseWidth?: number;
     nosePeakHight?: number;
@@ -31,10 +41,12 @@ export interface CharacterLook {
     eyebrowsId?: number;
     secondEyebrowsColor?: number;
     eyeBrowsOpacity: number;
+    lipstickId: number;
     firstEyebrowsColor?: number;
     firstLipstickColor?: number;
     lipstickOpacity?: number;
     secondLipstickColor?: number;
+    makeupId: number;
     firstMakeupColor?: number;
     makeupOpacity?: any;
     secondMakeupColor?: number;

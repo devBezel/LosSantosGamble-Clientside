@@ -5,6 +5,7 @@ import { MatSliderChange } from '@angular/material';
 import { Character } from 'src/app/_models/character';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterLook } from 'src/app/_models/characterLook';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-character-creator-panel',
@@ -17,7 +18,8 @@ export class CharacterCreatorPanelComponent implements OnInit {
   characterLook: CharacterLook;
   variationList: any[];
 
-  constructor(private altvService: AltvService, private route: ActivatedRoute, private characterService: CharacterService) {
+  constructor(private altvService: AltvService, private route: ActivatedRoute,
+              private characterService: CharacterService, private authService: AuthService) {
     // altvService.on('characterCreator:clothesVariation', this.getComponentVariation);
     this.getComponentVariation();
 
@@ -27,6 +29,13 @@ export class CharacterCreatorPanelComponent implements OnInit {
     }, 200);
 
 
+  }
+
+  saveCharacterLook() {
+    this.characterService.saveCharacterLook(this.authService.decodedToken.nameid, this.authService.getCharacterId(), this.characterLook)
+      .subscribe((res: any) => {
+      console.log(res);
+    });
   }
 
   ngOnInit() {

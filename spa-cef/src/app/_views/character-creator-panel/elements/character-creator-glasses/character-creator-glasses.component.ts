@@ -24,7 +24,7 @@ export class CharacterCreatorGlassesComponent implements OnInit {
   }
 
   public get glassesTexture() {
-    return this.variationList[this.characterLook.glassesId].variation;
+    return this.variationList[this.characterLook.glassesId].variation - 1;
   }
 
 }

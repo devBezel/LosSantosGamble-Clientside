@@ -24,7 +24,7 @@ export class CharacterCreatorLegsComponent implements OnInit {
   }
 
   public get legsTexture() {
-    return this.variationList.filter(x => x.component === 4)[this.characterLook.legsId].variation;
+    return this.variationList.filter(x => x.component === 4)[this.characterLook.legsId].variation - 1;
   }
 
   public get shoesId() {
@@ -32,7 +32,7 @@ export class CharacterCreatorLegsComponent implements OnInit {
   }
 
   public get shoesTexture() {
-    return this.variationList.filter(x => x.component === 6)[this.characterLook.shoesId].variation;
+    return this.variationList.filter(x => x.component === 6)[this.characterLook.shoesId].variation - 1;
   }
 
 }
