@@ -7,12 +7,14 @@ import { Player } from '../../Entities/Player';
 
 export default async () => {
     let webView: View;
-    const url = 'http://localhost:4000/character/description';
 
     alt.onServer('description:getCharacterDescription', showDescriptionWindow);
 
     alt.on('keyup', async (key: any) => {
         if (key === Key.ESCAPE) {
+            if (webView === null || webView === undefined) {
+                return;
+            }
             webView.close();
         }
     });
@@ -24,7 +26,7 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        webView.open(url, true);
+        webView.open('', true, 'character/description');
 
         webView.on('cef:setDescription', setDescription);
     }

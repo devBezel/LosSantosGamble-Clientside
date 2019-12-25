@@ -10,8 +10,6 @@ export default async () => {
     let webView: View;
     let blockAfkCameraInterval: any;
 
-    const url = 'http://localhost:4000/character/creator';
-
 
     alt.on('character:showCreateCharacterWindow', showCreationWindow);
     alt.on('character:wearClothes', wearClothes);
@@ -156,7 +154,7 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        webView.open(url, true);
+        webView.open('', true, 'character/creator');
 
         blockAfkCameraInterval = alt.setInterval(() => {
             game.invalidateIdleCam();

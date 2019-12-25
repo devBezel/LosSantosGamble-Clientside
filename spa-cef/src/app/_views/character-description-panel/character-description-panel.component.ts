@@ -21,6 +21,7 @@ export class CharacterDescriptionPanelComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      console.log('dziala');
       this.descriptions = data.descriptions;
     });
   }
@@ -29,7 +30,6 @@ export class CharacterDescriptionPanelComponent implements OnInit {
     this.newDescription.characterId = this.authService.getCharacterId();
     this.characterService.createCharacterDescription(this.authService.decodedToken.nameid, this.newDescription)
     .subscribe((res: CharacterDescription) => {
-      console.log(res.id);
       this.descriptions.push(res);
     });
   }

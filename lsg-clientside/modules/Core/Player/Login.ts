@@ -20,7 +20,6 @@ export default async() => {
     });
 
      async function showLoginWindow() {
-        console.log('test');
         if (!webView) {
             webView = new View();
         }

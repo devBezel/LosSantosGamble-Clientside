@@ -14,7 +14,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string, gameControls: boolean = true) {
+    open(url: string = 'http://localhost:4000/', gameControls: boolean = true, route: string = '') {
         if (!currentView.view) {
             currentView.view = new alt.WebView(url);
             currentView.events = [];
@@ -22,7 +22,8 @@ export class View {
 
         alt.Player.local.setMeta('viewOpen', true);
         currentView.on('close', currentView.close);
-        currentView.view.url = url;
+        // currentView.view.url = url;
+        currentView.emit('change:route', route);
         currentView.isVisible = true;
         currentView.view.focus();
         currentView.view.ready = true;
@@ -44,7 +45,8 @@ export class View {
         });
 
         currentView.view.off('close', currentView.close);
-        currentView.view.url = 'http://localhost:4000/';
+        // currentView.view.url = 'http://localhost:4000/';
+        currentView.emit('change:route', '');
         currentView.view.unfocus();
 
         currentView.events = [];
