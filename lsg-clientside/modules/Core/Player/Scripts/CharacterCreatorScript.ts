@@ -13,14 +13,10 @@ export default async () => {
     const url = 'http://localhost:4000/character/creator';
 
 
-    alt.on('keyup', (key: any) => {
-        if (key === Key.INSERT) {
-            showCreationWindow();
-        } else if (key === Key.ESCAPE) {
-            alt.clearInterval(blockAfkCameraInterval);
-            webView.close();
-        }
-    });
+    alt.on('character:showCreateCharacterWindow', showCreationWindow);
+    alt.on('character:wearClothes', wearClothes);
+
+
 
     async function randomClothes() {
         const playerId = alt.Player.local.scriptID;
@@ -38,7 +34,7 @@ export default async () => {
         game.setEntityHeading(alt.Player.local.scriptID, rot);
     }
 
-    async function updateClothes(characterLook: CharacterLook) {
+    async function wearClothes(characterLook: CharacterLook) {
 
         // DNA
         game.setPedHeadBlendData(alt.Player.local.scriptID, characterLook.fatherFaceId, characterLook.motherFaceId, 0, characterLook.skinColour, 0, 0, characterLook.shapeMix, 0, 0, true);
@@ -85,6 +81,8 @@ export default async () => {
         game.setPedFaceFeature(alt.Player.local.scriptID, 15, characterLook.chimpBoneWidth);
         game.setPedFaceFeature(alt.Player.local.scriptID, 16, characterLook.chimpHole);
         game.setPedFaceFeature(alt.Player.local.scriptID, 18, characterLook.neckThikness);
+
+        alt.setTimeout(() => {}, 200);
 
         // Ears
         game.setPedEyeColor(alt.Player.local.scriptID, characterLook.earsColor);
@@ -167,7 +165,13 @@ export default async () => {
         webView.on('cef:characterCreatorRandomClothes', randomClothes);
         webView.on('cef:characterCreatorClearClothes', clearClothes);
         webView.on('cef:characterCreatorChangeRotation', changeCharacterRotation);
-        webView.on('cef:characterCreatorUpdateClothes', updateClothes);
+        webView.on('cef:characterCreatorUpdateClothes', wearClothes);
         webView.on('cef:characterCreatorGetComponentsVariation', getNumberOfTextureVariation);
+        webView.on('cef:closeCharacterCreator', closeCharacterCreatorWindow);
+    }
+
+    async function closeCharacterCreatorWindow() {
+        alt.clearInterval(blockAfkCameraInterval);
+        webView.close();
     }
 };

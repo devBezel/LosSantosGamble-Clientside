@@ -34,12 +34,17 @@ export class CharacterCreatorPanelComponent implements OnInit {
   saveCharacterLook() {
     this.characterService.saveCharacterLook(this.authService.decodedToken.nameid, this.authService.getCharacterId(), this.characterLook)
       .subscribe((res: any) => {
-      console.log(res);
+      this.altvService.emit('cef:closeCharacterCreator');
     });
   }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      if (data.characterLook === null) {
+        console.log('wykonalo sie');
+        return this.characterLook = new CharacterLook();
+      }
+
       this.characterLook = data.characterLook;
     });
   }

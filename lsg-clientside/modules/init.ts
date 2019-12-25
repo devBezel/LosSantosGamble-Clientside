@@ -10,7 +10,6 @@ export default async () => {
 	 await ScaleformScript();
 	 await CharacterCreatorScript();
 
-
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');
 	 alt.requestIpl('gr_heist_yacht2_bedrm');

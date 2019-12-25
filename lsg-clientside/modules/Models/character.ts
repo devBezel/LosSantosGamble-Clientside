@@ -1,5 +1,6 @@
 import { Vehicle } from './vehicle';
 import { Account } from './account';
+import { CharacterLook } from './characterLook';
 
 export interface Character {
     id: number;
@@ -24,4 +25,5 @@ export interface Character {
     health: number;
     armor: number;
     vehicles: Vehicle[];
+    characterLook: CharacterLook;
 }

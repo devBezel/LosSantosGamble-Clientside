@@ -23,7 +23,7 @@ export class CharactersPanelComponent implements OnInit {
     localStorage.setItem('characterId', character.id.toString());
       // @ts-ignore
     alt.emit('cef:character-selected', character);
-    this.router.navigate(['character/creator']);
+    // this.router.navigate(['character/creator']);
   }
 
 }
