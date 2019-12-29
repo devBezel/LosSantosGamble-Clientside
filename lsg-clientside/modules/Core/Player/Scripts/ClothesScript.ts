@@ -4,11 +4,14 @@ import { View } from '../../Utilities/View';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { Player } from '../../Entities/Player';
 import { CharacterLook } from 'client/modules/Models/characterLook';
+import { Camera } from '../../Utilities/Camera';
+import { spawnConfig } from 'client/modules/Configs/SpawnConfig';
 
 export default async () => {
 
     let webView: View;
     let blockAfkCameraInterval: any;
+    let firstCustomization: boolean;
 
 
     alt.on('character:showCreateCharacterWindow', showCreationWindow);
@@ -138,16 +141,8 @@ export default async () => {
         webView.emit('characterCreator:clothesVariation', map);
     }
 
-    // async function getComponentVariations(componentId: number, clothesLength: number) {
-    //     // const clothesVariation = getNumberOfTextureVariation(componentId, clothesLength);
-    //     // alt.log(`ze skryptu ${clothesVariation.index}`);
-    //     getNumberOfTextureVariation(componentId, clothesLength).then((data: any) => {
-    //         webView.emit('characterCreator:clothesVariation', data);
-    //     });
-    // }
 
-
-    async function showCreationWindow() {
+    async function showCreationWindow(firstCustom: boolean) {
         if (!webView) {
             webView = new View();
         }
@@ -155,6 +150,8 @@ export default async () => {
         if (alt.Player.local.getMeta('viewOpen')) return;
 
         webView.open('', true, 'character/creator');
+
+        firstCustomization = firstCustom;
 
         blockAfkCameraInterval = alt.setInterval(() => {
             game.invalidateIdleCam();
@@ -169,7 +166,14 @@ export default async () => {
     }
 
     async function closeCharacterCreatorWindow() {
+
+        if (firstCustomization) {
+            game.setEntityCoords(alt.Player.local.scriptID, spawnConfig.firstSpawnPosition.x, spawnConfig.firstSpawnPosition.y, spawnConfig.firstSpawnPosition.z, false, false, false, false);
+            alt.emit('clothesScript:firstCharacterCustomizationCompleted');
+        }
+
         alt.clearInterval(blockAfkCameraInterval);
         webView.close();
+        game.freezeEntityPosition(alt.Player.local.scriptID, false);
     }
 };

@@ -2,13 +2,13 @@ import * as alt from 'alt';
 import Login from './Core/Player/Login';
 import DescriptionScript from './Core/Player/Scripts/DescriptionScript';
 import ScaleformScript from './Core/Player/Scripts/ScaleformScript';
-import CharacterCreatorScript from './Core/Player/Scripts/CharacterCreatorScript';
+import ClothesScript from './Core/Player/Scripts/ClothesScript';
 
 export default async () => {
 	 await Login();
 	 await DescriptionScript();
 	 await ScaleformScript();
-	 await CharacterCreatorScript();
+	 await ClothesScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

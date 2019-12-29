@@ -9,7 +9,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.undershirtId" [max]="undershirtId" [step]="1" [(ngModel)]="characterLook.undershirtId"></mat-slider>
+    <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.undershirtId" [max]="undershirtId" [step]="1" [(ngModel)]="characterLook.undershirtId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -25,7 +25,7 @@
 
   <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.undershirtTexture" [max]="undershirtTexture" [(ngModel)]="characterLook.undershirtTexture" step="1"></mat-slider>
+    <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.undershirtTexture" [max]="undershirtTexture" [(ngModel)]="characterLook.undershirtTexture" step="1"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -40,7 +40,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.topId" [max]="topId" [step]="1" [(ngModel)]="characterLook.topId"></mat-slider>
+    <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.topId" [max]="topId" [step]="1" [(ngModel)]="characterLook.topId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -56,6 +56,6 @@
 
   <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.topTexture" [max]="topTexture" [(ngModel)]="characterLook.topTexture" step="1"></mat-slider>
+    <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.topTexture" [max]="topTexture" [(ngModel)]="characterLook.topTexture" step="1"></mat-slider>
   </mat-card-content>
 </mat-card>

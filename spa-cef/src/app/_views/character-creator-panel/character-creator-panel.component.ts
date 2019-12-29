@@ -6,6 +6,7 @@ import { Character } from 'src/app/_models/character';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterLook } from 'src/app/_models/characterLook';
 import { AuthService } from 'src/app/_services/auth.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-character-creator-panel',
@@ -16,7 +17,7 @@ export class CharacterCreatorPanelComponent implements OnInit {
 
   selectedBody: number;
   characterLook: CharacterLook;
-  variationList: any[];
+  variationList?: any[];
 
   constructor(private altvService: AltvService, private route: ActivatedRoute,
               private characterService: CharacterService, private authService: AuthService) {
@@ -50,7 +51,7 @@ export class CharacterCreatorPanelComponent implements OnInit {
   }
 
   getComponentVariation() {
-    this.altvService.on('characterCreator:clothesVariation', async (listVariation: any[]) => {
+    this.altvService.on('characterCreator:clothesVariation', async (listVariation?: any[]) => {
       // console.log(listVariation);
       this.variationList = listVariation;
 

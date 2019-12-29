@@ -9,7 +9,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.glassesId" [max]="glassesId" [step]="1" [(ngModel)]="characterLook.glassesId"></mat-slider>
+    <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.glassesId" [max]="glassesId" [step]="1" [(ngModel)]="characterLook.glassesId"></mat-slider>
   </mat-card-content>
 </mat-card>
 
@@ -25,6 +25,6 @@
 
   <!-- TODO: Naprawić bląd który wywala przez to, że tablica jest pusta na początku przez chwile -->
   <mat-card-content>
-    <mat-slider color="primary" [min]="1" [thumbLabel]="characterLook.glassesTexture" [max]="glassesTexture" [(ngModel)]="characterLook.glassesTexture" step="1"></mat-slider>
+    <mat-slider color="primary" [min]="0" [thumbLabel]="characterLook.glassesTexture" [max]="glassesTexture" [(ngModel)]="characterLook.glassesTexture" step="1"></mat-slider>
   </mat-card-content>
 </mat-card>

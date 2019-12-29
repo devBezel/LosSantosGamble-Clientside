@@ -26,6 +26,7 @@ export class CharacterService {
   }
 
   getCharacterDescriptions(userId: number, characterId: number): Observable<CharacterDescription[]> {
+    console.log(this.baseUrl + '/description/' + userId + '/' + characterId);
     return this.http.get<CharacterDescription[]>(this.baseUrl + '/description/' + userId + '/' + characterId);
   }
 
