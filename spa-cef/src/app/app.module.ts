@@ -13,6 +13,8 @@ import { appRoutes } from './routes';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+
 import { CharactersPanelComponent } from './_views/characters-panel/characters-panel.component';
 import { CharacterService } from './_services/character.service';
 import { CharacterCardResolver } from './_resolvers/character-card.resolver';
@@ -47,6 +49,8 @@ import { CharacterCreatorFaceDetailComponent } from './_views/character-creator-
 
 // tslint:disable-next-line:max-line-length
 import { CharacterCreatorBeardComponent } from './_views/character-creator-panel/elements/character-creator-beard/character-creator-beard.component';
+import { NotifyService } from './_services/notify.service';
+import { BaseService } from './_services/base.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -86,6 +90,11 @@ export function tokenGetter() {
         blacklistedRoutes: ['localhost:5000/api/auth']
       }
     }),
+    ToastrModule.forRoot({
+      timeOut: 6000,
+      positionClass: 'toast-bottom-center',
+      progressBar: true
+    }),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
@@ -95,7 +104,9 @@ export function tokenGetter() {
     CharacterCardResolver,
     CharacterDescriptionResolver,
     AltvService,
-    CharacterLookResolver
+    CharacterLookResolver,
+    NotifyService,
+    BaseService
   ],
   bootstrap: [AppComponent]
 })

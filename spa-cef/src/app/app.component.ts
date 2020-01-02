@@ -3,6 +3,8 @@ import { AuthService } from './_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AltvService } from './_services/altv.service';
 import { Router } from '@angular/router';
+import { NotifyService } from './_services/notify.service';
+import { BaseService } from './_services/base.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +14,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'spa-cef';
   jwtHelper = new JwtHelperService();
-  constructor(private authService: AuthService, private altvService: AltvService, private router: Router, private ngZone: NgZone) {
-    this.redirectToPage();
+  constructor(private authService: AuthService, private base: BaseService) {
   }
 
   ngOnInit() {
@@ -21,12 +22,6 @@ export class AppComponent implements OnInit {
     if (token) {
       this.authService.decodedToken = this.jwtHelper.decodeToken(token);
     }
-  }
-
-  redirectToPage() {
-    this.altvService.on('change:route', async (routeClient: string) => {
-      await this.ngZone.run(async () => await this.router.navigate([routeClient]));
-    });
   }
 
   loggedIn() {

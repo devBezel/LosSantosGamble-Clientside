@@ -40,6 +40,10 @@ export default async () => {
                 y = 0;
             }
 
+            if (player.hasPremium()) {
+                Draw.drawText('premium', result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+            }
+
             const text = Player.getPlayerDescription(player);
 
             if (text === null || text === undefined) {

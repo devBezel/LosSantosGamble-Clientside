@@ -19,8 +19,6 @@ export class Player {
     }
 
 
-
-
     public static getPlayerDescription(player: alt.Player) : CharacterDescription {
         return player.getMeta('character:description');
     }

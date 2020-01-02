@@ -61,5 +61,6 @@ export default async() => {
 
     async function customizationCompleted() {
         loginCamera.destroy();
+        alt.emit('notify-client:success', 'Pomyślnie ubrałeś postać', 'Twoja postać została ubrana poprawnie');
     }
 };

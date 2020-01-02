@@ -141,6 +141,8 @@ declare namespace hashes {
 	  static readonly local: Player;
 	  readonly name: string;
 	  readonly vehicle: Vehicle|null;
+        prototype: any;
+        hasPremium: () => Promise<any>;
   
 	  addWeaponComponent(weaponHash: number, componentHash: number): void;
 	  getCurrentWeapon(): number;
