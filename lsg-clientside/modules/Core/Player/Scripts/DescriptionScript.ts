@@ -26,6 +26,7 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
+        alt.log(alt.Player.local.accountData());
         webView.open('', true, 'character/description');
 
         webView.on('cef:setDescription', setDescription);

@@ -8,7 +8,6 @@ export default async () => {
     alt.everyTick(async () => {
         alt.Player.all.forEach((player: alt.Player) => {
             const distanceFromLocal = Position.distance(player.pos, alt.Player.local.pos);
-
             if (distanceFromLocal >= 10) {
                 return;
             }
@@ -40,8 +39,13 @@ export default async () => {
                 y = 0;
             }
 
-            if (player.hasPremium()) {
-                Draw.drawText('premium', result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+
+            alt.setTimeout(() => {}, 200);
+
+            if (player.hasPremium() && player.characterData().name !== null && player.characterData().surname !== null) {
+                Draw.drawText(`~y~ ${player.characterData().name} ${player.characterData().surname} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+            } else if (!player.hasPremium() && player.characterData().name !== null && player.characterData().surname !== null) {
+                Draw.drawText(`${player.characterData().name} ${player.characterData().surname} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
             }
 
             const text = Player.getPlayerDescription(player);
