@@ -8,11 +8,18 @@ import { Router } from '@angular/router';
 })
 export class BaseService {
 
+  hasPremium: boolean;
+
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
     this.showNotifySuccess();
     this.showNotifyError();
     this.redirectToPage();
+
+    this.altvService.on('cef:descriptionHasPremium', async (hasPrem: boolean) => {
+        console.log('baseservice: ' + hasPrem);
+        this.hasPremium = hasPrem;
+    });
   }
 
   showNotifySuccess() {
@@ -34,5 +41,6 @@ export class BaseService {
       await this.ngZone.run(async () => await this.router.navigate([routeClient]));
     });
   }
+
 
 }

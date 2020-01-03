@@ -18,8 +18,21 @@ export default async () => {
         return alt.Player.local.setMeta('character:data', result);
     });
 
+    alt.onServer('admin:setDuty', async (result: boolean) => {
+        return alt.Player.local.setMeta('admin:duty', result);
+    });
+
+
+
+
+
+
     alt.Player.prototype.serverID = function serverID(): number {
         return alt.Player.local.getMeta('account:id');
+    };
+
+    alt.Player.prototype.onAdminDuty = function onAdminDuty(): boolean {
+        return alt.Player.local.getMeta('admin:duty');
     };
 
     alt.Player.prototype.hasPremium = function hasPremium() {

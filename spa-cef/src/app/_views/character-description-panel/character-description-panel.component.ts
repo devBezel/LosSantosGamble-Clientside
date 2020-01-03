@@ -5,6 +5,8 @@ import { CharacterDescriptionResolver } from 'src/app/_resolvers/character-descr
 import { AuthService } from 'src/app/_services/auth.service';
 import { CharacterService } from 'src/app/_services/character.service';
 import { AltvService } from 'src/app/_services/altv.service';
+import { NotifyService } from 'src/app/_services/notify.service';
+import { BaseService } from 'src/app/_services/base.service';
 
 @Component({
   selector: 'app-character-description-panel',
@@ -17,16 +19,21 @@ export class CharacterDescriptionPanelComponent implements OnInit {
   newDescription: CharacterDescription = new CharacterDescription();
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private characterService: CharacterService,
-              private altvService: AltvService) { }
+              private altvService: AltvService, private notify: NotifyService, private baseService: BaseService) {
+              }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      console.log('dziala');
       this.descriptions = data.descriptions;
     });
   }
 
   createCharacter() {
+    if (this.descriptions.length >= 3) {
+      if (!this.baseService.hasPremium) {
+        return this.notify.error('Wystąpił bląd!', 'Aby zapisać więcej niż 3 opisy musisz posiadać premium');
+      }
+    }
     this.newDescription.characterId = this.authService.getCharacterId();
     this.characterService.createCharacterDescription(this.authService.decodedToken.nameid, this.newDescription)
     .subscribe((res: CharacterDescription) => {
