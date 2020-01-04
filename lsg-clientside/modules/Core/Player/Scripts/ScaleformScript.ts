@@ -3,6 +3,7 @@ import * as game from 'natives';
 import { Position } from '../../Utilities/Position';
 import { Player } from '../../Entities/Player';
 import { Draw } from '../../Utilities/Draw';
+import { RankParser } from '../../Helpers/RankParser';
 
 export default async () => {
     alt.everyTick(async () => {
@@ -11,6 +12,8 @@ export default async () => {
             if (distanceFromLocal >= 10) {
                 return;
             }
+
+            alt.setTimeout(() => {}, 3000);
 
             const result = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.0, undefined, undefined);
 
@@ -39,19 +42,28 @@ export default async () => {
                 y = 0;
             }
 
-
-            alt.setTimeout(() => {}, 200);
-
-            if (player.hasPremium() && player.characterData().name !== null && player.characterData().surname !== null) {
+            if (player.onAdminDuty() && player.hasPremium() && player.characterData().name) {
+                const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.05, undefined, undefined);
+                Draw.drawText(`${RankParser.parse(player.accountData().rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(`~y~ ${player.accountData().username} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+            } else if (player.onAdminDuty()) {
+                const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.05, undefined, undefined);
+                Draw.drawText(`${RankParser.parse(player.accountData().rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(`${player.accountData().username} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+            } else if (player.hasPremium()) {
                 Draw.drawText(`~y~ ${player.characterData().name} ${player.characterData().surname} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
-            } else if (!player.hasPremium() && player.characterData().name !== null && player.characterData().surname !== null) {
+            } else {
                 Draw.drawText(`${player.characterData().name} ${player.characterData().surname} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
             }
+
 
             const text = Player.getPlayerDescription(player);
 
             if (text === null || text === undefined) {
                 return;
+            }
+            if (!player.hasPremium()) {
+                text.content = text.content.replace(/~/g, '');
             }
 
             const textOne = text.content.slice(0, 64);
