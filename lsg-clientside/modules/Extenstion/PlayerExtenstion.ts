@@ -10,6 +10,7 @@ export default async () => {
     });
 
     alt.onServer('account:sendDataAccount', async(result: Account, id: number) => {
+
         alt.Player.local.setMeta('account:id', id);
         return alt.Player.local.setMeta('account:data', result);
     });

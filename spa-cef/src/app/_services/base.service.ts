@@ -24,7 +24,6 @@ export class BaseService {
 
   showNotifySuccess() {
     this.altvService.on('notify:success', async (title: string, message: string) => {
-      console.log(title);
       await this.ngZone.run(async () => await this.notify.success(title, message));
     });
   }
