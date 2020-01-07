@@ -4,7 +4,9 @@ export interface Vehicle {
     posX: number;
     posY: number;
     posZ: number;
-    rot: number;
+    rotRoll: number;
+    rotPitch: number;
+    rotYaw: number;
     r: number;
     g: number;
     b: number;
