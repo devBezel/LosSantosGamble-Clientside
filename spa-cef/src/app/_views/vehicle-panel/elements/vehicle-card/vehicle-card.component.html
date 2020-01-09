@@ -1,0 +1,20 @@
+<div class="vehicle-container-card">
+  <mat-card class="vehicle-card" *ngFor="let vehicle of vehicleList">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <i class="material-icons">
+          help_outline
+          </i>
+      </div>
+      <mat-card-subtitle>{{ vehicle.model }} (VID: {{ vehicle.id }})</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-actions>
+      <button mat-button [matMenuTriggerFor]="menu">Opcje</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="spawnVehicle(vehicle)">Spawn</button>
+        <button mat-menu-item>Namierz</button>
+      </mat-menu>
+    </mat-card-actions>
+  </mat-card>
+</div>

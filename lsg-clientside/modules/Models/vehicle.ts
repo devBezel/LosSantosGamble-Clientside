@@ -12,4 +12,5 @@ export interface Vehicle {
     b: number;
     state: boolean;
     health: number;
+    // dimension: number;
 }

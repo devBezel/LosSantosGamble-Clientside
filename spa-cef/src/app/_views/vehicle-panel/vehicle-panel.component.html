@@ -1,0 +1,15 @@
+<div class="container" cdkDrag>
+  <mat-card cdkDrag>
+    <mat-card-header>
+      <img mat-card-avatar src="../../../assets/img/clip/clip.gif" />
+      <mat-card-title>Lista twoich pojazdów</mat-card-title>
+      <mat-card-subtitle>Aby zrespić swój pojazd wybierz jeden z listy i kliknij "Spawn"</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="vehicle-container">
+        <app-vehicle-card [vehicleList]="vehicleList"></app-vehicle-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

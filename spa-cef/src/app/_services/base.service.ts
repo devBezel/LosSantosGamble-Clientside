@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AltvService } from './altv.service';
 import { NotifyService } from './notify.service';
 import { Router } from '@angular/router';
+import { Vehicle } from '../_models/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class BaseService {
 
   hasPremium: boolean;
+  vehicleList: Vehicle[];
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -20,6 +22,8 @@ export class BaseService {
         console.log('baseservice: ' + hasPrem);
         this.hasPremium = hasPrem;
     });
+
+    this.getVehicleList();
   }
 
   showNotifySuccess() {
@@ -38,6 +42,12 @@ export class BaseService {
     this.altvService.on('change:route', async (routeClient: string) => {
       console.log('przekierowywuje');
       await this.ngZone.run(async () => await this.router.navigate([routeClient]));
+    });
+  }
+
+  getVehicleList() {
+    this.altvService.on('cef:vehicleList', async (vehicles: Vehicle[]) => {
+      this.vehicleList = vehicles;
     });
   }
 

@@ -1,0 +1,9 @@
+ game.setVehicleAlarm(alt.Player.local.vehicle.scriptID, true); // jak ktoś posiada mod alarmu
+game.startVehicleAlarm(alt.Player.local.vehicle.scriptID); // do wlączenia alarmu
+
+
+alt.log(game.isVehicleDoorDamaged(alt.Player.local.vehicle.scriptID, 0)); // do sprawdzenia czy drzwi są zniszczone
+game.setVehicleDoorBroken(alt.Player.local.vehicle.scriptID, 0, true); // do zniszczenia drzwi jeśli są zniszczone
+
+
+game.setVehicleHandbrake(alt.Player.local.vehicle.scriptID, true); // zaciągnięcie hamulca ręcznego

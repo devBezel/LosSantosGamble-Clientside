@@ -1,0 +1,33 @@
+.vehicle-information p{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.color-a {
+    width: 25px !important;
+    height: 25px;
+    cursor: pointer;
+    background-size: 120px;
+    background-color: rgb(201, 76, 76);
+}
+
+.vehicle-container-card {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.vehicle-card {
+    margin-bottom: 10px;
+}
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+}

@@ -5,6 +5,7 @@ import ScaleformScript from './Core/Player/Scripts/ScaleformScript';
 import ClothesScript from './Core/Player/Scripts/ClothesScript';
 import Notification from './Core/Notify/Notification';
 import PlayerExtenstion from './Extenstion/PlayerExtenstion';
+import VehicleScript from './Core/Vehicle/VehicleScript';
 
 export default async () => {
 	 await Login();
@@ -13,6 +14,9 @@ export default async () => {
 	 await ClothesScript();
 	 await Notification();
 	 await PlayerExtenstion();
+	 await VehicleScript();
+
+
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');
 	 alt.requestIpl('gr_heist_yacht2_bedrm');

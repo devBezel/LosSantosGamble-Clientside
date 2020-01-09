@@ -51,6 +51,8 @@ import { CharacterCreatorFaceDetailComponent } from './_views/character-creator-
 import { CharacterCreatorBeardComponent } from './_views/character-creator-panel/elements/character-creator-beard/character-creator-beard.component';
 import { NotifyService } from './_services/notify.service';
 import { BaseService } from './_services/base.service';
+import { VehiclePanelComponent } from './_views/vehicle-panel/vehicle-panel.component';
+import { VehicleCardComponent } from './_views/vehicle-panel/elements/vehicle-card/vehicle-card.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -73,7 +75,9 @@ export function tokenGetter() {
     CharacterCreatorHatComponent,
     CharacterCreatorGlassesComponent,
     CharacterCreatorFaceDetailComponent,
-    CharacterCreatorBeardComponent
+    CharacterCreatorBeardComponent,
+    VehiclePanelComponent,
+    VehicleCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
