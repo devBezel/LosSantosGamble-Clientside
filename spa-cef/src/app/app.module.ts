@@ -110,7 +110,7 @@ export function tokenGetter() {
     AltvService,
     CharacterLookResolver,
     NotifyService,
-    BaseService
+    BaseService,
   ],
   bootstrap: [AppComponent]
 })

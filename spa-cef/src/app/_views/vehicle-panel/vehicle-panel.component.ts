@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from 'src/app/_services/base.service';
 import { Vehicle } from 'src/app/_models/vehicle';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-panel',

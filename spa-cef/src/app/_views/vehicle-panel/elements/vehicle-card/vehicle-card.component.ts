@@ -17,7 +17,7 @@ export class VehicleCardComponent implements OnInit {
 
   spawnVehicle(vehicle: Vehicle) {
     console.log(vehicle.id);
-    this.altvService.emit('cef:vehicleSpawn', vehicle);
+    this.altvService.emit('cef:vehicleSpawn', vehicle.id);
   }
 
 }

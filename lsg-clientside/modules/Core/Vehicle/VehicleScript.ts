@@ -20,7 +20,8 @@ export default async() => {
     alt.onServer('vehicle:openWindow', openVehicleWindow);
 
 
-    async function openVehicleWindow(vehicleList: Vehicle) {
+    async function openVehicleWindow(vehicleList: Vehicle[]) {
+        alt.log(vehicleList.length);
         if (!webView) {
             webView = new View();
         }
@@ -32,9 +33,9 @@ export default async() => {
         webView.on('cef:vehicleSpawn', sendVehicleToServer);
     }
 
-    async function sendVehicleToServer(vehicle: Vehicle) {
-        alt.log(vehicle.id);
-        alt.emitServer('vehicle:spawnVehicle', JSON.stringify(vehicle));
+    async function sendVehicleToServer(vehicleId: number) {
+        webView.close();
+        alt.emitServer('vehicle:spawnVehicle', vehicleId);
     }
 
 };
