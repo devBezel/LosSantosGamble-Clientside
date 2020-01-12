@@ -21,7 +21,7 @@ export const appRoutes: Routes = [
             { path: 'character/description', component: CharacterDescriptionPanelComponent
                                             , resolve: { descriptions: CharacterDescriptionResolver } },
             { path: 'character/creator', component: CharacterCreatorPanelComponent, resolve: { characterLook: CharacterLookResolver } },
-            { path: 'character/vehicle', component: VehiclePanelComponent }
+            { path: 'character/vehicle', component: VehiclePanelComponent  }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

@@ -20,12 +20,11 @@ export class BaseService {
     this.redirectToPage();
 
     this.altvService.on('cef:descriptionHasPremium', async (hasPrem: boolean) => {
-        console.log('baseservice: ' + hasPrem);
-        this.hasPremium = hasPrem;
+        await this.ngZone.run(async () => { this.hasPremium = hasPrem; });
     });
 
     this.altvService.on('cef:vehicleList', async (vehicles: Vehicle[]) => {
-      this.vehicleList = vehicles;
+      await this.ngZone.run(async () => { this.vehicleList = vehicles; console.log(this.vehicleList); } );
     });
 
   }

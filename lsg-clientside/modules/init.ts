@@ -6,6 +6,8 @@ import ClothesScript from './Core/Player/Scripts/ClothesScript';
 import Notification from './Core/Notify/Notification';
 import PlayerExtenstion from './Extenstion/PlayerExtenstion';
 import VehicleScript from './Core/Vehicle/VehicleScript';
+import BlipScript from './Core/Map/BlipScript';
+import MarkerScript from './Core/Map/MarkerScript';
 
 export default async () => {
 	 await Login();
@@ -15,7 +17,8 @@ export default async () => {
 	 await Notification();
 	 await PlayerExtenstion();
 	 await VehicleScript();
-
+	 await BlipScript();
+	 await MarkerScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

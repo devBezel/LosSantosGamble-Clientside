@@ -12,10 +12,13 @@ export class VehiclePanelComponent implements OnInit {
 
   vehicleList: Vehicle[];
 
-  constructor(private baseService: BaseService) { }
+  constructor(private baseService: BaseService) {
+   }
 
   ngOnInit() {
-    this.vehicleList = this.baseService.vehicleList;
+    setTimeout(() => {
+      this.vehicleList = this.baseService.vehicleList;
+    }, 2);
   }
 
 }
