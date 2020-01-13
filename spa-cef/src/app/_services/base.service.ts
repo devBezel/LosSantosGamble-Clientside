@@ -12,6 +12,7 @@ export class BaseService {
 
   hasPremium: boolean;
   vehicleList: Vehicle[];
+  userAtmInformation: { name: string, surname: string, money: number, bank: number };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -26,6 +27,11 @@ export class BaseService {
     this.altvService.on('cef:vehicleList', async (vehicles: Vehicle[]) => {
       await this.ngZone.run(async () => { this.vehicleList = vehicles; console.log(this.vehicleList); } );
     });
+
+    this.altvService.on('cef:atmInformation', async (atm: { name: string, surname: string, money: number, bank: number }) => {
+      await this.ngZone.run(async () => { this.userAtmInformation = atm; });
+    });
+
 
   }
 

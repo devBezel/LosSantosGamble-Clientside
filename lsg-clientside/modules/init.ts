@@ -8,6 +8,7 @@ import PlayerExtenstion from './Extenstion/PlayerExtenstion';
 import VehicleScript from './Core/Vehicle/VehicleScript';
 import BlipScript from './Core/Map/BlipScript';
 import MarkerScript from './Core/Map/MarkerScript';
+import AtmScript from './Economy/Bank/AtmScript';
 
 export default async () => {
 	 await Login();
@@ -19,6 +20,7 @@ export default async () => {
 	 await VehicleScript();
 	 await BlipScript();
 	 await MarkerScript();
+	 await AtmScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

@@ -9,6 +9,7 @@ export default async () => {
     alt.onServer('blip:delete', deleteBlip);
 
     async function createBlip(posX: number, posY: number, posZ: number, sprite: number, color: number, scale: number, name: string, shortRange: boolean, uniqueID: any) {
+        alt.log(`tworze blip UniqueID: ${uniqueID}`);
         const blip = game.addBlipForCoord(posX, posY, posZ);
         game.setBlipSprite(blip, sprite);
         game.setBlipColour(blip, color);

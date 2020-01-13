@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth.guard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 
 import { CharactersPanelComponent } from './_views/characters-panel/characters-panel.component';
@@ -53,6 +53,7 @@ import { NotifyService } from './_services/notify.service';
 import { BaseService } from './_services/base.service';
 import { VehiclePanelComponent } from './_views/vehicle-panel/vehicle-panel.component';
 import { VehicleCardComponent } from './_views/vehicle-panel/elements/vehicle-card/vehicle-card.component';
+import { AtmPanelComponent } from './_views/atm-panel/atm-panel.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -77,7 +78,8 @@ export function tokenGetter() {
     CharacterCreatorFaceDetailComponent,
     CharacterCreatorBeardComponent,
     VehiclePanelComponent,
-    VehicleCardComponent
+    VehicleCardComponent,
+    AtmPanelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -86,6 +88,7 @@ export function tokenGetter() {
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
         // tslint:disable-next-line:object-literal-shorthand

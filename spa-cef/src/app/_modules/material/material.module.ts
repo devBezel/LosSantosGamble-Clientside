@@ -57,6 +57,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatRadioModule,
     MatSliderModule,
     DragDropModule,
+    MatExpansionModule
   ],
   exports: [
     MatIconModule,
@@ -89,6 +90,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatRadioModule,
     MatSliderModule,
     DragDropModule,
+    MatExpansionModule
   ],
 })
 export class MaterialModule {

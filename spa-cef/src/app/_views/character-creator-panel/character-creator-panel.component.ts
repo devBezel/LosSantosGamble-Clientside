@@ -22,6 +22,7 @@ export class CharacterCreatorPanelComponent implements OnInit {
   constructor(private altvService: AltvService, private route: ActivatedRoute,
               private characterService: CharacterService, private authService: AuthService) {
     // altvService.on('characterCreator:clothesVariation', this.getComponentVariation);
+
     this.getComponentVariation();
 
     setInterval(() => {

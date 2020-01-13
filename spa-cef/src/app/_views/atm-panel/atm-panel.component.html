@@ -1,0 +1,67 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <img mat-card-avatar src="../../../assets/img/clip/clip.gif" >
+      <mat-card-title>
+        Los Santos Gamble ATM
+      </mat-card-title>
+      <mat-card-subtitle>
+        Witaj, {{ userAtmInformation?.name }} {{ userAtmInformation?.surname }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+            <i class="material-icons">attach_money</i><p>Twoje gotówka</p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <i class="material-icons">credit_card</i> <p>W banku</p>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="10:1">
+        <mat-grid-tile>
+          <p>{{ userAtmInformation?.money }} $</p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <p>{{ userAtmInformation?.bank }} $</p>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+  <form [formGroup]="atmForm" (ngSubmit)="next()">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+          <mat-form-field>
+              <input matInput placeholder="Wpłać" type="number" class="atm-button" formControlName="deposit" value="0">
+            </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+          <mat-form-field>
+              <input matInput placeholder="Wypłać" type="number" class="atm-button" formControlName="withdraw" value="0">
+            </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="10:1">
+      <mat-grid-tile>
+          <i class="material-icons">
+              navigate_next
+          </i>
+          <button mat-button [disabled]="atmForm.get('deposit').value > 0 && atmForm.get('withdraw').value > 0 || 
+          atmForm.get('deposit').value == 0 && atmForm.get('withdraw').value == 0 || atmForm.get('deposit').value === null && atmForm.get('withdraw').value === null"> Dalej</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </form>
+
+    <mat-card-footer>
+      <div class="bank-logos">
+        <img src="../../../assets/img/banks/visa-pay-logo.svg">
+        <img src="../../../assets/img/banks/mastercard.svg">
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
