@@ -8,6 +8,9 @@ import { RankParser } from '../../Helpers/RankParser';
 export default async () => {
     alt.everyTick(async () => {
         alt.Player.all.forEach((player: alt.Player) => {
+
+            if (alt.Player.local.getMeta('scaleform:nicknameTurnOff')) { return; }
+
             const distanceFromLocal = Position.distance(player.pos, alt.Player.local.pos);
             if (distanceFromLocal >= 10) {
                 return;

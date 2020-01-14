@@ -6,10 +6,10 @@ export default async () => {
 
   let webView: View;
 
-  alt.on('notify-client:success', showSuccessNotify);
+  alt.on('notify:success', showSuccessNotify);
 
-  alt.onServer('notify-server:success', showSuccessNotify);
-  alt.onServer('notify-server:error', showErrorNotify);
+  alt.onServer('notify:success', showSuccessNotify);
+  alt.onServer('notify:error', showErrorNotify);
 
   async function showSuccessNotify(title: string, message: string) {
     if (!webView) {

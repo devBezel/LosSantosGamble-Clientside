@@ -4,6 +4,8 @@ import { NotifyService } from './notify.service';
 import { Router } from '@angular/router';
 import { Vehicle } from '../_models/vehicle';
 import { Observable } from 'rxjs';
+import { BusStop } from '../_models/busStop';
+import { BusStopStation } from '../_models/busStopStation';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,8 @@ export class BaseService {
   hasPremium: boolean;
   vehicleList: Vehicle[];
   userAtmInformation: { name: string, surname: string, money: number, bank: number };
+  busStopInformation: BusStop;
+  busStationsInformation: BusStopStation[];
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -30,6 +34,13 @@ export class BaseService {
 
     this.altvService.on('cef:atmInformation', async (atm: { name: string, surname: string, money: number, bank: number }) => {
       await this.ngZone.run(async () => { this.userAtmInformation = atm; });
+    });
+
+    this.altvService.on('cef:busInformation', async (busInformation: BusStop, busStationsInformation: BusStopStation[]) => {
+      await this.ngZone.run(async () => {
+        this.busStopInformation = busInformation;
+        this.busStationsInformation = busStationsInformation;
+      });
     });
 
 

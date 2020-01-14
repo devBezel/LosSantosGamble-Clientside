@@ -54,6 +54,8 @@ import { BaseService } from './_services/base.service';
 import { VehiclePanelComponent } from './_views/vehicle-panel/vehicle-panel.component';
 import { VehicleCardComponent } from './_views/vehicle-panel/elements/vehicle-card/vehicle-card.component';
 import { AtmPanelComponent } from './_views/atm-panel/atm-panel.component';
+import { BusStopPanelComponent } from './_views/bus-stop-panel/bus-stop-panel.component';
+import { BusStationComponent } from './_views/bus-stop-panel/elements/bus-station/bus-station.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -79,7 +81,9 @@ export function tokenGetter() {
     CharacterCreatorBeardComponent,
     VehiclePanelComponent,
     VehicleCardComponent,
-    AtmPanelComponent
+    AtmPanelComponent,
+    BusStopPanelComponent,
+    BusStationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <img mat-card-avatar src="../../../assets/img/clip/clip.gif">
+    <mat-card-title>Przystanek autobusowy nr. {{ busStopInformation?.id }}</mat-card-title>
+      <mat-card-subtitle>Opłata jest pobierania od jednego przejazdu</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="container-card">
+          <app-bus-station [busStationsInformation]="busStationsInformation"></app-bus-station>
+      </div>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <div class="bus-logos">
+        <img src="../../../assets/img/bus/cityoflossantos.png">
+        <img src="../../../assets/img/bus/publicofwork.png">
+      </div>
+      <p style="text-align: center;">Sponsored by up</p>
+    </mat-card-footer>
+  </mat-card>
+</div>

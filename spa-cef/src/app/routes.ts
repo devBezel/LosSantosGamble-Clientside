@@ -10,6 +10,7 @@ import { CharacterCreatorPanelComponent } from './_views/character-creator-panel
 import { CharacterLookResolver } from './_resolvers/character-look.resolver';
 import { VehiclePanelComponent } from './_views/vehicle-panel/vehicle-panel.component';
 import { AtmPanelComponent } from './_views/atm-panel/atm-panel.component';
+import { BusStopPanelComponent } from './_views/bus-stop-panel/bus-stop-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -23,7 +24,8 @@ export const appRoutes: Routes = [
                                             , resolve: { descriptions: CharacterDescriptionResolver } },
             { path: 'character/creator', component: CharacterCreatorPanelComponent, resolve: { characterLook: CharacterLookResolver } },
             { path: 'character/vehicle', component: VehiclePanelComponent  },
-            { path: 'atm', component: AtmPanelComponent }
+            { path: 'atm', component: AtmPanelComponent },
+            { path: 'bus', component:  BusStopPanelComponent}
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

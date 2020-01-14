@@ -9,6 +9,7 @@ import VehicleScript from './Core/Vehicle/VehicleScript';
 import BlipScript from './Core/Map/BlipScript';
 import MarkerScript from './Core/Map/MarkerScript';
 import AtmScript from './Economy/Bank/AtmScript';
+import BusScript from './Core/Bus/BusScript';
 
 export default async () => {
 	 await Login();
@@ -21,7 +22,7 @@ export default async () => {
 	 await BlipScript();
 	 await MarkerScript();
 	 await AtmScript();
-
+	 await BusScript();
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');
 	 alt.requestIpl('gr_heist_yacht2_bedrm');
