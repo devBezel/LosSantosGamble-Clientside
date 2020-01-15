@@ -85,3 +85,12 @@ game.setPedFaceFeature(
 
 // game.setPedEyeColor(alt.Player.local.scriptID, 32); - kolor oczu
 http://www.kronzky.info/fivemwiki/index.php?title=SetPedHeadOverlay
+
+
+
+// podczas strzelania
+
+game.setPedToRagdoll(alt.Player.local.scriptID, 1000 * 10, 1000 * 10, 0, true, true, false);
+
+//jak ktoś zginie to dodać dxdraw że zginął i z jakiego powodu prawdopodobnie
+game.getPedTimeOfDeath() kiedy zginął

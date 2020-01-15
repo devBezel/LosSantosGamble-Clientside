@@ -36,26 +36,32 @@ export default async () => {
     }
 
     async function selectBusStation(id: number, cost: number, time: number, posX: number, posY: number, posZ: number) {
+        webView.close();
         alt.emitServer('bus:selectStation', id, cost, time, posX, posY, posZ);
     }
 
     async function startBusTimer(time: number, posX: number, posY: number, posZ: number) {
+        const loadingScreen = new LoadingScreen();
 
-        webView.close();
         alt.Player.local.setMeta('scaleform:nicknameTurnOff', true);
+        game.freezeEntityPosition(alt.Player.local.scriptID, true);
+        game.setEntityVisible(alt.Player.local.scriptID, false, true);
 
         let toCountDown = Math.floor(time * 60);
         const interval = alt.setInterval(() => {
             toCountDown--;
+
+
+            if (toCountDown <= 2) {
+                game.playSoundFrontend(Number('l_1FBC'), 'CLOSING', 'MP_PROPERTIES_ELEVATOR_DOORS', true);
+            }
             if (toCountDown < 0) {
                 alt.clearInterval(interval);
             }
         },                               1000);
 
 
-
         const scaleformInterval = alt.setInterval(() => {
-            const loadingScreen = new LoadingScreen();
 
             const minutes = Math.floor(toCountDown / 60);
             const seconds = toCountDown - minutes * 60;
@@ -64,11 +70,19 @@ export default async () => {
             loadingScreen.setProgressText(`${minutes} min ${seconds} sek`);
             loadingScreen.draw();
 
+            if (toCountDown <= 3) {
+                loadingScreen.setProgressTitle('Drzwi od autobusu się otworzyły ');
+            }
+
             if (toCountDown <= 0) {
                 loadingScreen.destroy();
                 alt.clearInterval(scaleformInterval);
 
                 alt.Player.local.setMeta('scaleform:nicknameTurnOff', false);
+
+                game.freezeEntityPosition(alt.Player.local.scriptID, false);
+                game.setEntityVisible(alt.Player.local.scriptID, true, true);
+
                 game.setEntityCoords(alt.Player.local.scriptID, posX, posY, posZ, false, false, false, false);
             }
 

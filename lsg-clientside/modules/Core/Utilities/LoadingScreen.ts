@@ -1,6 +1,7 @@
 import * as game from 'natives';
 
 export enum Context {
+    Other = 6,
     Gameload = 3,
     GameloadNews = 4,
     PcLanding = 5,
@@ -42,4 +43,35 @@ export class LoadingScreen {
         game.callScaleformMovieMethod(this.handle, 'STARTUP_ANIMATED_LOADINGSCREENS');
         game.drawScaleformMovieFullscreen(this.handle, 255, 255, 255, 255, 0);
     }
+}
+
+export enum SpinnerType {
+    Clockwise1 = 1,
+    Clockwise2,
+    Clockwise3,
+    SocialClubSaving,
+    RegularClockwise,
+}
+
+export class Loading {
+    public static get isActive() {
+        return game.busyspinnerIsOn();
+    }
+
+    public static show(text: string, spinnerType: SpinnerType = SpinnerType.RegularClockwise) {
+        Loading.hide();
+
+        if (text == null) { return; }
+
+        game.beginTextCommandBusyspinnerOn('STRING');
+        game.addTextComponentSubstringPlayerName(text);
+        game.endTextCommandBusyspinnerOn(spinnerType);
+    }
+
+    public static hide() {
+        if (Loading.isActive) {
+            game.busyspinnerOff();
+        }
+    }
+
 }
