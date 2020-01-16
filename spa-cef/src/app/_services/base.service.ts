@@ -17,6 +17,7 @@ export class BaseService {
   userAtmInformation: { name: string, surname: string, money: number, bank: number };
   busStopInformation: BusStop;
   busStationsInformation: BusStopStation[];
+  vehicleDataInteraction: Vehicle;
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -41,6 +42,10 @@ export class BaseService {
         this.busStopInformation = busInformation;
         this.busStationsInformation = busStationsInformation;
       });
+    });
+
+    this.altvService.on('vehicle-interaction:vehicleData', async (vehicle: Vehicle) => {
+      await this.ngZone.run(async () => { this.vehicleDataInteraction = vehicle; });
     });
 
 

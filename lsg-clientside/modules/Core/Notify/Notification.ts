@@ -7,6 +7,7 @@ export default async () => {
   let webView: View;
 
   alt.on('notify:success', showSuccessNotify);
+  alt.on('notify:error', showErrorNotify);
 
   alt.onServer('notify:success', showSuccessNotify);
   alt.onServer('notify:error', showErrorNotify);

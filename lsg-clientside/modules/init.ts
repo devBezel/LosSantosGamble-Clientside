@@ -11,6 +11,8 @@ import MarkerScript from './Core/Map/MarkerScript';
 import AtmScript from './Economy/Bank/AtmScript';
 import BusScript from './Core/Bus/BusScript';
 import BwScript from './Core/Player/Scripts/BwScript';
+import VehicleDamage from './Core/Vehicle/VehicleDamage';
+import VehicleInteraction from './Core/Vehicle/VehicleInteraction';
 
 export default async () => {
 	 await Login();
@@ -25,6 +27,8 @@ export default async () => {
 	 await AtmScript();
 	 await BusScript();
 	 await BwScript();
+	 await VehicleDamage();
+	 await VehicleInteraction();
 
 
 	 alt.requestIpl('gr_heist_yacht2');

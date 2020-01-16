@@ -167,6 +167,8 @@ declare namespace hashes {
 	  readonly speed: number;
 	  readonly speedVector: any;
 	  readonly wheelsCount: number;
+        vehicleData: () => void;
+        isVehicleLocked: () => void;
   
 	}
   

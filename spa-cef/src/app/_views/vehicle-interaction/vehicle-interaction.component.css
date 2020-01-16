@@ -1,0 +1,41 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+}
+
+.badge-img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.container-in-vehicle {
+    width: 300px;
+}
+.into-vehicle-card {
+    height: 20px;
+}
+
+.container-in-vehicle {
+    opacity: 0.9;
+}
+.into-vehicle-chips {
+    width: 20px;
+    margin-right: 10px;
+}
+.into-chips mat-chip-list{
+    margin-top: -20px;
+}
+
+.into-vehicle-buttons img{
+    margin-top: -5px;
+    width: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.into-vehicle-buttons img :hover {
+    opacity: 0.8;
+}

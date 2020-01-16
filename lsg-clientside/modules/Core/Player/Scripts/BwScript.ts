@@ -18,7 +18,6 @@ export default async () => {
             seconds = toCountDown - minutes * 60;
 
             toCountDown--;
-            alt.log(`${minutes} : ${seconds}`);
 
             Loading.show(`Otrzymałeś BW: ${minutes} min ${seconds} sek`);
 

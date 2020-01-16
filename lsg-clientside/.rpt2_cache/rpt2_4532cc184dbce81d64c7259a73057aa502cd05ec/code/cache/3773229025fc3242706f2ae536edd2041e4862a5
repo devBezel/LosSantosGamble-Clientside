@@ -1,0 +1,1 @@
+{"code":"export const vehicleConfig = {\r\n    damage: {\r\n        undamaged: 900,\r\n        mediumDamaged: 700,\r\n        devasted: 600,\r\n    },\r\n};\r\n","references":[]}

@@ -52,7 +52,7 @@ export default async () => {
             toCountDown--;
 
 
-            if (toCountDown <= 2) {
+            if (toCountDown < 1) {
                 game.playSoundFrontend(Number('l_1FBC'), 'CLOSING', 'MP_PROPERTIES_ELEVATOR_DOORS', true);
             }
             if (toCountDown < 0) {
