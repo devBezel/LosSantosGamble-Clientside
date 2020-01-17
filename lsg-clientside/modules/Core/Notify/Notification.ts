@@ -8,9 +8,11 @@ export default async () => {
 
   alt.on('notify:success', showSuccessNotify);
   alt.on('notify:error', showErrorNotify);
+  alt.on('notify:warning', showWarningNotify);
 
   alt.onServer('notify:success', showSuccessNotify);
   alt.onServer('notify:error', showErrorNotify);
+  alt.onServer('notify:warning', showWarningNotify);
 
   async function showSuccessNotify(title: string, message: string) {
     if (!webView) {
@@ -31,4 +33,17 @@ export default async () => {
 
     webView.emit('notify:error', title, message);
   }
+
+  async function showWarningNotify(title: string, message: string) {
+    if (!webView) {
+      webView = new View();
+    }
+
+    if (alt.Player.local.getMeta('viewOpen')) return;
+
+    webView.emit('notify:warning', title, message);
+  }
+
 };
+
+

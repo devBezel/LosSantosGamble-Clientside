@@ -14,7 +14,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string = 'http://localhost:4000/', gameControls: boolean = true, route: string = '') {
+    open(url: string = 'http://localhost:4000/', gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
         if (!currentView.view) {
             currentView.view = new alt.WebView(url);
             currentView.events = [];
@@ -29,7 +29,10 @@ export class View {
         currentView.view.ready = true;
         alt.showCursor(true);
 
-        natives.displayRadar(false);
+        if (!displayRadar) {
+            natives.displayRadar(false);
+        }
+
 
         if (gameControls) {
             currentView.gameControls = this.toggleGameControls.bind(this);

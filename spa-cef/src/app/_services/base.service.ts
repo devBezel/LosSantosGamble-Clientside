@@ -17,12 +17,12 @@ export class BaseService {
   userAtmInformation: { name: string, surname: string, money: number, bank: number };
   busStopInformation: BusStop;
   busStationsInformation: BusStopStation[];
-  vehicleDataInteraction: Vehicle;
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
     this.showNotifySuccess();
     this.showNotifyError();
+    this.showNotifyWarning();
     this.redirectToPage();
 
     this.altvService.on('cef:descriptionHasPremium', async (hasPrem: boolean) => {
@@ -44,10 +44,6 @@ export class BaseService {
       });
     });
 
-    this.altvService.on('vehicle-interaction:vehicleData', async (vehicle: Vehicle) => {
-      await this.ngZone.run(async () => { this.vehicleDataInteraction = vehicle; });
-    });
-
 
   }
 
@@ -60,6 +56,12 @@ export class BaseService {
   showNotifyError() {
     this.altvService.on('notify:error', async (title: string, message: string) => {
       await this.ngZone.run(async () => await this.notify.error(title, message));
+    });
+  }
+
+  showNotifyWarning() {
+    this.altvService.on('notify:warning', async (title: string, message: string) => {
+      await this.ngZone.run(async () => await this.notify.warning(title, message));
     });
   }
 

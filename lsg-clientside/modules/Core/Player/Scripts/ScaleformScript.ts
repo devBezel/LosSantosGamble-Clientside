@@ -6,17 +6,16 @@ import { Draw } from '../../Utilities/Draw';
 import { RankParser } from '../../Helpers/RankParser';
 
 export default async () => {
-    alt.everyTick(async () => {
+    alt.setInterval(async () => {
         alt.Player.all.forEach((player: alt.Player) => {
 
-            if (alt.Player.local.getMeta('scaleform:nicknameTurnOff')) { return; }
+            if (alt.Player.local.getMeta('scaleform:nicknameTurnOff')) return;
+
 
             const distanceFromLocal = Position.distance(player.pos, alt.Player.local.pos);
             if (distanceFromLocal >= 10) {
                 return;
             }
-
-            alt.setTimeout(() => {}, 3000);
 
             const result = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.0, undefined, undefined);
 
@@ -87,5 +86,5 @@ export default async () => {
             }
 
         });
-    });
+    },              0);
 };

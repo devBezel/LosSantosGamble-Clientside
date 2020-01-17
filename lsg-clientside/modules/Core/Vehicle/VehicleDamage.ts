@@ -1,16 +1,10 @@
 import * as alt from 'alt';
 import * as game from 'natives';
 import { vehicleConfig } from 'client/modules/Configs/VehicleConfig';
+import { Calculation } from '../Utilities/Calculation';
 
 
 export default async () => {
-
-    // let vehicleStatus: VehicleDamage;
-
-    // enum VehicleDamage {
-    //     MediumDevastated = 1,
-    //     HighDevastated = 2,
-    // }
 
     alt.setInterval(() => {
 
@@ -19,15 +13,39 @@ export default async () => {
 
         if (vehicle === null || vehicle === undefined) return;
         if (game.getEntityHealth(vehicle.scriptID) > vehicleConfig.damage.undamaged) return;
+        if (!game.getIsVehicleEngineRunning(vehicle.scriptID)) return;
 
-        // if (game.getEntityHealth(vehicle.scriptID) <= vehicleConfig.damage.mediumDamaged) {
-        //     return vehicleStatus = VehicleDamage.MediumDevastated;
-        // }
+        if (game.getEntityHealth(vehicle.scriptID) <= vehicleConfig.damage.highDevasted) {
+            const engineOnProbability = Calculation.probability(vehicleConfig.vehicleDamageTurnOff.percent.highDevasted);
 
-        if (game.getEntityHealth(vehicle.scriptID) <= vehicleConfig.damage.devasted) {
+            if (!engineOnProbability) return;
+
             game.setVehicleEngineOn(vehicle.scriptID, false, true, true);
+
+            return alt.emit('notify:warning', 'Silnik zgasł', 'Twój silnik jest uszkodzony, udaj się do mechanika');
+
         }
 
-    },              10);
+        if (game.getEntityHealth(vehicle.scriptID) <= vehicleConfig.damage.mediumDevasted) {
+            const engineOnProbability = Calculation.probability(vehicleConfig.vehicleDamageTurnOff.percent.mediumDevasted);
+
+            if (!engineOnProbability) return;
+
+            game.setVehicleEngineOn(vehicle.scriptID, false, true, true);
+
+            return alt.emit('notify:warning', 'Silnik zgasł', 'Twój silnik jest uszkodzony, udaj się do mechanika');
+        }
+
+        if (game.getEntityHealth(vehicle.scriptID) <= vehicleConfig.damage.lowDevasted) {
+            const engineOnProbability = Calculation.probability(vehicleConfig.vehicleDamageTurnOff.percent.lowDevasted);
+
+            if (!engineOnProbability) return;
+
+            game.setVehicleEngineOn(vehicle.scriptID, false, true, true);
+
+            return alt.emit('notify:warning', 'Silnik zgasł', 'Twój silnik jest uszkodzony, udaj się do mechanika');
+        }
+
+    },              60000);
 };
 

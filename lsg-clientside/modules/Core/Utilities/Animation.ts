@@ -8,12 +8,13 @@ export class Animation {
     private animDict: string;
     private animation: string;
     private timeAnim: number;
+    private animFlag: number;
 
-
-    constructor(animDic: string, animation: string, time: number) {
+    constructor(animDic: string, animation: string, time: number, animFlag: number = 1) {
         this.animDict = animDic;
         this.animation = animation;
         this.timeAnim = time;
+        this.animFlag = animFlag;
     }
 
 
@@ -44,10 +45,11 @@ export class Animation {
     playAnim() {
 
         if (game.hasAnimDictLoaded(this.animDict)) {
-            game.taskPlayAnim(alt.Player.local.scriptID, this.animDict, this.animation, 8.0, 1.0, -1, 1, 1, false, false, false);
+            game.taskPlayAnim(alt.Player.local.scriptID, this.animDict, this.animation, 8.0, 1.0, -1, this.animFlag, 1, false, false, false);
 
             alt.log('probuje wykonac animacje');
             alt.setTimeout(() => {
+                game.clearPedTasks(alt.Player.local.scriptID);
                 game.stopAnimTask(alt.Player.local.scriptID, this.animDict, this.animation, 0);
             },             this.timeAnim);
         }

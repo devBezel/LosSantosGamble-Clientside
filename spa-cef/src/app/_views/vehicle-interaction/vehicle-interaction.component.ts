@@ -10,22 +10,18 @@ import { AltvService } from 'src/app/_services/altv.service';
 })
 export class VehicleInteractionComponent implements OnInit {
 
-  vehicle: Vehicle;
 
-  constructor(private baseService: BaseService, private altvService: AltvService) { }
+  constructor(private altvService: AltvService) { }
 
   ngOnInit() {
-    setTimeout(() => {
-        this.vehicle = this.baseService.vehicleDataInteraction;
-    }, 5);
   }
 
   openVehicle() {
     console.log('klikam zamek');
-    this.altvService.emit('cef-vehicle-interaction:openVehicle', this.vehicle);
+    this.altvService.emit('cef-vehicle-interaction:openVehicle');
   }
   openDoor(door: number) {
     console.log('klikam');
-    this.altvService.emit('cef-vehicle-interaction:openDoor', this.vehicle, door);
+    this.altvService.emit('cef-vehicle-interaction:openDoor', door);
   }
 }

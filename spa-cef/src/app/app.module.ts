@@ -57,6 +57,8 @@ import { AtmPanelComponent } from './_views/atm-panel/atm-panel.component';
 import { BusStopPanelComponent } from './_views/bus-stop-panel/bus-stop-panel.component';
 import { BusStationComponent } from './_views/bus-stop-panel/elements/bus-station/bus-station.component';
 import { VehicleInteractionComponent } from './_views/vehicle-interaction/vehicle-interaction.component';
+// tslint:disable-next-line:max-line-length
+import { IntoVehicleInteractionComponent } from './_views/vehicle-interaction/elements/into-vehicle-interaction/into-vehicle-interaction.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -85,7 +87,8 @@ export function tokenGetter() {
     AtmPanelComponent,
     BusStopPanelComponent,
     BusStationComponent,
-    VehicleInteractionComponent
+    VehicleInteractionComponent,
+    IntoVehicleInteractionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

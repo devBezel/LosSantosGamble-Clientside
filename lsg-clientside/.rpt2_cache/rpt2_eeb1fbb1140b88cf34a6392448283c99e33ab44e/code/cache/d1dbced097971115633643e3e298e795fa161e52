@@ -1,1 +1,0 @@
-{"code":"export function distance(distOne, distTwo) {\r\n    const dist = Math.pow(distOne.x - distTwo.x, 2) + Math.pow(distOne.y - distTwo.y, 2) + Math.pow(distOne.z - distTwo.z, 2);\r\n    return dist;\r\n}\r\n","references":[]}
