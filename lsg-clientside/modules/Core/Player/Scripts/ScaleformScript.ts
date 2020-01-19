@@ -11,6 +11,11 @@ export default async () => {
 
             if (alt.Player.local.getMeta('scaleform:nicknameTurnOff')) return;
 
+            const serverID = player.getSyncedMeta('account:id');
+            const onAdminDuty = player.getSyncedMeta('admin:setDuty');
+            const hasPremium = player.getSyncedMeta('account:hasPremium');
+            const accountData = player.getSyncedMeta('account:dataAccount');
+            const characterData = player.getSyncedMeta('character:dataCharacter');
 
             const distanceFromLocal = Position.distance(player.pos, alt.Player.local.pos);
             if (distanceFromLocal >= 10) {
@@ -44,18 +49,18 @@ export default async () => {
                 y = 0;
             }
 
-            if (player.onAdminDuty() && player.hasPremium() && player.characterData().name) {
+            if (onAdminDuty && hasPremium && characterData.name) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.05, undefined, undefined);
-                Draw.drawText(`${RankParser.parse(player.accountData().rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
-                Draw.drawText(`~y~ ${player.accountData().username} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
-            } else if (player.onAdminDuty()) {
+                Draw.drawText(`${RankParser.parse(accountData.rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(`~y~ ${accountData.username} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+            } else if (onAdminDuty) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.05, undefined, undefined);
-                Draw.drawText(`${RankParser.parse(player.accountData().rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
-                Draw.drawText(`${player.accountData().username} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
-            } else if (player.hasPremium()) {
-                Draw.drawText(`~y~ ${player.characterData().name} ${player.characterData().surname} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(`${RankParser.parse(accountData.rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(`${accountData.username} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+            } else if (hasPremium) {
+                Draw.drawText(`~y~ ${characterData.name} ${characterData.surname} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
             } else {
-                Draw.drawText(`${player.characterData().name} ${player.characterData().surname} (${player.serverID()})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(`${characterData.name} ${characterData.surname} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
             }
 
 
@@ -64,7 +69,7 @@ export default async () => {
             if (text === null || text === undefined) {
                 return;
             }
-            if (!player.hasPremium()) {
+            if (!hasPremium) {
                 text.content = text.content.replace(/~/g, '');
             }
 

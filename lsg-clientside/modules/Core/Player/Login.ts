@@ -13,7 +13,7 @@ export default async() => {
 
     let webView: View;
     let loginCamera: Camera = new Camera(3331.6, 5222.5, 23, 10);
-    const url: string =  `${baseConfig.cefLocalUrl}login`;
+    const url: string =  `${baseConfig.cefUrl}login`;
 
 
     alt.onServer('other:first-connect', showLoginWindow);

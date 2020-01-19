@@ -15,7 +15,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string = baseConfig.cefLocalUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
+    open(url: string = baseConfig.cefUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
         if (!currentView.view) {
             currentView.view = new alt.WebView(url);
             currentView.events = [];

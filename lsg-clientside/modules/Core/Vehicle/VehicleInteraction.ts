@@ -133,7 +133,7 @@ export default async () => {
         }
 
         if (!VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
-            return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Nie posiadasz kluczy', '~g~ Zamek centralny', 'Aby otworzyć ten pojazd musisz posiadać do niego klucze', 1);
+            return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Nie posiadasz kluczy', '~g~ Zamek centralny', 'Aby odpalić ten pojazd musisz posiadać do niego klucze', 1);
         }
 
         if (VehicleHelper.isVehicleEngineBroken(player.vehicle)) {
