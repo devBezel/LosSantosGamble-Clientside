@@ -3,11 +3,9 @@ import { Key } from 'client/modules/Constant/Keys/Key';
 
 export default async () => {
 
-    alt.on('keyup', async(key: any) => {
-        if (key === Key.F10) {
-            // Podpiąc do pózniej pod panel interakcji
-            alt.emit('player-interaction:help');
-        }
+    // Testowa rzecz
+    alt.onServer('player:help', async () => {
+        alt.emit('player-interaction:help');
     });
 
 };

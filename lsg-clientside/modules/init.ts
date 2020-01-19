@@ -15,6 +15,8 @@ import VehicleDamage from './Core/Vehicle/VehicleDamage';
 import VehicleInteraction from './Core/Vehicle/VehicleInteraction';
 import PlayerDamageScript from './Core/Player/Scripts/PlayerDamageScript';
 import PlayerInteraction from './Core/Player/Scripts/PlayerInteraction';
+import VehicleSpeedometr from './Core/Vehicle/VehicleSpeedometr';
+import StreetLabel from './Core/Player/Scripts/StreetLabel';
 
 export default async () => {
 	 await Login();
@@ -33,6 +35,8 @@ export default async () => {
 	 await VehicleInteraction();
 	 await PlayerDamageScript();
 	 await PlayerInteraction();
+	 await VehicleSpeedometr();
+	 await StreetLabel();
 
 
 	 alt.requestIpl('gr_heist_yacht2');

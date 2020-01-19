@@ -6,6 +6,8 @@ import { CharacterLook } from 'client/modules/Models/characterLook';
 import { Camera } from '../Utilities/Camera';
 import { spawnConfig } from 'client/modules/Configs/SpawnConfig';
 import { baseConfig } from 'client/modules/Configs/BaseConfig';
+import { NativeNotification } from '../Notify/NativeNotification';
+import { nativeNotificationType } from 'client/modules/Constant/Notification/NativeNotificationType';
 
 export default async() => {
 
@@ -56,12 +58,19 @@ export default async() => {
             return alt.emit('character:showCreateCharacterWindow', true);
         }
 
+        alt.Player.local.setPlayerReady(true);
         loginCamera.destroy();
+
+
         return alt.emit('character:wearClothes', characterLook);
     }
 
     async function customizationCompleted() {
         loginCamera.destroy();
-        alt.emit('notify-client:success', 'Pomyślnie ubrałeś postać', 'Twoja postać została ubrana poprawnie');
+        alt.Player.local.setPlayerReady(true);
+
+
+        NativeNotification.showNotification(null, nativeNotificationType.Normal, 0, 'Pomyślnie ubrałeś postać', '~g~ Przebieralnia', 'Twoja postać została ubrana poprawnie', 1);
+        alt.emitServer('login:successWearChangeWorld');
     }
 };

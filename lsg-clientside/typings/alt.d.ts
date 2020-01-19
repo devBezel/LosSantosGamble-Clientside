@@ -147,6 +147,8 @@ declare namespace hashes {
         characterData: () => import("b:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Models/character").Character;
         serverID: () => any;
         onAdminDuty: () => boolean;
+        isReady: () => boolean;
+        setPlayerReady: (state: boolean) => void;
   
 	  addWeaponComponent(weaponHash: number, componentHash: number): void;
 	  getCurrentWeapon(): number;

@@ -23,7 +23,9 @@ export default async () => {
         return alt.Player.local.setMeta('admin:duty', result);
     });
 
-
+    alt.Player.prototype.setPlayerReady = function setPlayerReady(state: boolean): void {
+        return alt.Player.local.setMeta('player:ready', state);
+    };
 
 
 
@@ -44,5 +46,8 @@ export default async () => {
     };
     alt.Player.prototype.characterData = function characterData(): Character {
         return alt.Player.local.getMeta('character:data');
+    };
+    alt.Player.prototype.isReady = function isReady(): boolean {
+        return alt.Player.local.getMeta('player:ready');
     };
 };

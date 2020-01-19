@@ -8,7 +8,7 @@ import { nativeNotificationType } from 'client/modules/Constant/Notification/Nat
 export default async () => {
 
     const player = alt.Player.local;
-
+    let playerInterval: number;
     alt.onServer('player-damage:drawFall', playerDrawFall);
 
 
@@ -28,18 +28,30 @@ export default async () => {
             game.setPedToRagdoll(alt.Player.local.scriptID, 100 * 10, 1000 * 10, 0, true, true, false);
         },                                      1000);
 
+        playerInterval = radgollInterval;
+
+        alt.setTimeout(() => {
+            // Postać się otrząsa po 2 minutach
+            characterHasBeenCalmedDown();
+
+            NativeNotification.showNotification(null, nativeNotificationType.Normal, 0, 'Twoja postać się otrząsnęla', '~g~ Stan zdrowia', 'Minął czas szoku, twoja postać doszła do siebie', 1);
+        },             120000);
+
 
         alt.on('player-interaction:help', async () => {
-            // Usuwanie efektów utracenia przytomnosci
-            game.clearPedTasks(player.scriptID);
-            alt.clearInterval(radgollInterval);
-            game.playSound(-1, 'CANCEL', 'HUD_MINI_GAME_SOUNDSET', false, 0, false);
+            // Ktoś pomaga postaci się otrząsnąć
+            characterHasBeenCalmedDown();
 
-            alt.setTimeout(() => {
-                game.setCamEffect(0);
-            },             5000);
-
-            alt.emit('notify:success', null, 'Ktoś udzielił Ci pomocy');
+            NativeNotification.showNotification(null, nativeNotificationType.Normal, 0, 'Twoja postać się otrząsnęla', '~g~ Stan zdrowia', 'Ktoś pomógł Ci się otrząsnąć', 1);
         });
+    }
+
+    async function characterHasBeenCalmedDown() {
+        game.clearPedTasks(player.scriptID);
+        alt.clearInterval(playerInterval);
+
+        alt.setTimeout(() => {
+            game.setCamEffect(0);
+        },             5000);
     }
 };
