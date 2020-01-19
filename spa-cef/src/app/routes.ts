@@ -14,6 +14,7 @@ import { BusStopPanelComponent } from './_views/bus-stop-panel/bus-stop-panel.co
 import { VehicleInteractionComponent } from './_views/vehicle-interaction/vehicle-interaction.component';
 // tslint:disable-next-line:max-line-length
 import { IntoVehicleInteractionComponent } from './_views/vehicle-interaction/elements/into-vehicle-interaction/into-vehicle-interaction.component';
+import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-speedometr.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },

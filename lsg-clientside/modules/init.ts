@@ -13,6 +13,8 @@ import BusScript from './Core/Bus/BusScript';
 import BwScript from './Core/Player/Scripts/BwScript';
 import VehicleDamage from './Core/Vehicle/VehicleDamage';
 import VehicleInteraction from './Core/Vehicle/VehicleInteraction';
+import PlayerDamageScript from './Core/Player/Scripts/PlayerDamageScript';
+import PlayerInteraction from './Core/Player/Scripts/PlayerInteraction';
 
 export default async () => {
 	 await Login();
@@ -29,6 +31,8 @@ export default async () => {
 	 await BwScript();
 	 await VehicleDamage();
 	 await VehicleInteraction();
+	 await PlayerDamageScript();
+	 await PlayerInteraction();
 
 
 	 alt.requestIpl('gr_heist_yacht2');

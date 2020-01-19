@@ -5,12 +5,13 @@ import { Character } from 'client/modules/Models/character';
 import { CharacterLook } from 'client/modules/Models/characterLook';
 import { Camera } from '../Utilities/Camera';
 import { spawnConfig } from 'client/modules/Configs/SpawnConfig';
+import { baseConfig } from 'client/modules/Configs/BaseConfig';
 
 export default async() => {
 
     let webView: View;
     let loginCamera: Camera = new Camera(3331.6, 5222.5, 23, 10);
-    const url: string = 'http://localhost:4000/login';
+    const url: string =  `${baseConfig.cefLocalUrl}login`;
 
 
     alt.onServer('other:first-connect', showLoginWindow);

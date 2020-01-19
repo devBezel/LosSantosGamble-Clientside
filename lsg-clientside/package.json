@@ -11,11 +11,11 @@
 	"author": "KifKick",
 	"license": "UNLICENSED",
 	"dependencies": {
+		"chalk": "^2.4.2",
 		"fs-extra": "^7.0.1",
 		"mysql": "^2.16.0",
-		"typeorm-esm": "^0.2.15-dev10",
-		"chalk": "^2.4.2",
-		"reflect-metadata": "^0.1.13"
+		"reflect-metadata": "^0.1.13",
+		"typeorm-esm": "^0.2.15-dev10"
 	},
 	"devDependencies": {
 		"@types/fs-extra": "^5.0.5",

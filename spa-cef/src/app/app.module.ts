@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './_modules/material/material.module';
@@ -59,6 +59,8 @@ import { BusStationComponent } from './_views/bus-stop-panel/elements/bus-statio
 import { VehicleInteractionComponent } from './_views/vehicle-interaction/vehicle-interaction.component';
 // tslint:disable-next-line:max-line-length
 import { IntoVehicleInteractionComponent } from './_views/vehicle-interaction/elements/into-vehicle-interaction/into-vehicle-interaction.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-speedometr.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -88,11 +90,12 @@ export function tokenGetter() {
     BusStopPanelComponent,
     BusStationComponent,
     VehicleInteractionComponent,
-    IntoVehicleInteractionComponent
+    IntoVehicleInteractionComponent,
+    VehicleSpeedometrComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
+    // AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -102,8 +105,8 @@ export function tokenGetter() {
       config: {
         // tslint:disable-next-line:object-literal-shorthand
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:5000'],
-        blacklistedRoutes: ['localhost:5000/api/auth']
+        whitelistedDomains: ['localhost:5000', '51.38.142.78:3000'],
+        blacklistedRoutes: ['localhost:5000/api/auth', '51.38.142.78:3000/api/auth']
       }
     }),
     ToastrModule.forRoot({
@@ -123,6 +126,7 @@ export function tokenGetter() {
     CharacterLookResolver,
     NotifyService,
     BaseService,
+    // { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,8 @@ import { Vehicle } from 'client/modules/Models/vehicle';
 import { Animation } from '../Utilities/Animation';
 import { VehicleHelper } from './VehicleHelper';
 import { Calculation } from '../Utilities/Calculation';
+import { NativeNotification } from '../Notify/NativeNotification';
+import { nativeNotificationType } from 'client/modules/Constant/Notification/NativeNotificationType';
 
 export default async () => {
 
@@ -79,7 +81,7 @@ export default async () => {
         if (vehicle.scriptID === null || vehicle.scriptID === undefined) return;
 
         if (!VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
-            return alt.emit('notify:error', null, 'Nie posiadasz kluczy do tego pojazdu');
+            return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Nie posiadasz kluczy', '~g~ Zamek centralny', 'Aby otworzyć ten pojazd musisz posiadać do niego klucze', 1);
         }
 
         const animation = new Animation('anim@mp_player_intmenu@key_fob@', 'fob_click_fp', 200);
@@ -89,13 +91,15 @@ export default async () => {
             game.setVehicleDoorsLocked(vehicle.scriptID, 3);
 
             animation.playAnim();
-            return alt.emit('notify:success', null, 'Pojazd został zamknięty');
+
+            return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Pojazd został zamknięty', '~g~ Zamek centralny', 'Twój pojazd zostal zamknięty', 1);
         }
 
         game.setVehicleDoorsLocked(vehicle.scriptID, 1);
         animation.playAnim();
 
-        return alt.emit('notify:success', null, 'Pojazd został otwarty');
+
+        return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Pojazd został otwarty', '~g~ Zamek centralny', 'Twój pojazd zostal otwarty', 1);
     }
 
     async function openVehicleDoor(door: number) {
@@ -104,7 +108,7 @@ export default async () => {
         if (vehicle.scriptID === null || vehicle.scriptID === undefined) return;
 
         if (VehicleHelper.isVehicleLocked(vehicle)) {
-            return alt.emit('notify:error', null, 'Ten pojazd jest zamknięty, musisz go otworzyć');
+            return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Ten pojazd jest zamknięty', '~g~ Zamek centralny', 'Aby wykonać tą operację musisz go otworzyć', 1);
         }
 
         if (VehicleHelper.isDoorOpen(vehicle, door)) {
@@ -129,7 +133,7 @@ export default async () => {
         }
 
         if (!VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
-            return alt.emit('notify:error', null, 'Nie posiadasz kluczy do tego pojazdu');
+            return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Nie posiadasz kluczy', '~g~ Zamek centralny', 'Aby otworzyć ten pojazd musisz posiadać do niego klucze', 1);
         }
 
         if (VehicleHelper.isVehicleEngineBroken(player.vehicle)) {
@@ -138,12 +142,15 @@ export default async () => {
             if (fireProbability) {
 
                 alt.setTimeout(() => {
-                    game.addExplosion(player.vehicle.pos.x, player.vehicle.pos.y, player.vehicle.pos.z, 19, 10.5, true, false, 1.0, true);
+                    const playerLastVehicle = game.getVehiclePedIsIn(player.scriptID, true);
+                    const playerLastVehiclePos: Vector3 = game.getEntityCoords(playerLastVehicle, true);
+
+                    game.addExplosion(playerLastVehiclePos.x, playerLastVehiclePos.y, playerLastVehiclePos.z, 19, 10.5, true, false, 1.0, true);
 
                     alt.setTimeout(() => {
-                        game.addExplosion(player.vehicle.pos.x, player.vehicle.pos.y, player.vehicle.pos.z, 3, 10.5, true, false, 1.0, false);
+                        game.addExplosion(playerLastVehiclePos.x, playerLastVehiclePos.y, playerLastVehiclePos.z, 3, 10.5, true, false, 1.0, false);
 
-                    },             1000);
+                    },             5000);
                 },             2000);
 
                 if (game.getIsVehicleEngineRunning(player.vehicle.scriptID)) {
@@ -155,13 +162,13 @@ export default async () => {
             }
 
             if (!game.getIsVehicleEngineRunning(player.vehicle.scriptID))  {
-                alt.emit('notify:warning', 'Przekręcono kluczyk', 'Próbuje odpalić silnik');
+                NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Próbuje odpalić silnik', '~g~ Stacyjka', 'Coś w samochodzie nie gra, podjedź do mechanika', 1);
 
                 const engineOnProbability = Calculation.probability(50);
 
                 if (!engineOnProbability) {
                     alt.setTimeout(() => {
-                        alt.emit('notify:error', '', 'Nie udało się uruchomić silnika');
+                        NativeNotification.showNotification(null, nativeNotificationType.Error, 0, 'Próba nieudana', '~g~ Stacyjka', 'Spróbuj odpalić samochód ponownie', 1);
                     },             2000);
                     return;
                 }

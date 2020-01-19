@@ -1,0 +1,1 @@
+{"code":"import * as alt from 'alt';\r\nimport { Key } from 'client/modules/Constant/Keys/Key';\r\nexport default async () => {\r\n    alt.on('keyup', async (key) => {\r\n        if (key === Key.F10) {\r\n            alt.emit('player-interaction:help');\r\n        }\r\n    });\r\n};\r\n","references":["B:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Constant/Keys/Key.ts"]}

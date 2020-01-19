@@ -1,5 +1,6 @@
 import * as alt from 'alt';
 import { View } from '../Utilities/View';
+import { NativeNotification } from './NativeNotification';
 
 
 export default async () => {
@@ -13,6 +14,7 @@ export default async () => {
   alt.onServer('notify:success', showSuccessNotify);
   alt.onServer('notify:error', showErrorNotify);
   alt.onServer('notify:warning', showWarningNotify);
+  alt.onServer('notify:native', showNativeNotify);
 
   async function showSuccessNotify(title: string, message: string) {
     if (!webView) {
@@ -42,6 +44,11 @@ export default async () => {
     if (alt.Player.local.getMeta('viewOpen')) return;
 
     webView.emit('notify:warning', title, message);
+  }
+
+  async function showNativeNotify(backgroundColor: number = null, notifyImage: string, iconType: number = 0,
+                                  title: string, subtitle:string, message: string, durationMult: number) {
+                                  NativeNotification.showNotification(backgroundColor, notifyImage, iconType, title, subtitle, message, durationMult);
   }
 
 };

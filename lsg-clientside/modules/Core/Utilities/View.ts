@@ -1,5 +1,6 @@
 import * as alt from 'alt';
 import * as natives from 'natives';
+import { baseConfig } from 'client/modules/Configs/BaseConfig';
 
 export let currentView: any;
 
@@ -14,7 +15,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string = 'http://localhost:4000/', gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
+    open(url: string = baseConfig.cefLocalUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
         if (!currentView.view) {
             currentView.view = new alt.WebView(url);
             currentView.events = [];
