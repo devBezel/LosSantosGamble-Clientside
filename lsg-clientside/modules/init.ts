@@ -20,6 +20,7 @@ import StreetLabel from './Core/Player/Scripts/StreetLabel';
 
 export default async () => {
 	 await Login();
+	 await StreetLabel();
 	 await DescriptionScript();
 	 await ScaleformScript();
 	 await ClothesScript();
@@ -36,7 +37,6 @@ export default async () => {
 	 await PlayerDamageScript();
 	 await PlayerInteraction();
 	 await VehicleSpeedometr();
-	 await StreetLabel();
 
 
 	 alt.requestIpl('gr_heist_yacht2');

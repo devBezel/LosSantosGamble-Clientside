@@ -48,6 +48,6 @@ export default async () => {
         return alt.Player.local.getSyncedMeta('character:dataCharacter');
     };
     alt.Player.prototype.isReady = function isReady(): boolean {
-        return alt.Player.local.getSyncedMeta('player:ready');
+        return alt.Player.local.getMeta('player:ready');
     };
 };
