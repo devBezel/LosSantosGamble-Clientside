@@ -28,40 +28,40 @@ export default async () => {
                 return;
             }
 
-            let scale = distanceFromLocal / 25;
-            if (scale < 0.5) {
-                scale = 0.5;
-            }
+            // let scale = distanceFromLocal / 25;
+            // if (scale < 0.5) {
+            //     scale = 0.5;
+            // }
 
-            if (scale > 0.6) {
-                scale = 0.6;
-            }
+            // if (scale > 0.6) {
+            //     scale = 0.6;
+            // }
 
-            let yMofidier = distanceFromLocal / 25 / 8;
+            // let yMofidier = distanceFromLocal / 25 / 8;
 
-            if (yMofidier > 0.05) {
-                yMofidier = 0.5;
-            }
+            // if (yMofidier > 0.05) {
+            //     yMofidier = 0.5;
+            // }
 
-            let y = result[2] - yMofidier;
+            let y = result[2];  // - yMofidier;
 
             if (y <= 0) {
                 y = 0;
             }
 
+            let username: string;
+
             if (onAdminDuty && hasPremium && characterData.name) {
-                const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.05, undefined, undefined);
-                Draw.drawText(`${RankParser.parse(accountData.rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
-                Draw.drawText(`~y~ ${accountData.username} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+                username = `(${RankParser.parse(accountData.rank)}) ~y~ ${accountData.username} (${serverID})`;
             } else if (onAdminDuty) {
-                const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 1.05, undefined, undefined);
-                Draw.drawText(`${RankParser.parse(accountData.rank)}`, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
-                Draw.drawText(`${accountData.username} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+                username = `(${RankParser.parse(accountData.rank)}) ${accountData.username} (${serverID})`;
             } else if (hasPremium) {
-                Draw.drawText(`~y~ ${characterData.name} ${characterData.surname} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+                username = `~y~ ${characterData.name} ${characterData.surname} (${serverID})`;
             } else {
-                Draw.drawText(`${characterData.name} ${characterData.surname} (${serverID})`, result[1], y, 0.4, 6, 255, 255, 255, 255, true, false);
+                username = `${characterData.name} ${characterData.surname} (${serverID})`;
             }
+
+            Draw.drawText(username, result[1], y, 0.3, 6, 255, 255, 255, 255, true, false);
 
 
             const text = Player.getPlayerDescription(player);

@@ -1,0 +1,49 @@
+.container {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin-top: 30vh;
+    margin-right: 2vh;
+    width: 400px;
+    float: right;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.card-container {
+    border-left: 10px solid #3F9B40;
+    border: 1px solid black;
+}
+.card-title {
+    margin-left: 12vh;
+    margin-bottom: 5px;
+    border-bottom: 3px solid #3F9B40;
+}
+.item-button {
+    width: 100%;
+    /* background-color: #666464;
+    opacity: 0.7; */
+}
+.item-name {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.item-count {
+    margin: 0;
+    padding: 0;
+    float: right;
+    display: initial;
+}
+::ng-deep .mat-menu-content:not(:empty) {
+    width: 200px !important;
+}  
+::ng-deep .mat-menu-panel > .ng-trigger > .ng-trigger-transformMenu > .ng-tns-c5-0 > .menu-detail > .mat-menu-after > .mat-menu-below > .mat-elevation-z4 > .ng-star-inserted {
+    margin-left: -200px !important;
+}
+.menu-detail {
+    margin-right: 150px !important;
+}
+.cdk-overlay-panel {
+    margin-left: -200px !important;
+}

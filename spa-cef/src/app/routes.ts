@@ -15,6 +15,7 @@ import { VehicleInteractionComponent } from './_views/vehicle-interaction/vehicl
 // tslint:disable-next-line:max-line-length
 import { IntoVehicleInteractionComponent } from './_views/vehicle-interaction/elements/into-vehicle-interaction/into-vehicle-interaction.component';
 import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-speedometr.component';
+import { InventoryPanelComponent } from './_views/inventory-panel/inventory-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -31,7 +32,8 @@ export const appRoutes: Routes = [
             { path: 'atm', component: AtmPanelComponent },
             { path: 'bus', component:  BusStopPanelComponent},
             { path: 'vehicle/interaction', component: VehicleInteractionComponent },
-            { path: 'vehicle/interaction/into', component: IntoVehicleInteractionComponent }
+            { path: 'vehicle/interaction/into', component: IntoVehicleInteractionComponent },
+            { path: 'inventory', component: InventoryPanelComponent }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

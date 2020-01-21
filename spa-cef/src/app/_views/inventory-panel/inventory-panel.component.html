@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title class="card-title">Ekwipunek</mat-card-title>
+    </mat-card-header>
+
+
+    <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item>
+              <button mat-button class="item-button" [matMenuTriggerFor]="menu">
+                <p class="item-name">Koszulka</p> 
+                <p class="item-count">2x</p>
+              </button>
+
+              <mat-menu #menu="matMenu" class="menu-detail">
+                  <button mat-menu-item>Użyj</button>
+                  <button mat-menu-item>Oferuj</button>
+                  <button mat-menu-item>Wyrzuć</button>
+                </mat-menu>
+          </mat-list-item>
+    
+          <mat-list-item>
+              <button mat-button class="item-button">
+                <p class="item-name">Glock 17</p> 
+                <p class="item-count">1x</p>
+              </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+  </mat-card>
+</div>

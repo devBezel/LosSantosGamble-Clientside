@@ -23,7 +23,7 @@ export class Draw {
        }
     }
 
-    public static drawTextConstant(x: number, y:number, width: number, height: number, scale:number, text:string, r:number, g:number, b:number, a:number) {
+    public static drawTextConstant(x: number, y:number, width: number, height: number, scale:number, text:string, r:number, g:number, b:number, a:number, outline: boolean = true) {
         game.beginTextCommandDisplayText('STRING');
         game.addTextComponentSubstringPlayerName(text);
         game.setTextFont(4);
@@ -31,7 +31,11 @@ export class Draw {
         game.setTextWrap(0.0, 0.1);
         game.setTextCentre(true);
         game.setTextColour(r, g, b, a);
-        game.setTextOutline();
+
+        if (outline) {
+            game.setTextOutline();
+        }
+
 
         // if (useOutline) {
         //     game.setTextOutline();

@@ -6,18 +6,18 @@ export class RankParser {
                 rank = 'Gracz';
                 break;
             case 1:
-                rank = '~y~Betatester ~s~';
+                rank = '~y~Betatester~s~';
                 break;
             case 2:
-                rank = '~b~Supporter ~s~';
+                rank = '~b~Supporter~s~';
                 break;
             case 3:
-                rank = '~g~Community Manager ~s~';
+                rank = '~g~Community Manager~s~';
                 break;
             case 4:
-                rank = '~p~Developer ~s~';
+                rank = '~p~Developer~s~';
             case 5:
-                rank = '~r~Administrator ~s~';
+                rank = '~r~Administrator~s~';
             default:
                 break;
         }

@@ -1,0 +1,1 @@
+{"code":"export const baseConfig = {\r\n    cefUrl: 'http://51.38.142.78:3000/',\r\n    cefLocalUrl: 'http://localhost:4000/',\r\n    version: '0.1.10',\r\n    branch: 'beta',\r\n};\r\n","references":[]}
