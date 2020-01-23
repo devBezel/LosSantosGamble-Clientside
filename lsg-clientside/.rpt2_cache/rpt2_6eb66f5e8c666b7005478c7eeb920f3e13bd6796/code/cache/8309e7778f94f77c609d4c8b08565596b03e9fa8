@@ -1,0 +1,1 @@
+{"code":"import * as alt from 'alt';\r\nimport * as game from 'natives';\r\nexport default async () => {\r\n    const player = alt.Player.local;\r\n    alt.onServer('item:weapon-ammo', getWeaponAmmo);\r\n    async function getWeaponAmmo(hash) {\r\n        alt.emitServer('item:weapon-ammo', game.getAmmoInPedWeapon(player.scriptID, hash));\r\n    }\r\n};\r\n","references":[]}

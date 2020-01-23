@@ -18,6 +18,8 @@ import PlayerInteraction from './Core/Player/Scripts/PlayerInteraction';
 import VehicleSpeedometr from './Core/Vehicle/VehicleSpeedometr';
 import StreetLabel from './Core/Player/Scripts/StreetLabel';
 import VersionScript from './Core/Version/VersionScript';
+import WeaponItemScript from './Core/Items/WeaponItemScript';
+import InventoryScript from './Core/Items/InventoryScript';
 
 export default async () => {
 	 await Login();
@@ -39,6 +41,8 @@ export default async () => {
 	 await PlayerInteraction();
 	 await VehicleSpeedometr();
 	 await VersionScript();
+	 await WeaponItemScript();
+	 await InventoryScript();
 
 
 	 alt.requestIpl('gr_heist_yacht2');
