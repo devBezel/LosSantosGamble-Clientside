@@ -9,15 +9,10 @@
     float: right;
     max-height: 400px;
     overflow-y: auto;
+    opacity: 0.9;
 }
 .card-container {
-    border-left: 10px solid #3F9B40;
-    border: 1px solid black;
-}
-.card-title {
-    margin-left: 12vh;
-    margin-bottom: 5px;
-    border-bottom: 3px solid #3F9B40;
+    border-left: 10px solid rgb(40, 100, 41);
 }
 .item-button {
     width: 100%;

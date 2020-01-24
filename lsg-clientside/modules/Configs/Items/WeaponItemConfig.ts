@@ -3,101 +3,212 @@ export const weaponItemConfig = {
         {
             WeaponName: 'MarksmanPistol',
             Hash: 3696079510,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
 
         },
         {
             WeaponName: 'HeavyRevolver',
             Hash: 3249783761,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'HeavyRevolverMkII',
             Hash: 3415619887,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'DoubleActionRevolver',
             Hash: 25487034,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'Pistol',
             Hash: 453432689,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'PistolMkII',
             Hash: 3219281620,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'CombatPistol',
             Hash: 1593441988,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'APPistol',
             Hash: 584646201,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'StunGun',
             Hash: 911657153,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'Pistol50',
             Hash: 2578377531,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'SNSPistol',
             Hash: 3218215474,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'SNSPistolMkII',
             Hash: 2285322324,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'HeavyPistol',
             Hash: 3523564046,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
         {
             WeaponName: 'VintagePistol',
             Hash: 137902532,
-            AnimDict: 'rcmjosh4',
-            Anim: 'josh_leadout_cop2',
-            Time: 800,
+            WithWeaponHolster: {
+                AnimDict: 'rcmjosh4',
+                Anim: 'josh_leadout_cop2',
+                Time: 500,
+            },
+
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'intro',
+                Time: 2500,
+            },
         },
     ],
 
@@ -105,101 +216,198 @@ export const weaponItemConfig = {
         {
             WeaponName: 'MarksmanPistol',
             Hash: 3696079510,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
-
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'HeavyRevolver',
             Hash: 3249783761,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'HeavyRevolverMkII',
             Hash: 3415619887,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'DoubleActionRevolver',
             Hash: 25487034,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'Pistol',
             Hash: 453432689,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'PistolMkII',
             Hash: 3219281620,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'CombatPistol',
             Hash: 1593441988,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'APPistol',
             Hash: 584646201,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'StunGun',
             Hash: 911657153,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'Pistol50',
             Hash: 2578377531,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'SNSPistol',
             Hash: 3218215474,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'SNSPistolMkII',
             Hash: 2285322324,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'HeavyPistol',
             Hash: 3523564046,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
         {
             WeaponName: 'VintagePistol',
             Hash: 137902532,
-            AnimDict: 'weapons@pistol@',
-            Anim: 'aim_2_holster',
-            Time: 180,
+            WithWeaponHolster: {
+                AnimDict: 'weapons@pistol@',
+                Anim: 'aim_2_holster',
+                Time: 150,
+            },
+            WithoutWeaponHolster: {
+                AnimDict: 'reaction@intimidation@1h',
+                Anim: 'outro',
+                Time: 1500,
+            },
         },
     ],
 };

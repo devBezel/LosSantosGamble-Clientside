@@ -17,6 +17,8 @@ export default async () => {
             const accountData = player.getSyncedMeta('account:dataAccount');
             const characterData = player.getSyncedMeta('character:dataCharacter');
 
+            const characterName = player.getSyncedMeta('character:name');
+
             const distanceFromLocal = Position.distance(player.pos, alt.Player.local.pos);
             if (distanceFromLocal >= 10) {
                 return;
@@ -56,9 +58,9 @@ export default async () => {
             } else if (onAdminDuty) {
                 username = `(${RankParser.parse(accountData.rank)}) ${accountData.username} (${serverID})`;
             } else if (hasPremium) {
-                username = `~y~ ${characterData.name} ${characterData.surname} (${serverID})`;
+                username = `~y~ ${characterName} (${serverID})`;
             } else {
-                username = `${characterData.name} ${characterData.surname} (${serverID})`;
+                username = `${characterName} (${serverID})`;
             }
 
             Draw.drawText(username, result[1], y, 0.3, 6, 255, 255, 255, 255, true, false);

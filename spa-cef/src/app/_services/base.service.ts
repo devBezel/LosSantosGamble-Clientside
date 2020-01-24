@@ -6,6 +6,7 @@ import { Vehicle } from '../_models/vehicle';
 import { Observable } from 'rxjs';
 import { BusStop } from '../_models/busStop';
 import { BusStopStation } from '../_models/busStopStation';
+import { Item } from '../_models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class BaseService {
   userAtmInformation: { name: string, surname: string, money: number, bank: number };
   busStopInformation: BusStop;
   busStationsInformation: BusStopStation[];
+  inventoryItems: Item[];
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -42,6 +44,10 @@ export class BaseService {
         this.busStopInformation = busInformation;
         this.busStationsInformation = busStationsInformation;
       });
+    });
+
+    this.altvService.on('inventory:items', async (items: Item[]) => {
+      await this.ngZone.run(async () => { this.inventoryItems = items; });
     });
 
 

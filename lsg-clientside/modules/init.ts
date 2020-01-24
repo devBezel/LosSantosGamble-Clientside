@@ -20,6 +20,8 @@ import StreetLabel from './Core/Player/Scripts/StreetLabel';
 import VersionScript from './Core/Version/VersionScript';
 import WeaponItemScript from './Core/Items/WeaponItemScript';
 import InventoryScript from './Core/Items/InventoryScript';
+import WeaponHolsterItemScript from './Core/Items/WeaponHolsterItemScript';
+import MaskItemScript from './Core/Items/MaskItemScript';
 
 export default async () => {
 	 await Login();
@@ -42,7 +44,9 @@ export default async () => {
 	 await VehicleSpeedometr();
 	 await VersionScript();
 	 await WeaponItemScript();
+	 await WeaponHolsterItemScript();
 	 await InventoryScript();
+	 await MaskItemScript();
 
 
 	 alt.requestIpl('gr_heist_yacht2');
