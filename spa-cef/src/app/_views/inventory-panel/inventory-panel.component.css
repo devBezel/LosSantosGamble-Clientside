@@ -7,10 +7,28 @@
     margin-right: 2vh;
     width: 400px;
     float: right;
-    max-height: 400px;
-    overflow-y: auto;
+
     opacity: 0.9;
 }
+.card-content-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+}
+
 .card-container {
     border-left: 10px solid rgb(40, 100, 41);
 }

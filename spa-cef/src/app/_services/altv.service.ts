@@ -9,7 +9,9 @@ export class AltvService {
 
   emit(event: string, object?: any, args?: any, argsTwo?: any, argsThree?: any, argsFour?: any, argsFive?: any) {
     // @ts-ignore
-    alt.emit(event, object, args, argsTwo, argsThree, argsFour, argsFive);
+    // tslint:disable-next-line:no-string-literal
+    this.isAltDefined() ? window['alt'].emit(event, object, args, argsTwo, argsThree, argsFour, argsFive) :
+    console.log(`AltVService Emit event - ${event}`);
   }
 
   public on(name: string, callback: CallableFunction) {
