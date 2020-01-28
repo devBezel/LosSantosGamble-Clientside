@@ -15,10 +15,24 @@ export default async() => {
         // game.setPedComponentVariation(player.scriptID, componentID, 0, 0, 0);
 
         switch (componentID) {
-            case ClothesEnum.Top:
-                game.setPedComponentVariation(player.scriptID, ClothesEnum.Top, 15, 0, 0);
+            case ClothesEnum.Hat:
+                game.clearPedProp(player.scriptID, 0);
+                break;
+            case ClothesEnum.Legs:
+                game.setPedComponentVariation(player.scriptID, ClothesEnum.Legs, 21, 0, 0);
+                break;
+            case ClothesEnum.Shoes:
+                    game.setPedComponentVariation(player.scriptID, ClothesEnum.Shoes, 34, 0, 0);
+                    break;
+            case ClothesEnum.Undershirt:
                 game.setPedComponentVariation(player.scriptID, ClothesEnum.Torso, 15, 0, 0);
                 game.setPedComponentVariation(player.scriptID, ClothesEnum.Undershirt, 15, 0, 0);
+                break;
+            case ClothesEnum.Top:
+                game.setPedComponentVariation(player.scriptID, ClothesEnum.Torso, 15, 0, 0);
+                game.setPedComponentVariation(player.scriptID, ClothesEnum.Top, 15, 0, 0);
+                // game.setPedComponentVariation(player.scriptID, ClothesEnum.Torso, 15, 0, 0);
+                // game.setPedComponentVariation(player.scriptID, ClothesEnum.Undershirt, 15, 0, 0);
                 break;
             default:
                 break;
@@ -30,6 +44,19 @@ export default async() => {
         alt.log(`componentID: ${componentID}`);
         // TODO: Dorobić teksture
         switch (componentID) {
+            case ClothesEnum.Hat:
+                game.setPedPropIndex(player.scriptID, 0, drawableID, textureID, false);
+                break;
+            case ClothesEnum.Legs:
+                game.setPedComponentVariation(player.scriptID, componentID, drawableID, textureID, 0);
+                break;
+            case ClothesEnum.Shoes:
+                game.setPedComponentVariation(player.scriptID, componentID, drawableID, textureID, 0);
+                break;
+            case ClothesEnum.Undershirt:
+                game.setPedComponentVariation(player.scriptID, ClothesEnum.Torso, torsoId, torsoTesture, 0);
+                game.setPedComponentVariation(player.scriptID, componentID, drawableID, textureID, 0);
+                break;
             case ClothesEnum.Top:
                 alt.log('wykonuje zmiane topu');
                 game.setPedComponentVariation(player.scriptID, ClothesEnum.Torso, torsoId, torsoTesture, 0);

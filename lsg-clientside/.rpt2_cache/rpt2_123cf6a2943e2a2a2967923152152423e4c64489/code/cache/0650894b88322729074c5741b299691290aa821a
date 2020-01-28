@@ -1,0 +1,1 @@
+{"code":"export class Position {\r\n    static distance(positionOne, positionTwo) {\r\n        return Math.sqrt(Math.pow(positionOne.x - positionTwo.x, 2) + Math.pow(positionOne.y - positionTwo.y, 2) + Math.pow(positionOne.z - positionTwo.z, 2));\r\n    }\r\n}\r\n","references":[]}
