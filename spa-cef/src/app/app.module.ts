@@ -62,6 +62,7 @@ import { IntoVehicleInteractionComponent } from './_views/vehicle-interaction/el
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-speedometr.component';
 import { InventoryPanelComponent } from './_views/inventory-panel/inventory-panel.component';
+import { DoorsPanelComponent } from './_views/building-panel/doors-panel/doors-panel.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -94,6 +95,7 @@ export function tokenGetter() {
     IntoVehicleInteractionComponent,
     VehicleSpeedometrComponent,
     InventoryPanelComponent,
+    DoorsPanelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

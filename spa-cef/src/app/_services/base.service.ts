@@ -19,6 +19,7 @@ export class BaseService {
   busStopInformation: BusStop;
   busStationsInformation: BusStopStation[];
   inventoryItems: Item[];
+  enterBuildingData: { charge: number, name: string, enter: boolean};
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -50,6 +51,11 @@ export class BaseService {
       await this.ngZone.run(async () => { this.inventoryItems = items; });
     });
 
+    this.altvService.on('building:request', async (requestEnter: { charge: number, name: string, enter: boolean}) => {
+      await this.ngZone.run(async () => {
+        this.enterBuildingData = requestEnter;
+      });
+    });
 
   }
 

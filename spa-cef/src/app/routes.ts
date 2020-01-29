@@ -16,6 +16,7 @@ import { VehicleInteractionComponent } from './_views/vehicle-interaction/vehicl
 import { IntoVehicleInteractionComponent } from './_views/vehicle-interaction/elements/into-vehicle-interaction/into-vehicle-interaction.component';
 import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-speedometr.component';
 import { InventoryPanelComponent } from './_views/inventory-panel/inventory-panel.component';
+import { DoorsPanelComponent } from './_views/building-panel/doors-panel/doors-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -33,7 +34,8 @@ export const appRoutes: Routes = [
             { path: 'bus', component:  BusStopPanelComponent},
             { path: 'vehicle/interaction', component: VehicleInteractionComponent },
             { path: 'vehicle/interaction/into', component: IntoVehicleInteractionComponent },
-            { path: 'inventory', component: InventoryPanelComponent }
+            { path: 'inventory', component: InventoryPanelComponent },
+            { path: 'doors', component: DoorsPanelComponent }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

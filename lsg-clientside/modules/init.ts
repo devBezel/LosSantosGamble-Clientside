@@ -24,6 +24,7 @@ import WeaponHolsterItemScript from './Core/Items/WeaponHolsterItemScript';
 import MaskItemScript from './Core/Items/MaskItemScript';
 import ClothesItemScript from './Core/Items/ClothesItemScript';
 import AdminBasePanel from './Core/Entities/Admin/AdminBasePanel';
+import BuildingScript from './Core/Entities/Building/BuildingScript';
 
 export default async () => {
 	 await Login();
@@ -51,6 +52,7 @@ export default async () => {
 	 await MaskItemScript();
 	 await ClothesItemScript();
 	 await AdminBasePanel();
+	 await BuildingScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');
