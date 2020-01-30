@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { BusStop } from '../_models/busStop';
 import { BusStopStation } from '../_models/busStopStation';
 import { Item } from '../_models/item';
+import { Building } from '../_models/building';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class BaseService {
   busStopInformation: BusStop;
   busStationsInformation: BusStopStation[];
   inventoryItems: Item[];
-  enterBuildingData: { charge: number, name: string, enter: boolean};
+  enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean};
+  buildingData: Building;
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -51,10 +53,15 @@ export class BaseService {
       await this.ngZone.run(async () => { this.inventoryItems = items; });
     });
 
-    this.altvService.on('building:request', async (requestEnter: { charge: number, name: string, enter: boolean}) => {
+    this.altvService.on('building:request', async (requestEnter: { charge: number, name: string, enter: boolean,
+      isCharacterOwner: boolean }) => {
       await this.ngZone.run(async () => {
         this.enterBuildingData = requestEnter;
       });
+    });
+
+    this.altvService.on('building:data', async (buildingData: Building) => {
+      await this.ngZone.run(async () => { this.buildingData = buildingData; });
     });
 
   }

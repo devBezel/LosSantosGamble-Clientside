@@ -9,23 +9,27 @@ import { AltvService } from 'src/app/_services/altv.service';
 })
 export class DoorsPanelComponent implements OnInit {
 
-  enterBuildingData: { charge: number, name: string, enter: boolean};
+  enterBuildingData: { charge?: number, name?: string, enter?: boolean, isCharacterOwner?: boolean};
 
-  constructor(private baseService: BaseService, private alvService: AltvService) { }
+  constructor(private baseService: BaseService, private altvService: AltvService) { }
 
   ngOnInit() {
     setTimeout(() => {
       this.enterBuildingData = this.baseService.enterBuildingData;
-      console.log(this.enterBuildingData);
-    }, 5);
+      // console.log(this.enterBuildingData.isCharacterOwner);
+    }, 2);
   }
 
   enterBuilding() {
-    this.alvService.emit('building:enterBuilding');
+    this.altvService.emit('building:enterBuilding');
   }
 
   exitBuilding() {
-    this.alvService.emit('building:exitBuilding');
+    this.altvService.emit('building:exitBuilding');
+  }
+
+  manageBuilding() {
+    this.altvService.emit('building:manage');
   }
 
 }

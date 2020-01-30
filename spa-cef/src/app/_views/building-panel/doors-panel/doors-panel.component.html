@@ -2,21 +2,24 @@
   <mat-card>
     <mat-card-header>
       <img mat-card-avatar src="../../../../assets/img/building/building.svg">
-    <mat-card-title>{{ enterBuildingData.name }}</mat-card-title>
+    <mat-card-title>{{ enterBuildingData?.name }}</mat-card-title>
       <mat-card-subtitle>Za wejście może być pobierana opłata</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
       <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile *ngIf="enterBuildingData.enter">
-          <p>Opłata: {{ enterBuildingData.charge }}$</p>
+        <mat-grid-tile *ngIf="enterBuildingData?.enter">
+          <p>Opłata: {{ enterBuildingData?.charge }}$</p>
         </mat-grid-tile>
-        <mat-grid-tile *ngIf="enterBuildingData.enter">
+        <mat-grid-tile *ngIf="enterBuildingData?.enter">
           <button mat-button (click)="enterBuilding()">Wejdź</button>
         </mat-grid-tile>
-        <mat-grid-tile *ngIf="!enterBuildingData.enter">
+        <mat-grid-tile *ngIf="!enterBuildingData?.enter">
             <button mat-button (click)="exitBuilding()">Wyjdź</button>
           </mat-grid-tile>
+          <mat-grid-tile *ngIf="!enterBuildingData?.enter && enterBuildingData?.isCharacterOwner">
+              <button mat-button (click)="manageBuilding()">Zarządzaj</button>
+            </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
   </mat-card>

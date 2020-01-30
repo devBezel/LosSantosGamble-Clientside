@@ -1,3 +1,69 @@
-<p>
-  building-panel works!
-</p>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Zarządzanie budynkiem</mat-card-title>
+      <mat-card-subtitle>Tutaj możesz zarządzać swoim budynkiem</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="1:1.2">
+        <mat-grid-tile>
+          <img src="../../../assets/img/building/building.svg" class="building-img" alt="">
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-list>
+            <mat-list-item>
+                <i class="material-icons">
+                    info
+                </i> <p class="p-title">Nazwa: </p>
+              <p class="p-data">{{ buildingData?.name }} </p>
+            </mat-list-item>
+            <mat-list-item>
+                <i class="material-icons">
+                    monetization_on
+                </i> <p class="p-title">Opłata: </p>
+                <p class="p-data">{{ buildingData?.entryFee }} $</p>
+            </mat-list-item>
+            <mat-list-item>
+                <i class="material-icons">
+                    unarchive
+                    </i> <p class="p-title">Obiektów max: </p>
+                  <p class="p-data">{{ buildingData?.maxObjectsCount }}</p>
+            </mat-list-item>
+            <mat-list-item>
+                <i class="material-icons">
+                    unarchive
+                    </i> <p class="p-title">Obiektów aktualnie: </p>
+                  <p class="p-data">{{ buildingData?.currentObjectsCount }}</p>
+          </mat-list-item>
+
+          <mat-list-item>
+              <i class="material-icons">
+                  videocam
+              </i><p class="p-title">Kamery: </p>
+              <p class="p-data">{{ buildingData?.hasCCTV ? 'Tak' : 'Nie' }}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+            <i class="material-icons">
+                shopping_cart
+            </i> <p class="p-title">Na sprzedaż: </p>
+          <p class="p-data">{{ buildingData?.onSale ? 'Tak' : 'Nie'}}</p>
+      </mat-list-item>
+          </mat-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="options-button">
+        <p>Opcje</p>
+        <button mat-button (click)="lockBuilding()">Zamek</button>
+        <button mat-button>Edytuj budynek</button>
+        <button mat-button>Wystaw na sprzedaż</button>
+        <button mat-button>Magazyn</button>
+        <button mat-button>Lista lokatorów</button>
+      </div>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>
