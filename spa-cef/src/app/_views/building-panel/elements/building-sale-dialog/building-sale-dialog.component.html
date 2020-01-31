@@ -1,0 +1,9 @@
+<mat-slide-toggle [color]="color" [mat-dialog-close]="buildingData" [(ngModel)]="buildingData.onSale">Wystaw na sprzedaż</mat-slide-toggle>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Cena budynku</mat-label>
+  <input matInput placeholder="{{ buildingData.entryFee }}" [(ngModel)]="buildingData.saleCost">
+    <mat-icon matSuffix>attach_money</mat-icon>
+  </mat-form-field>
+</p>

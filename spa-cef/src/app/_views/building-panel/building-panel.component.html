@@ -50,6 +50,14 @@
             </i> <p class="p-title">Na sprzedaż: </p>
           <p class="p-data">{{ buildingData?.onSale ? 'Tak' : 'Nie'}}</p>
       </mat-list-item>
+
+      
+      <mat-list-item>
+        <i class="material-icons">
+          monetization_on
+      </i> <p class="p-title">Saldo: </p>
+      <p class="p-data">{{ buildingData?.balance }} $</p>
+  </mat-list-item>
           </mat-list>
         </mat-grid-tile>
       </mat-grid-list>
@@ -57,10 +65,11 @@
       <div class="options-button">
         <p>Opcje</p>
         <button mat-button (click)="lockBuilding()">Zamek</button>
-        <button mat-button>Edytuj budynek</button>
-        <button mat-button>Wystaw na sprzedaż</button>
+        <button mat-button (click)="openBuildingEditor()">Edytuj budynek</button>
+        <button mat-button (click)="openBuildingSaleEditor()">Wystaw na sprzedaż</button>
         <button mat-button>Magazyn</button>
         <button mat-button>Lista lokatorów</button>
+        <button mat-button (click)="withdrawBalanceEditor()">Wypłać gotówkę</button>
       </div>
 
 

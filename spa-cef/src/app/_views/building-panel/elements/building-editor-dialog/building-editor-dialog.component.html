@@ -1,0 +1,11 @@
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Nazwa budynku" value="{{ buildingData.name }}" [(ngModel)]="buildingData.name">
+</mat-form-field>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Opłata za wejście</mat-label>
+  <input matInput placeholder="{{ buildingData.entryFee }}" [(ngModel)]="buildingData.entryFee">
+    <mat-icon matSuffix>attach_money</mat-icon>
+  </mat-form-field>
+</p>

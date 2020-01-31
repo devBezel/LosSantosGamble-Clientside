@@ -21,6 +21,9 @@
               <button mat-button (click)="manageBuilding()">Zarządzaj</button>
             </mat-grid-tile>
       </mat-grid-list>
+      <button mat-button *ngIf="enterBuildingData?.enter && enterBuildingData?.isCharacterOwner" (click)="lockBuilding()"><i class="material-icons">
+        lock
+        </i> Zamek</button>
     </mat-card-content>
   </mat-card>
 </div>

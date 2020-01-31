@@ -64,6 +64,10 @@ import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-
 import { InventoryPanelComponent } from './_views/inventory-panel/inventory-panel.component';
 import { DoorsPanelComponent } from './_views/building-panel/doors-panel/doors-panel.component';
 import { BuildingPanelComponent } from './_views/building-panel/building-panel.component';
+import { BuildingEditorDialogComponent } from './_views/building-panel/elements/building-editor-dialog/building-editor-dialog.component';
+import { BuildingSaleDialogComponent } from './_views/building-panel/elements/building-sale-dialog/building-sale-dialog.component';
+// tslint:disable-next-line:max-line-length
+import { BuildingWithdrawBalanceDialogComponent } from './_views/building-panel/elements/building-withdraw-balance-dialog/building-withdraw-balance-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -97,7 +101,10 @@ export function tokenGetter() {
     VehicleSpeedometrComponent,
     InventoryPanelComponent,
     DoorsPanelComponent,
-    BuildingPanelComponent
+    BuildingPanelComponent,
+    BuildingEditorDialogComponent,
+    BuildingSaleDialogComponent,
+    BuildingWithdrawBalanceDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -121,6 +128,11 @@ export function tokenGetter() {
       progressBar: true
     }),
     RouterModule.forRoot(appRoutes)
+  ],
+  entryComponents: [
+    BuildingEditorDialogComponent,
+    BuildingSaleDialogComponent,
+    BuildingWithdrawBalanceDialogComponent
   ],
   providers: [
     AuthService,

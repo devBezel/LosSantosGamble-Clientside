@@ -19,6 +19,7 @@ export interface Building {
     hasCCTV: boolean;
     hasSafe: boolean;
     spawnPossible: boolean;
+    balance: number;
     description?: string;
     createdTime: string;
     onSale: boolean;

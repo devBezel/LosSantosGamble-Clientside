@@ -1,0 +1,10 @@
+<p>Dostępne środki: {{ buildingData.balance }}$</p>
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Wypłać środki</mat-label>
+  <input matInput placeholder="{{ buildingData.entryFee }}" [(ngModel)]="withdrawMoney">
+    <mat-icon matSuffix>attach_money</mat-icon>
+  </mat-form-field>
+</p>
+
+<button mat-button [mat-dialog-close]="withdrawMoney">Wypłać</button>

@@ -2,42 +2,42 @@ import * as alt from 'alt';
 import * as game from 'natives';
 
 export default async () => {
-    const blips: any = new Map();
-    let totalBlips = 0;
+    const blips: alt.PointBlip[] = [];
+
+
 
     alt.onServer('blip:create', createBlip);
     alt.onServer('blip:delete', deleteBlip);
+    alt.onServer('blip:updateBlip', updateBlip);
 
     async function createBlip(posX: number, posY: number, posZ: number, sprite: number, color: number, scale: number, name: string, shortRange: boolean, uniqueID: any) {
-        alt.log(`tworze blip UniqueID: ${uniqueID}`);
-        const blip = game.addBlipForCoord(posX, posY, posZ);
-        game.setBlipSprite(blip, sprite);
-        game.setBlipColour(blip, color);
-        game.setBlipScale(blip, scale);
-        game.setBlipAsShortRange(blip, shortRange);
-        game.beginTextCommandSetBlipName('STRING');
-        game.addTextComponentSubstringPlayerName(name);
-        game.endTextCommandSetBlipName(blip);
 
-        if (uniqueID === undefined || uniqueID === null) {
-            totalBlips += 1;
-            // tslint:disable-next-line:no-parameter-reassignment
-            uniqueID = `${totalBlips}`;
-        }
-
-        if (blips[uniqueID] !== undefined) {
-            game.removeBlip(blip);
-        }
-
-        blips[uniqueID] = blip;
+        const blip = new alt.PointBlip(posX, posY, posZ);
+        blip.sprite = sprite;
+        blip.color = color;
+        blip.scale = scale;
+        blip.name = name;
+        blip.shortRange = true;
+        blips.push(blip);
+        blip.setMeta('blip:uniqueID', uniqueID);
     }
 
-    async function deleteBlip(uniqueID: string) {
-        if (blips[uniqueID] !== undefined) {
-            alt.log(blips);
-            game.removeBlip(blips[uniqueID]);
-            blips.delete(uniqueID);
-            alt.log(blips);
-        }
+    async function deleteBlip(uniqueID: any) {
+        blips.forEach((item: alt.PointBlip) => {
+            if (item.getMeta('blip:uniqueID') === uniqueID) {
+                item.destroy();
+            }
+        });
+    }
+
+    async function updateBlip(uniqueID:any, sprite: number, name: string, color: number) {
+        blips.forEach((blip: alt.PointBlip) => {
+            // Coś znowu nie gra ze zmienianiem się po wylączeniu i wlączeniu sprzedaży
+            if (blip.getMeta('blip:uniqueID') === uniqueID) {
+                blip.sprite = sprite;
+                blip.name = name;
+                blip.color = color;
+            }
+        });
     }
 };

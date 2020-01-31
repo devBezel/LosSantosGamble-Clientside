@@ -60,4 +60,5 @@ export default async () => {
 	 alt.requestIpl('gr_heist_yacht2_bridge');
 	 alt.requestIpl('gr_heist_yacht2_enginrm');
 	 alt.requestIpl('gr_heist_yacht2_lounge');
+	 alt.requestIpl('lsg_house_entrance');
 };

@@ -32,4 +32,7 @@ export class DoorsPanelComponent implements OnInit {
     this.altvService.emit('building:manage');
   }
 
+  lockBuilding() {
+    this.altvService.emit('building:requestLock');
+  }
 }

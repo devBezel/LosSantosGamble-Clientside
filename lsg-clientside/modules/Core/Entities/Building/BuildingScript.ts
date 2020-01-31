@@ -28,11 +28,12 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        webView.open('', true, 'doors', false);
+        webView.open('', true, 'doors', true);
         webView.emit('building:request', { charge, name, enter, isCharacterOwner });
         webView.on('building:enterBuilding', enterBuilding);
         webView.on('building:exitBuilding', exitBuilding);
         webView.on('building:manage', getManageInformation);
+        webView.on('building:requestLock', requestLockBuilding);
     }
 
     async function enterBuilding() {
@@ -60,12 +61,26 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        webView.open('', true, 'building/manage', false);
+        webView.open('', true, 'building/manage', true);
         webView.emit('building:data', data);
         webView.on('building:requestLock', requestLockBuilding);
+        webView.on('building:editData', editBuildingData);
+        webView.on('building:editOnSaleData', editOnSaleData);
+        webView.on('building:withdrawBalance', withdrawBuildingBalance);
     }
 
     async function requestLockBuilding() {
         alt.emitServer('building:requestLockBuilding');
+    }
+
+    async function editBuildingData(name: string, entryFee: number) {
+        alt.emitServer('building:editData', name, entryFee);
+    }
+    async function editOnSaleData(sale: boolean, saleCost: number) {
+        alt.emitServer('building:editOnSaleData', sale, saleCost);
+    }
+
+    async function withdrawBuildingBalance(balance: number) {
+        alt.emitServer('building:withdrawBalance', balance);
     }
 };
