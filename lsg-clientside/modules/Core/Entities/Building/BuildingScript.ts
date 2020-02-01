@@ -3,6 +3,7 @@ import * as game from 'natives';
 import { View } from '../../Utilities/View';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { Building } from 'client/modules/Models/building';
+import { Item } from 'client/modules/Models/Item';
 
 export default async () => {
 
@@ -20,6 +21,7 @@ export default async () => {
 
     alt.onServer('building:request', requestEnterBuilding);
     alt.onServer('building:manageData', openWindowManageData);
+
 
     async function requestEnterBuilding(charge: number, name: string, enter: boolean, isCharacterOwner: boolean) {
         if (!webView) {
@@ -54,7 +56,7 @@ export default async () => {
         alt.emitServer('building:getManageData');
     }
 
-    async function openWindowManageData(data: Building) {
+    async function openWindowManageData(data: Building, buildingItems: Item[], playerItems: Item[]) {
         if (!webView) {
             webView = new View();
         }
@@ -62,11 +64,13 @@ export default async () => {
         if (alt.Player.local.getMeta('viewOpen')) return;
 
         webView.open('', true, 'building/manage', true);
-        webView.emit('building:data', data);
+        webView.emit('building:data', data, buildingItems, playerItems);
         webView.on('building:requestLock', requestLockBuilding);
         webView.on('building:editData', editBuildingData);
         webView.on('building:editOnSaleData', editOnSaleData);
         webView.on('building:withdrawBalance', withdrawBuildingBalance);
+        webView.on('building:insertItemToMagazine', insertItemToMagazine);
+        webView.on('building:insertItemFromMagazineToEquipment', insertItemFromMagazineToEquipment);
     }
 
     async function requestLockBuilding() {
@@ -83,4 +87,13 @@ export default async () => {
     async function withdrawBuildingBalance(balance: number) {
         alt.emitServer('building:withdrawBalance', balance);
     }
+
+    async function insertItemToMagazine(itemID: number) {
+        alt.emitServer('building:insertItemToMagazine', itemID);
+    }
+
+    async function insertItemFromMagazineToEquipment(itemID: number) {
+        alt.emitServer('building:insertItemFromMagazineToEquipment', itemID);
+    }
+
 };

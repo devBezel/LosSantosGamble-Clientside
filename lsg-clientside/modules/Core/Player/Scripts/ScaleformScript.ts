@@ -72,6 +72,9 @@ export default async () => {
                 return;
             }
             if (!hasPremium) {
+
+                if (text.content === null || text.content === undefined) return;
+
                 text.content = text.content.replace(/~/g, '');
             }
 

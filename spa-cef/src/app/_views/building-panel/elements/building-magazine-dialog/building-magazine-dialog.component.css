@@ -1,0 +1,26 @@
+.magazine-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.p-id-item {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 10px;
+}
+.select-button {
+    margin-right: 10px !important;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+}

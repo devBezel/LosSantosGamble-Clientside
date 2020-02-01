@@ -21,7 +21,7 @@ export class BaseService {
   busStationsInformation: BusStopStation[];
   inventoryItems: Item[];
   enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean};
-  buildingData: Building;
+  buildingData: {building: Building, buildingItems: Item[], playerItems: Item[]};
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -60,8 +60,10 @@ export class BaseService {
       });
     });
 
-    this.altvService.on('building:data', async (buildingData: Building) => {
-      await this.ngZone.run(async () => { this.buildingData = buildingData; });
+    this.altvService.on('building:data', async (buildingData: Building, buildingItemsEvent: Item[], playerItemsEvent: Item[]) => {
+      await this.ngZone.run(async () => {
+        this.buildingData = { building: buildingData, buildingItems: buildingItemsEvent, playerItems: playerItemsEvent };
+      });
     });
 
   }

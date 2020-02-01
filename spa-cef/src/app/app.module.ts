@@ -68,6 +68,8 @@ import { BuildingEditorDialogComponent } from './_views/building-panel/elements/
 import { BuildingSaleDialogComponent } from './_views/building-panel/elements/building-sale-dialog/building-sale-dialog.component';
 // tslint:disable-next-line:max-line-length
 import { BuildingWithdrawBalanceDialogComponent } from './_views/building-panel/elements/building-withdraw-balance-dialog/building-withdraw-balance-dialog.component';
+// tslint:disable-next-line:max-line-length
+import { BuildingMagazineDialogComponent } from './_views/building-panel/elements/building-magazine-dialog/building-magazine-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -104,7 +106,8 @@ export function tokenGetter() {
     BuildingPanelComponent,
     BuildingEditorDialogComponent,
     BuildingSaleDialogComponent,
-    BuildingWithdrawBalanceDialogComponent
+    BuildingWithdrawBalanceDialogComponent,
+    BuildingMagazineDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -132,7 +135,8 @@ export function tokenGetter() {
   entryComponents: [
     BuildingEditorDialogComponent,
     BuildingSaleDialogComponent,
-    BuildingWithdrawBalanceDialogComponent
+    BuildingWithdrawBalanceDialogComponent,
+    BuildingMagazineDialogComponent
   ],
   providers: [
     AuthService,

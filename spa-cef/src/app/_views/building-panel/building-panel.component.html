@@ -16,39 +16,39 @@
                 <i class="material-icons">
                     info
                 </i> <p class="p-title">Nazwa: </p>
-              <p class="p-data">{{ buildingData?.name }} </p>
+              <p class="p-data">{{ buildingData?.building?.name }} </p>
             </mat-list-item>
             <mat-list-item>
                 <i class="material-icons">
                     monetization_on
                 </i> <p class="p-title">Opłata: </p>
-                <p class="p-data">{{ buildingData?.entryFee }} $</p>
+                <p class="p-data">{{ buildingData?.building?.entryFee }} $</p>
             </mat-list-item>
             <mat-list-item>
                 <i class="material-icons">
                     unarchive
                     </i> <p class="p-title">Obiektów max: </p>
-                  <p class="p-data">{{ buildingData?.maxObjectsCount }}</p>
+                  <p class="p-data">{{ buildingData?.building?.maxObjectsCount }}</p>
             </mat-list-item>
             <mat-list-item>
                 <i class="material-icons">
                     unarchive
                     </i> <p class="p-title">Obiektów aktualnie: </p>
-                  <p class="p-data">{{ buildingData?.currentObjectsCount }}</p>
+                  <p class="p-data">{{ buildingData?.building?.currentObjectsCount }}</p>
           </mat-list-item>
 
           <mat-list-item>
               <i class="material-icons">
                   videocam
               </i><p class="p-title">Kamery: </p>
-              <p class="p-data">{{ buildingData?.hasCCTV ? 'Tak' : 'Nie' }}</p>
+              <p class="p-data">{{ buildingData?.building?.hasCCTV ? 'Tak' : 'Nie' }}</p>
         </mat-list-item>
 
         <mat-list-item>
             <i class="material-icons">
                 shopping_cart
             </i> <p class="p-title">Na sprzedaż: </p>
-          <p class="p-data">{{ buildingData?.onSale ? 'Tak' : 'Nie'}}</p>
+          <p class="p-data">{{ buildingData?.building?.onSale ? 'Tak' : 'Nie'}}</p>
       </mat-list-item>
 
       
@@ -56,7 +56,7 @@
         <i class="material-icons">
           monetization_on
       </i> <p class="p-title">Saldo: </p>
-      <p class="p-data">{{ buildingData?.balance }} $</p>
+      <p class="p-data">{{ buildingData?.building?.balance }} $</p>
   </mat-list-item>
           </mat-list>
         </mat-grid-tile>
@@ -67,9 +67,10 @@
         <button mat-button (click)="lockBuilding()">Zamek</button>
         <button mat-button (click)="openBuildingEditor()">Edytuj budynek</button>
         <button mat-button (click)="openBuildingSaleEditor()">Wystaw na sprzedaż</button>
-        <button mat-button>Magazyn</button>
+        <button mat-button (click)="openBuildingMagazineEditor()">Magazyn</button>
         <button mat-button>Lista lokatorów</button>
         <button mat-button (click)="withdrawBalanceEditor()">Wypłać gotówkę</button>
+        <button mat-button>Lista osób w budynku</button>
       </div>
 
 
