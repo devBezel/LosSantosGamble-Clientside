@@ -9,6 +9,7 @@ import { BuildingSaleDialogComponent } from './elements/building-sale-dialog/bui
 import { BuildingWithdrawBalanceDialogComponent } from './elements/building-withdraw-balance-dialog/building-withdraw-balance-dialog.component';
 import { BuildingMagazineDialogComponent } from './elements/building-magazine-dialog/building-magazine-dialog.component';
 import { Item } from 'src/app/_models/item';
+import { BuildingPlayersOnlineDialogComponent } from './elements/building-players-online-dialog/building-players-online-dialog.component';
 @Component({
   selector: 'app-building-panel',
   templateUrl: './building-panel.component.html',
@@ -16,12 +17,13 @@ import { Item } from 'src/app/_models/item';
 })
 export class BuildingPanelComponent implements OnInit {
 
-  buildingData?: { building: Building, buildingItems: Item[], playerItems: Item[] };
+  buildingData?: { building: Building, buildingItems: Item[], playerItems: Item[],
+                   playersInBuilding: { id: number, name: string, player: any }[] };
 
 
   constructor(private baseService: BaseService, private altvService: AltvService, public buildingEditorDialog: MatDialog,
               public buildingSaleDialog: MatDialog, public buildingWithdrawBalanceDialog: MatDialog,
-              public buildingMagazineDialog: MatDialog) { }
+              public buildingMagazineDialog: MatDialog, public buildingPlayersOnlineDialog: MatDialog) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -73,6 +75,12 @@ export class BuildingPanelComponent implements OnInit {
       data: this.buildingData
     });
 
+  }
+
+  openBuidlingPlayersOnlineListEditor() {
+    const dialogRef = this.buildingPlayersOnlineDialog.open(BuildingPlayersOnlineDialogComponent, {
+      data: this.buildingData.playersInBuilding
+    });
   }
 
 }

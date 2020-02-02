@@ -70,6 +70,8 @@ import { BuildingSaleDialogComponent } from './_views/building-panel/elements/bu
 import { BuildingWithdrawBalanceDialogComponent } from './_views/building-panel/elements/building-withdraw-balance-dialog/building-withdraw-balance-dialog.component';
 // tslint:disable-next-line:max-line-length
 import { BuildingMagazineDialogComponent } from './_views/building-panel/elements/building-magazine-dialog/building-magazine-dialog.component';
+// tslint:disable-next-line:max-line-length
+import { BuildingPlayersOnlineDialogComponent } from './_views/building-panel/elements/building-players-online-dialog/building-players-online-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -107,7 +109,8 @@ export function tokenGetter() {
     BuildingEditorDialogComponent,
     BuildingSaleDialogComponent,
     BuildingWithdrawBalanceDialogComponent,
-    BuildingMagazineDialogComponent
+    BuildingMagazineDialogComponent,
+    BuildingPlayersOnlineDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -136,7 +139,8 @@ export function tokenGetter() {
     BuildingEditorDialogComponent,
     BuildingSaleDialogComponent,
     BuildingWithdrawBalanceDialogComponent,
-    BuildingMagazineDialogComponent
+    BuildingMagazineDialogComponent,
+    BuildingPlayersOnlineDialogComponent
   ],
   providers: [
     AuthService,

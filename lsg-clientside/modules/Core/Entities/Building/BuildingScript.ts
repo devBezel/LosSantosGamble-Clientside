@@ -8,6 +8,7 @@ import { Item } from 'client/modules/Models/Item';
 export default async () => {
 
     const player = alt.Player.local;
+
     let webView: View;
 
     alt.on('keyup', async (key: any) => {
@@ -56,15 +57,22 @@ export default async () => {
         alt.emitServer('building:getManageData');
     }
 
-    async function openWindowManageData(data: Building, buildingItems: Item[], playerItems: Item[]) {
+    async function openWindowManageData(data: Building, buildingItems: Item[], playerItems: Item[], playersInBuildingEvent: alt.Player[]) {
+
         if (!webView) {
             webView = new View();
         }
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
+        const playersInBuilding: { id: number, name: string, player: alt.Player }[] = [];
+        playersInBuildingEvent.forEach((plr: alt.Player) => {
+            playersInBuilding.push({ id: plr.getSyncedMeta('account:id'), name: player.getSyncedMeta('character:name'), player: plr });
+        });
+
+
         webView.open('', true, 'building/manage', true);
-        webView.emit('building:data', data, buildingItems, playerItems);
+        webView.emit('building:data', data, buildingItems, playerItems, playersInBuilding);
         webView.on('building:requestLock', requestLockBuilding);
         webView.on('building:editData', editBuildingData);
         webView.on('building:editOnSaleData', editOnSaleData);

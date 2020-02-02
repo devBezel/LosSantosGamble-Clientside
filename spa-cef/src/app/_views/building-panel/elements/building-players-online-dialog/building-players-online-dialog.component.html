@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+        <i class="material-icons">
+            transfer_within_a_station
+        </i>
+    </div>
+    <mat-card-title>Lista osób obecnych w budynku</mat-card-title>
+    <mat-card-subtitle>Tutaj możesz dodać nowego lokatora lub wyrzucić niechcianą osobę</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="players-container">
+    <mat-list>
+      <mat-list-item *ngFor="let plr of playersInBuilding">
+      <p class="p-id-item">[ID: {{ plr.id }}]</p> <p>{{ plr.name }}</p> 
+      <button mat-button>Dodaj jako lokatora</button>
+      <button mat-button>Wyproś</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -21,7 +21,8 @@ export class BaseService {
   busStationsInformation: BusStopStation[];
   inventoryItems: Item[];
   enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean};
-  buildingData: {building: Building, buildingItems: Item[], playerItems: Item[]};
+  buildingData: { building: Building, buildingItems: Item[], playerItems: Item[],
+                  playersInBuilding: { id: number, name: string, player: any }[] };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -60,9 +61,14 @@ export class BaseService {
       });
     });
 
-    this.altvService.on('building:data', async (buildingData: Building, buildingItemsEvent: Item[], playerItemsEvent: Item[]) => {
+    this.altvService.on('building:data', async (buildingData: Building, buildingItemsEvent: Item[], playerItemsEvent: Item[],
+                                                playersInBuildingEvent: any[]) => {
       await this.ngZone.run(async () => {
-        this.buildingData = { building: buildingData, buildingItems: buildingItemsEvent, playerItems: playerItemsEvent };
+        this.buildingData = { building: buildingData, buildingItems: buildingItemsEvent, playerItems: playerItemsEvent,
+                              playersInBuilding: playersInBuildingEvent};
+        playersInBuildingEvent.forEach(plr => {
+          console.log(plr.name);
+        });
       });
     });
 
@@ -88,7 +94,6 @@ export class BaseService {
 
   redirectToPage() {
     this.altvService.on('change:route', async (routeClient: string) => {
-      console.log('przekierowywuje');
       await this.ngZone.run(async () => await this.router.navigate([routeClient]));
     });
   }
