@@ -18,7 +18,7 @@ import { BuildingPlayersOnlineDialogComponent } from './elements/building-player
 export class BuildingPanelComponent implements OnInit {
 
   buildingData?: { building: Building, buildingItems: Item[], playerItems: Item[],
-                   playersInBuilding: { id: number, name: string, player: any }[] };
+                   playersInBuilding: { id: number, name: string }[] };
 
 
   constructor(private baseService: BaseService, private altvService: AltvService, public buildingEditorDialog: MatDialog,

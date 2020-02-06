@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { AltvService } from 'src/app/_services/altv.service';
 
 @Component({
   selector: 'app-building-players-online-dialog',
@@ -8,6 +9,11 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class BuildingPlayersOnlineDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public playersInBuilding: { id: number, name: string, player: any }[] ) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public playersInBuilding: { id: number, name: string }[],
+              private altvService: AltvService ) { }
+
+  turnSbOut(plrId: number) {
+    this.altvService.emit('building:turnSbOut', plrId);
+  }
 
 }

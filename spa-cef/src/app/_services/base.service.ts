@@ -22,7 +22,7 @@ export class BaseService {
   inventoryItems: Item[];
   enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean};
   buildingData: { building: Building, buildingItems: Item[], playerItems: Item[],
-                  playersInBuilding: { id: number, name: string, player: any }[] };
+                  playersInBuilding: { id: number, name: string }[] };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {

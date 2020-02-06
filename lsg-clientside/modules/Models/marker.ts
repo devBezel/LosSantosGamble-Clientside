@@ -1,5 +1,6 @@
 export interface Marker {
     type: number;
+    dimension: number;
     posX: number;
     posY: number;
     posZ: number;

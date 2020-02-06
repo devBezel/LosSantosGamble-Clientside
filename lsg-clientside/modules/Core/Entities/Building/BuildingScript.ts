@@ -65,9 +65,9 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        const playersInBuilding: { id: number, name: string, player: alt.Player }[] = [];
+        const playersInBuilding: { id: number, name: string }[] = [];
         playersInBuildingEvent.forEach((plr: alt.Player) => {
-            playersInBuilding.push({ id: plr.getSyncedMeta('account:id'), name: player.getSyncedMeta('character:name'), player: plr });
+            playersInBuilding.push({ id: plr.getSyncedMeta('account:id'), name: player.getSyncedMeta('character:name') });
         });
 
 
@@ -79,6 +79,7 @@ export default async () => {
         webView.on('building:withdrawBalance', withdrawBuildingBalance);
         webView.on('building:insertItemToMagazine', insertItemToMagazine);
         webView.on('building:insertItemFromMagazineToEquipment', insertItemFromMagazineToEquipment);
+        webView.on('building:turnSbOut', playerTurnSbOut);
     }
 
     async function requestLockBuilding() {
@@ -103,5 +104,7 @@ export default async () => {
     async function insertItemFromMagazineToEquipment(itemID: number) {
         alt.emitServer('building:insertItemFromMagazineToEquipment', itemID);
     }
-
+    async function playerTurnSbOut(playerId: number) {
+        alt.emitServer('building:turnSbOut', playerId);
+    }
 };

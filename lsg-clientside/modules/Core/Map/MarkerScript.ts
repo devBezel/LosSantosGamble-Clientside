@@ -24,8 +24,14 @@ export default async () => {
     }
 
     alt.setInterval(() => {
+        const playerDimension = alt.Player.local.getSyncedMeta('player:dimension');
+        // drawMarker(markers.find(x => x.dimension === playerDimension));
         for (let i = 0; i < markers.length; i++) {
+            if (playerDimension !== markers[i].dimension) return;
+
             drawMarker(markers[i]);
+
+            // drawMarker(markers.find(x => x.dimension === playerDimension));
         }
     },              10);
 };

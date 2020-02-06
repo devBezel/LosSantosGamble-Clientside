@@ -14,7 +14,7 @@
       <mat-list-item *ngFor="let plr of playersInBuilding">
       <p class="p-id-item">[ID: {{ plr.id }}]</p> <p>{{ plr.name }}</p> 
       <button mat-button>Dodaj jako lokatora</button>
-      <button mat-button>Wyproś</button>
+      <button mat-button (click)="turnSbOut(plr.id)">Wyproś</button>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

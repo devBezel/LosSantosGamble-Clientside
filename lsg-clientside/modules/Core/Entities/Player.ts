@@ -13,14 +13,14 @@ export class Player {
         if (this.getPlayerDescription(player) !== undefined) {
             player.setMeta('character:description', null);
         }
+        alt.emitServer('character:setDescription', description.content);
 
-        player.setMeta('character:description', description);
         alt.emit('client:setDescription', description);
     }
 
 
-    public static getPlayerDescription(player: alt.Player) : CharacterDescription {
-        return player.getMeta('character:description');
+    public static getPlayerDescription(player: alt.Player) : string {
+        return player.getSyncedMeta('character:description');
     }
 
 }

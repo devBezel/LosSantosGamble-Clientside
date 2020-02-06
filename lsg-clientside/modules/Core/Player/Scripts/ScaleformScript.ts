@@ -30,21 +30,6 @@ export default async () => {
                 return;
             }
 
-            // let scale = distanceFromLocal / 25;
-            // if (scale < 0.5) {
-            //     scale = 0.5;
-            // }
-
-            // if (scale > 0.6) {
-            //     scale = 0.6;
-            // }
-
-            // let yMofidier = distanceFromLocal / 25 / 8;
-
-            // if (yMofidier > 0.05) {
-            //     yMofidier = 0.5;
-            // }
-
             let y = result[2];  // - yMofidier;
 
             if (y <= 0) {
@@ -66,33 +51,33 @@ export default async () => {
             Draw.drawText(username, result[1], y, 0.3, 6, 255, 255, 255, 255, true, false);
 
 
-            const text = Player.getPlayerDescription(player);
+            let text = Player.getPlayerDescription(player);
 
             if (text === null || text === undefined) {
                 return;
             }
             if (!hasPremium) {
 
-                if (text.content === null || text.content === undefined) return;
+                if (text === null || text === undefined) return;
 
-                text.content = text.content.replace(/~/g, '');
+                text = text.replace(/~/g, '');
             }
 
-            const textOne = text.content.slice(0, 64);
-            const textTwo = text.content.slice(64, 128);
-            const textThree = text.content.slice(128, 192);
+            const textOne = text.slice(0, 64);
+            const textTwo = text.slice(64, 128);
+            const textThree = text.slice(128, 192);
 
-            if (text.content.length > 0) {
+            if (text.length > 0) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 0.3, undefined, undefined);
-                Draw.drawText(textOne, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(textOne, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, true, false);
             }
-            if (text.content.length >= 64) {
+            if (text.length >= 64) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 0.2, undefined, undefined);
-                Draw.drawText(textTwo, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(textTwo, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, true, false);
             }
-            if (text.content.length >= 128) {
+            if (text.length >= 128) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 0.1, undefined, undefined);
-                Draw.drawText(textThree, desc[1], desc[2], 0.3, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(textThree, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, true, false);
             }
 
         });
