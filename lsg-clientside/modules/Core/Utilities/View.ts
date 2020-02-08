@@ -7,7 +7,6 @@ export let currentView: any;
 export class View {
 
     constructor() {
-        if (alt.Player.local.getMeta('chat')) return;
         if (currentView === undefined) {
             currentView = this;
         }
@@ -16,6 +15,8 @@ export class View {
     }
 
     open(url: string = baseConfig.cefLocalUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
+        if (alt.Player.local.getMeta('chatOpen')) return;
+
         if (!currentView.view) {
             currentView.view = new alt.WebView(url);
             currentView.events = [];

@@ -47,6 +47,8 @@ export default async () => {
             if (!webView) {
                 webView = new View();
             }
+
+            if (alt.Player.local.getMeta('viewOpen')) return;
             vehicle = vehicleRange;
             vehicleTransformData = vehicleData;
 
@@ -67,6 +69,7 @@ export default async () => {
                 webView = new View();
             }
 
+            if (alt.Player.local.getMeta('viewOpen') || alt.Player.local.getMeta('chatOpen')) return;
             vehicleTransformData = vehicleData;
 
             webView.open('', true, 'vehicle/interaction/into', true);

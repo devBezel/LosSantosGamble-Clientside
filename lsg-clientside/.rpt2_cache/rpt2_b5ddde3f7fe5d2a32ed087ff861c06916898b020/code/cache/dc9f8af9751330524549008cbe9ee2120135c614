@@ -1,0 +1,1 @@
+{"code":"import * as game from 'natives';\r\nexport class NativeExtenstion {\r\n    static getPlayerHealth(player) {\r\n        return game.getEntityHealth(player.scriptID);\r\n    }\r\n}\r\n","references":[]}

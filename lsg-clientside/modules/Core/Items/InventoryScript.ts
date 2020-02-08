@@ -34,7 +34,6 @@ export default async () => {
         if (!webView) {
             webView = new View();
         }
-
         if (alt.Player.local.getMeta('viewOpen')) return;
 
         webView.open('', true, 'inventory', true);
