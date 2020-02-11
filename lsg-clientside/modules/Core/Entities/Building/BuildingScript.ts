@@ -65,9 +65,11 @@ export default async () => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        const playersInBuilding: { id: number, name: string }[] = [];
+        let playersInBuilding: { id: number, name: string }[] = [];
+        playersInBuilding = [];
+
         playersInBuildingEvent.forEach((plr: alt.Player) => {
-            playersInBuilding.push({ id: plr.getSyncedMeta('account:id'), name: player.getSyncedMeta('character:name') });
+            playersInBuilding.push({ id: plr.getSyncedMeta('account:id'), name: plr.getSyncedMeta('character:name') });
         });
 
 

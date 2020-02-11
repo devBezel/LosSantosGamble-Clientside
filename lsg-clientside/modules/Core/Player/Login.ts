@@ -61,7 +61,7 @@ export default async() => {
         alt.Player.local.setPlayerReady(true);
         loginCamera.destroy();
 
-
+        alt.emit('player:ready');
         return alt.emit('character:wearClothes', characterLook);
     }
 
@@ -71,6 +71,7 @@ export default async() => {
 
 
         NativeNotification.showNotification(null, nativeNotificationType.Normal, 0, 'Pomyślnie ubrałeś postać', '~g~ Przebieralnia', 'Twoja postać została ubrana poprawnie', 1);
+        alt.emit('player:ready');
         alt.emitServer('login:successWearChangeWorld');
     }
 };

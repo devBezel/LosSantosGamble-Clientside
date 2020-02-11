@@ -72,6 +72,8 @@ import { BuildingWithdrawBalanceDialogComponent } from './_views/building-panel/
 import { BuildingMagazineDialogComponent } from './_views/building-panel/elements/building-magazine-dialog/building-magazine-dialog.component';
 // tslint:disable-next-line:max-line-length
 import { BuildingPlayersOnlineDialogComponent } from './_views/building-panel/elements/building-players-online-dialog/building-players-online-dialog.component';
+import { BaseOverlayComponent } from './_views/base-overlay/base-overlay.component';
+import { PlayerHudComponent } from './_views/base-overlay/player-hud/player-hud.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -110,7 +112,9 @@ export function tokenGetter() {
     BuildingSaleDialogComponent,
     BuildingWithdrawBalanceDialogComponent,
     BuildingMagazineDialogComponent,
-    BuildingPlayersOnlineDialogComponent
+    BuildingPlayersOnlineDialogComponent,
+    BaseOverlayComponent,
+    PlayerHudComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -563,6 +563,7 @@ declare namespace hashes {
 	export function getMicLevel(): number;
 	export function getMsPerGameMinute(): number;
 	export function getVehWheels(vehId: number): number;
+	export function setNoiseSuppressionStatus(state: boolean): void;
   
 	//Voice functions
 	  /**

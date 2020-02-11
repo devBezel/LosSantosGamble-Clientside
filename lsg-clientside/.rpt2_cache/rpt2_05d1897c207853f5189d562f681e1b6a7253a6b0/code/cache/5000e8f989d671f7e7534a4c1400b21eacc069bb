@@ -1,0 +1,1 @@
+{"code":"export default class Size {\r\n    constructor(w = 0, h = 0) {\r\n        this.Width = w;\r\n        this.Height = h;\r\n    }\r\n}\r\n","references":[]}

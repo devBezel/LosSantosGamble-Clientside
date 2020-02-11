@@ -20,7 +20,7 @@ import {
   MatTableModule,
   MatTabsModule,
   // tslint:disable-next-line:max-line-length
-  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule, MatExpansionModule, MatSlideToggleModule
+  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule, MatExpansionModule, MatSlideToggleModule, MatProgressBarModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -59,7 +59,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule,
     MatExpansionModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressBarModule
   ],
   exports: [
     MatIconModule,
@@ -94,7 +95,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule,
     MatExpansionModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressBarModule
   ],
 })
 export class MaterialModule {

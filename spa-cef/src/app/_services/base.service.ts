@@ -8,12 +8,13 @@ import { BusStop } from '../_models/busStop';
 import { BusStopStation } from '../_models/busStopStation';
 import { Item } from '../_models/item';
 import { Building } from '../_models/building';
+import { Character } from '../_models/character';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
-
+  hudInformation: Character;
   hasPremium: boolean;
   vehicleList: Vehicle[];
   userAtmInformation: { name: string, surname: string, money: number, bank: number };
@@ -30,6 +31,10 @@ export class BaseService {
     this.showNotifyError();
     this.showNotifyWarning();
     this.redirectToPage();
+
+    this.altvService.on('hud:playerInformation', async (hudInformation: Character) => {
+        await this.ngZone.run(async () => { this.hudInformation = hudInformation; });
+    });
 
     this.altvService.on('cef:descriptionHasPremium', async (hasPrem: boolean) => {
         await this.ngZone.run(async () => { this.hasPremium = hasPrem; });

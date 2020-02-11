@@ -18,6 +18,7 @@ import { VehicleSpeedometrComponent } from './_views/vehicle-speedometr/vehicle-
 import { InventoryPanelComponent } from './_views/inventory-panel/inventory-panel.component';
 import { DoorsPanelComponent } from './_views/building-panel/doors-panel/doors-panel.component';
 import { BuildingPanelComponent } from './_views/building-panel/building-panel.component';
+import { BaseOverlayComponent } from './_views/base-overlay/base-overlay.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -37,7 +38,8 @@ export const appRoutes: Routes = [
             { path: 'vehicle/interaction/into', component: IntoVehicleInteractionComponent },
             { path: 'inventory', component: InventoryPanelComponent },
             { path: 'doors', component: DoorsPanelComponent },
-            { path: 'building/manage', component: BuildingPanelComponent }
+            { path: 'building/manage', component: BuildingPanelComponent },
+            // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

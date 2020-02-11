@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card class="card-container">
+    <mat-card-content class="card-content-container">
+    <p class="subtitle-style">{{ hudInformation?.name }} {{ hudInformation?.surname }}</p>
+      <mat-grid-list cols="3" rowHeight="5:0.5">
+        <mat-grid-tile>
+            <div class="hungry-thirst_script">
+                <img src="../../../assets/img/player-hud/burger.svg" class="food-drink"><mat-progress-bar class="hungry-thirst_bar" mode="determinate" value="40"></mat-progress-bar>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="hungry-thirst_script">
+                <img src="../../../assets/img/player-hud/water-glass.svg" class="food-drink"><mat-progress-bar class="hungry-thirst_bar" mode="determinate" value="10"></mat-progress-bar>
+            </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="voice-chat_script">
+          <img src="../../../assets/img/player-hud/microphone.svg" />
+      </div>
+
+      <img src="../../../assets/img/logo/logo.png"  class="logo-background"/>
+    </mat-card-content>
+  </mat-card>
+</div>

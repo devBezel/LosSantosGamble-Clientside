@@ -26,9 +26,13 @@ import ClothesItemScript from './Core/Items/ClothesItemScript';
 import AdminBasePanel from './Core/Entities/Admin/AdminBasePanel';
 import BuildingScript from './Core/Entities/Building/BuildingScript';
 import InteractionScript from './Core/Interaction/InteractionScript';
+import VoiceChatScript from './Core/VoiceChat/VoiceChatScript';
+// import HudScript from './Core/Player/Scripts/HudScript';
 
 export default async () => {
 	 await Login();
+	//  await HudScript();
+	 await VoiceChatScript();
 	 await StreetLabel();
 	 await DescriptionScript();
 	 await ScaleformScript();
