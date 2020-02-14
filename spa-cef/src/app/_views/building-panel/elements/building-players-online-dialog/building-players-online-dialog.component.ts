@@ -16,4 +16,8 @@ export class BuildingPlayersOnlineDialogComponent {
     this.altvService.emit('building:turnSbOut', plrId);
   }
 
+  addPlayerToBuilding(plrId: number) {
+    this.altvService.emit('building:addPlayer', plrId);
+  }
+
 }

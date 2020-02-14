@@ -1,6 +1,7 @@
 import * as alt from 'alt';
 import * as natives from 'natives';
 import { baseConfig } from 'client/modules/Configs/BaseConfig';
+import { Environment } from '../Version/Environment';
 
 export let currentView: any;
 
@@ -14,7 +15,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string = baseConfig.cefLocalUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
+    open(url: string = Environment.getUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
         if (alt.Player.local.getMeta('chatOpen')) return;
 
         if (!currentView.view) {

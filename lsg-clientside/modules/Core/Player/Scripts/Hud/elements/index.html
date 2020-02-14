@@ -1,0 +1,175 @@
+<link rel="stylesheet" type="text/css" href="./loading-bar.min.css" />
+<script type="text/javascript" src="./loading-bar.min.js"></script>
+
+<div class="container" id="container">
+    <div class="basic-information">
+        <div class="player-name">
+            <p id="full-name">Richard McCartney</p>
+        </div>
+
+
+        <div class="thirsty-hungry">
+
+            <div class="foodBar"><img src="./img/burger.svg" class="food-drink-img" /></div>
+
+            <div class="waterBar"><img src="./img/water-glass.svg" class="food-drink-img" /></div>
+        </div>
+
+        <div class="logo-watermark">
+            <img src="img/logo.png" />
+        </div>
+    </div>
+
+    <div class="second-information">
+        <div class="money">
+            <p id="money">500000 $</p>
+        </div>
+
+        <div class="dirty-money">
+            <p id="dirty-money">5000 $</p>
+        </div>
+        <div class="voice-chat">
+            <img src="img/microphone.svg">
+        </div>
+    </div>
+</div>
+
+
+<script>
+    alt.on('hud:basicInformation', async (player, hunger, water) => {
+
+        document.getElementById('full-name').innerHTML = `${player.name} ${player.surname}`;
+        document.getElementById('container').style.display = 'inline-block';
+
+        document.getElementById('money').innerHTML = `${player.money} $`;
+        document.getElementById('dirty-money').innerHTML = `${player.dirtymoney} $`;
+
+        foodBar.set(
+            hunger,
+            true
+        );
+        waterBar.set(
+            water,
+            true
+        );
+    });
+
+
+    let foodValue = 100;
+    let waterValue = 100;
+
+    const foodBar = new ldBar(".foodBar", {
+        "stroke": 'rgb(40, 100, 41)',
+        "stroke-width": 5,
+        "preset": "line",
+        "value": foodValue
+    });
+
+    const waterBar = new ldBar(".waterBar", {
+        "stroke": 'rgb(40, 100, 41)',
+        "stroke-width": 5,
+        "preset": "line",
+        "value": waterValue
+    });
+
+    alt.on('hud:updateInformation', async (hunger, thirsty) => {
+
+        foodBar.set(
+            hunger,
+            true
+        );
+        waterBar.set(
+            thirsty,
+            true
+        );
+    });
+</script>
+
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        margin-top: 5vh;
+        margin-right: 2vh;
+        height: 60px;
+        width: 400px;
+        float: right;
+        opacity: 0.9;
+        background-color: #424242;
+        border-radius: 3px;
+        border-left: 10px solid rgb(40, 100, 41);
+        display: none;
+    }
+
+    .player-name p {
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        margin-left: 10px;
+    }
+
+    .thirsty-hungry {
+        display: flex;
+        margin-top: -12px;
+        margin-left: 8px;
+    }
+
+    .logo-watermark {
+        opacity: 0.1;
+    }
+
+    .logo-watermark img {
+        width: 80px;
+        margin-top: -75px;
+        margin-left: 150px;
+    }
+
+    .ldBar-label {
+        display: none;
+    }
+
+    .food-drink-img {
+        width: 15px;
+        margin-right: 2px;
+        margin-top: -5px;
+        /* margin-top: -150px; */
+    }
+
+    .foodBar {
+        display: inherit;
+    }
+
+    .waterBar {
+        display: inherit;
+    }
+
+    .money {
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .dirty-money {
+        font-weight: 500;
+        color: rgba(199, 10, 10, 0.9);
+        margin-top: -30px;
+    }
+
+    .basic-information {
+        display: inline-grid;
+    }
+
+    .second-information {
+        display: inline-grid;
+    }
+
+    .voice-chat {
+        margin-left: 116px;
+        margin-top: -58px;
+    }
+
+    .voice-chat img {
+        width: 35px;
+        color-adjust: green;
+    }
+</style>

@@ -1,4 +1,5 @@
 import { Item } from './Item';
+import { BuildingTenant } from './buildingTenant';
 
 export interface Building {
     id: number;
@@ -26,4 +27,5 @@ export interface Building {
     saleCost: number;
     characterId?: number;
     itemsInBuilding: Item[];
+    buildingTenants: BuildingTenant[];
 }

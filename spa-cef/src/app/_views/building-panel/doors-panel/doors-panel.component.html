@@ -17,11 +17,11 @@
         <mat-grid-tile *ngIf="!enterBuildingData?.enter">
             <button mat-button (click)="exitBuilding()">Wyjdź</button>
           </mat-grid-tile>
-          <mat-grid-tile *ngIf="!enterBuildingData?.enter && enterBuildingData?.isCharacterOwner">
+          <mat-grid-tile *ngIf="!enterBuildingData?.enter && (enterBuildingData?.isCharacterOwner || enterBuildingData?.isCharacterTenant)">
               <button mat-button (click)="manageBuilding()">Zarządzaj</button>
             </mat-grid-tile>
       </mat-grid-list>
-      <button mat-button *ngIf="enterBuildingData?.enter && enterBuildingData?.isCharacterOwner" (click)="lockBuilding()"><i class="material-icons">
+      <button mat-button *ngIf="enterBuildingData?.enter && (enterBuildingData?.isCharacterOwner || enterBuildingData?.isCharacterTenant)" (click)="lockBuilding()"><i class="material-icons">
         lock
         </i> Zamek</button>
     </mat-card-content>

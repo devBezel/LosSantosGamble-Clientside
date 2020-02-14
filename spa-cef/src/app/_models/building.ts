@@ -1,4 +1,5 @@
 import { Item } from './Item';
+import { BuildingTenant } from './buildingTenant';
 
 export interface Building {
     id: number;
@@ -20,10 +21,11 @@ export interface Building {
     hasSafe: boolean;
     spawnPossible: boolean;
     balance: number;
-    description?: string;
+    description: string;
     createdTime: string;
     onSale: boolean;
     saleCost: number;
     characterId?: number;
     itemsInBuilding: Item[];
+    buildingTenants: BuildingTenant[];
 }

@@ -4,6 +4,7 @@ import { View } from '../../Utilities/View';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { Building } from 'client/modules/Models/building';
 import { Item } from 'client/modules/Models/Item';
+import { BuildingTenant } from 'client/modules/Models/buildingTenant';
 
 export default async () => {
 
@@ -24,7 +25,7 @@ export default async () => {
     alt.onServer('building:manageData', openWindowManageData);
 
 
-    async function requestEnterBuilding(charge: number, name: string, enter: boolean, isCharacterOwner: boolean) {
+    async function requestEnterBuilding(charge: number, name: string, enter: boolean, isCharacterOwner: boolean, isCharacterTenant: boolean) {
         if (!webView) {
             webView = new View();
         }
@@ -32,7 +33,7 @@ export default async () => {
         if (alt.Player.local.getMeta('viewOpen')) return;
 
         webView.open('', true, 'doors', true);
-        webView.emit('building:request', { charge, name, enter, isCharacterOwner });
+        webView.emit('building:request', { charge, name, enter, isCharacterOwner, isCharacterTenant });
         webView.on('building:enterBuilding', enterBuilding);
         webView.on('building:exitBuilding', exitBuilding);
         webView.on('building:manage', getManageInformation);
@@ -57,7 +58,7 @@ export default async () => {
         alt.emitServer('building:getManageData');
     }
 
-    async function openWindowManageData(data: Building, buildingItems: Item[], playerItems: Item[], playersInBuildingEvent: alt.Player[]) {
+    async function openWindowManageData(data: Building, buildingItems: Item[], playerItems: Item[], playersInBuildingEvent: alt.Player[], tenant: BuildingTenant) {
 
         if (!webView) {
             webView = new View();
@@ -72,9 +73,8 @@ export default async () => {
             playersInBuilding.push({ id: plr.getSyncedMeta('account:id'), name: plr.getSyncedMeta('character:name') });
         });
 
-
         webView.open('', true, 'building/manage', true);
-        webView.emit('building:data', data, buildingItems, playerItems, playersInBuilding);
+        webView.emit('building:data', data, buildingItems, playerItems, playersInBuilding, tenant);
         webView.on('building:requestLock', requestLockBuilding);
         webView.on('building:editData', editBuildingData);
         webView.on('building:editOnSaleData', editOnSaleData);
@@ -82,6 +82,7 @@ export default async () => {
         webView.on('building:insertItemToMagazine', insertItemToMagazine);
         webView.on('building:insertItemFromMagazineToEquipment', insertItemFromMagazineToEquipment);
         webView.on('building:turnSbOut', playerTurnSbOut);
+        webView.on('building:addPlayer', addPlayerToBuilding);
     }
 
     async function requestLockBuilding() {
@@ -108,5 +109,8 @@ export default async () => {
     }
     async function playerTurnSbOut(playerId: number) {
         alt.emitServer('building:turnSbOut', playerId);
+    }
+    async function addPlayerToBuilding(playerId: number) {
+        alt.emitServer('building:addPlayer', playerId);
     }
 };

@@ -1,0 +1,1 @@
+{"code":"import * as alt from 'alt';\r\nexport default async () => {\r\n    const webView = new alt.WebView('<p>XD</p>');\r\n    const player = alt.Player.local;\r\n    alt.on('player:ready', async () => {\r\n    });\r\n};\r\n","references":[]}

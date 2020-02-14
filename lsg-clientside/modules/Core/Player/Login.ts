@@ -8,12 +8,13 @@ import { spawnConfig } from 'client/modules/Configs/SpawnConfig';
 import { baseConfig } from 'client/modules/Configs/BaseConfig';
 import { NativeNotification } from '../Notify/NativeNotification';
 import { nativeNotificationType } from 'client/modules/Constant/Notification/NativeNotificationType';
+import { Environment } from '../Version/Environment';
 
 export default async() => {
 
     let webView: View;
     let loginCamera: Camera = new Camera(3331.6, 5222.5, 23, 10);
-    const url: string =  `${baseConfig.cefLocalUrl}login`;
+    const url: string =  `${Environment.getUrl}login`;
 
 
     alt.onServer('other:first-connect', showLoginWindow);

@@ -9,6 +9,7 @@ import { BusStopStation } from '../_models/busStopStation';
 import { Item } from '../_models/item';
 import { Building } from '../_models/building';
 import { Character } from '../_models/character';
+import { BuildingTenant } from '../_models/buildingTenant';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,9 @@ export class BaseService {
   busStopInformation: BusStop;
   busStationsInformation: BusStopStation[];
   inventoryItems: Item[];
-  enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean};
-  buildingData: { building: Building, buildingItems: Item[], playerItems: Item[],
-                  playersInBuilding: { id: number, name: string }[] };
+  enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean, isCharacterTenant: boolean};
+  buildingData: { building: Building,  buildingItems: Item[], playerItems: Item[],
+                  playersInBuilding: { id: number, name: string }[], tenant: BuildingTenant };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -60,17 +61,17 @@ export class BaseService {
     });
 
     this.altvService.on('building:request', async (requestEnter: { charge: number, name: string, enter: boolean,
-      isCharacterOwner: boolean }) => {
+      isCharacterOwner: boolean, isCharacterTenant: boolean }) => {
       await this.ngZone.run(async () => {
         this.enterBuildingData = requestEnter;
       });
     });
 
     this.altvService.on('building:data', async (buildingData: Building, buildingItemsEvent: Item[], playerItemsEvent: Item[],
-                                                playersInBuildingEvent: any[]) => {
+                                                playersInBuildingEvent: any[], buildingTenant: BuildingTenant) => {
       await this.ngZone.run(async () => {
         this.buildingData = { building: buildingData, buildingItems: buildingItemsEvent, playerItems: playerItemsEvent,
-                              playersInBuilding: playersInBuildingEvent};
+                              playersInBuilding: playersInBuildingEvent, tenant: buildingTenant};
         playersInBuildingEvent.forEach(plr => {
           console.log(plr.name);
         });

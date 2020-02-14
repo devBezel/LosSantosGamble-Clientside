@@ -27,11 +27,13 @@ import AdminBasePanel from './Core/Entities/Admin/AdminBasePanel';
 import BuildingScript from './Core/Entities/Building/BuildingScript';
 import InteractionScript from './Core/Interaction/InteractionScript';
 import VoiceChatScript from './Core/VoiceChat/VoiceChatScript';
-// import HudScript from './Core/Player/Scripts/HudScript';
+import HudScript from './Core/Player/Scripts/Hud/HudScript';
+import HungerThirstyScript from './Core/Player/Scripts/HungerThirstyScript';
+
 
 export default async () => {
 	 await Login();
-	//  await HudScript();
+	 await HudScript();
 	 await VoiceChatScript();
 	 await StreetLabel();
 	 await DescriptionScript();
@@ -59,6 +61,7 @@ export default async () => {
 	 await AdminBasePanel();
 	 await BuildingScript();
 	 await InteractionScript();
+	 await HungerThirstyScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');
