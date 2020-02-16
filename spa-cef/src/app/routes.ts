@@ -19,6 +19,7 @@ import { InventoryPanelComponent } from './_views/inventory-panel/inventory-pane
 import { DoorsPanelComponent } from './_views/building-panel/doors-panel/doors-panel.component';
 import { BuildingPanelComponent } from './_views/building-panel/building-panel.component';
 import { BaseOverlayComponent } from './_views/base-overlay/base-overlay.component';
+import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -39,6 +40,7 @@ export const appRoutes: Routes = [
             { path: 'inventory', component: InventoryPanelComponent },
             { path: 'doors', component: DoorsPanelComponent },
             { path: 'building/manage', component: BuildingPanelComponent },
+            { path: 'shop', component: ShopPanelComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },

@@ -1,0 +1,97 @@
+<div class="container">
+    <mat-grid-list cols="2" rowHeight="1:1">
+
+        <mat-grid-tile>
+          <!-- Sklep -->
+          <mat-card class="shop-container">
+            <mat-card-header>
+              <mat-card-title>
+                Sklep
+              </mat-card-title>
+              <mat-card-subtitle>
+                Możesz tutaj zakupić rzeczy, które potrzebujesz dodając je do koszyka, a później akceptując zamówienie
+              </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+              <mat-grid-list cols="2" rowHeight="1:1">
+                <mat-grid-tile>
+                  <img src="../../../assets/img/shop/bag.svg" class="bag-img"/>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                  <mat-card>
+                    <mat-card-header>
+                        <i class="material-icons" mat-card-avatar>
+                            format_list_bulleted
+                        </i>
+                      <mat-card-title>Lista przedmiotów</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-list-item>
+                                <p class="item-name">Pizza hawajska</p>
+                                <p class="item-cost">50$</p>
+                                <button mat-button class="next-step-btn">
+                                    <i class="material-icons">
+                                        keyboard_arrow_right
+                                    </i>
+                                </button>
+                            </mat-list-item>
+
+                            <mat-list-item>
+                                <p class="item-name">Coca Cola</p>
+                                <p class="item-cost">10$</p>
+                                <button mat-button class="next-step-btn">
+                                    <i class="material-icons">
+                                        keyboard_arrow_right
+                                    </i>
+                                </button>
+                            </mat-list-item>
+                          </mat-list>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+      
+        </mat-grid-tile>
+        
+        <mat-grid-tile>
+          <!-- Koszyk -->
+          <mat-card class="basket-container">
+            <mat-card-header>
+              <mat-card-title>
+                Koszyk
+              </mat-card-title>
+              <mat-card-subtitle>
+                Tutaj znajdują się przedmioty, które zamierzasz zakupić
+              </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <mat-grid-list cols="2" rowHeight="1:1">
+                    <mat-grid-tile>
+                      <img src="../../../assets/img/shop/buy.svg" class="bag-img"/>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                      <mat-card>
+                        <mat-card-header>
+                            <i class="material-icons" mat-card-avatar>
+                                format_list_bulleted
+                            </i>
+                          <mat-card-title>Lista zakupów</mat-card-title>
+                        </mat-card-header>
+                      </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      
+      </mat-grid-list>
+</div>
+
+
