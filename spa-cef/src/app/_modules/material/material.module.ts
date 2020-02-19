@@ -20,9 +20,10 @@ import {
   MatTableModule,
   MatTabsModule,
   // tslint:disable-next-line:max-line-length
-  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule, MatExpansionModule, MatSlideToggleModule, MatProgressBarModule
+  MatToolbarModule, MatTreeModule, MatSidenavModule, MatChipsModule, MatGridListModule, MatRadioModule, MatSliderModule, MatExpansionModule, MatSlideToggleModule, MatProgressBarModule, MatPaginatorIntl
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { getDutchPaginatorIntl } from './dutch-paginator-intl';
 
 
 @NgModule({
@@ -98,6 +99,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatSlideToggleModule,
     MatProgressBarModule
   ],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getDutchPaginatorIntl() }
+  ]
 })
 export class MaterialModule {
 }

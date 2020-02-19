@@ -76,6 +76,7 @@ import { BaseOverlayComponent } from './_views/base-overlay/base-overlay.compone
 import { PlayerHudComponent } from './_views/base-overlay/player-hud/player-hud.component';
 import { BuildingTenantsDialogComponent } from './_views/building-panel/elements/building-tenants-dialog/building-tenants-dialog.component';
 import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
+import { BuyOfferShopDialogComponent } from './_views/shop-panel/elements/buy-offer-shop-dialog/buy-offer-shop-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -118,7 +119,8 @@ export function tokenGetter() {
     BaseOverlayComponent,
     PlayerHudComponent,
     BuildingTenantsDialogComponent,
-    ShopPanelComponent
+    ShopPanelComponent,
+    BuyOfferShopDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -149,7 +151,8 @@ export function tokenGetter() {
     BuildingWithdrawBalanceDialogComponent,
     BuildingMagazineDialogComponent,
     BuildingPlayersOnlineDialogComponent,
-    BuildingTenantsDialogComponent
+    BuildingTenantsDialogComponent,
+    BuyOfferShopDialogComponent
   ],
   providers: [
     AuthService,

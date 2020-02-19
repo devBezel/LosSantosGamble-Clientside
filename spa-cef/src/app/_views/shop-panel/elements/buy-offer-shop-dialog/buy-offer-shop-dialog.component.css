@@ -1,0 +1,25 @@
+.subtitle-p {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.title {
+    margin-top: -10px !important;
+}
+
+.title p {
+    margin-top: -12px !important;
+}
+
+.title h3 {
+    font-weight: 600;
+}
+
+.accept-information {
+    display: flex;
+}
+
+.accept-information p {
+    margin-left: 10px;
+}

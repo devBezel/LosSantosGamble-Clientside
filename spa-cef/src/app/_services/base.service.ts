@@ -10,6 +10,7 @@ import { Item } from '../_models/item';
 import { Building } from '../_models/building';
 import { Character } from '../_models/character';
 import { BuildingTenant } from '../_models/buildingTenant';
+import { ShopAssortment } from '../_models/shopAssortment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class BaseService {
   enterBuildingData: { charge: number, name: string, enter: boolean, isCharacterOwner: boolean, isCharacterTenant: boolean};
   buildingData: { building: Building,  buildingItems: Item[], playerItems: Item[],
                   playersInBuilding: { id: number, name: string }[], tenant: BuildingTenant };
+  shopData: ShopAssortment[];
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -75,6 +77,12 @@ export class BaseService {
         playersInBuildingEvent.forEach(plr => {
           console.log(plr.name);
         });
+      });
+    });
+
+    this.altvService.on('shop:data', async (shopAssortment: ShopAssortment[]) => {
+      await this.ngZone.run(async () => {
+        this.shopData = shopAssortment;
       });
     });
 

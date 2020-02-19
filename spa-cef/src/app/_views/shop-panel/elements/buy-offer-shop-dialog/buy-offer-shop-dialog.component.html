@@ -1,0 +1,42 @@
+<!-- <div class="container">
+  <div class="title">
+    <h3>Oferta kupna</h3>
+    <p class="subtitle-p">Czy chcesz zakupić? <strong>{{ itemData.name }}</strong></p>
+  </div>
+
+  <div class="accept-information">
+    <button mat-button>
+      <i class="material-icons">
+        check
+      </i>
+      Zaakceptuj
+    </button>
+  
+    <p class="subtitle-p">Koszt: 20000$</p>
+  </div>
+</div> -->
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+        <i class="material-icons" mat-card-avatar>
+            shopping_basket
+        </i>
+      <mat-card-title>Oferta kupna</mat-card-title>
+      <mat-card-subtitle>Czy chcesz zakupić? <strong>{{ itemData.item.name }}</strong></mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="accept-information">
+        <button mat-button (click)="buyItem(itemData)" [mat-dialog-close]="true">
+          <i class="material-icons">
+            check
+          </i>
+          Zaakceptuj
+        </button>
+      
+      <p class="subtitle-p">Koszt: {{ itemData.item.cost * itemData.count }}$</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
