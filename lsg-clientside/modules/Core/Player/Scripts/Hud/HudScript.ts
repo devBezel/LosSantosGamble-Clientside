@@ -10,9 +10,11 @@ export default async () => {
 
     // TODO: Sprawdzić czy dziala
     alt.on('syncedMetaChange', async (entity: alt.Entity, key: string, value: any) => {
-        if (key === 'character:hunger' || key === 'character:thirsty') {
+        if (key === 'character:hunger') {
             alt.log('wysyłam emit');
-            webView.emit('hud:updateInformation', player.getSyncedMeta('character:hunger'), player.getSyncedMeta('character:thirsty'));
+            webView.emit('hud:updateHunger', player.getSyncedMeta('character:hunger'));
+        } else if (key === 'character:thirsty') {
+            webView.emit('hud:updateThirsty', player.getSyncedMeta('character:thirsty'));
         }
     });
 };

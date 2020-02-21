@@ -27,6 +27,7 @@ export class BaseService {
   buildingData: { building: Building,  buildingItems: Item[], playerItems: Item[],
                   playersInBuilding: { id: number, name: string }[], tenant: BuildingTenant };
   shopData: ShopAssortment[];
+  trunkData: { characterItem: Item[], vehicleItem: Item[] };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -83,6 +84,12 @@ export class BaseService {
     this.altvService.on('shop:data', async (shopAssortment: ShopAssortment[]) => {
       await this.ngZone.run(async () => {
         this.shopData = shopAssortment;
+      });
+    });
+
+    this.altvService.on('trunk:data', async (trunkDataFromClient: { characterItem: Item[], vehicleItem: Item[] }) => {
+      await this.ngZone.run(async () => {
+        this.trunkData = trunkDataFromClient;
       });
     });
 

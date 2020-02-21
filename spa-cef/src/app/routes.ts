@@ -20,6 +20,7 @@ import { DoorsPanelComponent } from './_views/building-panel/doors-panel/doors-p
 import { BuildingPanelComponent } from './_views/building-panel/building-panel.component';
 import { BaseOverlayComponent } from './_views/base-overlay/base-overlay.component';
 import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
+import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -40,7 +41,8 @@ export const appRoutes: Routes = [
             { path: 'inventory', component: InventoryPanelComponent },
             { path: 'doors', component: DoorsPanelComponent },
             { path: 'building/manage', component: BuildingPanelComponent },
-            { path: 'shop', component: ShopPanelComponent }
+            { path: 'shop', component: ShopPanelComponent },
+            { path: 'vehicle/trunk', component: VehicleTrunkComponent },
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },

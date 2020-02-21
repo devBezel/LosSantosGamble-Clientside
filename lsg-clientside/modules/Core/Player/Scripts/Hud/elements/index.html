@@ -73,17 +73,21 @@
         );
     });
 
-    alt.on('hud:updateInformation', async (hunger, thirsty) => {
-
+    alt.on('hud:updateHunger', async (hunger) => {
+        console.log('hunger ' + hunger);
         foodBar.set(
             hunger,
             true
         );
+    });
+
+    alt.on('hud:updateThirsty', async (thirsty) => {
+        console.log('thirsty ' + thirsty);
         waterBar.set(
             thirsty,
             true
         );
-    });
+    })
 </script>
 
 <style>

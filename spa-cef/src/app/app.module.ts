@@ -77,6 +77,7 @@ import { PlayerHudComponent } from './_views/base-overlay/player-hud/player-hud.
 import { BuildingTenantsDialogComponent } from './_views/building-panel/elements/building-tenants-dialog/building-tenants-dialog.component';
 import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { BuyOfferShopDialogComponent } from './_views/shop-panel/elements/buy-offer-shop-dialog/buy-offer-shop-dialog.component';
+import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -120,7 +121,8 @@ export function tokenGetter() {
     PlayerHudComponent,
     BuildingTenantsDialogComponent,
     ShopPanelComponent,
-    BuyOfferShopDialogComponent
+    BuyOfferShopDialogComponent,
+    VehicleTrunkComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

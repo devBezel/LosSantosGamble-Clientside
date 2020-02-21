@@ -1,0 +1,56 @@
+<div class="container">
+  <mat-card style="margin-bottom: 50px;">
+    <mat-card-header>
+      <div mat-card-avatar>
+          <i class="material-icons">
+            directions_car
+          </i>
+      </div>
+      <mat-card-title>
+        Bagażnik pojazdu
+      </mat-card-title>
+      <mat-card-subtitle>
+        Możesz tutaj przetrzymywać swoje przedmioty
+      </mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content class="magazine-container">
+        <mat-list>
+            <mat-list-item *ngFor="let item of trunkData.vehicleItem">
+              <p class="p-id-item">[ID: {{ item.id }}]</p>  <p>{{ item.name }}</p>
+              <button mat-button class="select-button" (click)="insertItemFromVehicleToEquipment(item)"> <i class="material-icons">
+                  keyboard_arrow_down
+                  </i> Zabierz</button>
+            </mat-list-item>
+          </mat-list>
+    </mat-card-content>
+  </mat-card>
+  
+  <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar>
+            <i class="material-icons">
+                storage
+            </i>
+        </div>
+        <mat-card-title>
+          Twój ekwipunek
+        </mat-card-title>
+        <mat-card-subtitle>
+          Znajdują się w nim twoje aktualne przedmioty
+        </mat-card-subtitle>
+      </mat-card-header>
+    
+      <mat-card-content class="magazine-container">
+          <mat-list>
+              <mat-list-item *ngFor="let item of trunkData.characterItem">
+                <p class="p-id-item">[ID: {{ item.id }}]</p>  <p>{{ item.name }}</p>
+                <button mat-button class="select-button" (click)="insertItemToVehicleMagazine(item)"><i class="material-icons">
+                    keyboard_arrow_up
+                    </i> Włóż</button>
+              </mat-list-item>
+            </mat-list>
+      </mat-card-content>
+    </mat-card>
+</div>
+

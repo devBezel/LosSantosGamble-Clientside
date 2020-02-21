@@ -8,6 +8,7 @@ import { VehicleHelper } from './VehicleHelper';
 import { Calculation } from '../Utilities/Calculation';
 import { NativeNotification } from '../Notify/NativeNotification';
 import { nativeNotificationType } from 'client/modules/Constant/Notification/NativeNotificationType';
+import { VehicleDoor } from 'client/modules/Enum/VehicleDoor';
 
 export default async () => {
 
@@ -115,7 +116,14 @@ export default async () => {
         }
 
         if (VehicleHelper.isDoorOpen(vehicle, door)) {
+            if (door === VehicleDoor.Trunk) {
+                alt.emitServer('vehicle-interaction:closeTrunkRequest', vehicle);
+            }
             return game.setVehicleDoorShut(vehicle.scriptID, door, false);
+        }
+
+        if (door === VehicleDoor.Trunk) {
+            alt.emitServer('vehicle-interaction:openTrunkRequest', vehicle);
         }
         return game.setVehicleDoorOpen(vehicle.scriptID, door, false, false);
     }
