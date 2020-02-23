@@ -8,11 +8,19 @@ export default async () => {
 
 
     alt.onServer('marker:create', createMarker);
+    alt.onServer('marker:remove', markerRemove);
 
 
     async function createMarker(marker: Marker) {
         // if (markers.filter(x => x.uniqueID === marker.uniqueID)) return;
         markers.push(marker);
+    }
+
+    async function markerRemove(uniqueID: string) {
+
+        const markerToRemove = markers.findIndex(marker => marker.uniqueID === uniqueID);
+        alt.log(`usuwam marker ${markerToRemove}`);
+        markers.splice(markerToRemove, 1);
     }
 
     async function drawMarker(marker: Marker) {
