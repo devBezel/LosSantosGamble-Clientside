@@ -1,0 +1,1 @@
+{"code":"import * as alt from 'alt';\r\nexport default async () => {\r\n    alt.onServer('player:help', async () => {\r\n        alt.emit('player-interaction:help');\r\n    });\r\n};\r\n","references":["B:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Constant/Keys/Key.ts"]}

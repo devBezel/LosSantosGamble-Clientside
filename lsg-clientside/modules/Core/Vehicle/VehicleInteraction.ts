@@ -9,6 +9,7 @@ import { Calculation } from '../Utilities/Calculation';
 import { NativeNotification } from '../Notify/NativeNotification';
 import { nativeNotificationType } from 'client/modules/Constant/Notification/NativeNotificationType';
 import { VehicleDoor } from 'client/modules/Enum/VehicleDoor';
+import { interactionConfig } from 'client/modules/Configs/InteractionConfig';
 
 export default async () => {
 
@@ -35,7 +36,7 @@ export default async () => {
     }
 
     alt.on('keyup', async (key: any) => {
-        if (key === Key.E) {
+        if (key === interactionConfig.interactionKey) {
 
             const vehicleRange = VehicleHelper.getVehicleInRange(player.pos, 5);
             if (vehicleRange === null || vehicleRange === undefined) return;
@@ -59,7 +60,7 @@ export default async () => {
             webView.on('cef-vehicle-interaction:openDoor', openVehicleDoor);
         }
 
-        if (key === Key.ALT) {
+        if (key === interactionConfig.interactionKeyIntoVehicle) {
             if (player.vehicle == null) return;
 
             const vehicleData: Vehicle = player.vehicle.getSyncedMeta('vehicle:syncedData');
@@ -123,7 +124,8 @@ export default async () => {
         }
 
         if (door === VehicleDoor.Trunk) {
-            alt.emitServer('vehicle-interaction:openTrunkRequest', vehicle);
+            alt.log(`otwieram bagaznik pozycja jego: ${Calculation.getEntityRearPosition(vehicle.scriptID)}`);
+            alt.emitServer('vehicle-interaction:openTrunkRequest', vehicle, JSON.stringify(Calculation.getEntityRearPosition(vehicle.scriptID)));
         }
         return game.setVehicleDoorOpen(vehicle.scriptID, door, false, false);
     }

@@ -47,4 +47,39 @@ export class Draw {
         game.endTextCommandDisplayText(x - width / 2, y - height / 2 + 0.005);
     }
 
+
+    public static draw3dText(x: number, y: number, z: number, name: string) : void {
+        // tslint:disable-next-line:variable-name
+        const [bol, _x, _y] = game.getScreenCoordFromWorldCoord(x, y, z, x, y);
+        const camCord = game.getFinalRenderedCamCoord();
+        const dist = game.getDistanceBetweenCoords(camCord.x, camCord.y, camCord.z, x, y, z, true);
+
+
+        if (dist > 20) return;
+
+        let scale = (4.00001 / dist) * 0.3;
+        if (scale > 0.2) {
+            scale = 0.2;
+        }
+
+
+        const fov = (1 / game.getGameplayCamFov()) * 100;
+        scale = scale * fov;
+
+        if (bol) {
+            game.setTextScale(scale, scale);
+            game.setTextFont(0);
+            game.setTextProportional(true);
+            game.setTextColour(255, 255, 255, 255);
+            game.setTextDropshadow(0, 0, 0, 0, 255);
+            game.setTextEdge(2, 0, 0, 0, 150);
+            game.setTextDropShadow();
+            game.setTextOutline();
+            game.setTextCentre(true);
+            game.beginTextCommandDisplayText('STRING');
+            game.addTextComponentSubstringPlayerName(name);
+            game.endTextCommandDisplayText(_x, _y + 0.025);
+        }
+    }
+
 }

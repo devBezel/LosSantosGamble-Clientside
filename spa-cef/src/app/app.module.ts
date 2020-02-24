@@ -78,6 +78,7 @@ import { BuildingTenantsDialogComponent } from './_views/building-panel/elements
 import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { BuyOfferShopDialogComponent } from './_views/shop-panel/elements/buy-offer-shop-dialog/buy-offer-shop-dialog.component';
 import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
+import { InteractionDotComponent } from './_views/interaction-dot/interaction-dot.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -122,7 +123,8 @@ export function tokenGetter() {
     BuildingTenantsDialogComponent,
     ShopPanelComponent,
     BuyOfferShopDialogComponent,
-    VehicleTrunkComponent
+    VehicleTrunkComponent,
+    InteractionDotComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

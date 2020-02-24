@@ -6070,4 +6070,5 @@ interface Vector3 {
 	  export function overridePopscheduleVehicleModel(scheduleId: number, vehicleHash: number): void;
 	  export function clearPopscheduleOverrideVehicleModel(scheduleId: number): void;
 	  export function getHashOfMapAreaAtCoords(x: number, y: number, z: number): number;
+	  export function getFinalRenderedCamCoord(): Vector3;
   }

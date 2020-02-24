@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/_models/item';
 import { BaseService } from 'src/app/_services/base.service';
 import { AltvService } from 'src/app/_services/altv.service';
+import { NotifyService } from 'src/app/_services/notify.service';
 
 @Component({
   selector: 'app-vehicle-trunk',
@@ -11,7 +12,7 @@ import { AltvService } from 'src/app/_services/altv.service';
 export class VehicleTrunkComponent implements OnInit {
 
   trunkData: { characterItem: Item[], vehicleItem: Item[] };
-  constructor(private baseService: BaseService, private altvService: AltvService) { }
+  constructor(private baseService: BaseService, private altvService: AltvService, private notify: NotifyService) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -30,6 +31,10 @@ export class VehicleTrunkComponent implements OnInit {
   }
 
   insertItemToVehicleMagazine(item: Item) {
+    if (item.itemInUse) {
+      return this.notify.warning('Ekwipunek', 'Musisz odużyć przedmiot, aby wsadzić go do bagażnika');
+    }
+
     this.trunkData.vehicleItem.push(item);
 
     const itemToDelete = this.trunkData.characterItem.findIndex(i => i.id === item.id);
