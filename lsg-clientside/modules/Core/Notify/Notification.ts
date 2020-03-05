@@ -22,7 +22,7 @@ export default async () => {
       webView = new View();
     }
 
-    if (alt.Player.local.getMeta('viewOpen')) return;
+    // if (alt.Player.local.getMeta('viewOpen')) return;
     webView.emit('notify:success', title, message);
   }
 
@@ -31,7 +31,7 @@ export default async () => {
       webView = new View();
     }
 
-    if (alt.Player.local.getMeta('viewOpen')) return;
+    // if (alt.Player.local.getMeta('viewOpen')) return;
 
     webView.emit('notify:error', title, message);
   }
@@ -41,7 +41,7 @@ export default async () => {
       webView = new View();
     }
 
-    if (alt.Player.local.getMeta('viewOpen')) return;
+    // if (alt.Player.local.getMeta('viewOpen')) return;
 
     webView.emit('notify:warning', title, message);
   }

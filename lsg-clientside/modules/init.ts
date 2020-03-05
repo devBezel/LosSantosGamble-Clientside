@@ -31,7 +31,7 @@ import HudScript from './Core/Player/Scripts/Hud/HudScript';
 import HungerThirstyScript from './Core/Player/Scripts/HungerThirstyScript';
 import ShopScript from './Core/Entities/Shop/ShopScript';
 import VehicleTrunkScript from './Core/Vehicle/VehicleTrunkScript';
-import InteractionDotScript from './Core/Interaction/InteractionDotScript';
+import Interaction2DScript from './Core/Interaction/Interaction2DScript';
 import TextDrawScript from './Core/Map/TextDrawScript';
 
 
@@ -68,7 +68,7 @@ export default async () => {
 	 await HungerThirstyScript();
 	 await ShopScript();
 	 await VehicleTrunkScript();
-	 await InteractionDotScript();
+	 await Interaction2DScript();
 	 await TextDrawScript();
 
 	 alt.requestIpl('gr_heist_yacht2');

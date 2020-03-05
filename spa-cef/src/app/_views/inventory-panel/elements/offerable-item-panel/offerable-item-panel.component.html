@@ -1,0 +1,14 @@
+<p>Oferowanie przedmiotu</p>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="ID gracza" type="number" value="0" [(ngModel)]="playerID">
+</mat-form-field>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Opłata za przedmiot</mat-label>
+  <input matInput placeholder="0" value="0" type="number" [(ngModel)]="costItem">
+    <mat-icon matSuffix>attach_money</mat-icon>
+  </mat-form-field>
+</p>
+
+<button mat-button (click)="offerItem(itemData)" [mat-dialog-close]="true">Oferuj</button>

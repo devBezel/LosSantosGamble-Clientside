@@ -35,31 +35,31 @@ export default async () => {
         Closed = 3,
     }
 
-    alt.on('keyup', async (key: any) => {
-        if (key === interactionConfig.interactionKey) {
+    alt.on('interaction2D:vehicle', async (vehicleScriptID: number) => {
+        const vehicleRange = alt.Vehicle.all.find(x => x.scriptID === vehicleScriptID);
 
-            const vehicleRange = VehicleHelper.getVehicleInRange(player.pos, 5);
-            if (vehicleRange === null || vehicleRange === undefined) return;
-            if (player.vehicle != null) return;
+        if (vehicleRange === null || vehicleRange === undefined) return;
+        if (player.vehicle != null) return;
 
-            const vehicleData: Vehicle = vehicleRange.getSyncedMeta('vehicle:syncedData');
+        const vehicleData: Vehicle = vehicleRange.getSyncedMeta('vehicle:syncedData');
 
-            if (vehicleData === null || vehicleData === undefined) return;
+        if (vehicleData === null || vehicleData === undefined) return;
 
-            if (!webView) {
-                webView = new View();
-            }
-
-            if (alt.Player.local.getMeta('viewOpen')) return;
-            vehicle = vehicleRange;
-            vehicleTransformData = vehicleData;
-
-
-            webView.open('', true, 'vehicle/interaction');
-            webView.on('cef-vehicle-interaction:openVehicle', openDoorLockVehicle);
-            webView.on('cef-vehicle-interaction:openDoor', openVehicleDoor);
+        if (!webView) {
+            webView = new View();
         }
 
+        if (alt.Player.local.getMeta('viewOpen')) return;
+        vehicle = vehicleRange;
+        vehicleTransformData = vehicleData;
+
+
+        webView.open('', true, 'vehicle/interaction');
+        webView.on('cef-vehicle-interaction:openVehicle', openDoorLockVehicle);
+        webView.on('cef-vehicle-interaction:openDoor', openVehicleDoor);
+    });
+
+    alt.on('keyup', async (key: any) => {
         if (key === interactionConfig.interactionKeyIntoVehicle) {
             if (player.vehicle == null) return;
 

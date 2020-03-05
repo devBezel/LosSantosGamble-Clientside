@@ -79,6 +79,8 @@ import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { BuyOfferShopDialogComponent } from './_views/shop-panel/elements/buy-offer-shop-dialog/buy-offer-shop-dialog.component';
 import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
 import { InteractionDotComponent } from './_views/interaction-dot/interaction-dot.component';
+import { OfferableItemPanelComponent } from './_views/inventory-panel/elements/offerable-item-panel/offerable-item-panel.component';
+import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -124,7 +126,9 @@ export function tokenGetter() {
     ShopPanelComponent,
     BuyOfferShopDialogComponent,
     VehicleTrunkComponent,
-    InteractionDotComponent
+    InteractionDotComponent,
+    OfferableItemPanelComponent,
+    OfferItemRequestComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -156,7 +160,8 @@ export function tokenGetter() {
     BuildingMagazineDialogComponent,
     BuildingPlayersOnlineDialogComponent,
     BuildingTenantsDialogComponent,
-    BuyOfferShopDialogComponent
+    BuyOfferShopDialogComponent,
+    OfferableItemPanelComponent
   ],
   providers: [
     AuthService,

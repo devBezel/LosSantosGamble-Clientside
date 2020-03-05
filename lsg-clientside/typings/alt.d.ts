@@ -507,7 +507,7 @@ declare namespace hashes {
 	  }
 	  */
 	export function gameControlsEnabled(): boolean;
-	export function getCursorPos(): Object;
+	// export function getCursorPos(): Object;
 	export function getDiscordOAuth2Result(): Object|null;
   
 	/**
@@ -564,6 +564,7 @@ declare namespace hashes {
 	export function getMsPerGameMinute(): number;
 	export function getVehWheels(vehId: number): number;
 	export function setNoiseSuppressionStatus(state: boolean): void;
+	export function getCursorPos(): { x: number, y: number };
   
 	//Voice functions
 	  /**

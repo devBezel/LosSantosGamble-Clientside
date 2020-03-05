@@ -17,7 +17,7 @@
 
               <mat-menu #menu="matMenu" class="menu-detail">
                   <button mat-menu-item (click)="useItem(item.id)">Użyj</button>
-                  <button mat-menu-item>Oferuj</button>
+                  <button mat-menu-item (click)="openOfferMenu(item)">Oferuj</button>
                   <button mat-menu-item>Wyrzuć</button>
                 </mat-menu>
           </mat-list-item>
