@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="workers-list">
+      <mat-list>
+        <mat-list-item *ngFor="let vehicle of vehicles">
+            <i class="material-icons">
+                directions_car
+            </i>
+          <p class="p-title"> VID: {{ vehicle?.id }}</p>
+          <p class="p-title"> {{ vehicle?.model }}</p>
+
+          <div class="vehicle-information-extented">
+            <i class="material-icons">
+                local_gas_station
+            </i>
+            <p class="p-title">23L</p>
+
+
+            <i class="material-icons">
+                speed
+            </i>
+            <p class="p-title">23210 km</p>
+          </div>
+
+          <div class="options">
+              <button mat-icon-button [matMenuTriggerFor]="optionMenu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #optionMenu="matMenu">
+                  <button mat-menu-item (click)="respawnGroupVehicle(vehicle)">
+                    <mat-icon>keyboard_tab</mat-icon>
+                    <span>Spawn/Unspawn</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>contactless</mat-icon>
+                    <span>Namierz</span>
+                  </button>
+                </mat-menu>
+          </div>
+
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>

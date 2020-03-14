@@ -33,6 +33,7 @@ import ShopScript from './Core/Entities/Shop/ShopScript';
 import VehicleTrunkScript from './Core/Vehicle/VehicleTrunkScript';
 import Interaction2DScript from './Core/Interaction/Interaction2DScript';
 import TextDrawScript from './Core/Map/TextDrawScript';
+import GroupGeneralScript from './Economy/Group/GroupGeneralScript';
 
 
 export default async () => {
@@ -70,6 +71,7 @@ export default async () => {
 	 await VehicleTrunkScript();
 	 await Interaction2DScript();
 	 await TextDrawScript();
+	 await GroupGeneralScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

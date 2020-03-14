@@ -1,0 +1,19 @@
+.workers-rights {
+    margin-left: 50px;
+    display: flex;
+}
+
+.workers-rights i {
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.p-title {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 4px;
+}
+
+.option-extented {
+    margin-left: 10px;
+}

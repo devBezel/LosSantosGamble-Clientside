@@ -11,6 +11,8 @@ import { Building } from '../_models/building';
 import { Character } from '../_models/character';
 import { BuildingTenant } from '../_models/buildingTenant';
 import { ShopAssortment } from '../_models/shopAssortment';
+import { Group } from '../_models/group';
+import { GroupData } from '../_models/GroupData';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +31,7 @@ export class BaseService {
   shopData: ShopAssortment[];
   trunkData: { characterItem: Item[], vehicleItem: Item[] };
   requestOffer: { item: Item, cost: number, sender: any };
+  groupData: GroupData;
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -98,6 +101,12 @@ export class BaseService {
       await this.ngZone.run(async () => {
         console.log(requestOffer.item.name);
         this.requestOffer = requestOffer;
+      });
+    });
+
+    this.altvService.on('group-general:dataGroup', async (groupData: GroupData) => {
+      await this.ngZone.run(async () => {
+        this.groupData = groupData;
       });
     });
 

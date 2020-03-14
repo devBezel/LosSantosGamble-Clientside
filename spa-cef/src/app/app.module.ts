@@ -81,6 +81,10 @@ import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.comp
 import { InteractionDotComponent } from './_views/interaction-dot/interaction-dot.component';
 import { OfferableItemPanelComponent } from './_views/inventory-panel/elements/offerable-item-panel/offerable-item-panel.component';
 import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
+import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
+import { GroupPanelProfileComponent } from './_views/group-panel/elements/group-panel-profile/group-panel-profile.component';
+import { GroupPanelWorkersComponent } from './_views/group-panel/elements/group-panel-workers/group-panel-workers.component';
+import { GroupPanelVehiclesComponent } from './_views/group-panel/elements/group-panel-vehicles/group-panel-vehicles.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -128,7 +132,11 @@ export function tokenGetter() {
     VehicleTrunkComponent,
     InteractionDotComponent,
     OfferableItemPanelComponent,
-    OfferItemRequestComponent
+    OfferItemRequestComponent,
+    GroupPanelComponent,
+    GroupPanelProfileComponent,
+    GroupPanelWorkersComponent,
+    GroupPanelVehiclesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

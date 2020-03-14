@@ -23,6 +23,7 @@ import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
 import { InteractionDotComponent } from './_views/interaction-dot/interaction-dot.component';
 import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
+import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -46,7 +47,8 @@ export const appRoutes: Routes = [
             { path: 'shop', component: ShopPanelComponent },
             { path: 'vehicle/trunk', component: VehicleTrunkComponent },
             { path: 'interaction/dot', component: InteractionDotComponent },
-            { path: 'offer/request', component: OfferItemRequestComponent }
+            { path: 'offer/request', component: OfferItemRequestComponent },
+            { path: 'group/panel', component: GroupPanelComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },

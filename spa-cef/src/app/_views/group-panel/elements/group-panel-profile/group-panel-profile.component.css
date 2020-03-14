@@ -1,0 +1,11 @@
+.profile-avatar {
+    margin-top: 25px;
+    margin-left: 25px;
+}
+.profile-avatar img{
+    display: inline;
+}
+.profile-avatar-name {
+    display: inline;
+    margin-left: 10px;
+}

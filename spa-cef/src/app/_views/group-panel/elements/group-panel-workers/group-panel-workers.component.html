@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="workers-list">
+    <mat-list>
+      <mat-list-item *ngFor="let worker of workers">
+          <i class="material-icons">
+              account_circle
+          </i>
+        <p> {{ worker?.character.name }} {{ worker?.character.surname }}</p>
+
+        <div class="workers-rights">
+          <p class="p-title">Uprawnienia</p>
+
+          <!-- Wyplacanie -->
+          <i class="material-icons">
+              account_balance
+          </i>
+
+          <!-- Rekrutacja -->
+          <i class="material-icons">
+              accessibility_new
+          </i>
+
+          <!-- Zamawianie rzeczy -->
+          <i class="material-icons">
+              add_shopping_cart
+          </i>
+
+          <!-- Drzwi -->
+          <i class="material-icons">
+              meeting_room
+          </i>
+        </div>
+
+        <div class="option-extented">
+            <button mat-icon-button [matMenuTriggerFor]="optionMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #optionMenu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>build</mat-icon>
+                  <span>Edytuj uprawnienia grupy</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>swap_vertical_circle</mat-icon>
+                  <span>Zmień stopień</span>
+                </button>
+
+                <button mat-menu-item>
+                    <mat-icon>delete_sweep</mat-icon>
+                    <span>Zwolnij</span>
+                  </button>
+              </mat-menu>
+        </div>
+
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

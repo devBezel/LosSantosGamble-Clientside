@@ -1,0 +1,1 @@
+{"code":"var ChangeDirection;\r\n(function (ChangeDirection) {\r\n    ChangeDirection[ChangeDirection[\"Left\"] = 0] = \"Left\";\r\n    ChangeDirection[ChangeDirection[\"Right\"] = 1] = \"Right\";\r\n})(ChangeDirection || (ChangeDirection = {}));\r\nexport default ChangeDirection;\r\n","references":[]}

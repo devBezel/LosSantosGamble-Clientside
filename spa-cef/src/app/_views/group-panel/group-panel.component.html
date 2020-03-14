@@ -1,0 +1,111 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <i class="material-icons" mat-card-avatar>
+        assignment
+      </i>
+      <mat-card-title>Los Santos Police Departament</mat-card-title>
+      <mat-card-subtitle>Tutaj możesz zarządzać swoją grupą lub wchodzić na jej służbę</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="navbar-menu">
+        <a (click)="informationSection = 0;">
+          <i class="material-icons">
+            info
+          </i>
+          Informacje
+        </a>
+
+        <a (click)="informationSection = 1">
+          <i class="material-icons">
+            people_alt
+          </i>
+          Pracownicy
+        </a>
+
+        <a (click)="informationSection = 2">
+          <i class="material-icons">
+            directions_car
+          </i>
+          Pojazdy
+        </a>
+
+        <a (click)="informationSection = 3;">
+          <i class="material-icons">
+            tune
+          </i>
+          Twój profil
+        </a>
+      </div>
+      <div class="group-information section" *ngIf="informationSection === 0">
+        <mat-grid-list cols="2" rowHeight="1:1">
+          <mat-grid-tile>
+            <div class="group-logo">
+              <img
+                src="https://imgvol.cdn.lcpdfr.com/uploads/monthly_2016_07/Los_santos_wallpaper.PNG.0584f866ad108c4da3349e5dc69d4386.thumb.PNG.14c63784f8527a79e41b7c046ce1e0fa.PNG"
+                alt="">
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="group-information">
+              <mat-list>
+                <mat-list-item>
+                  <i class="material-icons">
+                    format_quote
+                  </i>
+                  <p class="p-title">Nazwa grupy: </p>
+                  <p class="p-data">{{ groupData?.group.name }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                  <i class="material-icons">
+                    create
+                  </i>
+                  <p class="p-title"> Tag grupy: </p>
+                  <p class="p-data">{{ groupData?.group.tag }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                  <i class="material-icons">
+                    business
+                  </i>
+                  <p class="p-title"> Saldo: </p>
+                  <p class="p-data">{{ groupData?.group.money }}$</p>
+                </mat-list-item>
+                <mat-list-item>
+                  <i class="material-icons">
+                    monetization_on
+                  </i>
+                  <p class="p-title"> Dotacja: </p>
+                  <p class="p-data">{{ groupData?.group.grant }}$</p>
+                </mat-list-item>
+
+                <mat-list-item>
+                  <i class="material-icons">
+                    emoji_people
+                  </i>
+                  <p class="p-title"> Pracowników: </p>
+                <p class="p-data">{{ groupData?.workers.length }}</p>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <div class="workers section" *ngIf="informationSection === 1">
+        <app-group-panel-workers [workers]="groupData.workers"></app-group-panel-workers>
+      </div>
+
+      <div class="vehicles section" *ngIf="informationSection === 2">
+        <app-group-panel-vehicles [vehicles]="groupData.vehicles"></app-group-panel-vehicles>
+      </div>
+
+
+      <div class="my-profile section" *ngIf="informationSection === 3">
+        <app-group-panel-profile></app-group-panel-profile>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

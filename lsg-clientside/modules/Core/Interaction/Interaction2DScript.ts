@@ -31,10 +31,7 @@ export default async () => {
 
             drawLineInterval = alt.setInterval(() => {
 
-                // game.disableAllControlActions(0);
-                // game.disableAllControlActions(1);
-
-                // game.enableControlAction(0, 1, true);
+                disableControls();
 
                 let drawLineColor: { r: number, g: number, b: number, a: number } = { r: 188, g: 0, b: 0, a: 255 };
 
@@ -86,5 +83,29 @@ export default async () => {
         openMouse = false;
         alt.clearInterval(drawLineInterval);
         alt.showCursor(false);
+    }
+
+    function disableControls() {
+        game.disableControlAction(0, 1, true);
+        game.disableControlAction(0, 2, true);
+        game.disableControlAction(0, 3, true);
+        game.disableControlAction(0, 25, true);
+        game.disableControlAction(0, 263, true);
+        game.disableControlAction(0, 264, true);
+        game.disableControlAction(0, 257, true);
+        game.disableControlAction(0, 140, true);
+        game.disableControlAction(0, 141, true);
+        game.disableControlAction(0, 142, true);
+        game.disableControlAction(0, 143, true);
+
+
+        game.disableControlAction(0, 32, true);
+        game.disableControlAction(0, 33, true);
+        game.disableControlAction(0, 34, true);
+        game.disableControlAction(0, 35, true);
+
+        game.disableControlAction(0, 47, true);
+        game.disableControlAction(0, 58, true);
+        // game.disableControlAction(1, 1, true);
     }
 };

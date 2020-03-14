@@ -94,3 +94,8 @@ game.setPedToRagdoll(alt.Player.local.scriptID, 1000 * 10, 1000 * 10, 0, true, t
 
 //jak ktoś zginie to dodać dxdraw że zginął i z jakiego powodu prawdopodobnie
 game.getPedTimeOfDeath() kiedy zginął
+
+
+
+// Do kreatora pozycja z policją 
+Vector3{ x: 402.884, y: -996.765, z: -99.0146 }

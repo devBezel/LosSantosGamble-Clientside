@@ -1,0 +1,18 @@
+.p-title {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 4px;
+}
+.vehicle-information-extented {
+    display: flex;
+    margin-left: 30px;
+}
+
+.vehicle-information-extented i {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.options {
+    margin-left: 30px;
+}

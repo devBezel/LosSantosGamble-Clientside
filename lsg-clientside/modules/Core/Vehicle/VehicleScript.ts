@@ -18,6 +18,7 @@ export default async() => {
 
 
     alt.onServer('vehicle:openWindow', openVehicleWindow);
+    alt.on('vehicle:vehicleSpawn', sendVehicleToServer);
 
 
     async function openVehicleWindow(vehicleList: Vehicle[]) {
@@ -34,7 +35,6 @@ export default async() => {
     }
 
     async function sendVehicleToServer(vehicleId: number) {
-        webView.close();
         alt.emitServer('vehicle:spawnVehicle', vehicleId);
     }
 

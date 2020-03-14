@@ -1,0 +1,1 @@
+{"code":"import game from 'natives';\r\nexport default class Common {\r\n    static PlaySound(audioName, audioRef) {\r\n        game.playSound(-1, audioName, audioRef, false, 0, true);\r\n    }\r\n}\r\n","references":[]}

@@ -26,4 +26,3 @@ $spa-cef-theme: mat-dark-theme($spa-cef-primary, $spa-cef-accent, $spa-cef-warn)
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($spa-cef-theme);
-
