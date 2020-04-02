@@ -149,6 +149,8 @@ declare namespace hashes {
         onAdminDuty: () => boolean;
         isReady: () => boolean;
         setPlayerReady: (state: boolean) => void;
+        nicknameVisable: (state: boolean) => any;
+        nicknameVisableOff: (state: boolean) => void;
   
 	  addWeaponComponent(weaponHash: number, componentHash: number): void;
 	  getCurrentWeapon(): number;

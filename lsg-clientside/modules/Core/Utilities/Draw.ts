@@ -74,7 +74,7 @@ export class Draw {
             game.setTextDropshadow(0, 0, 0, 0, 255);
             game.setTextEdge(2, 0, 0, 0, 150);
             game.setTextDropShadow();
-            game.setTextOutline();
+            // game.setTextOutline();
             game.setTextCentre(true);
             game.beginTextCommandDisplayText('STRING');
             game.addTextComponentSubstringPlayerName(name);

@@ -48,7 +48,7 @@ export default async () => {
                 username = `${characterName} (${serverID})`;
             }
 
-            Draw.drawText(username, result[1], y, 0.3, 6, 255, 255, 255, 255, true, false);
+            Draw.drawText(username, result[1], y, 0.3, 6, 255, 255, 255, 255, false, false);
 
 
             let text = Player.getPlayerDescription(player);
@@ -69,15 +69,15 @@ export default async () => {
 
             if (text.length > 0) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 0.3, undefined, undefined);
-                Draw.drawText(textOne, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(textOne, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, false, false);
             }
             if (text.length >= 64) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 0.2, undefined, undefined);
-                Draw.drawText(textTwo, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(textTwo, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, false, false);
             }
             if (text.length >= 128) {
                 const desc = game.getScreenCoordFromWorldCoord(player.pos.x, player.pos.y, player.pos.z + 0.1, undefined, undefined);
-                Draw.drawText(textThree, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, true, false);
+                Draw.drawText(textThree, desc[1], desc[2], 0.2, 6, 255, 255, 255, 255, false, false);
             }
 
         });

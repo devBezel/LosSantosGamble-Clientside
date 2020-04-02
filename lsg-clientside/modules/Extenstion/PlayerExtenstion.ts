@@ -50,4 +50,7 @@ export default async () => {
     alt.Player.prototype.isReady = function isReady(): boolean {
         return alt.Player.local.getMeta('player:ready');
     };
+    alt.Player.prototype.nicknameVisableOff = function nicknameVisableOff(state: boolean) {
+        return alt.Player.local.setMeta('scaleform:nicknameTurnOff', state);
+    };
 };

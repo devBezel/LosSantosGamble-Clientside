@@ -6,4 +6,5 @@ export interface GroupData {
     group: Group;
     workers: GroupWorker[];
     vehicles: Vehicle[];
+    worker: GroupWorker;
 }

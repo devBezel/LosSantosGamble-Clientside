@@ -37,6 +37,13 @@
           </i>
           Twój profil
         </a>
+
+        <a (click)="informationSection = 3;">
+          <i class="material-icons">
+            settings
+          </i>
+          Zarządzaj grupą
+        </a>
       </div>
       <div class="group-information section" *ngIf="informationSection === 0">
         <mat-grid-list cols="2" rowHeight="1:1">
@@ -94,11 +101,11 @@
       </div>
 
       <div class="workers section" *ngIf="informationSection === 1">
-        <app-group-panel-workers [workers]="groupData.workers"></app-group-panel-workers>
+        <app-group-panel-workers [groupData]="groupData"></app-group-panel-workers>
       </div>
 
       <div class="vehicles section" *ngIf="informationSection === 2">
-        <app-group-panel-vehicles [vehicles]="groupData.vehicles"></app-group-panel-vehicles>
+        <app-group-panel-vehicles [groupData]="groupData"></app-group-panel-vehicles>
       </div>
 
 

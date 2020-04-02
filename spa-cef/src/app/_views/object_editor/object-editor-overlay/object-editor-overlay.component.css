@@ -1,0 +1,27 @@
+
+.container {
+    float: right;
+    margin-top: 30vh;
+}
+
+.container mat-card {
+    width: 400px;
+    border-left: 10px solid rgb(40, 100, 41);
+    margin-right: 2vh;
+    margin-bottom: 2vh;
+}
+
+.keys-content img {
+    width: 200px;
+    height: 200px;
+}
+
+.p-title {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 4px;
+} 
+
+.p-data {
+    margin-left: 10px;
+}

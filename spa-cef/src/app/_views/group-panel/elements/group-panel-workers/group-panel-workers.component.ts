@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GroupWorker } from 'src/app/_models/groupWorker';
+import { GroupRights } from 'src/app/_enums/GroupRights';
+import { GroupRightsService } from 'src/app/_services/group-rights.service';
+import { GroupData } from 'src/app/_models/GroupData';
 
 @Component({
   selector: 'app-group-panel-workers',
@@ -8,11 +11,16 @@ import { GroupWorker } from 'src/app/_models/groupWorker';
 })
 export class GroupPanelWorkersComponent implements OnInit {
 
-  @Input() workers: GroupWorker[];
+  @Input() groupData: GroupData;
 
-  constructor() { }
+  constructor(public groupRights: GroupRightsService) { }
 
   ngOnInit() {
+
+  }
+
+  test(worker: GroupWorker) {
+    console.log(this.groupRights.canDepositWithdrawMoney(worker.rights));
   }
 
 }

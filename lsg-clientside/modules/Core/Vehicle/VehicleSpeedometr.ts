@@ -25,9 +25,9 @@ export default async () => {
             const vehicleFuel = 0;
 
             const readySpeed  = (vehicleSpeed > 80 ? `~r~${vehicleSpeed}` : `~w~${vehicleSpeed}`);
-            Draw.drawTextConstant(0.633 + 0.10 , 1.432 - 0.05, 1.0, 1.0, 0.4, `${vehicleGear}~w~ Bieg`, 255, 255, 255, 255);
-            Draw.drawTextConstant(0.633 + 0.15, 1.432 - 0.05, 1.0, 1.0, 0.4, `${readySpeed}~w~ km/h`, 255, 255, 255, 255);
-            Draw.drawTextConstant(0.633 + 0.20, 1.432 - 0.05, 1.0, 1.0, 0.4, `Paliwo: ${vehicleFuel}~w~ L`, 255, 255, 255, 255);
+            Draw.drawTextConstant(0.633 + 0.10 , 1.432 - 0.05, 1.0, 1.0, 0.4, `${vehicleGear}~w~ Bieg`, 255, 255, 255, 255, false);
+            Draw.drawTextConstant(0.633 + 0.15, 1.432 - 0.05, 1.0, 1.0, 0.4, `${readySpeed}~w~ km/h`, 255, 255, 255, 255, false);
+            Draw.drawTextConstant(0.633 + 0.20, 1.432 - 0.05, 1.0, 1.0, 0.4, `Paliwo: ${vehicleFuel}~w~ L`, 255, 255, 255, 255, false);
         },                                2);
 
     }

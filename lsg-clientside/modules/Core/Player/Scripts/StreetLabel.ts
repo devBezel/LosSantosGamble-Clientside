@@ -20,9 +20,9 @@ export default async () => {
 
         const getHours = date.getHours();
         const getMinutes = date.getMinutes() <= 9 ? `0${date.getMinutes()}` : `${date.getMinutes()}`;
-        Draw.drawTextConstant(0.633 - 0.0695 , 1.432 - 0.12, 1.0, 1.0, 0.3, `${district} ${streetReady}`, 255, 255, 255, 255);
+        Draw.drawTextConstant(0.633 - 0.0695 , 1.432 - 0.12, 1.0, 1.0, 0.3, `${district} ${streetReady}`, 255, 255, 255, 255, false);
 
-        Draw.drawTextConstant(0.633 - 0.0075 , 1.432, 1.0, 1.0, 0.3, `~g~${getHours}:${getMinutes}     ${date.toLocaleDateString()}`, 255, 255, 255, 255);
+        Draw.drawTextConstant(0.633 - 0.0075 , 1.432, 1.0, 1.0, 0.3, `~g~${getHours}:${getMinutes}     ${date.toLocaleDateString()}`, 255, 255, 255, 255, false);
 
     },                                     2);
 };

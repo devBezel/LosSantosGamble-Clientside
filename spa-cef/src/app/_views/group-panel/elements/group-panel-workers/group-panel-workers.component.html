@@ -1,7 +1,7 @@
 <div class="container">
   <div class="workers-list">
     <mat-list>
-      <mat-list-item *ngFor="let worker of workers">
+      <mat-list-item *ngFor="let worker of groupData.workers">
           <i class="material-icons">
               account_circle
           </i>
@@ -10,23 +10,28 @@
         <div class="workers-rights">
           <p class="p-title">Uprawnienia</p>
 
+          <!-- Respawnienie pojazdow i ogolny dostep do nich -->
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canRespawnVehicle(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
+              commute
+          </i>
+
           <!-- Wyplacanie -->
-          <i class="material-icons">
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canDepositWithdrawMoney(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
               account_balance
           </i>
 
           <!-- Rekrutacja -->
-          <i class="material-icons">
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canRecruitmentWorker(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
               accessibility_new
           </i>
 
           <!-- Zamawianie rzeczy -->
-          <i class="material-icons">
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canMakeOrders(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
               add_shopping_cart
           </i>
 
           <!-- Drzwi -->
-          <i class="material-icons">
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canMakeDoors(worker.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
               meeting_room
           </i>
         </div>
@@ -36,22 +41,21 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #optionMenu="matMenu">
-                <button mat-menu-item>
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(worker?.rights)">
                   <mat-icon>build</mat-icon>
                   <span>Edytuj uprawnienia grupy</span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(worker?.rights)">
                   <mat-icon>swap_vertical_circle</mat-icon>
                   <span>Zmień stopień</span>
                 </button>
 
-                <button mat-menu-item>
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(worker?.rights)">
                     <mat-icon>delete_sweep</mat-icon>
                     <span>Zwolnij</span>
                   </button>
               </mat-menu>
         </div>
-
       </mat-list-item>
     </mat-list>
   </div>

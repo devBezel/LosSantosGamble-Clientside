@@ -24,6 +24,7 @@ import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.comp
 import { InteractionDotComponent } from './_views/interaction-dot/interaction-dot.component';
 import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
 import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
+import { ObjectEditorOverlayComponent } from './_views/object_editor/object-editor-overlay/object-editor-overlay.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -48,7 +49,8 @@ export const appRoutes: Routes = [
             { path: 'vehicle/trunk', component: VehicleTrunkComponent },
             { path: 'interaction/dot', component: InteractionDotComponent },
             { path: 'offer/request', component: OfferItemRequestComponent },
-            { path: 'group/panel', component: GroupPanelComponent }
+            { path: 'group/panel', component: GroupPanelComponent },
+            { path: 'object/editor/overlay', component: ObjectEditorOverlayComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },

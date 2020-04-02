@@ -85,6 +85,8 @@ import { GroupPanelComponent } from './_views/group-panel/group-panel.component'
 import { GroupPanelProfileComponent } from './_views/group-panel/elements/group-panel-profile/group-panel-profile.component';
 import { GroupPanelWorkersComponent } from './_views/group-panel/elements/group-panel-workers/group-panel-workers.component';
 import { GroupPanelVehiclesComponent } from './_views/group-panel/elements/group-panel-vehicles/group-panel-vehicles.component';
+import { GroupRightsService } from './_services/group-rights.service';
+import { ObjectEditorOverlayComponent } from './_views/object_editor/object-editor-overlay/object-editor-overlay.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -136,7 +138,8 @@ export function tokenGetter() {
     GroupPanelComponent,
     GroupPanelProfileComponent,
     GroupPanelWorkersComponent,
-    GroupPanelVehiclesComponent
+    GroupPanelVehiclesComponent,
+    ObjectEditorOverlayComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -181,6 +184,7 @@ export function tokenGetter() {
     CharacterLookResolver,
     NotifyService,
     BaseService,
+    GroupRightsService
     // { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
