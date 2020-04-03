@@ -34,7 +34,9 @@ import VehicleTrunkScript from './Core/Vehicle/VehicleTrunkScript';
 import Interaction2DScript from './Core/Interaction/Interaction2DScript';
 import TextDrawScript from './Core/Map/TextDrawScript';
 import GroupGeneralScript from './Economy/Group/GroupGeneralScript';
-import ObiectScript from './Core/Items/ObiectScript';
+import ObjectScript from './Core/Items/ObjectScript';
+import ObjectStreamer from './Streamers/ObjectSteamer/ObjectStreamer';
+import ObjectStreamerScript from './Streamers/ObjectSteamer/ObjectStreamerScript';
 
 
 export default async () => {
@@ -73,7 +75,9 @@ export default async () => {
 	 await Interaction2DScript();
 	 await TextDrawScript();
 	 await GroupGeneralScript();
-	 await ObiectScript();
+	 await ObjectScript();
+	 await ObjectStreamer();
+	 await ObjectStreamerScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

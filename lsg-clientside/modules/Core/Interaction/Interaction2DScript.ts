@@ -75,9 +75,13 @@ export default async () => {
         const interactObjectType = game.getEntityType(entity);
 
         if (interactObjectType === EntityType.vehicle) {
-            disposeInteraction2D();
 
+            disposeInteraction2D();
             alt.emit('interaction2D:vehicle', entity);
+
+        } else if (interactObjectType === EntityType.object) {
+            disposeInteraction2D();
+            alt.emit('interaction2D:object', entity);
         }
     }
 

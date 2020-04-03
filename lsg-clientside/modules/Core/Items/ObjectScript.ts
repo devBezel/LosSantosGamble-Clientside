@@ -4,6 +4,7 @@ import { Calculation } from '../Utilities/Calculation';
 import { Controls } from '../Utilities/Controls';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { View } from '../Utilities/View';
+import { objStreamer } from '../../Streamers/ObjectSteamer/ObjectStreamer';
 
 
 export default async () => {
@@ -11,6 +12,7 @@ export default async () => {
     const player = alt.Player.local;
 
     let itemID: number;
+    let objectHash: number;
 
     let webView: View;
     let useObjectState: boolean = false;
@@ -21,7 +23,7 @@ export default async () => {
     alt.onServer('item:useObject', useObiectItem);
 
 
-    async function useObiectItem(itemId: number, obiectId: number) {
+    async function useObiectItem(itemId: number, objectId: number) {
         if (useObjectState) {
             return disposeUseObiect();
         }
@@ -30,13 +32,14 @@ export default async () => {
             webView = new View();
         }
         itemID = itemId;
+        objectHash = objectId;
 
         webView.open('', true, 'object/editor/overlay', true);
 
         useObjectState = true;
         alt.showCursor(true);
 
-        createdObject = game.createObject(obiectId, alt.Player.local.pos.x, alt.Player.local.pos.y, alt.Player.local.pos.z , true, true, true);
+        createdObject = game.createObject(objectId, player.pos.x, player.pos.y, player.pos.z , true, true, true);
         // Do debugowania
         alt.log(createdObject);
 
@@ -71,6 +74,7 @@ export default async () => {
                 case Key.DOWN: return rotationObject.x += 2;
                 case Key.LEFT: return rotationObject.y -= 2;
                 case Key.RIGHT: return rotationObject.y += 2;
+                case Key.E: return createDynamicWorldObject();
                 case Key.ESCAPE: return disposeUseObiect();
                 default:
                     break;
@@ -79,7 +83,12 @@ export default async () => {
     });
 
 
-    async function disposeUseObiect() {
+    async function disposeUseObiect(cancelItemUse: boolean = true) {
+
+        if (webView) {
+            webView.close();
+        }
+
         useObjectState = false;
         alt.showCursor(false);
 
@@ -89,6 +98,29 @@ export default async () => {
         game.setEntityVisible(player.scriptID, true, false);
         player.nicknameVisableOff(false);
 
-        alt.emitServer('item:cancelUseObject', itemID);
+        if (cancelItemUse) {
+            alt.emitServer('item:cancelUseObject', itemID);
+        }
     }
+
+    async function createDynamicWorldObject() {
+        alt.emitServer('item:createWorldObject', objectHash, JSON.stringify(game.getEntityCoords(createdObject, true)), JSON.stringify(rotationObject));
+
+        disposeUseObiect(false);
+    }
+
+
+    alt.on('interaction2D:object', objectInteractionMenu);
+    async function objectInteractionMenu(objectId: number) {
+        if (objectId === undefined) {
+            return;
+        }
+
+        const objOnWorld = objStreamer.getObjectByHandleId(objectId);
+
+        alt.log(`ID OBIEKTU DO USUNIĘCIA: ${objectId}, ID HANDLE: ${objOnWorld.handle}, Entity ID: ${objOnWorld.entityId}`);
+        // Usuwanie obiektu ze świata
+        alt.emitServer('item:removeWorldObject', objOnWorld.entityId, itemID);
+    }
+
 };
