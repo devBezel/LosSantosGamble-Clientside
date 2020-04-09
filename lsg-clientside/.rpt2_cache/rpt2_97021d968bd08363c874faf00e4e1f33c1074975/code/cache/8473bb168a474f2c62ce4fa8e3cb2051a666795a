@@ -1,0 +1,1 @@
+{"code":"import UUIDV4 from \"../utils/UUIDV4\";\r\nexport default class ListItem {\r\n    constructor(text = \"\", data = null) {\r\n        this.Id = UUIDV4();\r\n        this.DisplayText = text;\r\n        this.Data = data;\r\n    }\r\n}\r\n","references":["B:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Includes/nativeui/utils/UUIDV4.ts"]}

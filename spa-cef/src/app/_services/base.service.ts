@@ -13,6 +13,7 @@ import { BuildingTenant } from '../_models/buildingTenant';
 import { ShopAssortment } from '../_models/shopAssortment';
 import { Group } from '../_models/group';
 import { GroupData } from '../_models/GroupData';
+import { InteractionCef } from '../_models/interactionCef';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,7 @@ export class BaseService {
   trunkData: { characterItem: Item[], vehicleItem: Item[] };
   requestOffer: { item: Item, cost: number, sender: any };
   groupData: GroupData;
+  interactionMenuData: InteractionCef[];
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -107,6 +109,12 @@ export class BaseService {
     this.altvService.on('group-general:dataGroup', async (groupData: GroupData) => {
       await this.ngZone.run(async () => {
         this.groupData = groupData;
+      });
+    });
+
+    this.altvService.on('interaction-menu:data', async (interactionData: InteractionCef[]) => {
+      await this.ngZone.run(async () => {
+        this.interactionMenuData = interactionData;
       });
     });
 

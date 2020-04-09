@@ -5,6 +5,7 @@ import { Controls } from '../Utilities/Controls';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { View } from '../Utilities/View';
 import { objStreamer } from '../../Streamers/ObjectSteamer/ObjectStreamer';
+import { InteractionCef } from 'client/modules/Models/interactionCef';
 
 
 export default async () => {
@@ -20,6 +21,8 @@ export default async () => {
     let createdObject: number;
     const rotationObject: Vector3 = { x: 0, y: 0, z: 0 };
 
+    const respawnedPlayerObjects: { objectID: number, itemID: number }[] = [];
+
     alt.onServer('item:useObject', useObiectItem);
 
 
@@ -31,6 +34,10 @@ export default async () => {
         if (!webView) {
             webView = new View();
         }
+
+        if (alt.Player.local.getMeta('viewOpen')) return;
+
+
         itemID = itemId;
         objectHash = objectId;
 
@@ -42,6 +49,7 @@ export default async () => {
         createdObject = game.createObject(objectId, player.pos.x, player.pos.y, player.pos.z , true, true, true);
         // Do debugowania
         alt.log(createdObject);
+
 
         game.setEntityCollision(createdObject, false, false);
         game.freezeEntityPosition(createdObject, true);
@@ -104,7 +112,7 @@ export default async () => {
     }
 
     async function createDynamicWorldObject() {
-        alt.emitServer('item:createWorldObject', objectHash, JSON.stringify(game.getEntityCoords(createdObject, true)), JSON.stringify(rotationObject));
+        alt.emitServer('item:createWorldObject', objectHash, JSON.stringify(game.getEntityCoords(createdObject, true)), JSON.stringify(rotationObject), itemID);
 
         disposeUseObiect(false);
     }
@@ -116,11 +124,62 @@ export default async () => {
             return;
         }
 
-        const objOnWorld = objStreamer.getObjectByHandleId(objectId);
+        const interactionData: InteractionCef[] = [
+            {
+                name: 'Informacje o obiekcie',
+                event: 'item:informationWorldObject',
+                icon: 'search',
+            },
+            {
+                name: 'Edytuj obiekt',
+                event: 'item:editWorldObject',
+                icon: 'settings',
+            },
+            {
+                name: 'Usuń obiekt',
+                event: 'item:removeWorldObject',
+                icon: 'delete',
+                values: { value1: objectId },
+            },
+        ];
 
-        alt.log(`ID OBIEKTU DO USUNIĘCIA: ${objectId}, ID HANDLE: ${objOnWorld.handle}, Entity ID: ${objOnWorld.entityId}`);
+        if (!webView) {
+            webView = new View();
+        }
+
+        if (alt.Player.local.getMeta('viewOpen')) return;
+
+        webView.open('', true, 'interaction/menu', false);
+        webView.emit('interaction-menu:data', interactionData);
+        webView.on('item:removeWorldObject', removeWorldObject);
+    }
+
+    async function removeWorldObject(values: { value1: any }) {
+
+        if (webView) {
+            webView.close();
+        }
+
+        const handleID: number = values.value1;
+
+        const objOnWorld = objStreamer.getObjectByHandleId(handleID);
+
+
+        const itemIDFromList: number = respawnedPlayerObjects.find(x => x.objectID === objOnWorld.entityId).itemID;
+
         // Usuwanie obiektu ze świata
-        alt.emitServer('item:removeWorldObject', objOnWorld.entityId, itemID);
+        desynchornizateWorldObjectServer(handleID);
+        alt.emitServer('item:removeWorldObject', objOnWorld.entityId, itemIDFromList);
+    }
+
+    alt.onServer('item:synchronizateWorldObjectWithClient', synchronizateWorldObjectServer);
+    async function synchronizateWorldObjectServer(objectId: number, itemId: number) {
+        respawnedPlayerObjects.push({ objectID: objectId, itemID: itemId });
+    }
+
+
+    async function desynchornizateWorldObjectServer(itemID: number) {
+        respawnedPlayerObjects.splice(respawnedPlayerObjects.findIndex(x => x.itemID === itemID), 1);
     }
 
 };

@@ -1,0 +1,9 @@
+<div class="container">
+    <mat-chip-list style="align-items: center;">
+      <div class="interaction_buttons" *ngFor="let item of interactionMenuData">
+      <mat-chip color="primary" (click)="sendRequest(item.event, item.values)"><span class="material-icons">{{ item.icon }}</span>{{ item.name }}</mat-chip>
+        <!-- <mat-chip color="primary"><span class="material-icons">settings</span>Edytuj obiekt</mat-chip>
+        <mat-chip color="primary"><span class="material-icons">delete</span>Usuń obiekt</mat-chip> -->
+      </div>
+    </mat-chip-list>
+</div>

@@ -7,7 +7,11 @@ export default async () => {
     alt.onServer('entitySync:create', (entityId: any, entityType: any, position: any, entityData: any) => {
         alt.log('obj streamin: ', JSON.stringify(entityData));
 
-        if (entityData) {
+        // if (entityData === undefined) {
+        //     return;
+        // }
+
+        if (entityData && entityData !== undefined) {
             if (+entityType === 0) {
 
                 objStreamer.addObject(

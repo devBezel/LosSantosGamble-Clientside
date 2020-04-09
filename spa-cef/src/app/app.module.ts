@@ -78,7 +78,6 @@ import { BuildingTenantsDialogComponent } from './_views/building-panel/elements
 import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { BuyOfferShopDialogComponent } from './_views/shop-panel/elements/buy-offer-shop-dialog/buy-offer-shop-dialog.component';
 import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
-import { InteractionDotComponent } from './_views/interaction-dot/interaction-dot.component';
 import { OfferableItemPanelComponent } from './_views/inventory-panel/elements/offerable-item-panel/offerable-item-panel.component';
 import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
 import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
@@ -87,6 +86,8 @@ import { GroupPanelWorkersComponent } from './_views/group-panel/elements/group-
 import { GroupPanelVehiclesComponent } from './_views/group-panel/elements/group-panel-vehicles/group-panel-vehicles.component';
 import { GroupRightsService } from './_services/group-rights.service';
 import { ObjectEditorOverlayComponent } from './_views/object_editor/object-editor-overlay/object-editor-overlay.component';
+import { InteractionMenuComponent } from './_views/interaction-menu/interaction-menu.component';
+import { RightsEditorDialogComponent } from './_views/group-panel/elements/group-panel-workers/elements/rights-editor-dialog/rights-editor-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -132,14 +133,15 @@ export function tokenGetter() {
     ShopPanelComponent,
     BuyOfferShopDialogComponent,
     VehicleTrunkComponent,
-    InteractionDotComponent,
     OfferableItemPanelComponent,
     OfferItemRequestComponent,
     GroupPanelComponent,
     GroupPanelProfileComponent,
     GroupPanelWorkersComponent,
     GroupPanelVehiclesComponent,
-    ObjectEditorOverlayComponent
+    ObjectEditorOverlayComponent,
+    InteractionMenuComponent,
+    RightsEditorDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -172,7 +174,8 @@ export function tokenGetter() {
     BuildingPlayersOnlineDialogComponent,
     BuildingTenantsDialogComponent,
     BuyOfferShopDialogComponent,
-    OfferableItemPanelComponent
+    OfferableItemPanelComponent,
+    RightsEditorDialogComponent
   ],
   providers: [
     AuthService,

@@ -36,6 +36,7 @@ export class BuildingPanelComponent implements OnInit {
   }
 
   lockBuilding() {
+    console.log('zamykam budynek');
     if (!this.buildingData.tenant.canLockDoor) {
       return this.notify.warning('Budynek', 'Nie posiadasz do tego uprawnień');
     }
@@ -44,6 +45,7 @@ export class BuildingPanelComponent implements OnInit {
   }
 
   openBuildingEditor() {
+    console.log(this.buildingData.building);
     if (!this.buildingData.tenant.canEditBuilding) {
       return this.notify.warning('Budynek', 'Nie posiadasz do tego uprawnień');
     }

@@ -22,7 +22,7 @@ export default async () => {
 
     alt.onServer('group-general:openGroupPanel', openGroupPanel);
 
-    async function openGroupPanel(group: Group, workers: GroupWorker[], vehicles: Vehicle[], worker: GroupWorker) {
+    async function openGroupPanel(group: Group, workers: GroupWorker[], vehicles: Vehicle[], worker: GroupWorker, slot: number) {
         if (!webView) {
             webView = new View();
         }
@@ -30,11 +30,16 @@ export default async () => {
 
         webView.open('', true, 'group/panel', true);
 
-        webView.emit('group-general:dataGroup', { group, workers, vehicles, worker });
+        webView.emit('group-general:dataGroup', { group, workers, vehicles, worker, slot });
         webView.on('cef:vehicleSpawn', respawnGroupVehicle);
+        webView.on('group:changeWorkerRights', changeWorkerRights);
     }
 
     async function respawnGroupVehicle(vehicleId: number) {
         alt.emit('vehicle:vehicleSpawn', vehicleId);
+    }
+
+    async function changeWorkerRights(characterId: number, characterRights: number, groupSlot: number) {
+        alt.emitServer('group:changeWorkerRights', characterId, characterRights, groupSlot);
     }
 };

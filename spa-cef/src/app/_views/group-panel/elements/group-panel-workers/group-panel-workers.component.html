@@ -5,7 +5,7 @@
           <i class="material-icons">
               account_circle
           </i>
-        <p> {{ worker?.character.name }} {{ worker?.character.surname }}</p>
+        <p class="worker_name"> {{ worker?.character.name }} {{ worker?.character.surname }}</p>
 
         <div class="workers-rights">
           <p class="p-title">Uprawnienia</p>
@@ -41,16 +41,16 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #optionMenu="matMenu">
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(worker?.rights)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights)" (click)="openWorkersRightsEditor(worker)">
                   <mat-icon>build</mat-icon>
                   <span>Edytuj uprawnienia grupy</span>
                 </button>
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(worker?.rights)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights)">
                   <mat-icon>swap_vertical_circle</mat-icon>
                   <span>Zmień stopień</span>
                 </button>
 
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(worker?.rights)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights)">
                     <mat-icon>delete_sweep</mat-icon>
                     <span>Zwolnij</span>
                   </button>

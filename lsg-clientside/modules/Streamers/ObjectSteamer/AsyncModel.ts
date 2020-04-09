@@ -13,6 +13,11 @@ class AsyncModel {
 
     async load(entityId: any, model: any) {
         return new Promise((resolve: any) => {
+            if (entityId === undefined || model === undefined) {
+                return;
+            }
+
+
             if (typeof model === 'string') {
                 // tslint:disable-next-line:no-parameter-reassignment
                 model = natives.getHashKey(model);

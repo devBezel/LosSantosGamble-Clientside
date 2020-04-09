@@ -10,7 +10,7 @@
     <mat-card-content class="card-content-container">
         <mat-list role="list">
           <mat-list-item *ngFor="let item of inventoryItems">
-              <button mat-button class="item-button" [matMenuTriggerFor]="menu" [style.backgroundColor]="item.itemInUse ? 'gray' : ''">
+              <button mat-button class="item-button" [matMenuTriggerFor]="menu" [style.backgroundColor]="item.itemInUse ? 'rgb(61, 61, 61)' : ''">
               <p class="item-name">{{ item.name }}</p> 
               <p class="item-count">{{ item.count }}x</p>
               </button>

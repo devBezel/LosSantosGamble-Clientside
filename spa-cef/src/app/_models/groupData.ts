@@ -7,4 +7,5 @@ export interface GroupData {
     workers: GroupWorker[];
     vehicles: Vehicle[];
     worker: GroupWorker;
+    slot: number;
 }

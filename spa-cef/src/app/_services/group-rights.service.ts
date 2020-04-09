@@ -34,5 +34,8 @@ export class GroupRightsService {
   canMakeDoors(userRights: GroupRights) {
     return this.hasFlag(userRights, GroupRights.Doors);
   }
+  canOffer(userRights: GroupRights) {
+    return this.hasFlag(userRights, GroupRights.Offers);
+  }
 
 }

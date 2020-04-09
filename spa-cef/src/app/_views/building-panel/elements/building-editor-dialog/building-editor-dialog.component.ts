@@ -9,6 +9,6 @@ import { Building } from 'src/app/_models/building';
 })
 export class BuildingEditorDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public buildingData: Building) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public buildingData?: Building) { }
 
 }

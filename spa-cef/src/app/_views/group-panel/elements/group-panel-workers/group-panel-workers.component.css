@@ -7,6 +7,9 @@
     margin-top: 12px;
     margin-left: 10px;
 }
+.worker_name {
+    width: 250px;
+}
 
 .p-title {
     font-weight: 500;

@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-header>
+    <span class="material-icons" mat-card-avatar>
+      build
+    </span>
+    <mat-card-title>Uprawnienia grupy {{  groupData.worker.character.name }} {{ groupData.worker.character.surname }} </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="mat-slide-container">
+    <mat-list>
+      <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+              commute
+          </span>
+          <mat-slide-toggle color="primary" [checked]="canRespawnVehicleState" [(ngModel)]="canRespawnVehicleState">Pojazdy</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+              account_balance
+          </span>
+          <mat-slide-toggle color="primary" [checked]="canDepositWithdrawMoneyState" [(ngModel)]="canDepositWithdrawMoneyState">Wypłacanie z salda</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+              accessibility_new
+          </span>
+          <mat-slide-toggle color="primary" [checked]="canRecruitmentWorkerState" [(ngModel)]="canRecruitmentWorkerState">Zarządzanie pracownikami</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+              add_shopping_cart
+          </span>
+          <mat-slide-toggle color="primary" [checked]="canMakeOrdersState" [(ngModel)]="canMakeOrdersState">Zamawianie produktów</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+              meeting_room
+          </span>
+          <mat-slide-toggle color="primary" [checked]="canMakeDoorsState" [(ngModel)]="canMakeDoorsState">Zarządzanie drzwiami</mat-slide-toggle>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button mat-button [mat-dialog-close] (click)="validateChange()">Zatwierdź zmiany</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
