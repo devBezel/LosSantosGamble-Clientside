@@ -14,6 +14,7 @@ import { ShopAssortment } from '../_models/shopAssortment';
 import { Group } from '../_models/group';
 import { GroupData } from '../_models/GroupData';
 import { InteractionCef } from '../_models/interactionCef';
+import { ScoreboardPlayer } from '../_models/scoreboardPlayer';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,8 @@ export class BaseService {
   requestOffer: { item: Item, cost: number, sender: any };
   groupData: GroupData;
   interactionMenuData: InteractionCef[];
+  searchEntityItems: Item[];
+  scoreboardData?: { scoreboardData?: ScoreboardPlayer[], playersCount?: number };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -115,6 +118,18 @@ export class BaseService {
     this.altvService.on('interaction-menu:data', async (interactionData: InteractionCef[]) => {
       await this.ngZone.run(async () => {
         this.interactionMenuData = interactionData;
+      });
+    });
+
+    this.altvService.on('group:searchPlayer', async (getterItems: Item[]) => {
+      await this.ngZone.run(async () => {
+        this.searchEntityItems = getterItems;
+      });
+    });
+
+    this.altvService.on('scoreboard:fetchPlayers', async (scoreboardDataClient?: ScoreboardPlayer[], playersCountClient?: number) => {
+      await this.ngZone.run(async () => {
+        this.scoreboardData = { scoreboardData: scoreboardDataClient, playersCount: playersCountClient };
       });
     });
 

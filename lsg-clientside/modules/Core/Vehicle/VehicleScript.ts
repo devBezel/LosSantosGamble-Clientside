@@ -18,7 +18,7 @@ export default async() => {
 
 
     alt.onServer('vehicle:openWindow', openVehicleWindow);
-    alt.on('vehicle:vehicleSpawn', sendVehicleToServer);
+    // alt.on('vehicle:vehicleSpawn', sendVehicleToServer);
 
 
     async function openVehicleWindow(vehicleList: Vehicle[]) {

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GroupRights } from '../_enums/GroupRights';
+import { GroupWorker } from '../_models/groupWorker';
+import { Group } from '../_models/group';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +38,10 @@ export class GroupRightsService {
   }
   canOffer(userRights: GroupRights) {
     return this.hasFlag(userRights, GroupRights.Offers);
+  }
+
+  isOwner(group: Group, worker: GroupWorker) {
+    return group.leaderId === worker.characterId ? true : false;
   }
 
 }

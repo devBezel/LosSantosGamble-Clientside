@@ -15,7 +15,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string = Environment.getUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false) {
+    open(url: string = Environment.getUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false, showCursor = true) {
         if (alt.Player.local.getMeta('chatOpen')) return;
 
         if (!currentView.view) {
@@ -30,7 +30,11 @@ export class View {
         currentView.isVisible = true;
         currentView.view.focus();
         currentView.view.ready = true;
-        alt.showCursor(true);
+
+        if (showCursor) {
+            currentView.showCursor = true;
+            alt.showCursor(true);
+        }
 
         if (!displayRadar) {
             natives.displayRadar(false);
@@ -57,7 +61,10 @@ export class View {
 
         currentView.events = [];
 
-        alt.showCursor(false);
+        if (currentView.showCursor) {
+            currentView.showCursor = false;
+            alt.showCursor(false);
+        }
         natives.displayRadar(true);
         alt.Player.local.setMeta('viewOpen', false);
         if (currentView.interval !== undefined) {

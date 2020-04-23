@@ -1,8 +1,10 @@
 import * as alt from 'alt';
 import * as game from 'natives';
 
-export class NativeExtenstion {
-    static getPlayerHealth(player: alt.Player): number {
-        return game.getEntityHealth(player.scriptID);
-    }
-}
+export default async () => {
+    const player = alt.Player.local;
+
+    alt.onServer('native-extenstion:freezeEntityPosition', async (toggle: boolean) => {
+        game.freezeEntityPosition(player.scriptID, toggle);
+    });
+};

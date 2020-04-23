@@ -15,7 +15,6 @@ import VehicleDamage from './Core/Vehicle/VehicleDamage';
 import VehicleInteraction from './Core/Vehicle/VehicleInteraction';
 import PlayerDamageScript from './Core/Player/Scripts/PlayerDamageScript';
 import PlayerInteraction from './Core/Player/Scripts/PlayerInteraction';
-import VehicleSpeedometr from './Core/Vehicle/VehicleSpeedometr';
 import StreetLabel from './Core/Player/Scripts/StreetLabel';
 import VersionScript from './Core/Version/VersionScript';
 import WeaponItemScript from './Core/Items/WeaponItemScript';
@@ -37,6 +36,10 @@ import GroupGeneralScript from './Economy/Group/GroupGeneralScript';
 import ObjectScript from './Core/Items/ObjectScript';
 import ObjectStreamer from './Streamers/ObjectSteamer/ObjectStreamer';
 import ObjectStreamerScript from './Streamers/ObjectSteamer/ObjectStreamerScript';
+import AfkScript from './Core/Player/Scripts/AfkScript';
+import NativeExtenstion from './Extenstion/NativeExtenstion';
+import ScoreboardScript from './Core/Scoreboard/ScoreboardScript';
+import VehicleSpeedometr from './Core/Vehicle/vehicle-speedometr/VehicleSpeedometr';
 
 
 export default async () => {
@@ -78,6 +81,9 @@ export default async () => {
 	 await ObjectScript();
 	 await ObjectStreamer();
 	 await ObjectStreamerScript();
+	 await AfkScript();
+	 await NativeExtenstion();
+	 await ScoreboardScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

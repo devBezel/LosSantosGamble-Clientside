@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="speedometr_icons">
+            <img src="./assets/silnik_0.png" />
+            <img src="./assets/swiatla_0.png" />
+            <img src="./assets/reczny_0.png" />
+        </div>
+
+        <div class="speedometr_km">
+            <p id="km_speed">120</p>
+            <p id="km_unit">km/h</p>
+        </div>
+
+        <div class="speedometr_fuel">
+            <img src="./assets/paliwo_0.png">
+            <p id="fuel">20L / 100L</p>
+        </div>
+
+        <div class="speedometr_course">
+            <img src="./assets/przebieg_0.png">
+            <p id="course">12000 KM</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    alt.on('vehicle-speedometr:open', async () => {
+        document.getElementById('container').style.display = 'inline-block';
+    });
+
+    alt.on('vehicle-speedometr:data', async (speed, fuel) => {
+        if (speed < 10) {
+            document.getElementById('km_speed').style.marginLeft = '17px';
+        } else if (speed < 100) {
+            document.getElementById('km_speed').style.marginLeft = '8px';
+        } else {
+            document.getElementById('km_speed').style.marginLeft = '-3px';
+        }
+        document.getElementById('km_speed').innerHTML = speed;
+        document.getElementById('fuel').innerHTML = `${fuel}L / 100L`;
+    });
+
+    alt.on('vehicle-speedometr:close', async () => {
+        document.getElementById('container').style.display = 'none';
+    });
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+    .container {
+        width: 450px;
+        height: 100px;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.9;
+        background-color: #212121;
+        border-radius: 10px;
+        font-family: 'Roboto Condensed', sans-serif !important;
+        color: white;
+        display: none;
+        user-select: none;
+    }
+    .speedometr_icons {
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+    .speedometr_icons img {
+        margin-left: -10px;
+    }
+    .speedometr_km {
+        position: absolute;
+        margin-left: 210px;
+        margin-top: -110px;
+        opacity: 0.7;
+    }
+    #km_speed {
+        font-size: 40px;
+        font-weight: 500;
+        margin-left: 5px;
+    }
+    #km_unit {
+        margin-top: -45px;
+        font-weight: 300;
+        margin-left: 10px;
+        font-size: 20px;
+        font-weight: lighter;
+        
+    }
+    .speedometr_fuel {
+        position: absolute;
+        margin-left: 280px;
+        margin-top: -77px;
+        display: flex;
+    }
+    #fuel {
+        margin-left: -12px;
+        margin-top: 18px;
+        opacity: 0.7;
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .speedometr_course {
+        position: absolute;
+        margin-left: 280px;
+        margin-top: -49px;
+        display: flex;
+    }
+    #course {
+        margin-left: -12px;
+        margin-top: 18px;
+        opacity: 0.7;
+        font-weight: 300;
+        font-size: 20px;
+    }
+</style>

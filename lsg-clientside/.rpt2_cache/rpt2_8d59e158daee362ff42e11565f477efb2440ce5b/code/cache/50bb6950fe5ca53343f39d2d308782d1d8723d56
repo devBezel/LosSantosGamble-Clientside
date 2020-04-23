@@ -1,0 +1,1 @@
+{"code":"import * as alt from 'alt';\r\nimport * as game from 'natives';\r\nexport default async () => {\r\n    const player = alt.Player.local;\r\n    alt.onServer('native-extenstion:freezeEntityPosition', async (toggle) => {\r\n        game.freezeEntityPosition(player.scriptID, toggle);\r\n    });\r\n};\r\n","references":[]}

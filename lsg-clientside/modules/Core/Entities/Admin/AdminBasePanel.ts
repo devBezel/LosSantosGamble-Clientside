@@ -3,7 +3,6 @@ import * as game from 'natives';
 import * as nativeUI from '../../../Includes/nativeui/NativeUi';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { RankParser } from '../../Helpers/RankParser';
-import { NativeExtenstion } from 'client/modules/Extenstion/NativeExtenstion';
 
 export default async () => {
 
@@ -102,7 +101,7 @@ export default async () => {
         characterInformationMenu.AddItem(new nativeUI.UIMenuItem(`Wiek: ${characterData.age} lat`));
         characterInformationMenu.AddItem(new nativeUI.UIMenuItem(`Gotówka: ${characterData.money}$`));
         characterInformationMenu.AddItem(new nativeUI.UIMenuItem(`Bank: ${characterData.bank}$`));
-        characterInformationMenu.AddItem(new nativeUI.UIMenuItem(`HP: ${NativeExtenstion.getPlayerHealth(player)}`, 'Gracz'));
+        // characterInformationMenu.AddItem(new nativeUI.UIMenuItem(`HP: ${NativeExtenstion.getPlayerHealth(player)}`, 'Gracz'));
     }
 
     async function playerTeleportToAdmin(player: alt.Player) {

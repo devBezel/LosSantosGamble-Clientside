@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <span class="material-icons" mat-card-avatar>
+            highlight
+      </span>
+      <mat-card-title>Przeszukiwanie...</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+
+        <mat-list-item *ngFor="let item of searchEntityItems">
+          <p class="p-title">[ID: {{ item?.id }}]</p>
+          <p class="p-data">{{ item?.name }}</p>
+          <button mat-button class="confiscate" (click)="confiscateEntityItem(item)">
+            <span class="material-icons">
+              pan_tool
+            </span>
+            Konfiskuj
+        </button>
+        </mat-list-item>
+
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

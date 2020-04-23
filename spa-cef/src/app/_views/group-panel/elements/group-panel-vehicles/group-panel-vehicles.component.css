@@ -3,9 +3,16 @@
     color: rgba(255, 255, 255, 0.7);
     margin-left: 4px;
 }
+#vid{
+    width: 100px;
+}
+#vehicle_name {
+    width: 100px;
+}
 .vehicle-information-extented {
     display: flex;
     margin-left: 30px;
+    width: 400px;
 }
 
 .vehicle-information-extented i {
@@ -20,4 +27,5 @@
 
 .options {
     margin-left: 30px;
+    width: 50px;
 }

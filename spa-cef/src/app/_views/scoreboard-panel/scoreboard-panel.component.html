@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="scoreboard_header">
+    <img src="../../../assets/img/logo/logo2.png" class="scoreboard_header_logo"/>
+    <div class="scoreboard_header_all_players">
+      <img src="../../../assets/img/scoreboard_icons/players-all.png"/>
+      <p>Wszyscy gracze</p>
+    </div>
+
+    <div class="scoreboard_header_all_players_online">
+    <p class="players_count" [ngStyle]="{'margin-left.px': toFetch?.playersCount < 10 ? '35' : '30'}">{{ toFetch?.playersCount }}</p>
+      <p>graczy online</p>
+    </div>
+  </div>
+
+  <div class="scoreboard_content">
+    <mat-list>
+      <mat-list-item class="scoreboard_row_header">
+        <p id="scoreboard_row_ID">ID</p>
+        <p id="scoreboard_row_name">Imię i Nazwisko</p>
+        <p id="scoreboard_row_gamble_points">Gamble P.</p>
+        <p id="scoreboard_row_ping">Ping</p>
+      </mat-list-item>
+
+      <div class="scoreboard_row_content_list">
+        <mat-list-item class="scoreboard_row_content" *ngFor="let player of toFetch?.scoreboardData">
+        <p id="scoreboard_row_ID">{{ player?.id }}</p>
+          <p id="scoreboard_row_name">{{ player?.formatName }}</p>
+          <img src="../../../assets/img/scoreboard_icons/lsg_coin_0.png" id="scoreboard_row_gamble_points_img" />
+          <p id="scoreboard_row_gamble_points">{{ player?.gamblePoints }}</p>
+          <p id="scoreboard_row_ping">
+            <img src="../../../assets/img/scoreboard_icons/ping_{{ pingWrapper(player) }}.png" alt="" width="25">
+          </p>
+        </mat-list-item>
+
+      </div>
+
+    </mat-list>
+  </div>
+
+</div>

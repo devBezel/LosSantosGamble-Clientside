@@ -25,21 +25,22 @@ export class RightsEditorDialogComponent {
 
 
   validateChange() {
-    if (this.canRespawnVehicleState) {
-      this.groupData.worker.rights = GroupRights.Vehicle;
-    }
     if (this.canOfferState) {
       this.groupData.worker.rights = GroupRights.Offers;
+    }
+    if (this.canMakeDoorsState) {
+      this.groupData.worker.rights = GroupRights.Doors;
+     }
+    if (this.canRespawnVehicleState) {
+      this.groupData.worker.rights = GroupRights.Vehicle;
     }
     if (this.canRecruitmentWorkerState) {
       this.groupData.worker.rights = GroupRights.Recruitment;
     }
     if (this.canMakeOrdersState) {
       this.groupData.worker.rights = GroupRights.Orders;
+
     }
-    if (this.canMakeDoorsState) {
-      this.groupData.worker.rights = GroupRights.Doors;
-     }
     if (this.canDepositWithdrawMoneyState) {
        this.groupData.worker.rights = GroupRights.DepositWithdrawMoney;
      }

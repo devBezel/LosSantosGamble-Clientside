@@ -31,6 +31,14 @@
           Pojazdy
         </a>
 
+        
+        <a (click)="informationSection = 2">
+          <i class="material-icons">
+            archive
+          </i>
+          Magazyn
+        </a>
+
         <a (click)="informationSection = 3;">
           <i class="material-icons">
             tune
@@ -46,7 +54,7 @@
         </a>
       </div>
       <div class="group-information section" *ngIf="informationSection === 0">
-        <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-list cols="2" rowHeight="1:0.8">
           <mat-grid-tile>
             <div class="group-logo">
               <img
@@ -91,7 +99,7 @@
                   <i class="material-icons">
                     emoji_people
                   </i>
-                  <p class="p-title"> Pracowników: </p>
+                  <p class="p-title"> Pracowników na służbie: </p>
                 <p class="p-data">{{ groupData?.workers.length }}</p>
                 </mat-list-item>
               </mat-list>
@@ -108,8 +116,11 @@
         <app-group-panel-vehicles [groupData]="groupData"></app-group-panel-vehicles>
       </div>
 
+      <div class="magazine section" *ngIf="informationSection === 3">
 
-      <div class="my-profile section" *ngIf="informationSection === 3">
+      </div>
+
+      <div class="my-profile section" *ngIf="informationSection === 4">
         <app-group-panel-profile></app-group-panel-profile>
       </div>
 

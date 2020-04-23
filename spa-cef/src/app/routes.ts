@@ -25,6 +25,9 @@ import { OfferItemRequestComponent } from './_views/offer-item-request/offer-ite
 import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
 import { ObjectEditorOverlayComponent } from './_views/object_editor/object-editor-overlay/object-editor-overlay.component';
 import { InteractionMenuComponent } from './_views/interaction-menu/interaction-menu.component';
+import { AfkSystemComponent } from './_views/afk-system/afk-system.component';
+import { SearchEntityPanelComponent } from './_views/group-systems/search-entity-panel/search-entity-panel.component';
+import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -50,7 +53,10 @@ export const appRoutes: Routes = [
             { path: 'offer/request', component: OfferItemRequestComponent },
             { path: 'group/panel', component: GroupPanelComponent },
             { path: 'object/editor/overlay', component: ObjectEditorOverlayComponent },
-            { path: 'interaction/menu', component: InteractionMenuComponent }
+            { path: 'interaction/menu', component: InteractionMenuComponent },
+            { path: 'afk', component: AfkSystemComponent },
+            { path: 'search/entity', component: SearchEntityPanelComponent },
+            { path: 'scoreboard', component: ScoreboardPanelComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },

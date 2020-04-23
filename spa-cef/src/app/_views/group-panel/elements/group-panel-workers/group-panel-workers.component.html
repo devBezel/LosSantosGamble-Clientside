@@ -10,9 +10,28 @@
         <div class="workers-rights">
           <p class="p-title">Uprawnienia</p>
 
+          <!-- Wysylanie ofert -->
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canOffer(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
+            local_offer
+          </i>
+
+          <!-- Drzwi -->
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canMakeDoors(worker.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
+            meeting_room
+          </i>
+
           <!-- Respawnienie pojazdow i ogolny dostep do nich -->
           <i class="material-icons" [ngStyle]="{'color': groupRights.canRespawnVehicle(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
               commute
+          </i>
+          <!-- Rekrutacja -->
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canRecruitmentWorker(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
+            accessibility_new
+          </i>
+
+          <!-- Zamawianie rzeczy -->
+          <i class="material-icons" [ngStyle]="{'color': groupRights.canMakeOrders(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
+            add_shopping_cart
           </i>
 
           <!-- Wyplacanie -->
@@ -20,20 +39,6 @@
               account_balance
           </i>
 
-          <!-- Rekrutacja -->
-          <i class="material-icons" [ngStyle]="{'color': groupRights.canRecruitmentWorker(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
-              accessibility_new
-          </i>
-
-          <!-- Zamawianie rzeczy -->
-          <i class="material-icons" [ngStyle]="{'color': groupRights.canMakeOrders(worker?.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
-              add_shopping_cart
-          </i>
-
-          <!-- Drzwi -->
-          <i class="material-icons" [ngStyle]="{'color': groupRights.canMakeDoors(worker.rights) ? 'rgba(1, 112, 18, 0.6)' : 'rgba(156, 0, 18, 0.6)'}">
-              meeting_room
-          </i>
         </div>
 
         <div class="option-extented">
@@ -41,16 +46,16 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #optionMenu="matMenu">
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights)" (click)="openWorkersRightsEditor(worker)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights) && !groupRights.isOwner(groupData.group, groupData.worker)" (click)="openWorkersRightsEditor(worker)">
                   <mat-icon>build</mat-icon>
                   <span>Edytuj uprawnienia grupy</span>
                 </button>
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights) && !groupRights.isOwner(groupData.group, groupData.worker)">
                   <mat-icon>swap_vertical_circle</mat-icon>
                   <span>Zmień stopień</span>
                 </button>
 
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights) && !groupRights.isOwner(groupData.group, groupData.worker)">
                     <mat-icon>delete_sweep</mat-icon>
                     <span>Zwolnij</span>
                   </button>

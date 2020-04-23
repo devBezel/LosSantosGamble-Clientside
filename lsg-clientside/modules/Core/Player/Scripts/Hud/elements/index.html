@@ -1,42 +1,19 @@
-<link rel="stylesheet" type="text/css" href="./loading-bar.min.css" />
-<script type="text/javascript" src="./loading-bar.min.js"></script>
-
 <div class="container" id="container">
-    <div class="basic-information">
-        <div class="player-name">
-            <p id="full-name">Richard McCartney</p>
-        </div>
-
-
-        <div class="thirsty-hungry">
-
-            <div class="foodBar"><img src="./img/burger.svg" class="food-drink-img" /></div>
-
-            <div class="waterBar"><img src="./img/water-glass.svg" class="food-drink-img" /></div>
-        </div>
-
-        <div class="logo-watermark">
-            <img src="img/logo.png" />
-        </div>
+    <div class="hud_player_information">
+        <p id="information_name">Richard McCartney</p>
+        <p id="information_money">$20000</p>
+        <p id="information_dirtymoney">$20000</p>
     </div>
 
-    <div class="second-information">
-        <div class="money">
-            <p id="money">500000 $</p>
+    <div class="hunger_water_information">
+        <div class="hunger">
+            <img src="./img/food_0.png" />
+            <p id="hunger">50%</p>
         </div>
-
-        <div class="dirty-money">
-            <p id="dirty-money">5000 $</p>
+        <div class="water">
+            <img src="./img/water_0.png" />
+            <p id="water">50%</p>
         </div>
-        <div class="voice-chat">
-            <img src="img/microphone.svg">
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="duty_information">
-        <p class="duty_name">Służba: LSPD</p>
     </div>
 </div>
 
@@ -45,151 +22,109 @@
     let foodValue = 100;
     let waterValue = 100;
 
-    const foodBar = new ldBar(".foodBar", {
-        "stroke": 'rgb(40, 100, 41)',
-        "stroke-width": 5,
-        "preset": "line",
-        "value": foodValue
-    });
-
-    const waterBar = new ldBar(".waterBar", {
-        "stroke": 'rgb(40, 100, 41)',
-        "stroke-width": 5,
-        "preset": "line",
-        "value": waterValue
-    });
-
 
     alt.on('hud:basicInformation', async (player, hunger, water) => {
 
-        document.getElementById('full-name').innerHTML = `${player.name} ${player.surname}`;
+        if(hunger < 0) {
+            hunger = 0;
+        }
+
+        if(water < 0) {
+            water = 0;
+        }
+        document.getElementById('information_name').innerHTML = `${player.name} ${player.surname}`;
         document.getElementById('container').style.display = 'inline-block';
 
-        document.getElementById('money').innerHTML = `${player.money} $`;
-        document.getElementById('dirty-money').innerHTML = `${player.dirtymoney} $`;
+        document.getElementById('information_money').innerHTML = `$${player.money}`;
+        document.getElementById('information_dirtymoney').innerHTML = `$${player.dirtymoney}`;
         console.log('HUNGER BASIC INFORMATION: ' + hunger);
         console.log('WATER BASIC INFORMATION: ' + water);
-        foodBar.set(
-            hunger,
-            true
-        );
-        waterBar.set(
-            water,
-            true
-        );
+
+        document.getElementById('hunger').innerHTML = `${hunger}%`;
+        document.getElementById('water').innerHTML = `${water}%`;
     });
 
     alt.on('hud:updateHunger', async (hunger) => {
+        if(hunger < 0) {
+            hunger = 0;
+        }
         console.log('hunger ' + hunger);
-        foodBar.set(
-            hunger,
-            true
-        );
+        document.getElementById('hunger').innerHTML = `${hunger}%`;
     });
 
     alt.on('hud:updateThirsty', async (thirsty) => {
+        if(thirsty < 0) {
+            thirsty = 0;
+        }
         console.log('thirsty ' + thirsty);
-        waterBar.set(
-            thirsty,
-            true
-        );
+        document.getElementById('water').innerHTML = `${thirsty}%`;
     })
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
     * {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Condensed', sans-serif !important;
         user-select: none;
+    }
+
+    body {
+        float: right;
     }
 
     .container {
         margin-top: 5vh;
         margin-right: 2vh;
-        height: 60px;
+        height: 70px;
         width: 400px;
-        float: right;
         opacity: 0.9;
         background-color: #212121;
-        border-radius: 3px;
-        border-left: 10px solid rgb(40, 100, 41);
-        /* display: none; */
-
-        box-shadow: 5px 5px 20px #182019;
-        color: rgba(255, 255, 255, 0.7);
-
-    }
-
-    .player-name p {
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.7);
-        margin-left: 10px;
-    }
-
-    .thirsty-hungry {
-        display: flex;
-        margin-top: -12px;
-        margin-left: 8px;
-    }
-
-    .logo-watermark {
-        opacity: 0.1;
-    }
-
-    .logo-watermark img {
-        width: 80px;
-        margin-top: -75px;
-        margin-left: 150px;
-    }
-
-    .ldBar-label {
+        border-radius: 6px;
+        color: white;
         display: none;
     }
 
-    .food-drink-img {
-        width: 15px;
-        margin-right: 2px;
-        margin-top: -5px;
-        /* margin-top: -150px; */
-    }
 
-    .foodBar {
-        display: inherit;
-    }
-
-    .waterBar {
-        display: inherit;
-    }
-
-    .money {
+    #information_name {
+        position: absolute;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.7);
+        font-size: 21px;
+        opacity: 0.7;
+        margin-top: 7px;
+        margin-left: 10px;
     }
 
-    .dirty-money {
+    #information_money {
+        position: absolute;
+        font-weight: 300;
+        font-size: 16px;
+        opacity: 0.6;
+        margin-top: 29px;
+        margin-left: 10px;
+    }
+
+    #information_dirtymoney {
+        position: absolute;
+        font-weight: 300;
+        font-size: 16px;
+        opacity: 0.6;
+        margin-top: 48px;
+        margin-left: 10px;
+        color: rgb(255, 72, 72);
+    }
+
+    .hunger_water_information {
+        position: absolute;
         font-weight: 500;
-        color: rgba(199, 10, 10, 0.9);
-        margin-top: -30px;
+        font-size: 21px;
+        opacity: 0.7;
+        display: flex;
+        margin-left: 168px;
+        margin-top: 10px;
+    }
+    .hunger_water_information div {
+        margin-left: 10px;
+        display: flex;
     }
 
-    .basic-information {
-        display: inline-grid;
-    }
-
-    .second-information {
-        display: inline-grid;
-    }
-
-    .voice-chat {
-        margin-left: 116px;
-        margin-top: -58px;
-    }
-
-    .voice-chat img {
-        width: 35px;
-        color-adjust: green;
-    }
-
-    .duty_name {
-        font-weight: 600;
-    }
 </style>

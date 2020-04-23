@@ -74,15 +74,29 @@ export default async () => {
     function interactObjectAction(entity: number) {
         const interactObjectType = game.getEntityType(entity);
 
-        if (interactObjectType === EntityType.vehicle) {
-
-            disposeInteraction2D();
-            alt.emit('interaction2D:vehicle', entity);
-
-        } else if (interactObjectType === EntityType.object) {
-            disposeInteraction2D();
-            alt.emit('interaction2D:object', entity);
+        switch (interactObjectType) {
+            case EntityType.vehicle:
+                disposeInteraction2D();
+                alt.emit('interaction2D:vehicle', entity);
+                break;
+            case EntityType.object:
+                disposeInteraction2D();
+                alt.emit('interaction2D:object', entity);
+            case EntityType.ped:
+                alt.log('Interakcja z graczem');
+            default:
+                break;
         }
+
+        // if (interactObjectType === EntityType.vehicle) {
+
+        //     disposeInteraction2D();
+        //     alt.emit('interaction2D:vehicle', entity);
+
+        // } else if (interactObjectType === EntityType.object) {
+        //     disposeInteraction2D();
+        //     alt.emit('interaction2D:object', entity);
+        // }
     }
 
     function disposeInteraction2D() {

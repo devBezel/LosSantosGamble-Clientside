@@ -16,6 +16,7 @@ export default async () => {
             const hasPremium = player.getSyncedMeta('account:hasPremium');
             const accountData = player.getSyncedMeta('account:dataAccount');
             const characterData = player.getSyncedMeta('character:dataCharacter');
+            const isAfk = player.getSyncedMeta('player:afk');
 
             const characterName = player.getSyncedMeta('character:name');
 
@@ -46,6 +47,10 @@ export default async () => {
                 username = `~y~ ${characterName} (${serverID})`;
             } else {
                 username = `${characterName} (${serverID})`;
+            }
+
+            if (isAfk) {
+                username += ' (~g~AFK~s~)';
             }
 
             Draw.drawText(username, result[1], y, 0.3, 6, 255, 255, 255, 255, false, false);

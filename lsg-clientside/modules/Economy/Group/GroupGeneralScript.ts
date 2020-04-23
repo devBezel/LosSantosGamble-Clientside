@@ -4,6 +4,7 @@ import { Group } from 'client/modules/Models/group';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { GroupWorker } from 'client/modules/Models/groupWorker';
 import { Vehicle } from 'client/modules/Models/vehicle';
+import { Item } from 'client/modules/Models/Item';
 
 export default async () => {
 
@@ -36,10 +37,26 @@ export default async () => {
     }
 
     async function respawnGroupVehicle(vehicleId: number) {
-        alt.emit('vehicle:vehicleSpawn', vehicleId);
+        alt.emitServer('vehicle:spawnVehicle', vehicleId);
     }
 
     async function changeWorkerRights(characterId: number, characterRights: number, groupSlot: number) {
         alt.emitServer('group:changeWorkerRights', characterId, characterRights, groupSlot);
+    }
+
+    alt.onServer('group:searchPlayer', searchPlayer);
+    async function searchPlayer(items: Item[]) {
+        if (!webView) {
+            webView = new View();
+        }
+
+        if (alt.Player.local.getMeta('viewOpen')) return;
+        webView.open('', true, 'search/entity', true);
+        webView.emit('group:searchPlayer', items);
+        webView.on('group:confiscatePlayerItem', confiscatePlayerItem);
+    }
+
+    async function confiscatePlayerItem(item: Item) {
+        alt.emitServer('group:confiscatePlayerItem', JSON.stringify(item));
     }
 };

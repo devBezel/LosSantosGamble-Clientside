@@ -1,6 +1,7 @@
 .workers-rights {
     margin-left: 50px;
     display: flex;
+    width: 250px;
 }
 
 .workers-rights i {
@@ -18,5 +19,6 @@
 }
 
 .option-extented {
-    margin-left: 10px;
+    margin-left: 80px;
+    width: 50px;
 }

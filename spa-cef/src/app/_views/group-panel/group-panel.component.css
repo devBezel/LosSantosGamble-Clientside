@@ -4,12 +4,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.9;
-    width: 660px;
+    width: 790px;
 } 
 
 .group-logo img {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 700px;
+    max-height: 700px;
 }
 
 .navbar-menu a {

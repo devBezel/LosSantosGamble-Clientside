@@ -1,0 +1,99 @@
+.container {
+    background-color: #212121;
+    width: 445px;
+    height: 623px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    border-radius: 10px;
+    /* font-family: 'Roboto Condensed', sans-serif; */
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.scoreboard_header {
+    height: 100px;
+    border-bottom: green solid 2px;
+}
+.scoreboard_header_logo {
+    width: 130px;
+    margin-top: -13px;
+    margin-left: 15px;
+}
+.scoreboard_header_all_players{
+    margin-top: -80px;
+    margin-left: 142px;
+    position: absolute;
+}
+.scoreboard_header_all_players p {
+    font-size: 15px;
+    font-weight: 200;
+    opacity: 0.7;
+    margin-left: 40px;
+    margin-top: -28px;
+}
+.scoreboard_header_all_players_online {
+    margin-top: -96px;
+    margin-left: 338px;
+    position: absolute;
+}
+
+.scoreboard_header_all_players_online p{
+    opacity: 0.7;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.players_count {
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    margin-left: 10px;
+}
+
+.scoreboard_row_header {
+    opacity: 0.7;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.scoreboard_row_content {
+    opacity: 0.7;
+    font-weight: 300;
+    font-size: 16px;
+}
+.scoreboard_row_content_list {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+#scoreboard_row_ID {
+    width: 50px;
+}
+#scoreboard_row_name {
+    width: 250px;
+}
+#scoreboard_row_gamble_points {
+    width: 100px;
+}
+
+#scoreboard_row_ping {
+    width: 75px;
+}
+#scoreboard_row_gamble_points_img {
+    width: 25px;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+  }
+::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+  }

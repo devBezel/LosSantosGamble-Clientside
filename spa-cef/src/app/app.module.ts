@@ -87,7 +87,11 @@ import { GroupPanelVehiclesComponent } from './_views/group-panel/elements/group
 import { GroupRightsService } from './_services/group-rights.service';
 import { ObjectEditorOverlayComponent } from './_views/object_editor/object-editor-overlay/object-editor-overlay.component';
 import { InteractionMenuComponent } from './_views/interaction-menu/interaction-menu.component';
+// tslint:disable-next-line:max-line-length
 import { RightsEditorDialogComponent } from './_views/group-panel/elements/group-panel-workers/elements/rights-editor-dialog/rights-editor-dialog.component';
+import { AfkSystemComponent } from './_views/afk-system/afk-system.component';
+import { SearchEntityPanelComponent } from './_views/group-systems/search-entity-panel/search-entity-panel.component';
+import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -141,7 +145,10 @@ export function tokenGetter() {
     GroupPanelVehiclesComponent,
     ObjectEditorOverlayComponent,
     InteractionMenuComponent,
-    RightsEditorDialogComponent
+    RightsEditorDialogComponent,
+    AfkSystemComponent,
+    SearchEntityPanelComponent,
+    ScoreboardPanelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
