@@ -16,11 +16,10 @@ export class ScoreboardPanelComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.toFetch = this.baseService.scoreboardData;
-    }, 2);
+    }, 1);
   }
 
   public pingWrapper(player: ScoreboardPlayer) {
-    console.log(`player ping ${player.ping}`);
     if (player.ping >= 200) {
       return 1;
     } else if (player.ping >= 150) {

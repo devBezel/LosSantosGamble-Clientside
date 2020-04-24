@@ -48,10 +48,12 @@ export class Animation {
             game.taskPlayAnim(alt.Player.local.scriptID, this.animDict, this.animation, 8.0, 1.0, -1, this.animFlag, 1, false, false, false);
 
             alt.log('probuje wykonac animacje');
-            alt.setTimeout(() => {
-                game.clearPedTasks(alt.Player.local.scriptID);
-                game.stopAnimTask(alt.Player.local.scriptID, this.animDict, this.animation, 0);
-            },             this.timeAnim);
+            if (this.timeAnim !== -1) {
+                alt.setTimeout(() => {
+                    game.clearPedTasks(alt.Player.local.scriptID);
+                    game.stopAnimTask(alt.Player.local.scriptID, this.animDict, this.animation, 0);
+                },             this.timeAnim);
+            }
         }
 
     }

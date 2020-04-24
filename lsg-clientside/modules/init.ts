@@ -37,9 +37,9 @@ import ObjectScript from './Core/Items/ObjectScript';
 import ObjectStreamer from './Streamers/ObjectSteamer/ObjectStreamer';
 import ObjectStreamerScript from './Streamers/ObjectSteamer/ObjectStreamerScript';
 import AfkScript from './Core/Player/Scripts/AfkScript';
-import NativeExtenstion from './Extenstion/NativeExtenstion';
 import ScoreboardScript from './Core/Scoreboard/ScoreboardScript';
 import VehicleSpeedometr from './Core/Vehicle/vehicle-speedometr/VehicleSpeedometr';
+import NativeWrapperScript from './Wrappers/NativeWrapperScript';
 
 
 export default async () => {
@@ -82,7 +82,7 @@ export default async () => {
 	 await ObjectStreamer();
 	 await ObjectStreamerScript();
 	 await AfkScript();
-	 await NativeExtenstion();
+	 await NativeWrapperScript();
 	 await ScoreboardScript();
 
 	 alt.requestIpl('gr_heist_yacht2');

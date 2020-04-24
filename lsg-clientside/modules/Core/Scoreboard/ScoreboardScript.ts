@@ -11,10 +11,11 @@ export default async () => {
 
     alt.on('keyup', async (key: any) => {
         if (key === Key.INSERT) {
-            if (!scoreboardOpen) {
-                openScoreboard();
-            } else {
+            if (scoreboardOpen) {
                 closeScoreboard();
+            } else {
+                openScoreboard();
+
             }
         }
         // else if (key === Key.ESCAPE) {
