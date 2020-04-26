@@ -1,0 +1,11 @@
+.title {
+    font-weight: 500;
+}
+.content {
+    font-weight: 300;
+    margin-left: 10px;
+}
+.select_rank {
+    width: 150px;
+    margin-left: 10px;
+}

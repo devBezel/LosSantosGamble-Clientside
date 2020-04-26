@@ -6,6 +6,7 @@ import { Key } from 'client/modules/Constant/Keys/Key';
 import { GroupWorker } from 'client/modules/Models/groupWorker';
 import { Vehicle } from 'client/modules/Models/vehicle';
 import { Item } from 'client/modules/Models/Item';
+import { GroupRank } from 'client/modules/Models/groupRank';
 
 export default async () => {
 
@@ -26,17 +27,18 @@ export default async () => {
 
     alt.onServer('group-general:openGroupPanel', openGroupPanel);
 
-    async function openGroupPanel(group: Group, workers: GroupWorker[], vehicles: Vehicle[], worker: GroupWorker, slot: number) {
+    async function openGroupPanel(group: Group, workers: GroupWorker[], ranks: GroupRank[], vehicles: Vehicle[], worker: GroupWorker, slot: number) {
         if (!webView) {
             webView = new View();
         }
         if (alt.Player.local.getMeta('viewOpen')) return;
 
         webView.open('', true, 'group/panel', true);
-
-        webView.emit('group-general:dataGroup', { group, workers, vehicles, worker, slot });
+        alt.log(`ranks count: ${ranks.length}`);
+        webView.emit('group-general:dataGroup', { group, workers, ranks, vehicles, worker, slot });
         webView.on('cef:vehicleSpawn', respawnGroupVehicle);
         webView.on('group:changeWorkerRights', changeWorkerRights);
+        webView.on('group:changeWorkerRank', changeWorkerRank);
     }
 
     async function respawnGroupVehicle(vehicleId: number) {
@@ -45,6 +47,10 @@ export default async () => {
 
     async function changeWorkerRights(characterId: number, characterRights: number, groupSlot: number) {
         alt.emitServer('group:changeWorkerRights', characterId, characterRights, groupSlot);
+    }
+
+    async function changeWorkerRank(characterId: number, rankToChange: number, groupSlot: number) {
+        alt.emitServer('group:changeWorkerRank', characterId, rankToChange, groupSlot);
     }
 
     alt.onServer('group:searchPlayer', searchPlayer);
@@ -124,6 +130,8 @@ export default async () => {
         if (disableControlsCuffInterval !== undefined) {
             alt.clearInterval(disableControlsCuffInterval);
         }
+
+        game.clearPedTasks(player.scriptID);
     }
 
     alt.onServer('group:dragPlayer', dragPlayer);
@@ -135,7 +143,7 @@ export default async () => {
         }
 
         if (game.doesEntityExist(playerToDrag.scriptID) && game.isPedOnFoot(playerToDrag.scriptID)) {
-            game.attachEntityToEntity(playerToDrag.scriptID, player.scriptID, game.getPedBoneIndex(player.scriptID, 28422), 0.1, 0.11, 0, 0, 270, -20, false, false, true, true, 2, true);
+            game.attachEntityToEntity(playerToDrag.scriptID, player.scriptID, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true);
         }
     }
 

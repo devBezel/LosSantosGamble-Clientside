@@ -12,7 +12,7 @@ import { CharacterLook } from '../_models/characterLook';
 })
 export class CharacterService {
 
-  baseUrl = environment.baseLocalUrl + 'character';
+  baseUrl = environment.hamachiLocalUrl + 'character';
 
 
   constructor(private http: HttpClient) { }

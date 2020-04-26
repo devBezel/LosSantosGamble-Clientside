@@ -1,6 +1,8 @@
 import * as alt from 'alt';
 import { Account } from '../Models/account';
 import { Character } from '../Models/character';
+import { GroupWorker } from '../Models/groupWorker';
+import { Group } from '../Models/group';
 
 export default async () => {
 
@@ -52,5 +54,13 @@ export default async () => {
     };
     alt.Player.prototype.nicknameVisableOff = function nicknameVisableOff(state: boolean) {
         return alt.Player.local.setMeta('scaleform:nicknameTurnOff', state);
+    };
+
+    alt.Player.prototype.dutyGroupData = function dutyGroupData(): Group {
+        return alt.Player.local.getSyncedMeta('group:dutyGroupData');
+    };
+
+    alt.Player.prototype.dutyGroupWorkerData = function dutyGroupWorkerData(): GroupWorker {
+        return alt.Player.local.getSyncedMeta('group:dutyWorkerData');
     };
 };

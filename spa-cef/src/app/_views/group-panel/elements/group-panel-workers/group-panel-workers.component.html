@@ -50,7 +50,7 @@
                   <mat-icon>build</mat-icon>
                   <span>Edytuj uprawnienia grupy</span>
                 </button>
-                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights) && !groupRights.isOwner(groupData.group, groupData.worker)">
+                <button mat-menu-item [disabled]="!groupRights.canRecruitmentWorker(groupData.worker?.rights) && !groupRights.isOwner(groupData.group, groupData.worker)" (click)="openWorkersRanksEditor(worker)">
                   <mat-icon>swap_vertical_circle</mat-icon>
                   <span>Zmień stopień</span>
                 </button>

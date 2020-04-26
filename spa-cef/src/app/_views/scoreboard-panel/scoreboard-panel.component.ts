@@ -19,6 +19,10 @@ export class ScoreboardPanelComponent implements OnInit {
     }, 1);
   }
 
+  public gamblePointsParser(player: ScoreboardPlayer) {
+    return Math.floor(player.gamblePoints);
+  }
+
   public pingWrapper(player: ScoreboardPlayer) {
     if (player.ping >= 200) {
       return 1;

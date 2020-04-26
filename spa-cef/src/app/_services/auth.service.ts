@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  baseUrl = environment.baseLocalUrl + 'auth/';
+  baseUrl = environment.hamachiLocalUrl + 'auth/';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 

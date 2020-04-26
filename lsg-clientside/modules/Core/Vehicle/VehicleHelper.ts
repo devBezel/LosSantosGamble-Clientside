@@ -6,6 +6,8 @@ import { transpileModule } from 'typescript';
 import { Vehicle } from 'client/modules/Models/vehicle';
 import { vehicleConfig } from 'client/modules/Configs/VehicleConfig';
 import { Calculation } from '../Utilities/Calculation';
+import { GroupRights } from 'client/modules/Enum/groupRights';
+import { GroupRightsHelper } from 'client/modules/Economy/Group/GroupRightsHelper';
 
 
 export class VehicleHelper {
@@ -33,6 +35,14 @@ export class VehicleHelper {
     static isVehicleOwner(vehicleData: Vehicle, player: alt.Player) {
         if (vehicleData.ownerId === player.characterData().id) {
             return true;
+        }
+
+        if (vehicleData.groupId === player.dutyGroupData().id) {
+            if (GroupRightsHelper.canRespawnVehicle(player.dutyGroupWorkerData().rights) ||
+                GroupRightsHelper.isOwner(player.dutyGroupData(), player.dutyGroupWorkerData())) {
+                    return true;
+                }
+            return false;
         }
 
         return false;

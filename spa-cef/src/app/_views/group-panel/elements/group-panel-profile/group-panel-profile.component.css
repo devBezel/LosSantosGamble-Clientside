@@ -1,11 +1,6 @@
-.profile-avatar {
-    margin-top: 25px;
-    margin-left: 25px;
-}
-.profile-avatar img{
-    display: inline;
-}
-.profile-avatar-name {
+.profile_avatar_name {
     display: inline;
     margin-left: 10px;
+    font-weight: 500;
+    font-size: 18px;
 }

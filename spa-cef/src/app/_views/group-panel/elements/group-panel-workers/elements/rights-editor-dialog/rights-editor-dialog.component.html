@@ -6,7 +6,7 @@
           </span>
           <mat-card-title>Uprawnienia grupy {{  groupData.worker.character.name }} {{ groupData.worker.character.surname }} </mat-card-title>
           <mat-card-subtitle>
-            Uprawnienia grupy ustalamy od góry do dołu. Jeśli chcesz nadać użytkownikowi możliwość używania pojazdów grupowych musisz mu również udzielić możliwość do wysylania ofert.
+            Uprawnienia grupy, tutaj możesz zarządzać pracownikiem i jego uprawnieniami w grupie, ale nie pracy.
           </mat-card-subtitle>
         </mat-card-header>
       
@@ -36,7 +36,7 @@
                 <span class="material-icons" mat-card-avatar>
                     accessibility_new
                 </span>
-                <mat-slide-toggle color="primary" [checked]="canRecruitmentWorkerState" [(ngModel)]="canRecruitmentWorkerState">Zarządzanie pracownikami</mat-slide-toggle>
+                <mat-slide-toggle color="primary" [checked]="canRecruitmentWorkerState" [disabled]="!groupRights.isOwner(groupData.group, groupData.manager)" [(ngModel)]="canRecruitmentWorkerState">Zarządzanie pracownikami</mat-slide-toggle>
             </mat-list-item>
             <mat-list-item>
                 <span class="material-icons" mat-card-avatar>
@@ -48,7 +48,7 @@
                 <span class="material-icons" mat-card-avatar>
                     account_balance
                 </span>
-                <mat-slide-toggle color="primary" [checked]="canDepositWithdrawMoneyState" [(ngModel)]="canDepositWithdrawMoneyState">Wypłacanie z salda</mat-slide-toggle>
+                <mat-slide-toggle color="primary" [checked]="canDepositWithdrawMoneyState" [disabled]="!groupRights.isOwner(groupData.group, groupData.manager)" [(ngModel)]="canDepositWithdrawMoneyState">Wypłacanie z salda</mat-slide-toggle>
             </mat-list-item>
       
             <mat-list-item>

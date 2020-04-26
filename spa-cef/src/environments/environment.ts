@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   baseUrl: 'http://51.38.142.78:5000/api/',
-  baseLocalUrl: 'http://localhost:5000/api/'
+  baseLocalUrl: 'http://localhost:5000/api/',
+  hamachiLocalUrl: 'http://25.143.139.193:5000/api/'
 };
 
 /*

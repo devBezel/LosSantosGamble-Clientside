@@ -1,0 +1,47 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Zarządzenie rangą {{ groupData?.worker?.character?.name }} {{ groupData?.worker?.character?.surname }}</mat-card-title>
+      <mat-card-subtitle>Tutaj możesz zarządzać rangą pracownika.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+            emoji_events
+          </span>
+          <p class="title">Obecna ranga: </p>
+          <p class="content">{{ currentRankName?.name }}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="material-icons" mat-card-avatar>
+            attach_money
+          </span>
+          <p class="title">Obecne wynagrodzenie: </p>
+          <p class="content">${{ currentRankName?.salary }}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p class="title">Zmień rangę</p>
+          <mat-select placeholder="Wybierz rangę" class="select_rank" [(ngModel)]="rankToChange">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let rank of groupData?.ranks" [value]="rank?.id">
+              {{ rank?.name }}
+            </mat-option>
+          </mat-select>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button mat-button class="btn_confirm" mat-dialog-close (click)="changeRank()">
+            <span class="material-icons">
+              check
+            </span>
+            Potwierdź
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

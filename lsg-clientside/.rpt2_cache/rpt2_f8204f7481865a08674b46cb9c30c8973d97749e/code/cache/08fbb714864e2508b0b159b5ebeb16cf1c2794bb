@@ -1,0 +1,1 @@
+{"code":"export var Alignment;\r\n(function (Alignment) {\r\n    Alignment[Alignment[\"Left\"] = 0] = \"Left\";\r\n    Alignment[Alignment[\"Centered\"] = 1] = \"Centered\";\r\n    Alignment[Alignment[\"Right\"] = 2] = \"Right\";\r\n})(Alignment || (Alignment = {}));\r\nexport default Alignment;\r\n","references":[]}

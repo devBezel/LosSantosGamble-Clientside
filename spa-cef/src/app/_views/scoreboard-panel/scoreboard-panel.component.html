@@ -26,7 +26,7 @@
         <p id="scoreboard_row_ID">{{ player?.id }}</p>
           <p id="scoreboard_row_name">{{ player?.formatName }}</p>
           <img src="../../../assets/img/scoreboard_icons/lsg_coin_0.png" id="scoreboard_row_gamble_points_img" />
-          <p id="scoreboard_row_gamble_points">{{ player?.gamblePoints }}</p>
+          <p id="scoreboard_row_gamble_points">{{ gamblePointsParser(player)}}</p>
           <p id="scoreboard_row_ping">
             <img src="../../../assets/img/scoreboard_icons/ping_{{ pingWrapper(player) }}.png" alt="" width="25">
           </p>

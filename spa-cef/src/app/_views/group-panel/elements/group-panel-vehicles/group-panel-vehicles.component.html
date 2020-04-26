@@ -27,11 +27,11 @@
                   <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #optionMenu="matMenu">
-                  <button mat-menu-item (click)="respawnGroupVehicle(vehicle)">
+                  <button mat-menu-item (click)="respawnGroupVehicle(vehicle)" [disabled]="!workRightsService.canRespawnVehicle(groupData.worker.rights)">
                     <mat-icon>keyboard_tab</mat-icon>
                     <span>Spawn/Unspawn</span>
                   </button>
-                  <button mat-menu-item>
+                  <button mat-menu-item [disabled]="!workRightsService.canRespawnVehicle(groupData.worker.rights)">
                     <mat-icon>contactless</mat-icon>
                     <span>Namierz</span>
                   </button>

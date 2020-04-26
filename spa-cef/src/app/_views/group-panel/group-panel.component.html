@@ -4,7 +4,7 @@
       <i class="material-icons" mat-card-avatar>
         assignment
       </i>
-      <mat-card-title>Los Santos Police Departament</mat-card-title>
+      <mat-card-title>{{ groupData?.group.name }}</mat-card-title>
       <mat-card-subtitle>Tutaj możesz zarządzać swoją grupą lub wchodzić na jej służbę</mat-card-subtitle>
     </mat-card-header>
 
@@ -32,14 +32,14 @@
         </a>
 
         
-        <a (click)="informationSection = 2">
+        <a (click)="informationSection = 3">
           <i class="material-icons">
             archive
           </i>
           Magazyn
         </a>
 
-        <a (click)="informationSection = 3;">
+        <a (click)="informationSection = 4;">
           <i class="material-icons">
             tune
           </i>

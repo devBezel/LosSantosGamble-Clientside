@@ -32,7 +32,7 @@ import ShopScript from './Core/Entities/Shop/ShopScript';
 import VehicleTrunkScript from './Core/Vehicle/VehicleTrunkScript';
 import Interaction2DScript from './Core/Interaction/Interaction2DScript';
 import TextDrawScript from './Core/Map/TextDrawScript';
-import GroupGeneralScript from './Economy/Group/GroupGeneralScript';
+import GroupScript from './Economy/Group/GroupScript';
 import ObjectScript from './Core/Items/ObjectScript';
 import ObjectStreamer from './Streamers/ObjectSteamer/ObjectStreamer';
 import ObjectStreamerScript from './Streamers/ObjectSteamer/ObjectStreamerScript';
@@ -77,7 +77,7 @@ export default async () => {
 	 await VehicleTrunkScript();
 	 await Interaction2DScript();
 	 await TextDrawScript();
-	 await GroupGeneralScript();
+	 await GroupScript();
 	 await ObjectScript();
 	 await ObjectStreamer();
 	 await ObjectStreamerScript();

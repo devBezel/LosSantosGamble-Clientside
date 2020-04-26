@@ -58,12 +58,12 @@ export default async () => {
         }
 
 
-        const isInRange = Calculation.isPlayerInRange(alt.Player.local.pos, getter.pos, 3);
+        // const isInRange = Calculation.isPlayerInRange(alt.Player.local.pos, getter.pos, 3);
 
-        if (!isInRange) {
-            webView.close();
-            return alt.emit('notify:error', 'Brak gracza w pobliżu', `Gracza o ID: ${playerID} nie ma w pobliżu`);
-        }
+        // if (!isInRange) {
+        //     webView.close();
+        //     return alt.emit('notify:error', 'Brak gracza w pobliżu', `Gracza o ID: ${playerID} nie ma w pobliżu`);
+        // }
 
         alt.emitServer('inventory:offerPlayerItem', JSON.stringify(item), getter, costItem);
     }

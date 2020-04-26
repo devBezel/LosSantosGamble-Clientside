@@ -14,7 +14,7 @@ export class GroupPanelVehiclesComponent implements OnInit {
 
   @Input() groupData: GroupData;
 
-  constructor(private altvService: AltvService, private workRightsService: GroupRightsService, private notify: NotifyService) { }
+  constructor(private altvService: AltvService, public workRightsService: GroupRightsService, private notify: NotifyService) { }
 
   ngOnInit() {
   }

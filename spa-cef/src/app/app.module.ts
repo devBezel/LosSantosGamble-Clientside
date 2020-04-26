@@ -92,6 +92,8 @@ import { RightsEditorDialogComponent } from './_views/group-panel/elements/group
 import { AfkSystemComponent } from './_views/afk-system/afk-system.component';
 import { SearchEntityPanelComponent } from './_views/group-systems/search-entity-panel/search-entity-panel.component';
 import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
+// tslint:disable-next-line:max-line-length
+import { RanksEditorDialogComponent } from './_views/group-panel/elements/group-panel-workers/elements/ranks-editor-dialog/ranks-editor-dialog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -148,7 +150,8 @@ export function tokenGetter() {
     RightsEditorDialogComponent,
     AfkSystemComponent,
     SearchEntityPanelComponent,
-    ScoreboardPanelComponent
+    ScoreboardPanelComponent,
+    RanksEditorDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -182,7 +185,8 @@ export function tokenGetter() {
     BuildingTenantsDialogComponent,
     BuyOfferShopDialogComponent,
     OfferableItemPanelComponent,
-    RightsEditorDialogComponent
+    RightsEditorDialogComponent,
+    RanksEditorDialogComponent
   ],
   providers: [
     AuthService,

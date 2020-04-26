@@ -151,6 +151,8 @@ declare namespace hashes {
         setPlayerReady: (state: boolean) => void;
         nicknameVisable: (state: boolean) => any;
         nicknameVisableOff: (state: boolean) => void;
+        dutyGroupData: () => import("b:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Models/group").Group;
+        dutyGroupWorkerData: () => import("b:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Models/groupWorker").GroupWorker;
   
 	  addWeaponComponent(weaponHash: number, componentHash: number): void;
 	  getCurrentWeapon(): number;
