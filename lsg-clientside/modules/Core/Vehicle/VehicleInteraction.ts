@@ -72,6 +72,10 @@ export default async () => {
             }
 
             if (alt.Player.local.getMeta('viewOpen') || alt.Player.local.getMeta('chatOpen')) return;
+
+            // Jeśli nie jest kierowcą
+            if (game.getPedInVehicleSeat(player.vehicle.scriptID, -1, 1) !== player.scriptID) return;
+
             vehicleTransformData = vehicleData;
 
             webView.open('', true, 'vehicle/interaction/into', true);
@@ -116,15 +120,14 @@ export default async () => {
             return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Ten pojazd jest zamknięty', '~g~ Zamek centralny', 'Aby wykonać tą operację musisz go otworzyć', 1);
         }
 
-        if (VehicleHelper.isDoorOpen(vehicle, door)) {
+        if (VehicleHelper.isDoorOpen(vehicle, door) && VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
             if (door === VehicleDoor.Trunk) {
                 alt.emitServer('vehicle-interaction:closeTrunkRequest', vehicle);
             }
             return game.setVehicleDoorShut(vehicle.scriptID, door, false);
         }
 
-        if (door === VehicleDoor.Trunk) {
-            alt.log(`otwieram bagaznik pozycja jego: ${Calculation.getEntityRearPosition(vehicle.scriptID)}`);
+        if (door === VehicleDoor.Trunk && VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
             alt.emitServer('vehicle-interaction:openTrunkRequest', vehicle, JSON.stringify(Calculation.getEntityRearPosition(vehicle.scriptID)));
         }
         return game.setVehicleDoorOpen(vehicle.scriptID, door, false, false);

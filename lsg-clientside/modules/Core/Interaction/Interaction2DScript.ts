@@ -22,6 +22,9 @@ export default async () => {
         if (key === Key.ALT) {
 
             if (player.getMeta('viewOpen')) return;
+            if (alt.Player.local.getMeta('chatOpen')) return;
+
+            if (player.vehicle) return;
 
             if (openMouse) {
                 return disposeInteraction2D();
@@ -32,7 +35,10 @@ export default async () => {
 
             drawLineInterval = alt.setInterval(() => {
 
-                // disableControls();
+                if (player.vehicle) {
+                    return disposeInteraction2D();
+                }
+
                 Controls.disableControls();
 
                 let drawLineColor: { r: number, g: number, b: number, a: number } = { r: 188, g: 0, b: 0, a: 255 };

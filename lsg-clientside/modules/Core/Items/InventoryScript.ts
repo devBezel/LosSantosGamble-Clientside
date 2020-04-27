@@ -30,7 +30,6 @@ export default async () => {
     });
 
     alt.onServer('inventory:items', openInventoryWidnow);
-    alt.onServer('inventory:sendRequestOffer', sendRequestOffer);
 
     async function openInventoryWidnow(items: Item[], usedItem: any) {
         if (!webView) {
@@ -41,7 +40,7 @@ export default async () => {
         webView.open('', true, 'inventory', true);
         webView.emit('inventory:items', items);
         webView.on('inventory:useItem', useItem);
-        webView.on('inventory:offerItem', offerItem);
+        webView.on('inventory:offerItem', offerItemFromInventoryWindow);
     }
 
     async function useItem(id: number) {
@@ -50,7 +49,7 @@ export default async () => {
         alt.emitServer('inventory:useItem', id);
     }
 
-    async function offerItem(item: Item, playerID: number, costItem: number) {
+    async function offerItemFromInventoryWindow(item: Item, playerID: number, costItem: number) {
         const getter: alt.Player = alt.Player.all.find((x: alt.Player) => x.getSyncedMeta('account:id') === playerID);
 
         if (getter === undefined || player === null) {
@@ -64,27 +63,9 @@ export default async () => {
         //     webView.close();
         //     return alt.emit('notify:error', 'Brak gracza w pobliżu', `Gracza o ID: ${playerID} nie ma w pobliżu`);
         // }
-
-        alt.emitServer('inventory:offerPlayerItem', JSON.stringify(item), getter, costItem);
-    }
-
-    async function sendRequestOffer(item: Item, cost: number, sender: number) {
-        if (webView) {
-            webView.close();
-        }
-
-        if (!webView) {
-            webView = new View();
-        }
-
-        webView.open('', true, 'offer/request', true);
-        webView.emit('inventory:requestOffer', { item, cost, sender });
-        webView.on('inventory:offerRequestResult', offerRequestResult);
-    }
-
-    async function offerRequestResult(offerItemData: { item: Item, cost: number, sender: any }, accept: boolean) {
         webView.close();
-
-        alt.emitServer('inventory:offerRequestResult', JSON.stringify(offerItemData.item), offerItemData.cost, offerItemData.sender, accept);
+        alt.emitServer('inventory:offerPlayerItem', item.id, getter, costItem);
     }
+
+
 };

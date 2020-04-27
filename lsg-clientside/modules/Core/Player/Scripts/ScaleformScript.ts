@@ -9,7 +9,7 @@ export default async () => {
     alt.setInterval(async () => {
         alt.Player.all.forEach((player: alt.Player) => {
 
-            if (alt.Player.local.getMeta('scaleform:nicknameTurnOff')) return;
+            if (player.getMeta('scaleform:nicknameTurnOff')) return;
 
             const serverID = player.getSyncedMeta('account:id');
             const onAdminDuty = player.getSyncedMeta('admin:setDuty');
