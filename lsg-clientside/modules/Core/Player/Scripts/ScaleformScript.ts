@@ -10,6 +10,7 @@ export default async () => {
         alt.Player.all.forEach((player: alt.Player) => {
 
             if (player.getMeta('scaleform:nicknameTurnOff')) return;
+            if (alt.Player.local.getSyncedMeta('player:dimension') !== player.getSyncedMeta('player:dimension')) return;
 
             const serverID = player.getSyncedMeta('account:id');
             const onAdminDuty = player.getSyncedMeta('admin:setDuty');

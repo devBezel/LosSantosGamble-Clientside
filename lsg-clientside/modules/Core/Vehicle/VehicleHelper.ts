@@ -54,6 +54,14 @@ export class VehicleHelper {
         }
         return false;
     }
+
+    static isTrunkOpenGetter(vehicle: alt.Vehicle) {
+        return vehicle.getMeta('vehicle:trunk');
+    }
+
+    static isTrunkOpenSetter(vehicle: alt.Vehicle, state: boolean) {
+        vehicle.setMeta('vehicle:trunk', state);
+    }
 }
 
 

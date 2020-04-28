@@ -18,6 +18,7 @@ export default async () => {
     let vehicleTransformData: Vehicle;
     const player = alt.Player.local;
 
+
     alt.onServer('player:enterVehicle', playerEnterVehicle);
 
     alt.on('keyup', async (key: any) => {
@@ -120,17 +121,28 @@ export default async () => {
             return NativeNotification.showNotification(null, nativeNotificationType.LockSystem, 0, 'Ten pojazd jest zamknięty', '~g~ Zamek centralny', 'Aby wykonać tą operację musisz go otworzyć', 1);
         }
 
-        if (VehicleHelper.isDoorOpen(vehicle, door) && VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
-            if (door === VehicleDoor.Trunk) {
-                alt.emitServer('vehicle-interaction:closeTrunkRequest', vehicle);
+        if (VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
+
+            if (VehicleHelper.isDoorOpen(vehicle, door)) {
+                game.setVehicleDoorShut(vehicle.scriptID, door, false);
+            } else {
+                game.setVehicleDoorOpen(vehicle.scriptID, door, false, false);
             }
-            return game.setVehicleDoorShut(vehicle.scriptID, door, false);
+
+            if (door === VehicleDoor.Trunk && VehicleHelper.isTrunkOpenGetter(vehicle)) {
+                VehicleHelper.isTrunkOpenSetter(vehicle, false);
+
+                alt.emitServer('vehicle-interaction:closeTrunkRequest', vehicle);
+            } else  if (door === VehicleDoor.Trunk && !VehicleHelper.isTrunkOpenGetter(vehicle)) {
+
+                VehicleHelper.isTrunkOpenSetter(vehicle, true);
+                alt.emitServer('vehicle-interaction:openTrunkRequest', vehicle, JSON.stringify(Calculation.getEntityRearPosition(vehicle.scriptID)));
+            }
+
+        } else {
+            alt.emit('notify:error', 'Wystąpił bląd!', 'Nie masz uprawnień do otwierania lub zamykania drzwi');
         }
 
-        if (door === VehicleDoor.Trunk && VehicleHelper.isVehicleOwner(vehicleTransformData, player)) {
-            alt.emitServer('vehicle-interaction:openTrunkRequest', vehicle, JSON.stringify(Calculation.getEntityRearPosition(vehicle.scriptID)));
-        }
-        return game.setVehicleDoorOpen(vehicle.scriptID, door, false, false);
     }
 
     async function playerEnterVehicle(seat: number) {

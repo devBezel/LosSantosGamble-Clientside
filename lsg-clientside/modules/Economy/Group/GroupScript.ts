@@ -66,7 +66,7 @@ export default async () => {
     }
 
     async function confiscatePlayerItem(item: Item) {
-        alt.emitServer('group:confiscatePlayerItem', JSON.stringify(item));
+        alt.emitServer('group:confiscatePlayerItem', item.id, item.characterId);
     }
 
     alt.onServer('group:cuffPlayer', cuffPlayer);
