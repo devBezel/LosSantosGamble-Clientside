@@ -4,6 +4,7 @@ import { Calculation } from '../Utilities/Calculation';
 import { Key } from 'client/modules/Constant/Keys/Key';
 import { Draw } from '../Utilities/Draw';
 import { Controls } from '../Utilities/Controls';
+import { InteractionCef } from 'client/modules/Models/interactionCef';
 
 export enum EntityType {
     noEntity,
@@ -48,6 +49,10 @@ export default async () => {
                     const interactObject = result[4];
 
                     if (isInteractObject(interactObject)) {
+                        // TODO: Dorobić marker
+                        game.drawRect(0, 0, 0, 0, 0, 0, 0, 0, true);
+                        game.drawMarker(0, interactObjectPos.x, interactObjectPos.y, interactObjectPos.z + 0.1, 0, 0, 0, 0, 0, 0, 0.15, 0.15, 0.15, 0, 153, 0, 100, false, false, 2, false, null, null, false);
+
                         drawLineColor = { r: 0, g: 131, b: 13, a: 255 };
 
                         if (game.isControlJustReleased(0, 24)) {
@@ -82,27 +87,17 @@ export default async () => {
 
         switch (interactObjectType) {
             case EntityType.vehicle:
-                disposeInteraction2D();
                 alt.emit('interaction2D:vehicle', entity);
                 break;
             case EntityType.object:
-                disposeInteraction2D();
                 alt.emit('interaction2D:object', entity);
             case EntityType.ped:
                 alt.log('Interakcja z graczem');
             default:
                 break;
         }
-
-        // if (interactObjectType === EntityType.vehicle) {
-
-        //     disposeInteraction2D();
-        //     alt.emit('interaction2D:vehicle', entity);
-
-        // } else if (interactObjectType === EntityType.object) {
-        //     disposeInteraction2D();
-        //     alt.emit('interaction2D:object', entity);
-        // }
+        // sprawdzić czy to działa
+        disposeInteraction2D();
     }
 
     function disposeInteraction2D() {
@@ -111,27 +106,4 @@ export default async () => {
         alt.showCursor(false);
     }
 
-    // function disableControls() {
-    //     game.disableControlAction(0, 1, true);
-    //     game.disableControlAction(0, 2, true);
-    //     game.disableControlAction(0, 3, true);
-    //     game.disableControlAction(0, 25, true);
-    //     game.disableControlAction(0, 263, true);
-    //     game.disableControlAction(0, 264, true);
-    //     game.disableControlAction(0, 257, true);
-    //     game.disableControlAction(0, 140, true);
-    //     game.disableControlAction(0, 141, true);
-    //     game.disableControlAction(0, 142, true);
-    //     game.disableControlAction(0, 143, true);
-
-
-    //     game.disableControlAction(0, 32, true);
-    //     game.disableControlAction(0, 33, true);
-    //     game.disableControlAction(0, 34, true);
-    //     game.disableControlAction(0, 35, true);
-
-    //     game.disableControlAction(0, 47, true);
-    //     game.disableControlAction(0, 58, true);
-    //     // game.disableControlAction(1, 1, true);
-    // }
 };

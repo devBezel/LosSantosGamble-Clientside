@@ -32,7 +32,7 @@ export class BaseService {
                   playersInBuilding: { id: number, name: string }[], tenant: BuildingTenant };
   shopData: ShopAssortment[];
   trunkData: { characterItem: Item[], vehicleItem: Item[] };
-  requestOffer: { item: Item, cost: number, sender: any };
+  requestOffer: { titleOffer: string, senderId: number, offerType: number, index: number, cost: number };
   groupData: GroupData;
   interactionMenuData: InteractionCef[];
   searchEntityItems: Item[];
@@ -102,9 +102,9 @@ export class BaseService {
       });
     });
 
-    this.altvService.on('inventory:requestOffer', async (requestOffer: { item: Item, cost: number, sender: any }) => {
+    this.altvService.on('offer:request', async (requestOffer: { titleOffer: string, senderId: number,
+                                                              offerType: number, index: number, cost: number  }) => {
       await this.ngZone.run(async () => {
-        console.log(requestOffer.item.name);
         this.requestOffer = requestOffer;
       });
     });

@@ -15,14 +15,14 @@ export default async () => {
 
     alt.onServer('shop:data', openShopWindowWithData);
 
-    alt.on('keyup', async (key: any) => {
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    // alt.on('keyup', async (key: any) => {
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
     async function openShopWindowWithData(shopData: ShopAssortment[]) {
         if (!webView) {

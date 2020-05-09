@@ -1,8 +1,175 @@
-.container {
+/* .container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.9;
-  }
-  
+  } */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  background-color: #212121;
+  width: 745px;
+  height: 373px;
+  border-radius: 16px;
+  color: white;
+}
+
+.vehicle_panel_header {
+  margin-top: -12px;
+  height: 75px;
+  border-bottom: 3px solid rgb(28, 153, 28, 0.7);
+}
+
+.vehicle_panel_header_title {
+  font-weight: 800;
+  font-size: 30px;
+  opacity: 0.8;
+  margin-left: 20px;
+}
+
+.vehicle_panel_header_subtitle {
+  font-weight: 300;
+  font-size: 20px;
+  opacity: 0.8;
+  margin-top: -32px;
+  margin-left: 20px;
+}
+
+.vehicle_panel_list {
+  width: 200px;
+  height: 276px;
+  border-right: 1px solid white;
+  max-height: 276px;
+  overflow-y: auto;
+
+}
+
+.vehicle_item {
+  display: flex;
+  font-weight: 200; 
+  color: rgb(255, 255, 255, 0.7);
+  /* background-color: rgb(255, 255, 255, 0.1); */
+  height: 40px;
+  /* padding-bottom: 10px; */
+  font-size: 18px;
+}
+
+.vehicle_item:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.vehicle_panel_conent {
+  display: flex;
+}
+
+.vehicle_share {
+  margin-left: auto;
+}
+
+.vehicle_item_id {
+  margin-top: 11px;
+  width: 20px;
+  margin-left: 15px;
+}
+
+.vehicle_item_name {
+  margin-top: 11px;
+  width: 70px;
+  margin-left: 15px;
+}
+
+.vehicle_panel_detail_header {
+  height: 180px;
+}
+
+.vehicle_panel_detail {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.vehicle_detail_name {
+  font-weight: 800;
+  font-size: 35px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.vehicle_panel_detail_information {
+  float: right;
+  margin-left: 20px;
+  margin-top: -10px;
+}
+
+.vehicle_detail_last_respawned {
+  font-weight: 100;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.vehicle_detail_last_driver {
+  font-weight: 100;
+  margin-top: -15px;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin: 0;
+}
+
+.vehicle_detail_button {
+  width: 105px;
+  height: 25px;
+  margin-left: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  border: 1px solid rgb(0, 128, 0, 0.8);
+  color: rgb(255, 255, 255, 0.7);
+  font-weight: 100;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.vehicle_detail_img {
+  opacity: 0.8;
+}
+
+.vehicle_detail_button:hover {
+  border: 1px solid rgb(0, 128, 0, 0.3);
+}
+
+/* .vehicle_panel_colour_information {
+  position:relative;
+  margin-top: 15vh;
+} */
+
+.colour_block {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(50, 50, 212);
+  border: 2px solid rgb(75, 75, 255);
+  border-radius: 5px;
+}
+
+.vehicle_panel_colour_information p {
+  font-weight: 100;
+  opacity: 0.7;
+  font-size: 12px;
+  margin-left: -7px;
+  margin-top: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f9b40;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2f8b30;
+  margin-top: -20px;
+}
+

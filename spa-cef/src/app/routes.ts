@@ -21,13 +21,13 @@ import { BuildingPanelComponent } from './_views/building-panel/building-panel.c
 import { BaseOverlayComponent } from './_views/base-overlay/base-overlay.component';
 import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
-import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
 import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
 import { ObjectEditorOverlayComponent } from './_views/object_editor/object-editor-overlay/object-editor-overlay.component';
 import { InteractionMenuComponent } from './_views/interaction-menu/interaction-menu.component';
 import { AfkSystemComponent } from './_views/afk-system/afk-system.component';
 import { SearchEntityPanelComponent } from './_views/group-systems/search-entity-panel/search-entity-panel.component';
 import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
+import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -50,7 +50,7 @@ export const appRoutes: Routes = [
             { path: 'building/manage', component: BuildingPanelComponent },
             { path: 'shop', component: ShopPanelComponent },
             { path: 'vehicle/trunk', component: VehicleTrunkComponent },
-            { path: 'offer/request', component: OfferItemRequestComponent },
+            { path: 'offer/request', component: OfferPanelComponent },
             { path: 'group/panel', component: GroupPanelComponent },
             { path: 'object/editor/overlay', component: ObjectEditorOverlayComponent },
             { path: 'interaction/menu', component: InteractionMenuComponent },

@@ -1,13 +1,14 @@
 import * as alt from 'alt';
 import { View } from 'client/modules/Core/Utilities/View';
 import { Item } from 'client/modules/Models/Item';
+import { OfferType } from 'client/modules/Enum/OfferType';
 
 export default async () => {
 
     let webView: View;
 
-    alt.onServer('inventory:sendRequestOffer', sendRequestOffer);
-    async function sendRequestOffer(item: Item, cost: number, sender: number) {
+    alt.onServer('offer:getterShowWindow', showOfferWindow);
+    async function showOfferWindow(titleOffer: string, senderId: number, offerType: OfferType, index: number, cost: number) {
         if (webView) {
             webView.close();
         }
@@ -16,14 +17,14 @@ export default async () => {
             webView = new View();
         }
 
-        webView.open('', true, 'offer/request', true);
-        webView.emit('inventory:requestOffer', { item, cost, sender });
-        webView.on('inventory:offerRequestResult', offerRequestResult);
+        webView.open('', true, 'offer/request', true, true, false);
+        webView.emit('offer:request', { titleOffer, senderId, offerType, index, cost });
+        webView.on('offer:requestResult', offerRequestResult);
     }
 
-    async function offerRequestResult(offerItemData: { item: Item, cost: number, sender: any }, accept: boolean) {
+    async function offerRequestResult(offerData: { titleOffer: string, senderId: number, offerType: number, index: number, cost: number }, accept: boolean) {
         webView.close();
 
-        alt.emitServer('inventory:offerRequestResult', offerItemData.item.id, offerItemData.cost, offerItemData.sender, accept);
+        alt.emitServer('offer:windowRequestResult', offerData.titleOffer, offerData.senderId, offerData.offerType, offerData.index, offerData.cost, accept);
     }
 };

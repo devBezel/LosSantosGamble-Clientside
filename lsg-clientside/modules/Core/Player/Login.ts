@@ -28,7 +28,7 @@ export default async() => {
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
-        webView.open(url, true);
+        webView.open(url, true, '', false, true, false);
         webView.on('cef:character-selected', characterDetails);
 
         loginCamera.pointAtCoord(3331.6, 5222.5, 23);

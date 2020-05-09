@@ -8,8 +8,6 @@
     transform: translate(-50%, -50%);
     opacity: 0.9;
     border-radius: 10px;
-    /* font-family: 'Roboto Condensed', sans-serif; */
-    font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 .scoreboard_header {

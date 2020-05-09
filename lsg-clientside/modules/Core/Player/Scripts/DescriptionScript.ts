@@ -10,14 +10,14 @@ export default async () => {
 
     alt.onServer('description:getCharacterDescription', showDescriptionWindow);
 
-    alt.on('keyup', async (key: any) => {
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    // alt.on('keyup', async (key: any) => {
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
     async function showDescriptionWindow() {
         if (!webView) {

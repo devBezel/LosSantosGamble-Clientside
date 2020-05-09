@@ -15,14 +15,14 @@ export default async () => {
 
     let disableControlsCuffInterval: number;
 
-    alt.on('keyup', async (key: any) => {
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    // alt.on('keyup', async (key: any) => {
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
 
     alt.onServer('group-general:openGroupPanel', openGroupPanel);

@@ -52,7 +52,6 @@ import { CharacterCreatorBeardComponent } from './_views/character-creator-panel
 import { NotifyService } from './_services/notify.service';
 import { BaseService } from './_services/base.service';
 import { VehiclePanelComponent } from './_views/vehicle-panel/vehicle-panel.component';
-import { VehicleCardComponent } from './_views/vehicle-panel/elements/vehicle-card/vehicle-card.component';
 import { AtmPanelComponent } from './_views/atm-panel/atm-panel.component';
 import { BusStopPanelComponent } from './_views/bus-stop-panel/bus-stop-panel.component';
 import { BusStationComponent } from './_views/bus-stop-panel/elements/bus-station/bus-station.component';
@@ -79,7 +78,6 @@ import { ShopPanelComponent } from './_views/shop-panel/shop-panel.component';
 import { BuyOfferShopDialogComponent } from './_views/shop-panel/elements/buy-offer-shop-dialog/buy-offer-shop-dialog.component';
 import { VehicleTrunkComponent } from './_views/vehicle-trunk/vehicle-trunk.component';
 import { OfferableItemPanelComponent } from './_views/inventory-panel/elements/offerable-item-panel/offerable-item-panel.component';
-import { OfferItemRequestComponent } from './_views/offer-item-request/offer-item-request.component';
 import { GroupPanelComponent } from './_views/group-panel/group-panel.component';
 import { GroupPanelProfileComponent } from './_views/group-panel/elements/group-panel-profile/group-panel-profile.component';
 import { GroupPanelWorkersComponent } from './_views/group-panel/elements/group-panel-workers/group-panel-workers.component';
@@ -94,6 +92,7 @@ import { SearchEntityPanelComponent } from './_views/group-systems/search-entity
 import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
 // tslint:disable-next-line:max-line-length
 import { RanksEditorDialogComponent } from './_views/group-panel/elements/group-panel-workers/elements/ranks-editor-dialog/ranks-editor-dialog.component';
+import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -118,7 +117,6 @@ export function tokenGetter() {
     CharacterCreatorFaceDetailComponent,
     CharacterCreatorBeardComponent,
     VehiclePanelComponent,
-    VehicleCardComponent,
     AtmPanelComponent,
     BusStopPanelComponent,
     BusStationComponent,
@@ -140,7 +138,7 @@ export function tokenGetter() {
     BuyOfferShopDialogComponent,
     VehicleTrunkComponent,
     OfferableItemPanelComponent,
-    OfferItemRequestComponent,
+    OfferPanelComponent,
     GroupPanelComponent,
     GroupPanelProfileComponent,
     GroupPanelWorkersComponent,
@@ -151,7 +149,7 @@ export function tokenGetter() {
     AfkSystemComponent,
     SearchEntityPanelComponent,
     ScoreboardPanelComponent,
-    RanksEditorDialogComponent
+    RanksEditorDialogComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -21,15 +21,15 @@ export default async () => {
 
     alt.onServer('player:enterVehicle', playerEnterVehicle);
 
-    alt.on('keyup', async (key: any) => {
+    // alt.on('keyup', async (key: any) => {
 
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
     enum doorLockState {
         Open = 1,

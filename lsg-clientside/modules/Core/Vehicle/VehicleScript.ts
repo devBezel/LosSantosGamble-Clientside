@@ -7,14 +7,14 @@ import { Key } from 'client/modules/Constant/Keys/Key';
 export default async() => {
     let webView: View;
 
-    alt.on('keyup', async (key: any) => {
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    // alt.on('keyup', async (key: any) => {
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
 
     alt.onServer('vehicle:openWindow', openVehicleWindow);

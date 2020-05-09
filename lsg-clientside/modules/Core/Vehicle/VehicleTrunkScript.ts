@@ -9,14 +9,14 @@ export default async () => {
 
     alt.onServer('vehicle-trunk:data', openWindowVehicleTrunkWithData);
 
-    alt.on('keyup', async (key: any) => {
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    // alt.on('keyup', async (key: any) => {
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
 
     async function openWindowVehicleTrunkWithData(characterItem: Item[], vehicleItem: Item[]) {

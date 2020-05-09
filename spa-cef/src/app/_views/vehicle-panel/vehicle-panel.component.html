@@ -1,15 +1,53 @@
-<div class="container" cdkDrag>
-  <mat-card cdkDrag>
-    <mat-card-header>
-      <img mat-card-avatar src="../../../assets/img/clip/clip.gif" />
-      <mat-card-title>Lista twoich pojazdów</mat-card-title>
-      <mat-card-subtitle>Aby zrespić swój pojazd wybierz jeden z listy i kliknij "Spawn"</mat-card-subtitle>
-    </mat-card-header>
+<div class="container">
+  <div class="vehicle_panel_header">
+    <p class="vehicle_panel_header_title">PANEL POJAZDÓW</p>
+    <p class="vehicle_panel_header_subtitle">ZARZĄDZANIE TWOIMI POJAZDAMI</p>
+  </div>
 
-    <mat-card-content>
-      <div class="vehicle-container">
-        <app-vehicle-card [vehicleList]="vehicleList"></app-vehicle-card>
+  <div class="vehicle_panel_conent">
+    <div class="vehicle_panel_list">
+
+      <div class="vehicle_item" *ngFor="let vehicle of vehicleList" (click)="selectVehicle(vehicle)" [ngStyle]="{'background-color': isSelected(vehicle) ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.0)'}">
+        <p class="vehicle_item_id">[{{ vehicle?.id }}]</p>
+        <p class="vehicle_item_name">{{ vehicle?.model }}</p>
+        <img class="vehicle_share" src="../../../assets/img/vehicle_panel/share_icon_0.png" alt="">
       </div>
-    </mat-card-content>
-  </mat-card>
+
+      <!-- <div class="vehicle_item">
+          <p class="vehicle_item_id">[52]</p>
+          <p class="vehicle_item_name">Infernus</p>
+          <img class="vehicle_share" src="../../../assets/img/vehicle_panel/share_icon_0.png" alt="">
+        </div> -->
+
+      <!-- <div class="vehicle_item">
+          <p class="vehicle_item_id">[52]</p>
+          <p class="vehicle_item_name">Infernus</p>
+          <img src="../../../assets/img/vehicle_panel/share_icon_0.png" alt="">
+      </div> -->
+
+    </div>
+
+
+    <div class="vehicle_panel_detail">
+      <div class="vehicle_panel_detail_header">
+      <img src="../../../assets/img/vehicles/models/{{ selectedVehicle?.model.toLowerCase() }}.png" class="vehicle_detail_img">
+          <div class="vehicle_panel_detail_information">
+            <p class="vehicle_detail_name">{{ selectedVehicle?.model }}</p>
+              <p class="vehicle_detail_last_respawned">Litrów paliwa: 23L</p>
+              <p class="vehicle_detail_last_driver">Ostatni przebieg: 32123 KM</p>
+        
+              <button class="vehicle_detail_button" (click)="respawnVehicle(selectedVehicle.id)">Zespawnuj</button>
+              <button class="vehicle_detail_button">Namierz</button>
+          </div>
+      </div>
+
+      <div class="vehicle_panel_colour_information">
+        <div class="colour_block"></div>
+        <p>kolor pojazdu</p>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<!-- [style.backgroundColor]="'rgb(selectedVehicle.r, selectedVehicle.g, selectedVehicle.b)'" -->

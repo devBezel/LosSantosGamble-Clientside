@@ -1,6 +1,13 @@
 @import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-@include mat-core();
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto Condensed, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include mat-core($custom-typography);
 
 // custom background and foreground palettes
 $my-dark-theme-background: (

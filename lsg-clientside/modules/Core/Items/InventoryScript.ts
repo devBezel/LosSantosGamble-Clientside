@@ -4,6 +4,7 @@ import { Key } from 'client/modules/Constant/Keys/Key';
 import { Item } from 'client/modules/Models/Item';
 import { View } from '../Utilities/View';
 import { Calculation } from '../Utilities/Calculation';
+import { OfferType } from 'client/modules/Enum/OfferType';
 
 
 export default async () => {
@@ -11,15 +12,15 @@ export default async () => {
     const player = alt.Player.local;
     let webView: View;
 
-    alt.on('keyup', async (key: any) => {
+    // alt.on('keyup', async (key: any) => {
 
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
     alt.on('keyup', async(key: any) => {
         if (player.getMeta('viewOpen')) return;
@@ -57,14 +58,8 @@ export default async () => {
         }
 
 
-        // const isInRange = Calculation.isPlayerInRange(alt.Player.local.pos, getter.pos, 3);
-
-        // if (!isInRange) {
-        //     webView.close();
-        //     return alt.emit('notify:error', 'Brak gracza w pobliżu', `Gracza o ID: ${playerID} nie ma w pobliżu`);
-        // }
         webView.close();
-        alt.emitServer('inventory:offerPlayerItem', item.id, getter, costItem);
+        alt.emitServer('offer:playerSend', item.name, playerID, OfferType.Item, item.id, costItem);
     }
 
 

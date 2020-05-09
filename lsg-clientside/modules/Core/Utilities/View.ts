@@ -2,6 +2,7 @@ import * as alt from 'alt';
 import * as natives from 'natives';
 import { baseConfig } from 'client/modules/Configs/BaseConfig';
 import { Environment } from '../Version/Environment';
+import { Key } from 'client/modules/Constant/Keys/Key';
 
 export let currentView: any;
 
@@ -15,7 +16,7 @@ export class View {
         return currentView;
     }
 
-    open(url: string = Environment.getUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false, showCursor = true) {
+    open(url: string = Environment.getUrl, gameControls: boolean = true, route: string = '', displayRadar: boolean = false, showCursor = true, canUserClose: boolean = true) {
         if (alt.Player.local.getMeta('chatOpen')) return;
 
         if (!currentView.view) {
@@ -30,6 +31,8 @@ export class View {
         currentView.isVisible = true;
         currentView.view.focus();
         currentView.view.ready = true;
+
+        currentView.canUserClose = canUserClose;
 
         if (showCursor) {
             currentView.showCursor = true;
@@ -95,4 +98,18 @@ export class View {
         natives.disableAllControlActions(0);
         natives.disableAllControlActions(1);
     }
+}
+
+// TODO: Dorobić canUserClose, sprawia to, że ktoś przy ofertach nie będzie mógł wyłączyć okna podczas gdy wartość będzie false
+export module viewerShutdown {
+    alt.on('keyup', (key: any) => {
+        if (key === Key.ESCAPE) {
+
+            if (currentView === null || currentView === undefined || !currentView.canUserClose) {
+                return;
+            }
+
+            currentView.close();
+        }
+    });
 }

@@ -10,14 +10,14 @@ import { LoadingScreen, Context } from '../Utilities/LoadingScreen';
 export default async () => {
     let webView: View;
 
-    alt.on('keyup', async (key: any) => {
-        if (key === Key.ESCAPE) {
-            if (webView === null || webView === undefined) {
-                return;
-            }
-            webView.close();
-        }
-    });
+    // alt.on('keyup', async (key: any) => {
+    //     if (key === Key.ESCAPE) {
+    //         if (webView === null || webView === undefined) {
+    //             return;
+    //         }
+    //         webView.close();
+    //     }
+    // });
 
     alt.onServer('bus:information', openBusWindow);
     alt.onServer('bus:moneyRemovedStartTimer', startBusTimer);
