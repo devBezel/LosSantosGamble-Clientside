@@ -81,6 +81,7 @@ export default async () => {
 
             webView.open('', true, 'vehicle/interaction/into', true);
             webView.on('cef-vehicle-interaction:turnEngine', turnVehicleEngine);
+            webView.on('cef-vehicle-interaction:getVehicleInfo', getVehicleInfo);
         }
     });
 
@@ -212,6 +213,13 @@ export default async () => {
         }
 
         return game.setVehicleEngineOn(player.vehicle.scriptID, false, false, true);
+    }
+
+
+    async function getVehicleInfo() {
+        webView.close();
+
+        alt.emitServer('vehicle-interaction:getVehicleInfo');
     }
 
 };

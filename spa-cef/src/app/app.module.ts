@@ -93,6 +93,7 @@ import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-p
 // tslint:disable-next-line:max-line-length
 import { RanksEditorDialogComponent } from './_views/group-panel/elements/group-panel-workers/elements/ranks-editor-dialog/ranks-editor-dialog.component';
 import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component';
+import { VehicleInfoComponent } from './_views/vehicle-info/vehicle-info.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -150,6 +151,7 @@ export function tokenGetter() {
     SearchEntityPanelComponent,
     ScoreboardPanelComponent,
     RanksEditorDialogComponent,
+    VehicleInfoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -19,4 +19,8 @@ export class IntoVehicleInteractionComponent implements OnInit {
     this.altvService.emit('cef-vehicle-interaction:turnEngine');
   }
 
+  getVehicleInfo() {
+    this.altvService.emit('cef-vehicle-interaction:getVehicleInfo');
+  }
+
 }

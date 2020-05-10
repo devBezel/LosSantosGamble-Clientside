@@ -28,6 +28,7 @@ import { AfkSystemComponent } from './_views/afk-system/afk-system.component';
 import { SearchEntityPanelComponent } from './_views/group-systems/search-entity-panel/search-entity-panel.component';
 import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
 import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component';
+import { VehicleInfoComponent } from './_views/vehicle-info/vehicle-info.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -56,7 +57,8 @@ export const appRoutes: Routes = [
             { path: 'interaction/menu', component: InteractionMenuComponent },
             { path: 'afk', component: AfkSystemComponent },
             { path: 'search/entity', component: SearchEntityPanelComponent },
-            { path: 'scoreboard', component: ScoreboardPanelComponent }
+            { path: 'scoreboard', component: ScoreboardPanelComponent },
+            { path: 'vehicle/info', component: VehicleInfoComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },
