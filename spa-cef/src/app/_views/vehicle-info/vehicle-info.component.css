@@ -59,7 +59,7 @@
 
 .addon_list {
   margin-left: 20px;
-  max-height: 200px;
+  max-height: 180px;
   overflow-y: auto;
 }
 

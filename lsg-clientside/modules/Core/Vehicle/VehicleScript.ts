@@ -7,6 +7,7 @@ import { Item } from 'client/modules/Models/Item';
 
 export default async() => {
     let webView: View;
+    const player: alt.Player = alt.Player.local;
 
     // alt.on('keyup', async (key: any) => {
     //     if (key === Key.ESCAPE) {
@@ -41,15 +42,24 @@ export default async() => {
     }
 
 
-    async function vehicleInfoWindow(upgrades: Item[]) {
+    async function vehicleInfoWindow(vehicle: Vehicle, upgrades: Item[]) {
         if (!webView) {
             webView = new View();
         }
 
         if (alt.Player.local.getMeta('viewOpen')) return;
 
+
         webView.open('', true, 'vehicle/info', false);
-        webView.emit('vehicle-script:vehicleInfo', upgrades);
+        webView.emit('vehicle-script:vehicleInfo', { vehicle, upgrades });
+        webView.on('vehicle-script:removeUpgrade', removeVehicleUpgrade);
     }
 
+    async function removeVehicleUpgrade(item: Item) {
+        if (player.vehicle === undefined) return;
+
+        webView.close();
+
+        alt.emitServer('vehicle-script:removeUpgrade', item.id);
+    }
 };

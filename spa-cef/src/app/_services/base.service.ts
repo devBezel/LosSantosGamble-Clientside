@@ -37,6 +37,7 @@ export class BaseService {
   interactionMenuData: InteractionCef[];
   searchEntityItems: Item[];
   scoreboardData?: { scoreboardData?: ScoreboardPlayer[], playersCount?: number };
+  vehicleInfo: { vehicle: Vehicle, upgrades: Item[] };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -130,6 +131,12 @@ export class BaseService {
     this.altvService.on('scoreboard:fetchPlayers', async (scoreboardDataClient?: ScoreboardPlayer[], playersCountClient?: number) => {
       await this.ngZone.run(async () => {
         this.scoreboardData = { scoreboardData: scoreboardDataClient, playersCount: playersCountClient };
+      });
+    });
+
+    this.altvService.on('vehicle-script:vehicleInfo', async (vehicleInfoFromServer: { vehicle: Vehicle, upgrades: Item[] }) => {
+      await this.ngZone.run(async () => {
+        this.vehicleInfo = vehicleInfoFromServer;
       });
     });
 
