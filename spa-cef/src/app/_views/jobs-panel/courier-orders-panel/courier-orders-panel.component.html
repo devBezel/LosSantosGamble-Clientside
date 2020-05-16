@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="courier_orders_header">
+      <p class="courier_orders_header_title">Aktualne zamówienia</p>
+      <p class="courier_orders_header_subtitle">Dostarcz paczkę w wyznaczone na mapie położenie</p>
+    </div>
+
+    <div class="courier_orders_content">
+      <mat-list class="order-list">
+
+        <mat-list-item *ngFor="let order of currentOrders">
+          <p class="order_name">{{ order?.name }}</p>
+          <p class="order_count">Ilość: {{ order?.count }}</p>
+          <button class="start-delivery" (click)="deliveryOfThePackage(order?.id)">Dostarcz</button>
+        </mat-list-item>
+
+      </mat-list>
+    </div>
+</div>

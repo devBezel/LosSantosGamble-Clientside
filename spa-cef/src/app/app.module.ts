@@ -94,6 +94,8 @@ import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-p
 import { RanksEditorDialogComponent } from './_views/group-panel/elements/group-panel-workers/elements/ranks-editor-dialog/ranks-editor-dialog.component';
 import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component';
 import { VehicleInfoComponent } from './_views/vehicle-info/vehicle-info.component';
+import { StartWorkPanelComponent } from './_views/jobs-panel/start-work-panel/start-work-panel.component';
+import { CourierOrdersPanelComponent } from './_views/jobs-panel/courier-orders-panel/courier-orders-panel.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -151,7 +153,9 @@ export function tokenGetter() {
     SearchEntityPanelComponent,
     ScoreboardPanelComponent,
     RanksEditorDialogComponent,
-    VehicleInfoComponent
+    VehicleInfoComponent,
+    StartWorkPanelComponent,
+    CourierOrdersPanelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

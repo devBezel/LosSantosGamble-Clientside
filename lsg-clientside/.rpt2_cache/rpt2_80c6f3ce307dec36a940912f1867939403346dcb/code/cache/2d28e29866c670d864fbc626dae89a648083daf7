@@ -1,0 +1,1 @@
+{"code":"export const hungerAndThirstyConfig = {\r\n    damageTaken: 10,\r\n    msWait: 10000,\r\n};\r\n","references":[]}

@@ -1,0 +1,80 @@
+.container {
+    background-color: #212121;
+    width: 445px;
+    height: 623px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    border-radius: 10px;
+    color: white;
+}
+
+.courier_orders_header {
+    height: 70px;
+    border-bottom: 2px solid green;
+}
+
+.courier_orders_header_title {
+    font-size: 30px;
+    font-weight: 800;
+    opacity: 0.7;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.courier_orders_header_subtitle {
+    margin: 0;
+    font-weight: 200;
+    opacity: 0.7;
+    margin-left: 20px;
+}
+
+.order-list {
+    margin-top: 20px;
+}
+
+.order_name {
+    width: 200px;
+}
+
+.order_count {
+    width: 100px;
+}
+
+.order-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.start-delivery {
+    width: 150px;
+    height: 25px;
+    background: none;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(0, 128, 0, 0.8);
+    color: rgb(255, 255, 255, 0.7);
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.start-delivery:hover {
+    border: 1px solid rgb(0, 128, 0, 0.3);
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+}

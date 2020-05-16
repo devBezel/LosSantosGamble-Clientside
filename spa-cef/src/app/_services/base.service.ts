@@ -15,6 +15,8 @@ import { Group } from '../_models/group';
 import { GroupData } from '../_models/GroupData';
 import { InteractionCef } from '../_models/interactionCef';
 import { ScoreboardPlayer } from '../_models/scoreboardPlayer';
+import { JobEntityModel } from '../_models/jobEntityModel';
+import { WarehouseOrderModel } from '../_models/warehouseOrderModel';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +40,8 @@ export class BaseService {
   searchEntityItems: Item[];
   scoreboardData?: { scoreboardData?: ScoreboardPlayer[], playersCount?: number };
   vehicleInfo: { vehicle: Vehicle, upgrades: Item[] };
+  casualJobData: { playerWorking: boolean, data: JobEntityModel };
+  warehouseOrders: WarehouseOrderModel[];
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -137,6 +141,19 @@ export class BaseService {
     this.altvService.on('vehicle-script:vehicleInfo', async (vehicleInfoFromServer: { vehicle: Vehicle, upgrades: Item[] }) => {
       await this.ngZone.run(async () => {
         this.vehicleInfo = vehicleInfoFromServer;
+      });
+    });
+
+    this.altvService.on('job:data', async (playerWorking: boolean, data: JobEntityModel) => {
+      await this.ngZone.run(async () => {
+        // tslint:disable-next-line:object-literal-shorthand
+        this.casualJobData = { playerWorking: playerWorking, data: data };
+      });
+    });
+
+    this.altvService.on('job-courier:currentOrders', async (warehouseOrders: WarehouseOrderModel[]) => {
+      await this.ngZone.run(async () => {
+        this.warehouseOrders = warehouseOrders;
       });
     });
 

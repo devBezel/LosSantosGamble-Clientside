@@ -42,6 +42,8 @@ import VehicleSpeedometr from './Core/Vehicle/vehicle-speedometr/VehicleSpeedome
 import NativeWrapperScript from './Wrappers/NativeWrapperScript';
 import OfferScript from './Economy/Offers/OfferScript';
 import { View, viewerShutdown } from './Core/Utilities/View';
+import JobScript from './Core/Jobs/JobScript';
+import CourierJobScript from './Core/Jobs/Base/CourierJobScript';
 
 
 export default async () => {
@@ -88,6 +90,8 @@ export default async () => {
 	 await ScoreboardScript();
 	 await OfferScript();
 	 await viewerShutdown;
+	 await JobScript();
+	 await CourierJobScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="start_work_header">
+    <p class="start_work_header_title">Praca dorywcza: {{ casualJobData?.data?.jobName }}</p>
+    <p class="start_work_header_subtitle">Tutaj możesz podjąć pracę i odebrać wynagrodzenie</p>
+  </div>
+
+  <div class="start_work_content">
+      <div class="salary">
+        <span class="material-icons">
+          attach_money
+        </span>
+          <p>Maksymalna wypłata: {{ casualJobData?.data?.maxSalary }} $</p>
+      </div>
+
+      <button class="start-work" (click)="startWork()">{{ casualJobData?.playerWorking === true ? 'Zakończ pracę' : 'Rozpocznij pracę' }}</button>
+  </div>
+
+  <div class="start_work_footer">
+    <p>Więcej informacji dot. pracy pod przyciskiem F5</p>
+  </div>
+
+</div>

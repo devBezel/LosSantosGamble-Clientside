@@ -1,0 +1,1 @@
+{"code":"export var OfferType;\r\n(function (OfferType) {\r\n    OfferType[OfferType[\"Item\"] = 0] = \"Item\";\r\n    OfferType[OfferType[\"Vehicle\"] = 1] = \"Vehicle\";\r\n    OfferType[OfferType[\"Building\"] = 2] = \"Building\";\r\n    OfferType[OfferType[\"RepairVehicle\"] = 3] = \"RepairVehicle\";\r\n})(OfferType || (OfferType = {}));\r\n","references":[]}

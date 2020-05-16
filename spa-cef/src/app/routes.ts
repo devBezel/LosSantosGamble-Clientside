@@ -29,6 +29,8 @@ import { SearchEntityPanelComponent } from './_views/group-systems/search-entity
 import { ScoreboardPanelComponent } from './_views/scoreboard-panel/scoreboard-panel.component';
 import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component';
 import { VehicleInfoComponent } from './_views/vehicle-info/vehicle-info.component';
+import { StartWorkPanelComponent } from './_views/jobs-panel/start-work-panel/start-work-panel.component';
+import { CourierOrdersPanelComponent } from './_views/jobs-panel/courier-orders-panel/courier-orders-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -58,7 +60,9 @@ export const appRoutes: Routes = [
             { path: 'afk', component: AfkSystemComponent },
             { path: 'search/entity', component: SearchEntityPanelComponent },
             { path: 'scoreboard', component: ScoreboardPanelComponent },
-            { path: 'vehicle/info', component: VehicleInfoComponent }
+            { path: 'vehicle/info', component: VehicleInfoComponent },
+            { path: 'work/start', component:  StartWorkPanelComponent },
+            { path: 'courier/orders', component: CourierOrdersPanelComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },
