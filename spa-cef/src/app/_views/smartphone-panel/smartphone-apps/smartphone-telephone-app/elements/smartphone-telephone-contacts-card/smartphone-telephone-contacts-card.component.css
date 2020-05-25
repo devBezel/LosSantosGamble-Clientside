@@ -1,0 +1,129 @@
+.app_header {
+    color: white;
+    font-size: 25px;
+    /* font-family: 'SF UI Display Medium'; */
+    font-family: 'SF UI Display Semibold';
+    margin-left: 13px;
+}
+
+.app_header p{
+    margin: 0;
+}
+
+.add_contact {
+    color: #007AFF;
+    font-family: 'SF UI Display Light';
+    margin-left: 87% !important;
+    margin-top: -10px !important;
+}
+.add_contact:hover {
+    opacity: 0.8;
+}
+
+.app_header input {
+    height: 25px;
+    background: rgba(118, 118, 128, 0.24);
+    
+    border-radius: 5px;
+    border: none;
+    width: 85%;
+    outline: none;
+    padding-left: 19px;
+    color: rgba(235, 235, 245, 0.6);
+}
+
+.app_header input::placeholder {
+    font-family: 'SF UI Display Light';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 129% */
+
+    letter-spacing: -0.408px;
+
+    color: rgba(235, 235, 245, 0.6);
+}
+
+.hallmark {
+    display: flex;
+    margin-top: 21px;
+}
+
+.hallmark img {
+    width: 45px;
+    border-radius: 50%;
+}
+
+.hallmark p {
+    font-size: 11px;
+    opacity: 0.7;
+    font-family: 'SF UI Display Light';
+    margin-top: 16px;
+    margin-left: 10px;
+}
+
+.app_content {
+    margin-top: 8px;
+}
+
+.separation {
+    width: 99%;
+    /* background-color: rgba(235, 235, 245, 0.6); */
+    height: 20px;
+    background: rgba(118, 118, 128, 0.24);
+}
+
+.contact_list {
+    margin-left: 10px;
+    height: 300px;
+    max-height: 330px;
+    overflow-y: auto;
+    /* border-bottom-left-radius: 29px;
+    border-bottom-right-radius: 29px; */
+
+}
+
+.contact {
+    /* padding-left: 10px; */
+    border-bottom: 0.6px solid;
+    border-color: rgba(84, 84, 88, 0.65);
+}
+
+.contact:hover {
+    background: rgba(116, 116, 121, 0.24);
+}
+
+.contact p {
+    color: white;
+    font-family: 'SF UI Display Light';
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.alphabet {
+    position: absolute;
+    margin-left: 93%;
+    margin-top: 10px;
+}
+
+.alphabet p {
+    color: rgba(4, 124, 252);
+    margin: 0;
+    font-size: 9px;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(84, 84, 88, 0.65);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(84, 84, 88, 0.65);
+    margin-top: -20px;
+}

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="job_center_header">
+    <p class="job_center_header_title">Urząd pracy</p>
+    <p class="job_center_header_subtitle">Tutaj możesz odebrać swoją pracę dorywczą</p>
+  </div>
+
+  <div class="job_center_center">
+    <p class="current_job_title">Twoja aktualna praca</p>
+    <p class="current_job">{{ currentJob }}</p>
+
+    <mat-list>
+      <mat-list-item *ngFor="let job of jobCenter?.jobs" class="job_center_item">
+      <p class="job_name">{{ job?.jobName }}</p>
+      <p class="max_salary">Max. wypłata: {{ job?.maxSalary }}$</p>
+      <button class="start_job" (click)="setJob(job?.jobType)">Zatrudnij się</button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

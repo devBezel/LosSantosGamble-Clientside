@@ -1,0 +1,75 @@
+<div class="container animate__fadeInDownBig">
+  <div class="number_input">
+    <input type="text" [(ngModel)]="senderValue" [value]="senderValue"/>
+    <p *ngIf="senderValue.length > 0">Dodaj numer</p>
+  </div>
+
+  <div class="numbers_buttons">
+
+    <div class="number_button" *ngFor="let item of numbers" (click)="calculateNumber(item.number)">
+      <p class="number">{{ item.number }}</p>
+      <p class="letters">{{ item.letters === '' ? '&nbsp;' : item.letters }}</p>
+    </div>
+
+    <div class="options">
+      <div class="call">
+        <img src="../../../../../../../assets/img/smartphone/apps/telephone/call.png" />
+      </div>
+      <div class="delete" *ngIf="senderValue.length > 0" (click)="deleteNumber()">
+        <img src="../../../../../../../assets/img/smartphone/apps/telephone/delete.png" />
+      </div>
+    </div>
+
+    <!-- <div class="number_button">
+      <p class="number">1</p>
+      <p class="letters">&nbsp;</p>
+    </div> -->
+
+    <!-- <div class="number_button">
+      <p class="number">2</p>
+      <p class="letters">ABC</p>
+    </div> -->
+
+    <!-- <div class="number_button">
+      <p class="number">3</p>
+      <p class="letters">DEF</p>
+    </div>
+
+    <div class="number_button">
+      <p class="number">4</p>
+      <p class="letters">GHI</p>
+    </div>
+    <div class="number_button">
+      <p class="number">5</p>
+      <p class="letters">JKL</p>
+    </div>
+    <div class="number_button">
+      <p class="number">6</p>
+      <p class="letters">MNO</p>
+    </div>
+    <div class="number_button">
+      <p class="number">7</p>
+      <p class="letters">PQRS</p>
+    </div>
+    <div class="number_button">
+      <p class="number">8</p>
+      <p class="letters">TUV</p>
+    </div>
+    <div class="number_button">
+      <p class="number">9</p>
+      <p class="letters">WXYZ</p>
+    </div>
+    <div class="number_button">
+      <p class="number">*</p>
+      <p class="letters">&nbsp;</p>
+    </div>
+    <div class="number_button">
+      <p class="number">0</p>
+      <p class="letters">+</p>
+    </div>
+    <div class="number_button">
+      <p class="number">#</p>
+      <p class="letters">&nbsp;</p>
+    </div> -->
+  </div>
+</div>

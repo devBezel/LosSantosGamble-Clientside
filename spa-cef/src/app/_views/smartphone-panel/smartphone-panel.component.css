@@ -1,0 +1,216 @@
+/* .container {
+    margin-left: 70%;
+    margin-top: 22%;
+}
+
+.container_inner {
+	position: relative;
+	width: 100%;
+}
+
+.smartphone_device:after {
+    width: 338px;
+    height: 615px;
+    z-index: 3;
+    background: url('../../../assets/img/smartphone/case/IPhone_X.png');
+    background-repeat: no-repeat;
+    background-size: 300px;
+    display: block;
+    position: absolute;
+    content: ' ';
+}
+
+.smartphone_screen {
+    position: absolute;
+	z-index: 2;
+}
+
+.smartphone_wallpaper {
+	position: absolute;
+	z-index: -1;
+}
+
+.smartphone_wallpaper_skin img{
+    position: absolute;
+    top: 10px;
+    left: 4px;
+    width: 291px;
+    height: 574px;
+    border-radius: 42px;
+}
+
+.smartphone_header {
+    color: white;
+    margin-top: 24px;
+    margin-left: 35px;
+    font-size: 13px;
+    display: flex;
+}
+.smartphone_header_right {
+    margin-left: 301%;
+}
+.smartphone_header_right img{
+    position: absolute;
+    width: 11px;
+    
+}
+.smartphone_header_right_battery {
+    margin-top: -2px;
+    margin-left: 20px;
+    width: 16px !important;
+}
+
+.smartphone_apps {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.apps_list {
+    display: flex;
+}
+.app {
+    margin-left: 20px;
+}
+
+.app p {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin-top: -1px;
+}
+.app img{
+    width: 50px;
+} */
+
+/* Responsywność */
+
+@media screen and (max-width: 1280px) and (max-height: 720px) {
+    .container {
+        margin-top: 7%;
+    }
+}
+
+/* Koniec */
+
+.container {
+    position: absolute;
+    margin-left: 78%;
+    margin-top: 22%;
+    font-family: 'SF UI Display Light';
+}
+
+.smartphone_device:after {
+    width: 338px;
+    height: 615px;
+    z-index: -1;
+    background: url('../../../assets/img/smartphone/case/IPhone_X.png');
+    background-repeat: no-repeat;
+    background-size: 300px;
+    display: block;
+    position: absolute;
+    content: ' ';
+}
+
+.smartphone_wallpaper {
+	position: absolute;
+    z-index: -2;
+    top: 10px;
+    left: 4px;
+    width: 291px;
+    height: 574px;
+    border-radius: 42px;
+}
+
+.smartphone_wallpaper_variant img{
+    /* width: 338px;
+    height: 615px; */
+    width: 291px;
+    height: 574px;
+    border-radius: 42px;
+}
+.smartphone_screen {
+    z-index: 2;
+    max-width: 300px;
+    width: 300px;
+}
+.smartphone_content {
+    margin-top: 68px;
+    /* margin-left: 10%; */
+    z-index: -1;
+    color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.smartphone_header {
+    font-size: 13px;
+    height: 50px;
+    margin-top: -42px;
+}
+
+.smartphone_header_clock {
+    margin-left: 6px;
+}
+
+.smartphone_header_icons {
+    /* margin-left: 5vh; */
+    margin-top: -30px;
+    margin-right: 29px;
+    float: right;
+}
+.icon_battery {
+    width: 16px !important;
+    position: absolute;
+}
+
+.smartphone_header_icons img{
+    width: 13px;
+    padding-left: 10px;
+}
+
+.smartphone_list_apps {
+    /* display: flex; */
+    z-index: 3;
+    /* position: absolute; */
+    max-width: 240px;
+    height: 360px;
+}
+.smartphone_app {
+    margin-left: 10px;
+    width: 50px;
+    height: 70px;
+    display: inline-block;
+}
+.smartphone_app p {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin-left: -10px;
+    margin-top: -1px;
+}
+.smartphone_app img{
+    width: 40px;
+}
+
+.smartphone_app img:hover {
+    opacity: 0.8;
+}
+
+.smartphone_list_apps_footer {
+    width: 240px;
+    height: 60px;
+    margin-top: 33%;
+    background: rgba(0, 0, 0, 0.3);
+    /* -webkit-backdrop-filter: blur(20.6395px); */
+    /* backdrop-filter: blur(10.6395px); */
+    border-radius: 17px;
+}
+
+.smartphone_list_apps_footer > div {
+    margin-top: 10px;
+}
+
+.smartphone_app_section {
+    z-index: -1;
+    width: 261px;
+    margin-left: 20px;
+}

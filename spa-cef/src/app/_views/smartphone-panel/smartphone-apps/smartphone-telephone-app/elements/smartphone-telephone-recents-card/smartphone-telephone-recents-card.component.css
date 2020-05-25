@@ -1,0 +1,84 @@
+.app_header {
+    color: white;
+    font-size: 25px;
+    /* font-family: 'SF UI Display Medium'; */
+    font-family: 'SF UI Display Semibold';
+    margin-left: 13px;
+}
+.app_header p {
+    margin: 0;
+}
+
+.edit {
+    color: #007AFF;
+    font-family: 'SF UI Display Light';
+    margin-left: 80% !important;
+    margin-top: -10px !important;
+    font-size: 14px;
+}
+
+.edit:hover {
+    opacity: 0.8;
+}
+
+.recent_list {
+    color: white;
+    margin-left: 22px;
+    height: 435px;
+    max-height: 435px;
+    overflow-y: auto;
+}
+
+.basic_information {
+    /* width: 100px; */
+    display: inline-block;
+}
+
+.recent {
+    border-top: 0.6px solid;
+    border-color: rgba(84, 84, 88, 0.65);
+    margin-top: 12px;
+    height: 50px;
+}
+
+.number {
+    display: inline-block;
+    font-size: 15px;
+}
+.time_and_options {
+    margin-top: -39px;
+    margin-left: 69%;
+}
+.time_and_options p {
+    display: inline-block;
+    /* margin-left: 45%; */
+    font-size: 14px;
+    color: rgb(255, 255, 255, 0.6);
+
+}
+
+.time_and_options img {
+    width: 18px;
+    margin-left: 6px;
+}
+.time_and_options img:hover {
+    opacity: 0.7;
+}
+.city {
+    margin: 0;
+    margin-top: -16px;
+    font-size: 13px;
+    color: rgb(255, 255, 255, 0.6);
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(84, 84, 88, 0.65);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(84, 84, 88, 0.65);
+    margin-top: -20px;
+}

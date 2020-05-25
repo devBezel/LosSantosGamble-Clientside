@@ -1,0 +1,1 @@
+{"code":"import { baseConfig } from 'client/modules/Configs/BaseConfig';\r\nexport class Environment {\r\n    static get getUrl() {\r\n        return this.developerEnvironment ? baseConfig.cefLocalUrl : baseConfig.cefUrl;\r\n    }\r\n}\r\nEnvironment.developerEnvironment = true;\r\n","references":["B:/Projekty/LSGamble-Clientside/lsg-clientside/modules/Configs/BaseConfig.ts"]}

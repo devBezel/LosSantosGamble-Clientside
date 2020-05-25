@@ -96,6 +96,23 @@ import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component'
 import { VehicleInfoComponent } from './_views/vehicle-info/vehicle-info.component';
 import { StartWorkPanelComponent } from './_views/jobs-panel/start-work-panel/start-work-panel.component';
 import { CourierOrdersPanelComponent } from './_views/jobs-panel/courier-orders-panel/courier-orders-panel.component';
+import { GroupPanelWarehouseComponent } from './_views/group-panel/elements/group-panel-warehouse/group-panel-warehouse.component';
+import { JobCenterPanelComponent } from './_views/jobs-panel/job-center-panel/job-center-panel.component';
+import { SmartphonePanelComponent } from './_views/smartphone-panel/smartphone-panel.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneSettingsAppComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-settings-app/smartphone-settings-app.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneMessagesAppComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-messages-app/smartphone-messages-app.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneMessageDetailAppComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-messages-app/elements/smartphone-message-detail-app/smartphone-message-detail-app.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneTelephoneAppComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/smartphone-telephone-app.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneTelephoneNumberCardComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/elements/smartphone-telephone-number-card/smartphone-telephone-number-card.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneTelephoneContactsCardComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/elements/smartphone-telephone-contacts-card/smartphone-telephone-contacts-card.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneTelephoneRecentsCardComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/elements/smartphone-telephone-recents-card/smartphone-telephone-recents-card.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -155,7 +172,17 @@ export function tokenGetter() {
     RanksEditorDialogComponent,
     VehicleInfoComponent,
     StartWorkPanelComponent,
-    CourierOrdersPanelComponent
+    CourierOrdersPanelComponent,
+    GroupPanelWarehouseComponent,
+    JobCenterPanelComponent,
+    SmartphonePanelComponent,
+    SmartphoneSettingsAppComponent,
+    SmartphoneMessagesAppComponent,
+    SmartphoneMessageDetailAppComponent,
+    SmartphoneTelephoneAppComponent,
+    SmartphoneTelephoneNumberCardComponent,
+    SmartphoneTelephoneContactsCardComponent,
+    SmartphoneTelephoneRecentsCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

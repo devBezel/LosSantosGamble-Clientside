@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="app_content">
+    <div class="number_card" *ngIf="isCardSelected(0)">
+      <app-smartphone-telephone-number-card></app-smartphone-telephone-number-card>
+    </div>
+    <div class="contacts_card" *ngIf="isCardSelected(1)">
+        <app-smartphone-telephone-contacts-card></app-smartphone-telephone-contacts-card>
+    </div>
+    <div class="recents_card" *ngIf="isCardSelected(2)">
+        <app-smartphone-telephone-recents-card></app-smartphone-telephone-recents-card>
+    </div>
+  </div>
+  <div class="app_footer">
+    <div class="telephone_app_options">
+      <div class="telephone_app_option" (click)="changeCard(3)">
+          <img src="../../../../../assets/img/smartphone/apps/telephone/star.svg" />
+          <p>Ulubione</p>
+      </div>
+      <div class="telephone_app_option" (click)="changeCard(2)">
+          <img src="../../../../../assets/img/smartphone/apps/telephone/clock.svg" />
+          <p>Ostatnie</p>
+      </div>
+      <div class="telephone_app_option"(click)="changeCard(1)">
+          <img src="../../../../../assets/img/smartphone/apps/telephone/person.svg" />
+          <p>Kontakty</p>
+      </div>
+      <div class="telephone_app_option" (click)="changeCard(0)">
+          <img src="../../../../../assets/img/smartphone/apps/telephone/grid.svg" />
+          <p>Przyciski</p>
+      </div>
+    </div>
+  </div>
+</div>

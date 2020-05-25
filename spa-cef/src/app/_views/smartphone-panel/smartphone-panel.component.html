@@ -1,0 +1,59 @@
+<!-- <div class="container"> <div class="container_inner"> <div class="smartphone_device"></div> <div class="smartphone_screen"> <div class="smartphone_wallpaper"> <div class="smartphone_wallpaper_skin"> <img src="../../../assets/img/smartphone/backgrounds/default.jpg"> </div> </div> <div class="smartphone_header"> <span class="smartphone_header_current_time">12:78</span> <div class="smartphone_header_right"> <img src="../../../assets/img/smartphone/header/signal.svg"> <img class="smartphone_header_right_battery" src="../../../assets/img/smartphone/header/battery.svg"> </div> </div> <div class="smartphone_apps"> <div class="apps_list"> <div class="app"> <img src="../../../assets/img/smartphone/apps/Maps.png"> <p>Mapy</p> </div> <div class="app"> <img src="../../../assets/img/smartphone/apps/Clock.png"> <p>Zegar</p> </div> <div class="app"> <img src="../../../assets/img/smartphone/apps/Maps.png"> <p>Mapy</p> </div> <div class="app"> <img src="../../../assets/img/smartphone/apps/Clock.png"> <p>Zegar</p> </div> <div class="app"> <img src="../../../assets/img/smartphone/apps/Maps.png"> <p>Mapy</p> </div> <div class="app"> <img src="../../../assets/img/smartphone/apps/Clock.png"> <p>Zegar</p> </div> </div> </div> <div class="smartphone_apps_footer"> </div> </div> </div> </div> -->
+
+<div class="container">
+  <div class="smartphone_device"></div>
+  <div class="smartphone_screen">
+    <div class="smartphone_wallpaper" [ngStyle]="{'background-color': isApplicationSelected(0) ? '#000000' : 'none'}">
+      <div class="smartphone_wallpaper_variant" *ngIf="isApplicationSelected(0)">
+        <img src="../../../assets/img/smartphone/backgrounds/background_second.png" />
+      </div>
+    </div>
+    <div class="smartphone_content">
+
+      <div class="smartphone_header">
+        <p class="smartphone_header_clock">{{ headerClockFormated }}</p>
+        <div class="smartphone_header_icons">
+          <img src="../../../assets/img/smartphone/header/signal.svg">
+          <img src="../../../assets/img/smartphone/header/battery.svg" class="icon_battery">
+        </div>
+      </div>
+
+      <div class="smartphone_menu" *ngIf="isApplicationSelected(0)">
+        <div class="smartphone_list_apps">
+          <div class="smartphone_app" (click)="selectApp(app)" *ngFor="let app of currentApps">
+            <img src="../../../assets/img/smartphone/apps/{{ app.picUrl }}" />
+            <p>{{  app.name }}</p>
+          </div>
+        </div>
+
+        <div class="smartphone_list_apps_footer">
+          <div class="smartphone_app" (click)="selectApp(app)" *ngFor="let app of currentFooterApps">
+            <img src="../../../assets/img/smartphone/apps/{{ app.picUrl }}" />
+          </div>
+          <!-- <div class="smartphone_app">
+            <img src="../../../assets/img/smartphone/apps/safari.png" />
+          </div>
+          <div class="smartphone_app">
+            <img src="../../../assets/img/smartphone/apps/messages.png" />
+          </div>
+          <div class="smartphone_app">
+            <img src="../../../assets/img/smartphone/apps/itunes.png" />
+          </div> -->
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="smartphone_app_section">
+      <div class="settings_app" *ngIf="isApplicationSelected(4)">
+        <app-smartphone-settings-app></app-smartphone-settings-app>
+      </div>
+      <div class="messages_app" *ngIf="isApplicationSelected(7)">
+        <app-smartphone-messages-app></app-smartphone-messages-app>
+      </div>
+      <div class="telephone_app" *ngIf="isApplicationSelected(5)">
+        <app-smartphone-telephone-app></app-smartphone-telephone-app>
+      </div>
+  </div>
+</div>

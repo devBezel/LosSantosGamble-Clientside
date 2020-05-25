@@ -7,7 +7,6 @@ export default async () => {
 
 
     alt.onServer('job-courier:currentOrders', currentOrdersToBeDelivered);
-    alt.onServer('job-courier:drawDeliveryGps', drawDeliveryGps);
 
     async function currentOrdersToBeDelivered(warehouseOrders: WarehouseOrderModel[]) {
 
@@ -25,9 +24,5 @@ export default async () => {
     async function startDeliveryOrder(orderId: number) {
         webView.close();
         alt.emitServer('job-courier:startDelivery', orderId);
-    }
-
-    async function drawDeliveryGps(posX: number, posY: number, posZ: number) {
-
     }
 };

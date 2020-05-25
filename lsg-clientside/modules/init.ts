@@ -44,6 +44,8 @@ import OfferScript from './Economy/Offers/OfferScript';
 import { View, viewerShutdown } from './Core/Utilities/View';
 import JobScript from './Core/Jobs/JobScript';
 import CourierJobScript from './Core/Jobs/Base/CourierJobScript';
+import JobCenterScript from './Core/Jobs/JobCenterScript';
+import SmartphoneScript from './Core/Smartphone/SmartphoneScript';
 
 
 export default async () => {
@@ -92,6 +94,8 @@ export default async () => {
 	 await viewerShutdown;
 	 await JobScript();
 	 await CourierJobScript();
+	 await JobCenterScript();
+	 await SmartphoneScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

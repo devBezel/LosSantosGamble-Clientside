@@ -1,0 +1,40 @@
+<mat-list class="magazine_list">
+  <mat-list-item>
+    <div class="warehouse_item_name">
+        <p><span class="material-icons">
+            translate
+          </span> Nazwa</p>
+    </div>
+
+    <div class="warehouse_item_count">
+
+        <p><span class="material-icons">
+            youtube_searched_for
+         </span>Ilość</p>
+      </div>
+
+      <div class="warehouse_item_cost">
+
+          <p><span class="material-icons">
+              monetization_on
+            </span>Cena</p>
+        </div>
+  </mat-list-item>
+  <mat-list-item *ngFor="let item of groupData?.warehouseItems" class="warehouse_item">
+    
+    <div class="warehouse_item_name">
+
+      <p>{{ item?.name }}</p>
+    </div>
+
+    <div class="warehouse_item_count">
+
+      <p>{{ item?.count }} sztuk</p>
+    </div>
+
+    <div class="warehouse_item_cost">
+
+      <p>{{ item?.cost }}$</p>
+    </div>
+  </mat-list-item>
+</mat-list>

@@ -1,0 +1,1 @@
+{"code":"export const nativeNotificationType = {\r\n    Normal: 'CHAR_SOCIAL_CLUB',\r\n    LockSystem: 'CHAR_CARSITE3',\r\n    Error: 'CHAR_BLOCKED',\r\n    Bank: 'CHAR_BANK_FLEECA',\r\n};\r\n","references":[]}

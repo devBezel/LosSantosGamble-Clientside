@@ -1,0 +1,35 @@
+.magazine_list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.warehouse_item {
+    font-weight: 200;
+    font-size: 16px;
+}
+
+.warehouse_item_name {
+    width: 300px;
+}
+
+.warehouse_item_count {
+    width: 150px;
+}
+
+.warehouse_item_cost {
+    width: 250px;
+}
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #3f9b40;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #2f8b30;
+    margin-top: -20px;
+}
+  

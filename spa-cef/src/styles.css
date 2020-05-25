@@ -3,7 +3,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 body {
-    margin: 0;
-    user-select: none;
-    font-family: 'Roboto Condensed', sans-serif !important;
+  margin: 0;
+  user-select: none;
+  font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+@font-face {
+  font-family: 'SF UI Display Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF UI Display Medium'), url('./assets/fonts/sf-ui-display-medium-58646be638f96.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF UI Display Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF UI Display Light'), url('./assets/fonts/sf-ui-display-light-58646b33e0551.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF UI Display Ultralight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF UI Display Ultralight'), url('./assets/fonts/sf-ui-display-ultralight-58646b19bf205.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF UI Display Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF UI Display Semibold'), url('./assets/fonts/sf-ui-display-semibold-58646eddcae92.woff') format('woff');
 }

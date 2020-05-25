@@ -7,6 +7,7 @@ import { GroupWorker } from 'client/modules/Models/groupWorker';
 import { Vehicle } from 'client/modules/Models/vehicle';
 import { Item } from 'client/modules/Models/Item';
 import { GroupRank } from 'client/modules/Models/groupRank';
+import { WarehouseItemModel } from 'client/modules/Models/warehouseItemModel';
 
 export default async () => {
 
@@ -27,7 +28,7 @@ export default async () => {
 
     alt.onServer('group-general:openGroupPanel', openGroupPanel);
 
-    async function openGroupPanel(group: Group, workers: GroupWorker[], ranks: GroupRank[], vehicles: Vehicle[], worker: GroupWorker, slot: number) {
+    async function openGroupPanel(group: Group, workers: GroupWorker[], ranks: GroupRank[], vehicles: Vehicle[], warehouseItems: WarehouseItemModel[], worker: GroupWorker, slot: number) {
         if (!webView) {
             webView = new View();
         }
@@ -35,7 +36,7 @@ export default async () => {
 
         webView.open('', true, 'group/panel', true);
         alt.log(`ranks count: ${ranks.length}`);
-        webView.emit('group-general:dataGroup', { group, workers, ranks, vehicles, worker, slot });
+        webView.emit('group-general:dataGroup', { group, workers, ranks, vehicles, warehouseItems, worker, slot });
         webView.on('cef:vehicleSpawn', respawnGroupVehicle);
         webView.on('group:changeWorkerRights', changeWorkerRights);
         webView.on('group:changeWorkerRank', changeWorkerRank);

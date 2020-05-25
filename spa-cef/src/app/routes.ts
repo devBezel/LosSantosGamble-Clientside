@@ -31,6 +31,8 @@ import { OfferPanelComponent } from './_views/offer-panel/offer-panel.component'
 import { VehicleInfoComponent } from './_views/vehicle-info/vehicle-info.component';
 import { StartWorkPanelComponent } from './_views/jobs-panel/start-work-panel/start-work-panel.component';
 import { CourierOrdersPanelComponent } from './_views/jobs-panel/courier-orders-panel/courier-orders-panel.component';
+import { JobCenterPanelComponent } from './_views/jobs-panel/job-center-panel/job-center-panel.component';
+import { SmartphonePanelComponent } from './_views/smartphone-panel/smartphone-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'login', component: LoginPanelComponent },
@@ -62,7 +64,9 @@ export const appRoutes: Routes = [
             { path: 'scoreboard', component: ScoreboardPanelComponent },
             { path: 'vehicle/info', component: VehicleInfoComponent },
             { path: 'work/start', component:  StartWorkPanelComponent },
-            { path: 'courier/orders', component: CourierOrdersPanelComponent }
+            { path: 'courier/orders', component: CourierOrdersPanelComponent },
+            { path: 'job/center', component: JobCenterPanelComponent },
+            { path: 'smartphone/menu', component: SmartphonePanelComponent }
             // { path: 'player/hud', component: PlayerHudComponent }
         ]
     },

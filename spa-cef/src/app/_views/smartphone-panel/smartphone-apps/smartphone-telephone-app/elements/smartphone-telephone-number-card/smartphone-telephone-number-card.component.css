@@ -1,0 +1,82 @@
+.number_input {
+    height: 55px;
+}
+
+.number_input input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    padding-left: 64px;
+    width: 159px;
+    max-width: 159px;
+    outline: none;
+}
+.number_input p {
+    color: #007AFF;
+    width: 100px;
+    margin-left: 94px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 0px;
+
+}
+.numbers_buttons {
+    height: 200px;
+    width: 254px;
+    margin-top: 50px;
+    /* display: flex; */
+}
+.number_button {
+    width: 56px;
+    background: rgb(78, 78, 78, 0.7);
+    height: 56px;
+    border-radius: 50%;
+    margin-left: 22px;
+    display: inline-block;
+    margin-bottom: 12px;
+    /* display: inline-block; */
+}
+
+.number_button:hover {
+    background: rgb(78, 78, 78, 0.3);
+}
+
+.number {
+    color: rgba(255, 255, 255, 1);
+    margin-left: 21px;
+    margin-top: 13px;
+    font-size: 21px;
+}
+
+.letters {
+    color: rgba(255, 255, 255, 1);
+    font-size: 9px;
+    margin-top: -21px;
+    text-align: center;
+    /* margin-left: 18px; */
+    /* position: absolute; */
+}
+
+.options {
+    margin-left: 105px;
+}
+
+
+.call img {
+    width: 50px;
+    height: 50px;
+}
+
+.delete {
+    margin-left: 90px;
+    margin-top: -38px;
+}
+.delete img{
+    width: 23px;
+    height: 23px;
+}
+
+.options img:hover{
+    opacity: 0.8;
+}

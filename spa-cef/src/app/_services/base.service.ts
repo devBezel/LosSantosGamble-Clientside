@@ -17,6 +17,7 @@ import { InteractionCef } from '../_models/interactionCef';
 import { ScoreboardPlayer } from '../_models/scoreboardPlayer';
 import { JobEntityModel } from '../_models/jobEntityModel';
 import { WarehouseOrderModel } from '../_models/warehouseOrderModel';
+import { JobType } from '../_enums/JobType';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,7 @@ export class BaseService {
   vehicleInfo: { vehicle: Vehicle, upgrades: Item[] };
   casualJobData: { playerWorking: boolean, data: JobEntityModel };
   warehouseOrders: WarehouseOrderModel[];
+  jobsData: { currentJob: JobType, jobs: JobEntityModel[] };
 
   constructor(private altvService: AltvService, private ngZone: NgZone, private notify: NotifyService,
               private router: Router) {
@@ -154,6 +156,12 @@ export class BaseService {
     this.altvService.on('job-courier:currentOrders', async (warehouseOrders: WarehouseOrderModel[]) => {
       await this.ngZone.run(async () => {
         this.warehouseOrders = warehouseOrders;
+      });
+    });
+
+    this.altvService.on('job-center:data', async (currentPlayerJob: JobType, jobCenterData: JobEntityModel[]) => {
+      await this.ngZone.run(async () => {
+        this.jobsData = { currentJob: currentPlayerJob, jobs: jobCenterData };
       });
     });
 

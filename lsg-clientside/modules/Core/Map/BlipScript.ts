@@ -23,8 +23,11 @@ export default async () => {
     }
 
     async function deleteBlip(uniqueID: any) {
+        alt.log('USUWAM BLIPA');
         blips.forEach((item: alt.PointBlip) => {
             if (item.getMeta('blip:uniqueID') === uniqueID) {
+                const blipIndex = blips.findIndex(x => x.getMeta('blip:uniqueID') === uniqueID);
+                blips.splice(blipIndex, 1);
                 item.destroy();
             }
         });
