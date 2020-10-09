@@ -1,3 +1,27 @@
-<p>
-  smartphone-message-detail-app works!
-</p>
+<div class="container" #window>
+  <div class="app_header">
+    <div class="basic_inforamtion">
+      <img src="https://eu.ui-avatars.com/api/?name=Richard+McCartney" />
+      <p>{{ currentMessage?.isInContact }}</p>
+    </div>
+  </div>
+
+  <div class="app_content">
+    <div class="message_list">
+      <div *ngFor="let message of messageList()" [className]="isMessageOwner(message) ? 'message_sender' : 'message_getter'" #messageContainer>
+        <p>{{ message?.message }}</p>
+      </div>
+      <!-- <div class="message_sender">
+        <p>Wiadomosc z telefonu o id 82 do numer 23 932</p>
+      </div>
+      <div class="message_getter">
+        <p>Wiadomosc z telefonu o id 82 do numer 23 932</p>
+      </div> -->
+    </div>
+
+    <div class="message_input_container">
+      <img src="../../../../../../../assets/img/smartphone/apps/telephone/Camera.svg" />
+      <input type="text" placeholder="iMessage" [(ngModel)]="messageToSend" />
+    </div>
+  </div>
+</div>

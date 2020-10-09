@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SmartphoneData } from 'src/app/_models/smartphoneData';
+import { SmartphoneContactModel } from 'src/app/_models/smartphoneContactModel';
 
 @Component({
   selector: 'app-smartphone-telephone-contacts-card',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartphoneTelephoneContactsCardComponent implements OnInit {
 
+  @Input() smartphoneData: SmartphoneData;
+
   constructor() { }
+
+  // Później do zmiany
+  selectedContact: SmartphoneContactModel;
 
   ngOnInit() {
   }
@@ -15,5 +22,13 @@ export class SmartphoneTelephoneContactsCardComponent implements OnInit {
   getAlphabet() {
     // tslint:disable-next-line:only-arrow-functions
     return [...Array(26)].map((_, y) => String.fromCharCode(y + 65));
+  }
+
+  selectContact(selectedContact: SmartphoneContactModel) {
+    this.selectedContact = selectedContact;
+  }
+
+  isContactSelected() {
+    return this.selectedContact !== undefined ? true : false;
   }
 }

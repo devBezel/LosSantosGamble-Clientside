@@ -6,20 +6,19 @@
 
   <div class="app_content">
     <div class="recent_list">
-      <div class="recent">
+      <div class="recent" *ngFor="let recent of smartphoneData?.smartphoneRecentCalls">
         <div class="basic_information">
-            <p class="number">7874 874</p>
+            <p class="number">{{ recent?.callNumber }}</p>
 
             <p class="city">Los Santos</p>
         </div>
-
         <div class="time_and_options">
             <p>17:28</p>
             <img src="../../../../../../../assets/img/smartphone/apps/telephone/info.svg" alt="">
         </div>
       </div>
 
-      <div class="recent">
+      <!-- <div class="recent">
           <div class="basic_information">
               <p class="number">7874 874</p>
   
@@ -111,7 +110,7 @@
                     <p>17:28</p>
                     <img src="../../../../../../../assets/img/smartphone/apps/telephone/info.svg" alt="">
                 </div>
-              </div>
+              </div> -->
 
 
     </div>

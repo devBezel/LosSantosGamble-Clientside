@@ -17,11 +17,11 @@ import PlayerDamageScript from './Core/Player/Scripts/PlayerDamageScript';
 import PlayerInteraction from './Core/Player/Scripts/PlayerInteraction';
 import StreetLabel from './Core/Player/Scripts/StreetLabel';
 import VersionScript from './Core/Version/VersionScript';
-import WeaponItemScript from './Core/Items/WeaponItemScript';
+import ItemWeaponScript from './Core/Items/ItemWeaponScript';
 import InventoryScript from './Core/Items/InventoryScript';
-import WeaponHolsterItemScript from './Core/Items/WeaponHolsterItemScript';
-import MaskItemScript from './Core/Items/MaskItemScript';
-import ClothesItemScript from './Core/Items/ClothesItemScript';
+import ItemWeaponHolsterScript from './Core/Items/ItemWeaponHolsterScript';
+import ItemMaskScript from './Core/Items/ItemMaskScript';
+import ItemClothesScript from './Core/Items/ItemClothesScript';
 import AdminBasePanel from './Core/Entities/Admin/AdminBasePanel';
 import BuildingScript from './Core/Entities/Building/BuildingScript';
 import InteractionScript from './Core/Interaction/InteractionScript';
@@ -33,7 +33,7 @@ import VehicleTrunkScript from './Core/Vehicle/VehicleTrunkScript';
 import Interaction2DScript from './Core/Interaction/Interaction2DScript';
 import TextDrawScript from './Core/Map/TextDrawScript';
 import GroupScript from './Economy/Group/GroupScript';
-import ObjectScript from './Core/Items/ObjectScript';
+import ItemObjectScript from './Core/Items/ItemObjectScript';
 import ObjectStreamer from './Streamers/ObjectSteamer/ObjectStreamer';
 import ObjectStreamerScript from './Streamers/ObjectSteamer/ObjectStreamerScript';
 import AfkScript from './Core/Player/Scripts/AfkScript';
@@ -45,7 +45,7 @@ import { View, viewerShutdown } from './Core/Utilities/View';
 import JobScript from './Core/Jobs/JobScript';
 import CourierJobScript from './Core/Jobs/Base/CourierJobScript';
 import JobCenterScript from './Core/Jobs/JobCenterScript';
-import SmartphoneScript from './Core/Smartphone/SmartphoneScript';
+import ItemSmartphoneScript from './Core/Items/ItemSmartphoneScript';
 
 
 export default async () => {
@@ -70,11 +70,11 @@ export default async () => {
 	 await PlayerInteraction();
 	 await VehicleSpeedometr();
 	 await VersionScript();
-	 await WeaponItemScript();
-	 await WeaponHolsterItemScript();
+	 await ItemWeaponScript();
+	 await ItemWeaponHolsterScript();
 	 await InventoryScript();
-	 await MaskItemScript();
-	 await ClothesItemScript();
+	 await ItemMaskScript();
+	 await ItemClothesScript();
 	 await AdminBasePanel();
 	 await BuildingScript();
 	 await InteractionScript();
@@ -84,7 +84,7 @@ export default async () => {
 	 await Interaction2DScript();
 	 await TextDrawScript();
 	 await GroupScript();
-	 await ObjectScript();
+	 await ItemObjectScript();
 	 await ObjectStreamer();
 	 await ObjectStreamerScript();
 	 await AfkScript();
@@ -95,7 +95,7 @@ export default async () => {
 	 await JobScript();
 	 await CourierJobScript();
 	 await JobCenterScript();
-	 await SmartphoneScript();
+	 await ItemSmartphoneScript();
 
 	 alt.requestIpl('gr_heist_yacht2');
 	 alt.requestIpl('gr_heist_yacht2_bar');

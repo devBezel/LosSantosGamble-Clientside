@@ -17,7 +17,7 @@
     border-bottom-right-radius: 31px;
     position: absolute;
     z-index: 3;
-    backdrop-filter:blur(4px);
+    /* backdrop-filter:blur(4px); */
 }
 
 .telephone_app_options {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AltvService } from 'src/app/_services/altv.service';
+
 
 @Component({
   selector: 'app-smartphone-telephone-number-card',
@@ -60,7 +62,7 @@ export class SmartphoneTelephoneNumberCardComponent implements OnInit {
 
   senderValue = '';
 
-  constructor() { }
+  constructor(private altvService: AltvService) { }
 
 
   ngOnInit() {
@@ -73,6 +75,11 @@ export class SmartphoneTelephoneNumberCardComponent implements OnInit {
 
   deleteNumber() {
     this.senderValue = this.senderValue.slice(0, -1);
+  }
+
+  call() {
+    console.log(this.senderValue);
+    this.altvService.emit('smartphone:call', this.senderValue);
   }
 
 }

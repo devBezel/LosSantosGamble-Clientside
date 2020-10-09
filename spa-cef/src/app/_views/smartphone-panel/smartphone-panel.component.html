@@ -50,10 +50,10 @@
         <app-smartphone-settings-app></app-smartphone-settings-app>
       </div>
       <div class="messages_app" *ngIf="isApplicationSelected(7)">
-        <app-smartphone-messages-app></app-smartphone-messages-app>
+        <app-smartphone-messages-app [smartphoneData]="smartphoneData"></app-smartphone-messages-app>
       </div>
       <div class="telephone_app" *ngIf="isApplicationSelected(5)">
-        <app-smartphone-telephone-app></app-smartphone-telephone-app>
+        <app-smartphone-telephone-app [smartphoneData]="smartphoneData"></app-smartphone-telephone-app>
       </div>
   </div>
 </div>

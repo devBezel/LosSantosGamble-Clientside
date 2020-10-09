@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="app_header">
+    <div class="header_options">
+      <div class="header_option">
+        
+        <p class="return_contact_header_option">
+          <span><</span>
+          Kontakty
+        </p>
+      </div>
+
+      <div class="header_option">
+          <p class="edit_header_option">Edycja</p>
+      </div>
+    </div>
+
+    <div class="contact_header">
+      <img src="https://eu.ui-avatars.com/api/?name=Richard+McCartney">
+      <p>{{ selectedContact?.name  }}</p>
+    </div>
+
+    <div class="option_buttons">
+      <div class="option">
+        <img src="../../../../../../../../../assets/img/smartphone/apps/telephone/telephone.svg" />
+        <p>wiadomość</p>
+      </div>
+
+      <div class="option">
+        <img src="../../../../../../../../../assets/img/smartphone/apps/telephone/telephone.svg" />
+        <p (click)="call()">komórka</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="app_content">
+    <div class="separation"></div>
+
+    <div class="content_options">
+      <div class="content_option">
+        <p class="content_header">komórka</p>
+        <p class="content_text">{{ selectedContact?.number }}</p>
+      </div>
+
+      <div class="content_option">
+          <p class="content_header">Notatki</p>
+          <p class="content_text">{{ selectedContact?.notes }}</p>
+      </div>
+
+      <div class="content_option">
+          <p class="content_header"></p>
+          <p class="content_text">Wyślij wiadomość</p>
+      </div>
+
+      <div class="content_option">
+          <p class="content_header"></p>
+          <p class="content_text">Wyślij kontakt</p>
+      </div>
+
+      <div class="content_option">
+          <p class="content_header"></p>
+          <p class="content_text">Do ulubionych</p>
+      </div>
+
+      <div class="content_option">
+          <p class="content_header"></p>
+          <p class="content_text_danger">Dodaj do kontaktów alarmowych</p>
+      </div>
+
+      <div class="content_option">
+          <p class="content_header"></p>
+          <p class="content_text">Wyślij moje położenie</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SmartphoneData } from 'src/app/_models/smartphoneData';
 
 @Component({
   selector: 'app-smartphone-telephone-app',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./smartphone-telephone-app.component.css']
 })
 export class SmartphoneTelephoneAppComponent implements OnInit {
+
+  @Input() smartphoneData: SmartphoneData;
 
   /* CurrentTelephoneCard Enum
     0 - Number

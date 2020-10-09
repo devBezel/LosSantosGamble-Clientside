@@ -1,0 +1,103 @@
+.container {
+    color: white;
+}
+.basic_inforamtion {
+    text-align: center;
+    margin: 0;
+    margin-top: -17px;
+}
+.basic_inforamtion p {
+    font-size: 12px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.714);
+}
+.basic_inforamtion img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.message_list {
+    margin-top: 10px;
+    margin-right: 10px;
+    max-height: 419px;
+    height: 419px;
+    overflow-y: auto;
+}
+
+.message_sender {
+    background: #0A84FF;
+    border-radius: 8px;
+    width: 150px;
+    float: right;
+    max-width: 150px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.message_sender p {
+    margin: 0;
+    word-wrap: break-word;
+    padding: 11px;
+    font-size: 14px;
+}
+
+.message_getter {
+    background: #262629;
+    border-radius: 8px;
+    width: 150px;
+    max-width: 150px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.message_getter p {
+    margin: 0;
+    word-wrap: break-word;
+    padding: 11px;
+    font-size: 14px;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(84, 84, 88, 0.65);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(84, 84, 88, 0.65);
+    margin-top: -20px;
+}
+
+.message_input_container {
+    display: flex;
+}
+
+.message_input_container img {
+    margin-left: 17px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.message_input_container img:hover {
+    opacity: 0.8;
+}
+
+.message_input_container input{
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16.5px;
+    outline: none;
+    width: 70%;
+    height: 27px;
+    color: rgba(235, 235, 245, 0.774);
+    margin-top: 0px;
+    margin-left: 55px;
+    padding-left: 10px;
+}
+.message_input_container input::placeholder {
+    color: rgba(235, 235, 245, 0.3);
+    /* padding-left: 10px; */
+}

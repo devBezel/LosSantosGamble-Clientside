@@ -1,4 +1,4 @@
-<div class="container">
+<div class="contacts_container" *ngIf="!isContactSelected()">
   <div class="app_header">
     <p class="add_contact">+</p>
 
@@ -19,42 +19,15 @@
     </div>
 
     <div class="contact_list">
-      <div class="contact">
-        <p>Richard McCartney</p>
+      <div class="contact" *ngFor="let contact of smartphoneData.smartphoneContacts" (click)="selectContact(contact)">
+        <p>{{ contact?.name }}</p>
       </div>
-      <div class="contact">
-        <p>Richard McCartney</p>
-      </div>
-      <div class="contact">
-        <p>Richard McCartney</p>
-      </div>
-      <div class="contact">
-        <p>Richard McCartney</p>
-      </div>
-      <div class="contact">
-        <p>Richard McCartney</p>
-      </div>
-      <div class="contact">
-        <p>Richard McCartney</p>
-      </div>
-      <div class="contact">
-          <p>Richard McCartney</p>
-        </div>
-        <div class="contact">
-          <p>Richard McCartney</p>
-        </div>
-        <div class="contact">
-          <p>Richard McCartney</p>
-        </div>
-        <div class="contact">
-          <p>Richard McCartney</p>
-        </div>
-        <div class="contact">
-          <p>Richard McCartney</p>
-        </div>
-        <div class="contact">
-          <p>Richard McCartney</p>
-        </div>
     </div>
+  </div>
+</div>
+
+<div class="contact_container" *ngIf="isContactSelected()">
+  <div class="contact_detail">
+    <app-smartphone-telephone-contact-detail [selectedContact]="selectedContact"></app-smartphone-telephone-contact-detail>
   </div>
 </div>

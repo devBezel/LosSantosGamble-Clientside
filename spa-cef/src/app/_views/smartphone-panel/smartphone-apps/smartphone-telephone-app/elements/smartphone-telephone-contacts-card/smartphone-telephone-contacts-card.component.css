@@ -52,6 +52,7 @@
 
 .hallmark img {
     width: 45px;
+    height: 45px;
     border-radius: 50%;
 }
 
@@ -88,6 +89,7 @@
     /* padding-left: 10px; */
     border-bottom: 0.6px solid;
     border-color: rgba(84, 84, 88, 0.65);
+    padding: 2px;
 }
 
 .contact:hover {
@@ -97,7 +99,7 @@
 .contact p {
     color: white;
     font-family: 'SF UI Display Light';
-    font-size: 13px;
+    font-size: 15px;
     padding: 0;
     margin: 0;
     margin-top: 5px;

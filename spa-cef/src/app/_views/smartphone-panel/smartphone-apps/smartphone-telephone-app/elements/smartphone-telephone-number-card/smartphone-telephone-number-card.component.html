@@ -12,7 +12,7 @@
     </div>
 
     <div class="options">
-      <div class="call">
+      <div class="call" (click)="call()">
         <img src="../../../../../../../assets/img/smartphone/apps/telephone/call.png" />
       </div>
       <div class="delete" *ngIf="senderValue.length > 0" (click)="deleteNumber()">

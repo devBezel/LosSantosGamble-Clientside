@@ -113,6 +113,8 @@ import { SmartphoneTelephoneNumberCardComponent } from './_views/smartphone-pane
 import { SmartphoneTelephoneContactsCardComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/elements/smartphone-telephone-contacts-card/smartphone-telephone-contacts-card.component';
 // tslint:disable-next-line:max-line-length
 import { SmartphoneTelephoneRecentsCardComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/elements/smartphone-telephone-recents-card/smartphone-telephone-recents-card.component';
+// tslint:disable-next-line:max-line-length
+import { SmartphoneTelephoneContactDetailComponent } from './_views/smartphone-panel/smartphone-apps/smartphone-telephone-app/elements/smartphone-telephone-contacts-card/elements/smartphone-telephone-contact-detail/smartphone-telephone-contact-detail.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -182,7 +184,8 @@ export function tokenGetter() {
     SmartphoneTelephoneAppComponent,
     SmartphoneTelephoneNumberCardComponent,
     SmartphoneTelephoneContactsCardComponent,
-    SmartphoneTelephoneRecentsCardComponent
+    SmartphoneTelephoneRecentsCardComponent,
+    SmartphoneTelephoneContactDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

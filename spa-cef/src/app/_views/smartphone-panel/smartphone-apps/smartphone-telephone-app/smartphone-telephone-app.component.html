@@ -4,10 +4,10 @@
       <app-smartphone-telephone-number-card></app-smartphone-telephone-number-card>
     </div>
     <div class="contacts_card" *ngIf="isCardSelected(1)">
-        <app-smartphone-telephone-contacts-card></app-smartphone-telephone-contacts-card>
+        <app-smartphone-telephone-contacts-card [smartphoneData]="smartphoneData"></app-smartphone-telephone-contacts-card>
     </div>
     <div class="recents_card" *ngIf="isCardSelected(2)">
-        <app-smartphone-telephone-recents-card></app-smartphone-telephone-recents-card>
+        <app-smartphone-telephone-recents-card [smartphoneData]="smartphoneData"></app-smartphone-telephone-recents-card>
     </div>
   </div>
   <div class="app_footer">

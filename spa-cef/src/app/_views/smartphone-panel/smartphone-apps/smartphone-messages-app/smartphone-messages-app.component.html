@@ -1,6 +1,18 @@
-<div class="container">
+<div class="message_container" *ngIf="!isMessageSelected()" >
   <div class="app_header">
-    <p>Wiadomości</p>
+    <div class="app_header_options">
+      <div class="app_name">
+        <p>Wiadomości</p>
+      </div>
+      <div class="app_options">
+        <div class="app_option">
+          <img src="../../../../../assets/img/smartphone/apps/messages/options.svg" />
+        </div>
+        <div class="app_option">
+          <img src="../../../../../assets/img/smartphone/apps/messages/new_message.svg" (click)="isMessageAdding = true"  />
+        </div>
+      </div>
+    </div>
     <input type="text" placeholder="Szukaj" />
   </div>
 
@@ -8,42 +20,59 @@
     <div class="message_list">
 
 
-      <div class="message">
+      <div class="message" (click)="selectMessage(message)" *ngFor="let message of messageList()">
         <div class="message_basic_information">
-          <img class="message_sender_avatar" src="https://eu.ui-avatars.com/api/?name=Richard+McCartney">
-          <p class="message_sender_name">Richard McCartney</p>
-          <p class="message_sender_time">8:20 AM</p>
+          <img class="message_sender_avatar" src="https://eu.ui-avatars.com/api/?name={{ isInContact(message?.getterNumber)}}">
+          <p class="message_sender_name">{{ isInContact(message.getterNumber) }}</p>
+          <!-- <p class="message_sender_time">{{ messageDate() }} AM</p> -->
         </div>
 
-        <p class="message_sender_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-          beatae vitae dicta sunt explicabo</p>
+        <p class="message_sender_text">{{ message?.message }}</p>
       </div>
-
-      <div class="message">
-          <div class="message_basic_information">
-            <img class="message_sender_avatar" src="https://eu.ui-avatars.com/api/?name=Richard+McCartney">
-            <p class="message_sender_name">Richard McCartney</p>
-            <p class="message_sender_time">8:20 AM</p>
-          </div>
-  
-          <p class="message_sender_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-            beatae vitae dicta sunt explicabo</p>
-        </div>
-
-        <div class="message">
-            <div class="message_basic_information">
-              <img class="message_sender_avatar" src="https://eu.ui-avatars.com/api/?name=Richard+McCartney">
-              <p class="message_sender_name">Richard McCartney</p>
-              <p class="message_sender_time">8:20 AM</p>
-            </div>
-    
-            <p class="message_sender_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae vitae dicta sunt explicabo</p>
-          </div>
 
     </div>
   </div>
+</div>
+
+<div class="message_add_container"*ngIf="isMessageAdding">
+  <div class="message_add_header">
+    <p class="message_header_name">Nowa wiadomość</p>
+    <p class="message_header_option" (click)="isMessageAdding = false">Anuluj</p>
+  </div>
+
+  <div class="message_add_content">
+    <p>Do: </p>
+    <input type="text"  [(ngModel)]="getterNumber"/>
+    <img src="../../../../../assets/img/smartphone/apps/messages/plus.svg" />
+  </div>
+
+  <div class="message_add_content_search" *ngIf="getterNumber.length !== 0">
+    <div class="message_add_content_search_contact_list" *ngIf="contactListSearch().length !== 0 && contactListSearch() !== undefined">
+
+      <div class="message_add_content_search_contact" *ngFor="let contact of contactListSearch()" (click)="selectContactFromSearch(contact)">
+        <img src="https://eu.ui-avatars.com/api/?name=Richard+McCartney" />
+        <p class="message_add_content_search_contact_name">{{ contact?.name }}</p>
+        <p class="message_add_content_search_contact_number">{{ contact?.number }}</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="message_add_break">
+  </div>
+
+  <div class="message_add_footer">
+    <div class="message_add_footer_image">
+      <img src="../../../../../../../assets/img/smartphone/apps/telephone/Camera.svg" />
+    </div>
+    <div class="message_add_footer_input">
+        <input [(ngModel)]="newMessage" type="text" />
+
+        <img (click)="sendNewMessage()" src="../../../../../assets/img/smartphone/apps/messages/send.svg" />
+    </div>
+  </div>
+</div>
+
+<div class="message_detail_container" *ngIf="isMessageSelected()">
+  <app-smartphone-message-detail-app [currentMessage]="currentMessage"></app-smartphone-message-detail-app>
 </div>

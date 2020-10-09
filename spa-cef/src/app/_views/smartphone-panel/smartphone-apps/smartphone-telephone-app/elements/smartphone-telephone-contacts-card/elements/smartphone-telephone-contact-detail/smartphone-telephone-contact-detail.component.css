@@ -1,0 +1,136 @@
+.container {
+    color: white;
+}
+.app_header {
+    text-align: center;
+}
+.header_options {
+    margin: 0;
+    display: flex;
+}
+.header_option {
+    width: 100px;
+    height: 30px;
+
+    /* display: flex; */
+}
+
+.header_option:hover {
+    opacity: 0.8;
+}
+
+.header_option p{
+    color: #007AFF;
+    font-family: 'SF UI Display Light';
+    margin: 0;
+}
+
+.edit_header_option {
+    margin-left: 105px !important;
+}
+
+.return_contact_header_option {
+    margin-top: -11px !important;
+    margin-left: -18px !important;
+}
+
+.contact_header p {
+    font-family: 'SF UI Display Medium';
+    font-size: 18px;
+    margin: 0;
+    margin-top: 8px;
+}
+.contact_header img {
+    border-radius: 50%;
+}
+
+.option_buttons {
+    margin-top: 12px;
+}
+
+.option {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.option:hover {
+    opacity: 0.8;
+}
+
+.option p {
+    color: #007AFF;
+    margin: 0;
+    font-size: 11px;
+
+}
+
+
+.option img {
+    width: 26px;
+}
+
+.header_option span {
+    font-size: 26px;
+    font-family: 'SF UI Display Semibold';
+}
+
+.separation {
+    width: 100%;
+    height: 0.9px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.342);
+}
+
+.content_options {
+    max-height: 296px;
+    overflow-y: auto;
+    height: 282px;
+}
+.content_option {
+    margin-top: 13px;
+    margin-left: 10px;
+}
+.content_header {
+    font-size: 11px;
+    margin: 0;
+}
+
+.content_text {
+    color: #007AFF;
+    margin: 0;
+    margin-bottom: 5px;
+    height: 21px;
+}
+
+.content_text_danger {
+    color: #FF453A;
+    margin: 0;
+    margin-bottom: 5px;
+    height: 21px;
+}
+
+.content_option {
+    border-bottom: 0.8px solid;
+    border-color: rgba(255, 255, 255, 0.342);
+}
+
+.content_option:hover {
+    opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(84, 84, 88, 0.65);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(84, 84, 88, 0.65);
+    margin-top: -20px;
+}
+
+.app_content {
+    border-bottom-left-radius: 33px;
+    border-bottom-right-radius: 33px;
+}
